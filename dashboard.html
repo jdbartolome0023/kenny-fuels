@@ -423,6 +423,21 @@
             line-height: 1.6;
         }
 
+        .priority-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .priority-high { background: #ffebee; color: var(--red); }
+        .priority-medium { background: #fff8e1; color: #e65100; }
+        .priority-low { background: #e8f5e9; color: var(--green); }
+
         /* FOOTER */
         footer {
             background: var(--black);
@@ -714,20 +729,24 @@
 
     <div class="next-grid">
         <div class="next-card">
-            <h4>Fix Shopping Campaign Conversions</h4>
-            <p>Audit the Shopping Campaign product feed and conversion tracking. €71.19 was spent with zero leads — either the tracking is broken or landing page needs attention.</p>
+            <span class="priority-tag priority-high">High Priority</span>
+            <h4>Audit Shopping Campaign — €71 Spent, 0 Leads</h4>
+            <p>The Shopping Campaign has been running with zero conversions recorded this week. Check conversion tracking is firing correctly, review product feed quality, and verify the landing page is functional. Pause if no fix is identified within 48 hours to stop wasted spend.</p>
         </div>
         <div class="next-card">
-            <h4>Reduce Gas Bottle &amp; Cylinders CPC</h4>
-            <p>At €0.58 avg CPC, this campaign is 5x more expensive than the Tested Search Campaign. Test lower max CPC bids or switch to Target CPA bidding to improve efficiency.</p>
+            <span class="priority-tag priority-high">High Priority</span>
+            <h4>Reduce Gas Bottle &amp; Cylinders CPC from €0.58</h4>
+            <p>This campaign accounts for 58% of total spend (€249.78) but delivers leads at €17.84 — over 3x the account average. Test reducing max CPC bids by 15–20% or trialling Target CPA at €14. Even a modest CPC reduction could recover 3–4 additional leads per week at the same budget.</p>
         </div>
         <div class="next-card">
-            <h4>Scale Tested Search Campaign</h4>
-            <p>Best performer this week at €5.22 CPL and 32.3% CTR. Explore increasing budget or expanding keyword coverage to drive more volume at this efficient rate.</p>
+            <span class="priority-tag priority-medium">Opportunity</span>
+            <h4>Increase Budget on Tested Search Campaign</h4>
+            <p>Best CPL in the account at €5.22 with a 32.3% CTR — well below the €11.63 account average. Currently spending only €104.49 (24% of total budget). Shifting even €50–€100 from Gas Bottle &amp; Cylinders to this campaign could meaningfully improve overall lead volume and CPL.</p>
         </div>
         <div class="next-card">
-            <h4>Investigate Declining Lead Volume</h4>
-            <p>Leads have trended down three weeks in a row: 53 → 44 → 37. CPL has risen from €7.70 to €11.63. Diagnose whether this is seasonal, competitive, or structural.</p>
+            <span class="priority-tag priority-medium">Watch Closely</span>
+            <h4>Leads Down 3 Weeks Running — Diagnose Root Cause</h4>
+            <p>53 → 44 → 37 leads over three consecutive weeks, with CPL climbing from €7.70 to €11.63. Review search impression share and auction insights to determine if this is increased competition, reduced search volume, or a bid/quality score issue. Flag if trend continues next week.</p>
         </div>
     </div>
 </section>
