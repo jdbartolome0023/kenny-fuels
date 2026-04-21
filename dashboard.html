@@ -169,8 +169,18 @@
         .section-desc {
             color: var(--text-muted);
             font-size: 14px;
-            margin-bottom: 40px;
+            margin-bottom: 16px;
             line-height: 1.6;
+        }
+
+        .section-commentary {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+            max-width: 780px;
+            margin-bottom: 40px;
+            padding-left: 16px;
+            border-left: 3px solid var(--red);
         }
 
         /* METRIC CARDS */
@@ -438,6 +448,7 @@
 <nav>
     <div class="logo">KENNY<span>FUELS</span></div>
     <ul>
+        <li><a href="#notes">Notes</a></li>
         <li><a href="#metrics">Metrics</a></li>
         <li><a href="#campaigns">Campaigns</a></li>
         <li><a href="#changes">Changes</a></li>
@@ -456,11 +467,21 @@
     <p>Weekly performance overview across all active campaigns. All figures in EUR. Data reflects the week of Apr 14–20 and comparisons against the previous week (Apr 7–13).</p>
 </div>
 
+<!-- NOTES -->
+<section id="notes" style="background: var(--black); border-bottom: none;">
+    <div class="section-label" style="color: rgba(255,255,255,0.4);">Manager Commentary</div>
+    <div class="section-title" style="color: var(--white);">This Week's Notes</div>
+    <p style="color: rgba(255,255,255,0.6); font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 8px;">
+        Lead volume has declined three weeks in a row — 53, 44, then 37 this week — with CPL rising from €7.70 to €11.63. The Tested Search Campaign remains the standout performer at €5.22 CPL and a 32% CTR, and is the main driver of conversions. The Shopping Campaign spent €71.19 with zero leads and needs an urgent product feed and conversion tracking audit. Gas Bottle &amp; Cylinders is the biggest spend at €249.78 but has a high CPC of €0.58 — bid optimisation is a priority for next week.
+    </p>
+</section>
+
 <!-- METRICS -->
 <section id="metrics">
     <div class="section-label">Key Metrics</div>
     <div class="section-title">Weekly Performance</div>
     <p class="section-desc">Apr 14 – 20, 2026. Combined figures across all active campaigns.</p>
+    <p class="section-commentary">Leads dropped 16% week-on-week (44 → 37) while spend fell slightly from €448 to €432. CPL has risen to €11.63 — the highest in the past three weeks — driven by the Shopping Campaign contributing zero conversions despite meaningful spend. Overall ROAS remains strong at ~13x, almost entirely carried by the Tested Search Campaign.</p>
 
     <div class="metrics-grid">
         <div class="metric-card">
@@ -525,7 +546,7 @@
     <div class="table-card">
         <div class="table-card-header">
             <h3>Weekly Breakdown</h3>
-            <p>Performance by week — all campaigns combined</p>
+            <p>Performance by week — all campaigns combined. Lead volume has trended down each week in April. CPL has nearly doubled from €7.70 (Apr 1–6) to €11.63 this week — worth monitoring closely heading into next week.</p>
         </div>
         <table>
             <thead>
@@ -591,6 +612,7 @@
     <div class="section-label">Campaign Performance</div>
     <div class="section-title">Active Campaigns</div>
     <p class="section-desc">Apr 14 – 20, 2026. All active campaigns with spend during the period.</p>
+    <p class="section-commentary">Tested Search is the clear winner this week — 20 leads at €5.22 CPL, accounting for 54% of all conversions on just 24% of spend. Gas Bottle & Cylinders is the largest cost centre at €249.78 but delivers leads at €17.84 each — over 3x the Tested Search rate. Shopping Campaign is a concern: €71.19 spent with zero leads recorded. Performance Max is efficient at €2.29 CPL but low volume.</p>
 
     <div class="table-card">
         <div class="table-card-header">
