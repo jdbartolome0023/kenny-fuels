@@ -1,1 +1,735 @@
-file:///Users/josette/Downloads/dashboard%20(2).html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenny Fuels — Google Ads Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --red: #e63329;
+            --dark-red: #b5261e;
+            --gray: #f4f4f4;
+            --mid-gray: #e0e0e0;
+            --text-dark: #1a1a1a;
+            --text-muted: #777;
+            --green: #2e7d32;
+            --amber: #e65100;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        /* NAV */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 56px;
+        }
+
+        nav .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
+
+        nav .logo span { color: var(--red); }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        nav ul a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        nav ul a:hover { color: var(--white); }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .report-date {
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+        }
+
+        .btn-pdf {
+            background: var(--red);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 80px 40px 60px;
+            border-bottom: 1px solid var(--mid-gray);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .period-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gray);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .period-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--red);
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 72px;
+            line-height: 1;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .hero h1 span {
+            color: var(--red);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        /* SECTIONS */
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* METRIC CARDS */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .metric-card {
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            padding: 28px 24px;
+            background: var(--white);
+        }
+
+        .metric-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .metric-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            letter-spacing: 1px;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .metric-comparisons {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+        }
+
+        .metric-comp {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .comp-label {
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        .up { color: var(--green); font-weight: 600; }
+        .down { color: var(--red); font-weight: 600; }
+        .neutral { color: var(--text-muted); font-weight: 600; }
+
+        /* WEEKLY BREAKDOWN TABLE */
+        .table-card {
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+
+        .table-card-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        .table-card-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .table-card-header p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            background: var(--black);
+            color: var(--white);
+            padding: 12px 24px;
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        tbody tr:last-child { border-bottom: none; }
+
+        tbody tr:nth-child(even) { background: var(--gray); }
+
+        tbody td {
+            padding: 14px 24px;
+            font-size: 14px;
+        }
+
+        tbody td:first-child { font-weight: 500; }
+
+        .status-active {
+            display: inline-block;
+            background: #e8f5e9;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .status-paused {
+            display: inline-block;
+            background: #fff3e0;
+            color: var(--amber);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        /* CHART */
+        .chart-container {
+            background: var(--gray);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .chart-title {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 16px;
+            font-size: 11px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+        }
+
+        /* CHANGES */
+        .changes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .change-item {
+            display: flex;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--mid-gray);
+            align-items: flex-start;
+        }
+
+        .change-item:last-child { border-bottom: none; }
+
+        .change-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .icon-done { background: #e8f5e9; }
+        .icon-paused { background: #ffebee; }
+        .icon-updated { background: #e3f2fd; }
+
+        .change-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .change-content p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* WHAT'S NEXT */
+        .next-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .next-card {
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            padding: 28px;
+        }
+
+        .next-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .next-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 24px 40px;
+            font-size: 12px;
+        }
+
+        footer strong { color: rgba(255,255,255,0.7); }
+
+        @media (max-width: 768px) {
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .next-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 48px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">KENNY<span>FUELS</span></div>
+    <ul>
+        <li><a href="#metrics">Metrics</a></li>
+        <li><a href="#campaigns">Campaigns</a></li>
+        <li><a href="#changes">Changes</a></li>
+        <li><a href="#next">What's Next</a></li>
+    </ul>
+    <div class="nav-right">
+        <span class="report-date">Week of Apr 21, 2026</span>
+        <button class="btn-pdf" onclick="window.print()">⬇ Download PDF</button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="period-badge">April 2026 Performance</div>
+    <h1>Kenny Fuels<span>Google Ads</span></h1>
+    <p>Weekly performance overview across all active campaigns. All figures in EUR. Data reflects the current week's activity and comparisons against the previous week.</p>
+</div>
+
+<!-- METRICS -->
+<section id="metrics">
+    <div class="section-label">Key Metrics</div>
+    <div class="section-title">Weekly Performance</div>
+    <p class="section-desc">Apr 14 – 21, 2026. Combined figures across all active campaigns.</p>
+
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-label">Leads</div>
+            <div class="metric-value">0</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp">
+                    <span class="comp-label">vs Last Week</span>
+                    <span class="neutral">—</span>
+                </div>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Spend</div>
+            <div class="metric-value">€0</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp">
+                    <span class="comp-label">vs Last Week</span>
+                    <span class="neutral">—</span>
+                </div>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Cost Per Lead</div>
+            <div class="metric-value">€0</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp">
+                    <span class="comp-label">vs Last Week</span>
+                    <span class="neutral">—</span>
+                </div>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">CTR</div>
+            <div class="metric-value">0%</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp">
+                    <span class="comp-label">vs Last Week</span>
+                    <span class="neutral">—</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weekly Breakdown Table -->
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Weekly Breakdown</h3>
+            <p>Performance by week — all campaigns combined</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Leads</th>
+                    <th>Spend</th>
+                    <th>Clicks</th>
+                    <th>CTR</th>
+                    <th>Cost Per Lead</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Apr 1 – 7</td>
+                    <td>0</td>
+                    <td>€0</td>
+                    <td>0</td>
+                    <td>0%</td>
+                    <td>€0</td>
+                </tr>
+                <tr>
+                    <td>Apr 8 – 14</td>
+                    <td>0</td>
+                    <td>€0</td>
+                    <td>0</td>
+                    <td>0%</td>
+                    <td>€0</td>
+                </tr>
+                <tr>
+                    <td>Apr 15 – 21</td>
+                    <td>0</td>
+                    <td>€0</td>
+                    <td>0</td>
+                    <td>0%</td>
+                    <td>€0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Chart -->
+    <div class="chart-container">
+        <div class="chart-header">
+            <span class="chart-title">Monthly Leads — Kenny Fuels</span>
+            <div class="chart-legend">
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#0a0a0a"></div>
+                    <span>Below Target CPL</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#e63329"></div>
+                    <span>Above Target CPL</span>
+                </div>
+            </div>
+        </div>
+        <canvas id="leadsChart" height="100"></canvas>
+    </div>
+</section>
+
+<!-- CAMPAIGNS -->
+<section id="campaigns">
+    <div class="section-label">Campaign Performance</div>
+    <div class="section-title">Active Campaigns</div>
+    <p class="section-desc">Apr 14 – 21, 2026. All active campaigns with spend during the period.</p>
+
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Kenny Fuels — All Campaigns</h3>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campaign</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Spend</th>
+                    <th>Leads</th>
+                    <th>Cost Per Lead</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Heating Oil — Wexford</td>
+                    <td>Search</td>
+                    <td><span class="status-active">ACTIVE</span></td>
+                    <td>€0</td>
+                    <td>0</td>
+                    <td>€0</td>
+                </tr>
+                <tr>
+                    <td>Heating Oil — Wicklow</td>
+                    <td>Search</td>
+                    <td><span class="status-active">ACTIVE</span></td>
+                    <td>€0</td>
+                    <td>0</td>
+                    <td>€0</td>
+                </tr>
+                <tr>
+                    <td>Heating Oil — Carlow</td>
+                    <td>Search</td>
+                    <td><span class="status-active">ACTIVE</span></td>
+                    <td>€0</td>
+                    <td>0</td>
+                    <td>€0</td>
+                </tr>
+                <tr>
+                    <td>Brand Search</td>
+                    <td>Search</td>
+                    <td><span class="status-active">ACTIVE</span></td>
+                    <td>€0</td>
+                    <td>0</td>
+                    <td>€0</td>
+                </tr>
+                <tr style="font-weight:700; background: var(--gray);">
+                    <td>Total</td>
+                    <td></td>
+                    <td></td>
+                    <td>€0</td>
+                    <td>0</td>
+                    <td>€0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- CHANGES -->
+<section id="changes">
+    <div class="section-label">Changes Made</div>
+    <div class="section-title">Optimisations This Week</div>
+    <p class="section-desc">Google Ads platform changes made during this reporting period.</p>
+
+    <div class="changes-list">
+        <div class="change-item">
+            <div class="change-icon icon-updated">🔧</div>
+            <div class="change-content">
+                <h4>Change title goes here</h4>
+                <p>Description of the change made and the reason behind it. Explain what was done and the expected outcome.</p>
+            </div>
+        </div>
+        <div class="change-item">
+            <div class="change-icon icon-done">✓</div>
+            <div class="change-content">
+                <h4>Change title goes here</h4>
+                <p>Description of the change made and the reason behind it. Explain what was done and the expected outcome.</p>
+            </div>
+        </div>
+        <div class="change-item">
+            <div class="change-icon icon-paused">✕</div>
+            <div class="change-content">
+                <h4>Change title goes here</h4>
+                <p>Description of the change made and the reason behind it. Explain what was done and the expected outcome.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT'S NEXT -->
+<section id="next">
+    <div class="section-label">What's Next</div>
+    <div class="section-title">Upcoming Priorities</div>
+    <p class="section-desc">Performance-driven priorities for the coming week.</p>
+
+    <div class="next-grid">
+        <div class="next-card">
+            <h4>Priority title goes here</h4>
+            <p>Description of the upcoming priority and what actions will be taken to address it in the coming week.</p>
+        </div>
+        <div class="next-card">
+            <h4>Priority title goes here</h4>
+            <p>Description of the upcoming priority and what actions will be taken to address it in the coming week.</p>
+        </div>
+        <div class="next-card">
+            <h4>Priority title goes here</h4>
+            <p>Description of the upcoming priority and what actions will be taken to address it in the coming week.</p>
+        </div>
+        <div class="next-card">
+            <h4>Priority title goes here</h4>
+            <p>Description of the upcoming priority and what actions will be taken to address it in the coming week.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <strong>Kenny Fuels — Google Ads Report</strong> &nbsp;|&nbsp; Generated weekly by Josette &nbsp;|&nbsp; Confidential
+</footer>
+
+<script>
+    const ctx = document.getElementById('leadsChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+            datasets: [{
+                label: 'Leads',
+                data: [0, 0, 0, 0],
+                backgroundColor: ['#0a0a0a', '#0a0a0a', '#0a0a0a', '#e63329'],
+                borderRadius: 4,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: 'rgba(0,0,0,0.05)' },
+                    ticks: { font: { family: 'DM Sans', size: 11 } }
+                },
+                x: {
+                    grid: { display: false },
+                    ticks: { font: { family: 'DM Sans', size: 11 } }
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
