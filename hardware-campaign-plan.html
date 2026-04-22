@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kenny Fuels – Hardware Google Ads Plan</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+    }
+
+    .slide {
+      width: 1100px;
+      min-height: 620px;
+      margin: 32px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 56px 64px;
+      position: relative;
+      page-break-after: always;
+    }
+
+    /* ── Accent bar top of every slide ── */
+    .slide::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #e85d04, #f48c06);
+      border-radius: 12px 12px 0 0;
+    }
+
+    /* ── TITLE SLIDE ── */
+    .slide-title {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 520px;
+    }
+    .slide-title::before { background: linear-gradient(90deg, #e85d04, #f48c06); }
+    .slide-title .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .logo-flame {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, #e85d04, #f48c06);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .logo-text { font-size: 18px; font-weight: 600; color: #f48c06; letter-spacing: 1px; }
+    .slide-title h1 { font-size: 44px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+    .slide-title h1 span { color: #f48c06; }
+    .slide-title .subtitle { font-size: 18px; color: #a0aec0; margin-bottom: 40px; }
+    .slide-title .meta { display: flex; gap: 32px; }
+    .slide-title .meta-item { text-align: center; }
+    .slide-title .meta-item .val { font-size: 28px; font-weight: 700; color: #f48c06; }
+    .slide-title .meta-item .lbl { font-size: 13px; color: #718096; margin-top: 4px; }
+
+    /* ── SECTION HEADERS ── */
+    .slide-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .slide-num {
+      background: linear-gradient(135deg, #e85d04, #f48c06);
+      color: #fff;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .slide-header h2 { font-size: 28px; font-weight: 700; color: #1a1a2e; }
+    .slide-header .tag {
+      margin-left: auto;
+      background: #fff3e0;
+      color: #e85d04;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid #f48c06;
+      white-space: nowrap;
+    }
+
+    /* ── ALERT BOXES ── */
+    .alert {
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 14px;
+      font-size: 14px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .alert-red { background: #fff5f5; border-left: 4px solid #e53e3e; color: #742a2a; }
+    .alert-orange { background: #fffaf0; border-left: 4px solid #e85d04; color: #7b341e; }
+    .alert-green { background: #f0fff4; border-left: 4px solid #38a169; color: #1c4532; }
+    .alert-blue { background: #ebf8ff; border-left: 4px solid #3182ce; color: #1a365d; }
+    .alert strong { font-weight: 700; }
+
+    /* ── TABLES ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    thead tr { background: #1a1a2e; color: #fff; }
+    thead th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; }
+    tbody tr { border-bottom: 1px solid #e2e8f0; }
+    tbody tr:hover { background: #f7fafc; }
+    tbody td { padding: 11px 14px; color: #2d3748; }
+    tbody tr:last-child { border-bottom: none; }
+    .highlight-row td { background: #fff3e0; font-weight: 600; color: #7b341e; }
+    .recommended-row td { background: #f0fff4; font-weight: 600; color: #1c4532; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-green { background: #c6f6d5; color: #276749; }
+    .badge-orange { background: #feebc8; color: #7b341e; }
+    .badge-red { background: #fed7d7; color: #742a2a; }
+    .badge-blue { background: #bee3f8; color: #1a365d; }
+    .badge-gray { background: #e2e8f0; color: #4a5568; }
+
+    /* ── CARDS ── */
+    .card-grid {
+      display: grid;
+      gap: 16px;
+    }
+    .card-grid-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card {
+      background: #f7fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .card .card-title { font-size: 13px; color: #718096; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .card .card-val { font-size: 28px; font-weight: 700; color: #1a1a2e; }
+    .card .card-sub { font-size: 12px; color: #a0aec0; margin-top: 4px; }
+    .card.card-accent { background: linear-gradient(135deg, #1a1a2e, #0f3460); border: none; }
+    .card.card-accent .card-title { color: #f48c06; }
+    .card.card-accent .card-val { color: #fff; }
+    .card.card-accent .card-sub { color: #a0aec0; }
+
+    /* ── PHASE TIMELINE ── */
+    .timeline { display: flex; gap: 0; margin-top: 8px; }
+    .phase-block {
+      flex: 1;
+      padding: 20px 18px;
+      border-radius: 10px;
+      position: relative;
+    }
+    .phase-block + .phase-block { margin-left: 12px; }
+    .phase-conservative { background: #ebf8ff; border: 2px solid #3182ce; }
+    .phase-moderate { background: #fffaf0; border: 2px solid #e85d04; }
+    .phase-full { background: #f0fff4; border: 2px solid #38a169; }
+    .phase-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .phase-conservative .phase-label { color: #3182ce; }
+    .phase-moderate .phase-label { color: #e85d04; }
+    .phase-full .phase-label { color: #38a169; }
+    .phase-timeline { font-size: 12px; color: #718096; margin-bottom: 10px; }
+    .phase-budget { font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+    .phase-leads { font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+    .phase-conservative .phase-leads { color: #3182ce; }
+    .phase-moderate .phase-leads { color: #e85d04; }
+    .phase-full .phase-leads { color: #38a169; }
+    .phase-campaigns { font-size: 12px; color: #4a5568; line-height: 1.6; }
+    .phase-arrow {
+      display: flex; align-items: center; justify-content: center;
+      color: #cbd5e0; font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 40px;
+    }
+
+    /* ── NEXT STEPS ── */
+    .steps { counter-reset: step; }
+    .step {
+      display: flex;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid #e2e8f0;
+      align-items: flex-start;
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      background: linear-gradient(135deg, #e85d04, #f48c06);
+      color: #fff;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px;
+      flex-shrink: 0;
+    }
+    .step-content .step-title { font-weight: 700; font-size: 15px; color: #1a1a2e; margin-bottom: 3px; }
+    .step-content .step-desc { font-size: 13px; color: #718096; }
+
+    /* ── FOOTER ── */
+    .slide-footer {
+      position: absolute;
+      bottom: 24px; right: 64px;
+      font-size: 11px;
+      color: #cbd5e0;
+      display: flex; gap: 8px; align-items: center;
+    }
+    .slide-footer .dot { width: 6px; height: 6px; border-radius: 50%; background: #f48c06; }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; }
+      .slide { margin: 0; border-radius: 0; box-shadow: none; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ SLIDE 1: TITLE -->
+<div class="slide slide-title">
+  <div class="logo-area">
+    <div class="logo-flame">🔥</div>
+    <div class="logo-text">KENNY FUELS</div>
+  </div>
+  <h1>Hardware Google Ads<br/><span>Campaign Plan</span></h1>
+  <p class="subtitle">Keyword Research · Budget Projections · Launch Roadmap</p>
+  <div class="meta">
+    <div class="meta-item"><div class="val">8</div><div class="lbl">Hardware Campaigns</div></div>
+    <div class="meta-item"><div class="val">€672</div><div class="lbl">Recommended Start/week</div></div>
+    <div class="meta-item"><div class="val">+11</div><div class="lbl">New Leads/week (Phase 1)</div></div>
+    <div class="meta-item"><div class="val">11 wks</div><div class="lbl">To Full Launch</div></div>
+  </div>
+  <div class="slide-footer"><div class="dot"></div>April 2026 · Confidential</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 2: ACCOUNT AUDIT -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">1</div>
+    <h2>Where the Account Stands Today</h2>
+    <div class="tag">Account Audit</div>
+  </div>
+
+  <div class="card-grid card-grid-4" style="margin-bottom:28px;">
+    <div class="card card-accent">
+      <div class="card-title">Weekly Spend</div>
+      <div class="card-val">€375</div>
+      <div class="card-sub">4 active campaigns</div>
+    </div>
+    <div class="card card-accent">
+      <div class="card-title">Reported Leads/wk</div>
+      <div class="card-val">~54</div>
+      <div class="card-sub">Inflated — see note</div>
+    </div>
+    <div class="card card-accent">
+      <div class="card-title">True Leads/wk</div>
+      <div class="card-val">15–20</div>
+      <div class="card-sub">Post dedup estimate</div>
+    </div>
+    <div class="card card-accent">
+      <div class="card-title">True CPL</div>
+      <div class="card-val">€18–25</div>
+      <div class="card-sub">vs reported €7</div>
+    </div>
+  </div>
+
+  <div class="alert alert-red">
+    <div class="alert-icon">🔴</div>
+    <div><strong>Conversion Tracking Broken:</strong> 4 purchase actions firing simultaneously — inflating results 3–4x. Must be fixed before any new campaigns launch.</div>
+  </div>
+  <div class="alert alert-orange">
+    <div class="alert-icon">⚠️</div>
+    <div><strong>Shopping Campaign:</strong> Zero conversions — showing wrong products. Recommend pausing until product feed is corrected.</div>
+  </div>
+  <div class="alert alert-orange">
+    <div class="alert-icon">⚠️</div>
+    <div><strong>Gas Bottle & Cylinders:</strong> Highest spender but high CPL due to brand keyword cannibalisation — brand terms triggering at 5× the CPC they should be.</div>
+  </div>
+  <div class="alert alert-green">
+    <div class="alert-icon">✅</div>
+    <div><strong>Tested Search Campaign:</strong> Best performer — lowest CPL, highest CTR. Worth protecting and scaling.</div>
+  </div>
+
+  <div class="slide-footer"><div class="dot"></div>Kenny Fuels · Hardware Campaign Plan · April 2026</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 3: HARDWARE OPPORTUNITIES -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">2</div>
+    <h2>Hardware — 8 Campaign Opportunities</h2>
+    <div class="tag">Keyword Research</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Campaign</th>
+        <th>Top Keywords</th>
+        <th>Monthly Searches</th>
+        <th>Blended CPC</th>
+        <th>Est. Leads/wk</th>
+        <th>Efficiency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Acoustic Panels</strong></td>
+        <td>acoustic wall panels, acoustic panels ireland</td>
+        <td>5,400+</td>
+        <td>€0.76</td>
+        <td>~2.2</td>
+        <td><span class="badge badge-orange">Medium</span></td>
+      </tr>
+      <tr>
+        <td><strong>Composite Decking</strong></td>
+        <td>composite decking ireland, composite decking boards</td>
+        <td>3,600+</td>
+        <td>€0.46</td>
+        <td>~3.6</td>
+        <td><span class="badge badge-green">Best Value</span></td>
+      </tr>
+      <tr>
+        <td><strong>Composite Fencing</strong></td>
+        <td>composite fence panels, fencing ireland</td>
+        <td>2,000+</td>
+        <td>€0.35</td>
+        <td>~4.0</td>
+        <td><span class="badge badge-green">Most Efficient</span></td>
+      </tr>
+      <tr>
+        <td><strong>Safety &amp; Workwear</strong></td>
+        <td>work boots ireland, workwear ireland, ppe ireland</td>
+        <td>3,500+</td>
+        <td>€1.11</td>
+        <td>~1.3</td>
+        <td><span class="badge badge-red">High CPC</span></td>
+      </tr>
+      <tr>
+        <td><strong>Tools</strong></td>
+        <td>jigsaw ireland, power tools ireland, dewalt ireland</td>
+        <td>3,800+</td>
+        <td>€0.51</td>
+        <td>~1.9</td>
+        <td><span class="badge badge-blue">Good</span></td>
+      </tr>
+      <tr>
+        <td><strong>Cladding</strong></td>
+        <td>wall panels ireland, composite cladding ireland</td>
+        <td>2,300+</td>
+        <td>€0.49</td>
+        <td>~1.7</td>
+        <td><span class="badge badge-blue">Good</span></td>
+      </tr>
+      <tr>
+        <td><strong>Welding</strong></td>
+        <td>welder ireland, welding supplies ireland</td>
+        <td>2,000+</td>
+        <td>€0.52</td>
+        <td>~1.6</td>
+        <td><span class="badge badge-green">Low CPC</span></td>
+      </tr>
+      <tr>
+        <td><strong>Gardening</strong></td>
+        <td>lawn mower ireland, gardening supplies ireland</td>
+        <td>1,700+</td>
+        <td>€0.66</td>
+        <td>~1.3</td>
+        <td><span class="badge badge-gray">Seasonal</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert alert-blue" style="margin-top:20px;">
+    <div class="alert-icon">💡</div>
+    <div><strong>Standout finding:</strong> Composite Fencing (€0.35 CPC) and Composite Decking (€0.46 CPC) are the most cost-efficient categories — these should be prioritised for early budget.</div>
+  </div>
+
+  <div class="slide-footer"><div class="dot"></div>Kenny Fuels · Hardware Campaign Plan · April 2026</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 4: BUDGET OPTIONS -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">3</div>
+    <h2>Budget Options Compared</h2>
+    <div class="tag">Budget Projections</div>
+  </div>
+
+  <table style="margin-bottom:24px;">
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Weekly Hardware Budget</th>
+        <th>Total Account/week</th>
+        <th>Total Account/month</th>
+        <th>New Leads/week</th>
+        <th>vs. Baseline</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="recommended-row">
+        <td>⭐ Conservative Start (2A)</td>
+        <td>€297/week</td>
+        <td>€672/week</td>
+        <td>€2,912/month</td>
+        <td><strong>+11 leads/week</strong></td>
+        <td><span class="badge badge-green">+20%</span></td>
+      </tr>
+      <tr>
+        <td>Moderate (2B)</td>
+        <td>€432/week</td>
+        <td>€807/week</td>
+        <td>€3,497/month</td>
+        <td><strong>+16 leads/week</strong></td>
+        <td><span class="badge badge-blue">+30%</span></td>
+      </tr>
+      <tr>
+        <td>Full Launch (1A)</td>
+        <td>€497/week</td>
+        <td>€872/week</td>
+        <td>€3,779/month</td>
+        <td><strong>+18 leads/week</strong></td>
+        <td><span class="badge badge-orange">+33%</span></td>
+      </tr>
+      <tr>
+        <td>Aggressive (1B)</td>
+        <td>€1,008/week</td>
+        <td>€1,383/week</td>
+        <td>€5,993/month</td>
+        <td><strong>+36 leads/week</strong></td>
+        <td><span class="badge badge-red">+67%</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card-grid card-grid-2">
+    <div class="alert alert-green" style="margin-bottom:0;">
+      <div class="alert-icon">✅</div>
+      <div><strong>Our Recommendation:</strong> Start at Option 2A (€672/week) for the first 6 weeks. This gives campaigns time to learn before we increase spend.</div>
+    </div>
+    <div class="alert alert-orange" style="margin-bottom:0;">
+      <div class="alert-icon">⚠️</div>
+      <div><strong>Safety &amp; Workwear note:</strong> Blended CPC €1.11 (vs assumed €0.55). Actual leads from this category will be ~50% lower than projected. Fencing and Decking compensate.</div>
+    </div>
+  </div>
+
+  <div class="slide-footer"><div class="dot"></div>Kenny Fuels · Hardware Campaign Plan · April 2026</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 5: PHASED TIMELINE -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">4</div>
+    <h2>Phased Launch Timeline</h2>
+    <div class="tag">Roadmap</div>
+  </div>
+
+  <div class="timeline">
+    <div class="phase-block phase-conservative">
+      <div class="phase-label">Phase 1 · Conservative</div>
+      <div class="phase-timeline">Weeks 1–6</div>
+      <div class="phase-budget">€672/week</div>
+      <div class="phase-leads">+11 new leads/week</div>
+      <div class="phase-campaigns">
+        <strong>Launch 4 campaigns:</strong><br/>
+        • Acoustic Panels<br/>
+        • Composite Decking<br/>
+        • Composite Fencing<br/>
+        • Safety &amp; Workwear<br/><br/>
+        Fix conversion tracking, add negative keywords, bed in existing campaigns
+      </div>
+    </div>
+    <div class="phase-arrow">→</div>
+    <div class="phase-block phase-moderate">
+      <div class="phase-label">Phase 2 · Moderate</div>
+      <div class="phase-timeline">Weeks 7–10</div>
+      <div class="phase-budget">€807/week</div>
+      <div class="phase-leads">+16 new leads/week</div>
+      <div class="phase-campaigns">
+        <strong>Add 4 more campaigns:</strong><br/>
+        • Tools<br/>
+        • Cladding<br/>
+        • Welding<br/>
+        • Gardening<br/><br/>
+        Scale Phase 1 winners. Pause any campaign with CPL &gt; €50.
+      </div>
+    </div>
+    <div class="phase-arrow">→</div>
+    <div class="phase-block phase-full">
+      <div class="phase-label">Phase 3 · Full Launch</div>
+      <div class="phase-timeline">Week 11+</div>
+      <div class="phase-budget">€872+/week</div>
+      <div class="phase-leads">+18 new leads/week</div>
+      <div class="phase-campaigns">
+        <strong>All 8 campaigns active.</strong><br/><br/>
+        Double budget on campaigns with CPL &lt; €25.<br/><br/>
+        Restructure or pause underperformers.
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-blue" style="margin-top:24px;">
+    <div class="alert-icon">💡</div>
+    <div><strong>Why phase it?</strong> Google's algorithm needs 2–4 weeks of data to optimise who sees your ads. Launching at full spend before the learning phase completes wastes budget on the wrong audience.</div>
+  </div>
+
+  <div class="slide-footer"><div class="dot"></div>Kenny Fuels · Hardware Campaign Plan · April 2026</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 6: NEXT STEPS -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">5</div>
+    <h2>Immediate Next Steps</h2>
+    <div class="tag">Action Plan</div>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Fix Conversion Tracking</div>
+        <div class="step-desc">Remove duplicate purchase actions — currently 4 firing simultaneously, inflating results 3–4x. This must be done before launch so CPL data is reliable.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Tidy Up Existing Campaigns</div>
+        <div class="step-desc">Add negative keywords to Gas Bottle & Cylinders to stop brand cannibalisation. Pause broken Shopping Campaign until product feed is fixed.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Launch Phase 1 — Top 4 Hardware Campaigns</div>
+        <div class="step-desc">Acoustic Panels · Composite Decking · Composite Fencing · Safety &amp; Workwear. Target spend: €672/week total account.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Week 6 Review — Launch Remaining 4 Campaigns</div>
+        <div class="step-desc">Tools · Cladding · Welding · Gardening. Scale budget on Phase 1 winners. Pause any campaign with CPL above €50.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Week 11 — Full Launch &amp; Scale</div>
+        <div class="step-desc">All 8 campaigns live. Double budget on best performers (CPL &lt; €25). Target: +18 new hardware leads/week on top of existing volume.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer"><div class="dot"></div>Kenny Fuels · Hardware Campaign Plan · April 2026</div>
+</div>
+
+</body>
+</html>
