@@ -354,47 +354,21 @@
             border-radius: 20px;
         }
 
-        /* CAMPAIGN EXPAND */
-        .campaign-row {
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .campaign-row:hover td { background: #eef0ff; }
-
-        .expand-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: 500;
-        }
-
-        .expand-icon {
-            font-size: 10px;
-            color: var(--text-muted);
-            transition: transform 0.2s;
-            display: inline-block;
-        }
-
-        .expand-icon.open { transform: rotate(90deg); }
-
-        .adgroup-rows { display: none; }
-        .adgroup-rows.visible { display: table-row-group; }
-
-        .adgroup-row td {
-            padding: 10px 24px 10px 44px;
-            font-size: 13px;
-            font-weight: 400 !important;
-            background: #f5f6ff;
-            border-bottom: 1px solid #e8eaff;
-            color: var(--text-muted);
-        }
-
-        .adgroup-row:last-child td { border-bottom: none; }
-
-        .adgroup-row td:first-child {
+        .campaign-name {
+            font-weight: 600;
+            font-size: 14px;
             color: var(--text-dark);
-            font-weight: 500 !important;
+        }
+
+        .adgroup-label {
+            margin-top: 4px;
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         .campaign-note td {
@@ -731,7 +705,7 @@
 <section id="campaigns">
     <div class="section-label">Campaign Performance</div>
     <div class="section-title">Active Campaigns</div>
-    <p class="section-desc">Apr 23 – Apr 30, 2026 &nbsp;·&nbsp; 7 days. Performance figures through Apr 28. Click any campaign row to expand ad group detail.</p>
+    <p class="section-desc">Apr 23 – Apr 30, 2026 &nbsp;·&nbsp; 7 days. Performance figures through Apr 28.</p>
     <ul class="section-commentary" style="padding-left: 32px; list-style: disc;">
         <li style="margin-bottom: 10px;"><strong>KF - Fuel | Gas Bottle &amp; Cylinders:</strong> The standout this week. Conversion value up 230% (€140 to €462) with 34% less spend. Cost per lead halved from €50.85 to €23.82. Phrase match changes and Calor/Flo Gas brand cleanup are working.</li>
         <li style="margin-bottom: 10px;"><strong>KF - Fuel | Brand &amp; General Search:</strong> Still in learning period following ROAS fix on Apr 23. Impressions and clicks down ~50% vs last week as expected. CPL held steady at €6.97. Should normalise in early May.</li>
@@ -755,8 +729,11 @@
             </thead>
             <tbody>
                 <!-- KF - Fuel | Brand & General Search -->
-                <tr class="campaign-row" onclick="toggleAdGroups('tested-search')">
-                    <td><span class="expand-btn"><span class="expand-icon open" id="icon-tested-search">&#9658;</span> KF - Fuel | Brand &amp; General Search</span></td>
+                <tr>
+                    <td>
+                        <div class="campaign-name">KF - Fuel | Brand &amp; General Search</div>
+                        <div class="adgroup-label">All Ad Groups (combined)</div>
+                    </td>
                     <td>Search</td>
                     <td><span class="status-learning">LEARNING</span></td>
                     <td>€76</td>
@@ -766,20 +743,13 @@
                 <tr class="campaign-note">
                     <td colspan="6">Learning period: ROAS target removed Apr 23. Impressions down ~50% vs prior week. Recovery expected within 3-5 days of Apr 28 fix.</td>
                 </tr>
-                <tbody class="adgroup-rows visible" id="tested-search">
-                    <tr class="adgroup-row">
-                        <td>All Ad Groups (combined)</td>
-                        <td>Ad Group</td>
-                        <td></td>
-                        <td>€76</td>
-                        <td>10.85</td>
-                        <td>€6.97</td>
-                    </tr>
-                </tbody>
 
                 <!-- KF - Fuel | Gas Bottle & Cylinders -->
-                <tr class="campaign-row" onclick="toggleAdGroups('gas-bottle')">
-                    <td><span class="expand-btn"><span class="expand-icon open" id="icon-gas-bottle">&#9658;</span> KF - Fuel | Gas Bottle &amp; Cylinders</span></td>
+                <tr>
+                    <td>
+                        <div class="campaign-name">KF - Fuel | Gas Bottle &amp; Cylinders</div>
+                        <div class="adgroup-label">Gas Cylinders</div>
+                    </td>
                     <td>Search</td>
                     <td><span class="status-active">ACTIVE</span></td>
                     <td>€168</td>
@@ -789,20 +759,13 @@
                 <tr class="campaign-note">
                     <td colspan="6">Conversion value: €462 this week vs €140 last week (+230%). Phrase match and brand cleanup driving improvement.</td>
                 </tr>
-                <tbody class="adgroup-rows visible" id="gas-bottle">
-                    <tr class="adgroup-row">
-                        <td>Gas Cylinders</td>
-                        <td>Ad Group</td>
-                        <td></td>
-                        <td>€168</td>
-                        <td>7.05</td>
-                        <td>€23.82</td>
-                    </tr>
-                </tbody>
 
                 <!-- KF - Fuel | Home Heating Oil Search -->
-                <tr class="campaign-row" onclick="toggleAdGroups('pmax')">
-                    <td><span class="expand-btn"><span class="expand-icon open" id="icon-pmax">&#9658;</span> KF - Fuel | Home Heating Oil Search</span></td>
+                <tr>
+                    <td>
+                        <div class="campaign-name">KF - Fuel | Home Heating Oil Search</div>
+                        <div class="adgroup-label">Ad Group - Home Heating Oil <span class="zero-conv">⚠ Tracking broken: conv value = conv count</span></div>
+                    </td>
                     <td>Search</td>
                     <td><span class="status-learning">RECOVERING</span></td>
                     <td>€3</td>
@@ -810,18 +773,8 @@
                     <td>—</td>
                 </tr>
                 <tr class="campaign-note">
-                    <td colspan="6">4,996% Target ROAS removed Apr 28. Campaign was near-inactive all week. 36 new geographic and brand keywords added Apr 30 — impressions expected to recover within 24-48 hours.</td>
+                    <td colspan="6">4,996% Target ROAS removed Apr 28. Campaign was near-inactive all week. 36 new geographic and brand keywords added Apr 30: impressions expected to recover within 24-48 hours.</td>
                 </tr>
-                <tbody class="adgroup-rows visible" id="pmax">
-                    <tr class="adgroup-row">
-                        <td>Ad Group - Home Heating Oil<span class="zero-conv">⚠ Tracking broken: conv value = conv count</span></td>
-                        <td>Ad Group</td>
-                        <td></td>
-                        <td>€3</td>
-                        <td>4.00</td>
-                        <td>—</td>
-                    </tr>
-                </tbody>
 
                 <!-- Total row -->
                 <tr style="font-weight:700; background: var(--gray);">
@@ -1149,18 +1102,6 @@
         }
     });
 
-    // Ad group expand/collapse
-    function toggleAdGroups(id) {
-        const rows = document.getElementById(id);
-        const icon = document.getElementById('icon-' + id);
-        if (rows.classList.contains('visible')) {
-            rows.classList.remove('visible');
-            icon.classList.remove('open');
-        } else {
-            rows.classList.add('visible');
-            icon.classList.add('open');
-        }
-    }
 </script>
 
 </body>
