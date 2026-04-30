@@ -562,19 +562,19 @@
         <li><a href="#next">What's Next</a></li>
     </ul>
     <div class="nav-right">
-        <span class="report-date">Apr 23 – Apr 28, 2026</span>
+        <span class="report-date">Apr 23 – Apr 30, 2026</span>
         <button class="btn-pdf" onclick="window.print()">⬇ Download PDF</button>
     </div>
 </nav>
 
 <!-- PREVIEW BANNER -->
 <div class="preview-banner">
-    ⏳ &nbsp;<strong>Preview — Apr 23–28, 2026 (6 of 7 days).</strong> &nbsp;Week closes Thu May 1. Final report sent Fri May 2.
+    ⏳ &nbsp;<strong>Preview — Apr 23–30, 2026 (8 days).</strong> &nbsp;Week closes Thu May 1. Final report sent Fri May 2.
 </div>
 
 <!-- HERO -->
 <div class="hero">
-    <div class="period-badge">Apr 23 – Apr 28, 2026 &nbsp;·&nbsp; Preview (partial week)</div>
+    <div class="period-badge">Apr 23 – Apr 30, 2026 &nbsp;·&nbsp; Preview (partial week)</div>
     <h1>Kenny Fuels<span>Google Ads</span></h1>
     <p>Weekly performance overview across all active campaigns. All figures in EUR. Data reflects Thu Apr 23 – Mon Apr 28 (6 days). Comparisons against the previous full week (Apr 16–23).</p>
 </div>
@@ -847,9 +847,74 @@
 <section id="changes">
     <div class="section-label">Changes Made</div>
     <div class="section-title">Optimisations This Week</div>
-    <p class="section-desc">Google Ads account actions taken Apr 23–28, 2026.</p>
+    <p class="section-desc">Google Ads account actions taken Apr 23–30, 2026.</p>
 
     <div class="changes-list">
+
+        <div style="margin-bottom:8px; padding: 8px 16px; background:#f0f4ff; border-left:3px solid #243B98; border-radius:4px; font-size:13px; font-weight:700; color:#243B98; letter-spacing:0.3px;">
+            Apr 30, 2026
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-done">✓</div>
+            <div class="change-content">
+                <h4>Bidding Strategy Confirmed Fixed — Home Heating Oil Search</h4>
+                <p>Despite session notes from Apr 28 indicating the bidding strategy was updated, the API confirmed it had not taken effect — the campaign was still running on Maximise Clicks (Target Spend). This was identified and corrected on Apr 30. The campaign is now confirmed on Maximise Conversion Value with no Target ROAS. This is a critical fix: the campaign could not spend its €50/day budget properly under the Clicks strategy with the keyword mix it had.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-done">✓</div>
+            <div class="change-content">
+                <h4>36 New Keywords Added — Home Heating Oil Search</h4>
+                <p>The Home Heating Oil Search campaign had been running almost exclusively on "near me" keywords (e.g. "home heating oil near me", "kerosene near me") which generate near-zero impressions in Ireland — Irish users search by county or town name, not proximity. A full geographic keyword set has now been added as phrase match:</p>
+                <p style="margin-top:8px;"><strong>County-level (18 keywords):</strong> Wexford, Wicklow, and Carlow variants — "heating oil wexford", "home heating oil wexford", "kerosene prices wexford", "heating oil prices wexford", "oil prices wexford", "kerosene wexford", "home heating oil delivery wexford" and equivalents for Wicklow and Carlow.</p>
+                <p style="margin-top:8px;"><strong>Town-level (5 keywords):</strong> Gorey, Enniscorthy, Arklow, and Ferns — "heating oil gorey", "kerosene gorey", "heating oil enniscorthy", "kerosene enniscorthy", "heating oil arklow", "kerosene arklow", "heating oil ferns".</p>
+                <p style="margin-top:8px;"><strong>Ireland-wide (5 keywords):</strong> "home heating oil ireland", "kerosene prices ireland", "heating oil prices ireland", "buy heating oil ireland", "order heating oil ireland".</p>
+                <p style="margin-top:8px;"><strong>Brand (7 keywords):</strong> "kenny fuels" (broad), "kenny fuels ferns", "kennys fuels", "kenny fuel", "kenny fuels wexford", "kenny fuels wicklow", "kenny fuels gorey" — added so the campaign captures brand searches alongside geographic terms. "Kenny fuels ferns" was historically the campaign's top converting search term with 9.98 conversions before the ROAS issue took hold.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-paused">✕</div>
+            <div class="change-content">
+                <h4>Weak Keywords Paused and Negatives Added</h4>
+                <p><strong>Brand and General Search — Keywords paused:</strong> "home oil" (phrase) — €71 spend over 30 days, QS 0, 0 conversions, was triggering "oil heating" searches. "order oil" (phrase) — too generic, QS 0, 0 conversions.</p>
+                <p style="margin-top:8px;"><strong>Brand and General Search — Negative added:</strong> "oil heating" [exact] — reversed word order search with no purchase intent, €16 spend in last 7 days, 0 conversions.</p>
+                <p style="margin-top:8px;"><strong>Gas Bottle and Cylinders — Negative added:</strong> "coal merchants" [phrase] — wrong product category, 0 conversions.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-updated">🔧</div>
+            <div class="change-content">
+                <h4>Daily Budget Reduced — Brand and General Search</h4>
+                <p>On Apr 29 the Brand and General Search campaign spent €179 against a €110/day budget — 163% overspend. This followed the Apr 28 bidding strategy fix which freed the Maximise Conversion Value strategy to bid more aggressively. The daily budget has been reduced from €110 to €80/day to stabilise spend while the campaign settles. Total account budget is now €165/day. We will monitor over the next several days and increase back to €110 once spend holds below cap.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-done">✓</div>
+            <div class="change-content">
+                <h4>Ad Copy Rewritten — 7 Ad Groups (Brand and General Search)</h4>
+                <p>A pattern of "skeleton" ads was identified across all Priority ad groups: each had a second ad with exactly 3 headlines all pinned to H1/H2/H3, causing POOR ad strength ratings across the account. The following ad groups were fixed — poor ads paused and better ads rewritten with 15 headlines, H1 pinned only, and 4 descriptions:</p>
+                <p style="margin-top:8px;"><strong>Kenny Fuels (brand ad group):</strong> Paused Ad 2 which had an irrelevant "Topsoil Costs Per Yard" headline in a fuel brand ad group. Rewrote Ad 1 with clean brand-focused content — "Kenny Fuels" pinned to H1, removed typo ("OIl"), replaced gas cylinder copy with brand-appropriate headlines.</p>
+                <p style="margin-top:8px;"><strong>Fuel Oil For Home Heating:</strong> Paused Ad 2 (AVERAGE, 0 conversions). Rewrote Ad 1 which had 8 gas bottle and cylinder headlines in a heating oil ad group — all replaced with heating oil content.</p>
+                <p style="margin-top:8px;"><strong>Heating Oil Prices Today Near Me, Wexford Home Heating Oil Services, Bags Of Firewood For Sale, Buy Home Heating Oil Carlow, Kerosene Heating Oil Near Me:</strong> Each had a skeleton ad (3 pinned headlines, POOR strength) — paused and replaced with 15-headline, H1-pinned ads with product-specific copy.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-done">✓</div>
+            <div class="change-content">
+                <h4>Location Targeting Verified — All 3 Campaigns</h4>
+                <p>Confirmed all three active fuel campaigns (Brand and General Search, Home Heating Oil Search, Gas Bottle and Cylinders) are correctly targeting County Wexford, County Wicklow, and County Carlow. No issues found.</p>
+            </div>
+        </div>
+
+        <div style="margin: 16px 0 8px; padding: 8px 16px; background:#f0f4ff; border-left:3px solid #243B98; border-radius:4px; font-size:13px; font-weight:700; color:#243B98; letter-spacing:0.3px;">
+            Apr 23–28, 2026
+        </div>
 
         <div class="change-item">
             <div class="change-icon icon-done">✓</div>
@@ -964,22 +1029,22 @@
         <div class="next-card">
             <span class="priority-tag priority-high">Pending Client</span>
             <h4>Budget Approval for Hardware Campaigns</h4>
-            <p>Hardware campaigns (Composite Decking, Composite Fencing, Acoustic Panels, Safety and Workwear) are built and ready to launch. Budget approval is needed before we proceed. With fuel campaigns now running at full capacity following the ROAS fixes, revised total account budget is approximately €1,400/week. Composite Decking will launch first at €15/day to prove the concept before rolling out the remaining three campaigns.</p>
+            <p>Hardware campaigns (Composite Decking, Composite Fencing, Acoustic Panels, Safety and Workwear) are planned and ready to build. Budget approval is the only blocker before we proceed. Revised total account budget is approximately €1,400/week. Composite Decking will launch first, then Composite Fencing, Acoustic Panels, and Safety and Workwear one by one. A budget approval email was sent Apr 30.</p>
         </div>
         <div class="next-card">
             <span class="priority-tag priority-high">Pending Client</span>
             <h4>Conversion Tracking Fix</h4>
-            <p>Four purchase conversion actions are still set as Primary and firing simultaneously, inflating all lead counts and CPL figures by 3-4x. The fix requires temporary Admin access (~30 minutes): keep only "Kenny Fuels - GA4 (web) purchase" as Primary and set the other three to Secondary. Until this is done, all reported conversion numbers should be treated as estimates only.</p>
+            <p>Four purchase conversion actions are still set as Primary and firing simultaneously, inflating all lead counts and CPL figures by 3-4x. The fix requires temporary Admin access to Google Ads and Google Tag Manager (~30 minutes): keep only "Kenny Fuels - GA4 (web) purchase" as Primary and set the other three to Secondary. Step-by-step instructions were emailed Apr 30. Until this is resolved all conversion figures in this report are estimates only.</p>
         </div>
         <div class="next-card">
             <span class="priority-tag priority-medium">Monitor</span>
-            <h4>Brand and General Search — Learning Period</h4>
-            <p>The campaign entered learning period on Apr 23 following the ROAS fix. Impressions and clicks are down approximately 50% this week as expected. We are monitoring spend and conversion recovery daily. The campaign should normalise by May 1. If spend has not returned to the €110/day budget by then, we will review the bid strategy further.</p>
+            <h4>Home Heating Oil Search — New Keywords</h4>
+            <p>36 new geographic and brand keywords were added Apr 30 replacing the "near me" keyword strategy. The campaign should begin picking up impressions within 24-48 hours. Check impression counts and spend on May 1-2 to confirm the campaign is building toward its €50/day budget. If spend remains low by May 3, investigate bid competitiveness for the new keywords.</p>
         </div>
         <div class="next-card">
             <span class="priority-tag priority-medium">Monitor</span>
-            <h4>Home Heating Oil Search — Impression Recovery</h4>
-            <p>The 4,996% Target ROAS was removed on Apr 28. The campaign was spending less than €1/day for most of this week. Recovery is expected within 3-5 days. Check impressions and spend on May 1-2 to confirm the campaign is building back toward its €50/day budget. If impressions remain low by May 3, investigate further.</p>
+            <h4>Brand and General Search — Budget Stabilisation</h4>
+            <p>Daily budget was reduced from €110 to €80 on Apr 30 following a €179 spend spike on Apr 29. We are monitoring daily spend over the next several days. Once spend holds consistently below €80/day, budget will be restored to €110/day. If spend spikes again, we will review the bidding strategy settings further.</p>
         </div>
     </div>
 </section>
