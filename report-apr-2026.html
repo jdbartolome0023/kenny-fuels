@@ -4,96 +4,100 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kenny Fuels - April 2026 Monthly Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green: #1a7a3c;
+    --brand: #243B98;
+    --red: #E6211E;
+    --dark-red: #b5191a;
+    --green: #2e7d32;
     --green-light: #e8f5e9;
-    --red: #c0392b;
-    --red-light: #ffebee;
-    --blue: #1565c0;
-    --blue-light: #e3f2fd;
-    --orange: #e65100;
-    --orange-light: #fff8e1;
-    --grey: #5f6368;
+    --amber: #e65100;
+    --amber-light: #fff8e1;
+    --blue-light: #e8f0fe;
     --border: #e0e0e0;
-    --bg: #f8f9fa;
+    --bg: #f9f9f9;
     --white: #ffffff;
-    --text: #202124;
-    --text-secondary: #5f6368;
+    --text: #1a1a1a;
+    --text-muted: #777;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg);
+    font-family: 'Lato', sans-serif;
+    background: var(--white);
     color: var(--text);
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
   }
 
   /* NAV */
   .topnav {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: 0 32px;
+    background: var(--brand);
+    padding: 0 40px;
     display: flex;
     align-items: center;
     gap: 32px;
-    height: 52px;
+    height: 56px;
     position: sticky;
     top: 0;
     z-index: 100;
   }
-  .topnav-brand { font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; }
-  .topnav a { color: var(--grey); text-decoration: none; font-size: 13px; }
-  .topnav a:hover { color: var(--text); }
+  .topnav-brand { font-weight: 900; font-size: 15px; color: var(--white); text-decoration: none; letter-spacing: 0.5px; }
+  .topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; }
+  .topnav a:hover { color: var(--white); }
   .topnav-right { margin-left: auto; display: flex; gap: 16px; align-items: center; }
-  .report-type-badge { background: #e8f0fe; color: #1a73e8; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 12px; }
+  .report-type-badge { background: var(--red); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 0.5px; }
 
   /* NOTICE BANNER */
   .notice-banner {
-    background: #fff8e1;
-    border-left: 4px solid #f59e0b;
-    padding: 12px 32px;
+    background: var(--amber-light);
+    border-bottom: 2px solid #f9a825;
+    padding: 12px 40px;
     font-size: 13px;
-    color: #78350f;
+    color: #5d4037;
   }
-  .notice-banner strong { color: #92400e; }
+  .notice-banner strong { color: var(--amber); }
 
   /* HERO */
   .hero {
-    background: linear-gradient(135deg, #1a3c2e 0%, #1a7a3c 100%);
-    color: white;
-    padding: 48px 32px 40px;
+    padding: 80px 40px 60px;
+    border-bottom: 1px solid var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
   }
   .period-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: rgba(255,255,255,0.9);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    padding: 4px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg);
+    padding: 6px 14px;
     border-radius: 20px;
-    margin-bottom: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 24px;
   }
-  .hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 6px; }
-  .hero h1 span { display: block; font-size: 16px; font-weight: 400; opacity: 0.8; margin-top: 2px; }
-  .hero p { opacity: 0.85; max-width: 680px; margin-top: 12px; font-size: 14px; }
-  .hero-meta { margin-top: 20px; display: flex; gap: 24px; flex-wrap: wrap; }
-  .hero-meta-item { font-size: 12px; opacity: 0.75; }
-  .hero-meta-item strong { opacity: 1; font-size: 13px; display: block; }
-
-  /* CONTAINER */
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  .period-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--red);
+  }
+  .hero h1 { font-weight: 900; font-size: 72px; line-height: 1; letter-spacing: 1px; margin-bottom: 8px; }
+  .hero h1 span { color: var(--red); display: block; }
+  .hero p { font-size: 16px; color: var(--text-muted); max-width: 520px; margin-top: 20px; line-height: 1.6; }
+  .hero-meta { margin-top: 32px; display: flex; gap: 40px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 24px; }
+  .hero-meta-item { font-size: 12px; color: var(--text-muted); }
+  .hero-meta-item strong { font-size: 14px; color: var(--text); display: block; margin-bottom: 2px; font-weight: 700; }
 
   /* SECTIONS */
-  section { padding: 40px 32px; max-width: 1100px; margin: 0 auto; }
-  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
-  .section-title { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
-  .section-desc { color: var(--text-secondary); margin-bottom: 24px; max-width: 720px; }
+  section { padding: 60px 40px; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+  .section-title { font-weight: 900; font-size: 42px; letter-spacing: 1px; margin-bottom: 8px; }
+  .section-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; line-height: 1.6; max-width: 720px; }
 
   /* SUMMARY CARDS */
   .summary-grid {
@@ -103,36 +107,35 @@
     margin-bottom: 32px;
   }
   .summary-card {
-    background: var(--white);
+    background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: 4px;
+    padding: 24px;
   }
-  .summary-card .label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); margin-bottom: 8px; }
-  .summary-card .value { font-size: 26px; font-weight: 700; color: var(--text); line-height: 1; }
-  .summary-card .compare { font-size: 12px; color: var(--text-secondary); margin-top: 6px; }
-  .summary-card .compare .up { color: var(--green); font-weight: 600; }
-  .summary-card .compare .down { color: var(--red); font-weight: 600; }
-  .summary-card .compare .neutral { color: var(--grey); font-weight: 600; }
-  .summary-card.highlight { border-color: var(--green); border-left: 4px solid var(--green); }
+  .summary-card .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; }
+  .summary-card .value { font-size: 32px; font-weight: 900; color: var(--text); line-height: 1; }
+  .summary-card .compare { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+  .summary-card .compare .up { color: var(--green); font-weight: 700; }
+  .summary-card .compare .down { color: var(--red); font-weight: 700; }
+  .summary-card .compare .neutral { color: var(--text-muted); font-weight: 700; }
+  .summary-card.highlight { border-left: 4px solid var(--brand); }
 
   /* CONTEXT BOX */
   .context-box {
-    background: var(--blue-light);
-    border-left: 4px solid var(--blue);
-    border-radius: 0 6px 6px 0;
-    padding: 16px 20px;
-    margin-bottom: 28px;
-    font-size: 13px;
-    color: #0d47a1;
+    background: var(--bg);
+    border-left: 4px solid var(--brand);
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
   }
-  .context-box strong { display: block; margin-bottom: 4px; font-size: 14px; }
+  .context-box strong { display: block; margin-bottom: 6px; font-size: 15px; font-weight: 700; color: var(--brand); }
 
   /* CAMPAIGN TABLE */
   .table-card {
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 8px;
     overflow: hidden;
     margin-bottom: 24px;
   }
@@ -142,61 +145,62 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: var(--bg);
   }
-  .table-card-header h3 { font-size: 15px; font-weight: 600; }
+  .table-card-header h3 { font-size: 15px; font-weight: 700; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
   th {
-    background: #f8f9fa;
+    background: var(--bg);
     padding: 10px 14px;
     text-align: left;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.4px;
-    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
     border-bottom: 1px solid var(--border);
     white-space: nowrap;
   }
-  td { padding: 12px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  td { padding: 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #fafafa; }
-  .campaign-name { font-weight: 600; font-size: 13px; }
-  .campaign-note-row td { background: #fafafa; padding: 8px 14px 14px; font-size: 12px; color: var(--text-secondary); border-bottom: 1px solid #f0f0f0; }
-  .vs-col { font-size: 11px; color: var(--text-secondary); }
-  .up { color: var(--green); font-weight: 600; }
-  .down { color: var(--red); font-weight: 600; }
-  .neutral-text { color: var(--grey); }
-  .status-active { background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
-  .status-paused { background: #f5f5f5; color: #9e9e9e; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
-  .status-recovering { background: var(--orange-light); color: var(--orange); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+  .campaign-name { font-weight: 700; font-size: 13px; }
+  .campaign-note-row td { background: #fafafa; padding: 8px 14px 16px; font-size: 12px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+  .vs-col { font-size: 11px; color: var(--text-muted); }
+  .up { color: var(--green); font-weight: 700; }
+  .down { color: var(--red); font-weight: 700; }
+  .neutral-text { color: var(--text-muted); }
+  .status-active { background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
+  .status-paused { background: #f5f5f5; color: #9e9e9e; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
+  .status-recovering { background: var(--amber-light); color: var(--amber); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
 
   /* CHANGES */
-  .changes-list { display: flex; flex-direction: column; gap: 16px; }
+  .changes-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); }
   .change-item {
     background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 24px;
     display: flex;
-    gap: 14px;
+    gap: 16px;
     align-items: flex-start;
   }
-  .change-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-  .change-content h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-  .change-content p { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+  .change-item:last-child { border-bottom: none; }
+  .change-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .change-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .change-content p { font-size: 13px; color: var(--text-muted); margin-top: 4px; line-height: 1.6; }
   .change-tag {
     display: inline-block;
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     padding: 2px 8px;
-    border-radius: 10px;
-    margin-bottom: 6px;
+    border-radius: 3px;
+    margin-bottom: 8px;
   }
-  .tag-critical { background: var(--red-light); color: var(--red); }
-  .tag-high { background: var(--orange-light); color: var(--orange); }
-  .tag-optimisation { background: var(--blue-light); color: var(--blue); }
+  .tag-critical { background: #ffebee; color: var(--red); }
+  .tag-high { background: var(--amber-light); color: var(--amber); }
+  .tag-optimisation { background: var(--blue-light); color: var(--brand); }
   .tag-done { background: var(--green-light); color: var(--green); }
 
   /* NEXT SECTION */
@@ -206,47 +210,45 @@
     gap: 16px;
   }
   .next-card {
-    background: var(--white);
+    background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 18px 20px;
+    border-radius: 4px;
+    padding: 20px;
   }
-  .next-card h4 { font-size: 14px; font-weight: 600; margin: 8px 0 6px; }
-  .next-card p { font-size: 13px; color: var(--text-secondary); }
+  .next-card h4 { font-size: 14px; font-weight: 700; margin: 8px 0 6px; }
+  .next-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
   .priority-tag {
     display: inline-block;
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 10px;
+    padding: 3px 10px;
+    border-radius: 3px;
   }
-  .priority-high { background: var(--red-light); color: var(--red); }
-  .priority-medium { background: var(--orange-light); color: var(--orange); }
+  .priority-high { background: #ffebee; color: var(--red); }
+  .priority-medium { background: var(--amber-light); color: var(--amber); }
   .priority-done { background: var(--green-light); color: var(--green); }
-  .priority-launch { background: var(--blue-light); color: var(--blue); }
+  .priority-launch { background: var(--blue-light); color: var(--brand); }
 
   /* FOOTER */
   footer {
-    background: var(--white);
-    border-top: 1px solid var(--border);
-    padding: 24px 32px;
+    background: var(--brand);
+    padding: 32px 40px;
     text-align: center;
-    color: var(--text-secondary);
+    color: rgba(255,255,255,0.6);
     font-size: 12px;
   }
+  footer p + p { margin-top: 6px; }
 
   /* DIVIDER */
   .section-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
 
-  /* HIGHLIGHT ROW */
-  .row-highlight td { background: #f9fbe7; }
-
   @media (max-width: 768px) {
-    .hero { padding: 32px 16px; }
-    section { padding: 28px 16px; }
-    .topnav { padding: 0 16px; gap: 16px; }
+    .hero { padding: 40px 20px; }
+    .hero h1 { font-size: 48px; }
+    section { padding: 40px 20px; }
+    .topnav { padding: 0 20px; gap: 16px; }
   }
 </style>
 </head>
@@ -254,23 +256,25 @@
 
 <!-- NAV -->
 <nav class="topnav">
-  <a class="topnav-brand" href="index.html">Kenny Fuels</a>
-  <a href="dashboard.html">Weekly Report</a>
-  <a href="report-apr-2026.html">April 2026</a>
+  <div style="display:flex; align-items:center; gap:32px; flex:1;">
+    <a class="topnav-brand" href="index.html">KENNY FUELS</a>
+    <a href="dashboard.html">Weekly Report</a>
+    <a href="report-apr-2026.html">April 2026</a>
+  </div>
   <div class="topnav-right">
-    <span class="report-type-badge">Monthly Report</span>
+    <span class="report-type-badge">MONTHLY REPORT</span>
   </div>
 </nav>
 
 <!-- NOTICE -->
 <div class="notice-banner">
-  <strong>Note on conversion data:</strong> Conversion tracking was misconfigured from account inception through Apr 29 — 4 purchase conversion actions were all set as Primary, counting every purchase 3-4x. This inflates all conversion and CPL figures for April 1-29. The fix was applied Apr 30. <strong>Conversion figures in this report are not reliable and should not be used as performance benchmarks.</strong> Accurate data collection begins May 2026.
+  <strong>Note on conversion data:</strong> Conversion tracking was misconfigured from account inception through Apr 29: 4 purchase conversion actions were all set as Primary, counting every purchase 3-4x. This inflates all conversion and CPL figures for April 1-29. The fix was applied Apr 30. <strong>Conversion figures in this report are not reliable and should not be used as performance benchmarks.</strong> Accurate data collection begins May 2026.
 </div>
 
 <!-- HERO -->
 <div class="hero">
   <div class="period-badge">April 2026 &nbsp;·&nbsp; Monthly Report</div>
-  <h1>Kenny Fuels<span>Google Ads — April 2026</span></h1>
+  <h1>Kenny Fuels<span>Google Ads: April 2026</span></h1>
   <p>April was a transition month. The account was inherited with multiple critical issues: broken bidding strategies, duplicate conversion tracking, a Shopping campaign serving hardware ads, and 100+ ad groups with Poor ad strength. All critical issues were resolved by Apr 30. The account enters May in a structurally sound state for the first time.</p>
   <div class="hero-meta">
     <div class="hero-meta-item"><strong>Apr 1 – Apr 30, 2026</strong>30 days</div>
@@ -283,7 +287,7 @@
 <section id="summary">
   <div class="section-label">Month at a Glance</div>
   <div class="section-title">April 2026 Summary</div>
-  <p class="section-desc">Active fuel campaigns only (Shopping excluded — paused Apr 23 as it was serving incorrect product categories). Conversion data excluded — see tracking notice above.</p>
+  <p class="section-desc">Active fuel campaigns only (Shopping excluded: paused Apr 23 as it was serving incorrect product categories). Conversion data excluded: see tracking notice above.</p>
 
   <div class="summary-grid">
     <div class="summary-card highlight">
@@ -310,7 +314,7 @@
 
   <div class="context-box">
     <strong>Why spend and clicks are lower than March</strong>
-    Brand &amp; General Search had a 6,600% Target ROAS cap inherited from the previous agency — the campaign was spending only €17/day against a €110/day budget. This was removed Apr 23. Home Heating Oil Search had a 4,996% Target ROAS cap and only "near me" keywords with near-zero impressions in Ireland — fixed Apr 28-30. Shopping was paused Apr 23 (was serving fence panels and composite fencing on fuel searches). Lower spend reflects throttled campaigns, not lower activity. From May onward spend should track closer to the full €165/day budget.
+    Brand &amp; General Search had a 6,600% Target ROAS cap inherited from the previous agency: the campaign was spending only €17/day against a €110/day budget. This was removed Apr 23. Home Heating Oil Search had a 4,996% Target ROAS cap and only "near me" keywords with near-zero impressions in Ireland: fixed Apr 28-30. Shopping was paused Apr 23 (was serving fence panels and composite fencing on fuel searches). Lower spend reflects throttled campaigns, not lower activity. From May onward spend should track closer to the full €165/day budget.
   </div>
 </section>
 
@@ -320,7 +324,7 @@
 <section id="campaigns">
   <div class="section-label">Campaign Performance</div>
   <div class="section-title">April vs March: By Campaign</div>
-  <p class="section-desc">Conversion columns omitted — data is not reliable due to tracking misconfiguration resolved Apr 30. Spend and traffic figures are accurate.</p>
+  <p class="section-desc">Conversion columns omitted: data is not reliable due to tracking misconfiguration resolved Apr 30. Spend and traffic figures are accurate.</p>
 
   <div class="table-card">
     <div class="table-card-header">
@@ -352,7 +356,7 @@
           <td><span class="down">-42%</span> <span class="vs-col">vs €1,321</span></td>
         </tr>
         <tr class="campaign-note-row">
-          <td colspan="7">6,600% Target ROAS removed Apr 23. Campaign was spending ~€17/day vs €110 budget for most of the month. Now on Maximise Conversion Value — learning period underway. Budget reduced to €80/day Apr 30 after overspend spike. Expect spend to normalise upward in May as Smart Bidding calibrates.</td>
+          <td colspan="7">6,600% Target ROAS removed Apr 23. Campaign was spending ~€17/day vs €110 budget for most of the month. Now on Maximise Conversion Value: learning period underway. Budget reduced to €80/day Apr 30 after overspend spike. Expect spend to normalise upward in May as Smart Bidding calibrates.</td>
         </tr>
         <tr>
           <td>
@@ -366,7 +370,7 @@
           <td><span class="neutral-text">flat</span> <span class="vs-col">vs €1,064</span></td>
         </tr>
         <tr class="campaign-note-row">
-          <td colspan="7">Most stable campaign. Spend held flat month-on-month. Key improvements: 12 keywords tightened from broad to phrase, Calor and competitor brand negatives added, 10 high-volume Ireland keywords added (butane gas cylinders, gas bottle near me, lpg gas near me etc.). Sitelinks cleaned up. Gas Cylinders ad group rated Excellent — no ad copy changes needed.</td>
+          <td colspan="7">Most stable campaign. Spend held flat month-on-month. Key improvements: 12 keywords tightened from broad to phrase, Calor and competitor brand negatives added, 10 high-volume Ireland keywords added (butane gas cylinders, gas bottle near me, lpg gas near me etc.). Sitelinks cleaned up. Gas Cylinders ad group rated Excellent: no ad copy changes needed.</td>
         </tr>
         <tr>
           <td>
@@ -380,7 +384,7 @@
           <td><span class="down">-90%</span> <span class="vs-col">vs €282</span></td>
         </tr>
         <tr class="campaign-note-row">
-          <td colspan="7">Campaign had a 4,996% Target ROAS cap and was running only on "near me" keywords — getting 5-6 impressions/day in a market where nobody searches "near me" for heating oil. ROAS removed Apr 28. 36 geographic and brand keywords added Apr 30. Impressions jumped to 70 on Apr 30 (day one of new keywords). Bidding switched to Maximise Conversion Value. Expect significant spend increase in May as the campaign builds impressions.</td>
+          <td colspan="7">Campaign had a 4,996% Target ROAS cap and was running only on "near me" keywords: getting 5-6 impressions/day in a market where nobody searches "near me" for heating oil. ROAS removed Apr 28. 36 geographic and brand keywords added Apr 30. Impressions jumped to 70 on Apr 30 (day one of new keywords). Bidding switched to Maximise Conversion Value. Expect significant spend increase in May as the campaign builds impressions.</td>
         </tr>
         <tr style="background: #f5f5f5;">
           <td>
@@ -416,7 +420,7 @@
       <div class="change-content">
         <span class="change-tag tag-critical">Critical Fix</span>
         <h4>Conversion Tracking: Fixed After 4 Months of Inflation</h4>
-        <p>Four purchase conversion actions were simultaneously set as Primary — every real purchase was being counted 4 times, inflating CPL and conversion figures 3-4x and misleading Smart Bidding. Fixed Apr 30 after Admin access was granted. Only "Kenny Fuels - GA4 (web) purchase" (GA4 web) remains Primary. All other purchase, contact, and booking actions set to Secondary. Accurate data collection begins May 2026.</p>
+        <p>Four purchase conversion actions were simultaneously set as Primary: every real purchase was being counted 4 times, inflating CPL and conversion figures 3-4x and misleading Smart Bidding. Fixed Apr 30 after Admin access was granted. Only "Kenny Fuels - GA4 (web) purchase" (GA4 web) remains Primary. All other purchase, contact, and booking actions set to Secondary. Accurate data collection begins May 2026.</p>
         <p style="margin-top:8px;">Two broken tags (Contact Us Form, Book appointment GTM) were demoted to Secondary so they have zero impact on bidding. GTM access from Graphedia is still pending to fix the underlying broken tags.</p>
       </div>
     </div>
@@ -426,7 +430,7 @@
       <div class="change-content">
         <span class="change-tag tag-critical">Critical Fix</span>
         <h4>Two Broken Bidding Strategies Removed</h4>
-        <p>Brand &amp; General Search had a 6,600% Target ROAS cap — campaign was spending €17/day vs €110 budget. Home Heating Oil Search had a 4,996% Target ROAS cap — near-zero impressions. Both removed and campaigns switched to Maximise Conversion Value (no ROAS constraint). Learning periods underway.</p>
+        <p>Brand &amp; General Search had a 6,600% Target ROAS cap: campaign was spending €17/day vs €110 budget. Home Heating Oil Search had a 4,996% Target ROAS cap: near-zero impressions. Both removed and campaigns switched to Maximise Conversion Value (no ROAS constraint). Learning periods underway.</p>
       </div>
     </div>
 
@@ -444,7 +448,7 @@
       <div class="change-content">
         <span class="change-tag tag-high">High Priority</span>
         <h4>Home Heating Oil Search: Full Keyword Rebuild</h4>
-        <p>Campaign had only "near me" keywords — a search pattern that generates near-zero impressions in Ireland where people search by location name, not "near me." 36 new keywords added Apr 29-30: geographic phrases for Wexford, Wicklow, Carlow, town-level (Gorey, Enniscorthy, Arklow, Ferns), Ireland-wide terms, near-me variants with real volume (heating oil near me 170/mo, home heating oil near me 140/mo, emergency heating oil delivery near me 320/mo), and 7 brand keywords. Impressions jumped from 5-6/day to 70 on Apr 30.</p>
+        <p>Campaign had only "near me" keywords: a search pattern that generates near-zero impressions in Ireland where people search by location name, not "near me." 36 new keywords added Apr 29-30: geographic phrases for Wexford, Wicklow, Carlow, town-level (Gorey, Enniscorthy, Arklow, Ferns), Ireland-wide terms, near-me variants with real volume (heating oil near me 170/mo, home heating oil near me 140/mo, emergency heating oil delivery near me 320/mo), and 7 brand keywords. Impressions jumped from 5-6/day to 70 on Apr 30.</p>
       </div>
     </div>
 
@@ -453,7 +457,7 @@
       <div class="change-content">
         <span class="change-tag tag-high">High Priority</span>
         <h4>69 Dead Ad Groups Removed from Brand &amp; General Search</h4>
-        <p>The previous agency had created 120+ ad groups using a copy-paste template. 69 enabled ad groups with zero impressions and zero conversions over 30 days were paused across 3 rounds (Apr 27: 8, Apr 28: 46, Apr 29: 15). Before pausing, DataForSEO volumes were checked on all keywords — worthwhile terms were moved to appropriate campaigns (gas canister refills near me, emergency heating oil delivery near me). Categories cleared: hardware, lubricants, firewood, coal, and gas terms duplicated by the Gas Bottle campaign.</p>
+        <p>The previous agency had created 120+ ad groups using a copy-paste template. 69 enabled ad groups with zero impressions and zero conversions over 30 days were paused across 3 rounds (Apr 27: 8, Apr 28: 46, Apr 29: 15). Before pausing, DataForSEO volumes were checked on all keywords: worthwhile terms were moved to appropriate campaigns (gas canister refills near me, emergency heating oil delivery near me). Categories cleared: hardware, lubricants, firewood, coal, and gas terms duplicated by the Gas Bottle campaign.</p>
       </div>
     </div>
 
@@ -462,7 +466,7 @@
       <div class="change-content">
         <span class="change-tag tag-high">High Priority</span>
         <h4>Ad Copy Rewritten Across 10 Ad Groups</h4>
-        <p>The previous agency created one ad per ad group across 120+ ad groups — all using the same 3-headline pinned template causing POOR ad strength account-wide. Rewrote 10 priority ad groups with 15 headlines each (H1 pin only), 4 descriptions, product-specific content. Paused skeleton ads. Ad groups fixed: Heating Oil Prices Near Me Today, Heating Oil Suppliers Near Me, Wexford Heating Oil Suppliers, Home Heating Oil Carlow, Heating Oil Delivery Wicklow, Heating Oil For Homes Wicklow, Top Heating Oil Supplier Wicklow, Gas Cylinder For Sale, Kenny Fuels Brand, Fuel Oil For Home Heating. 100+ ad groups remain at Poor — lower priority, to be addressed progressively.</p>
+        <p>The previous agency created one ad per ad group across 120+ ad groups: all using the same 3-headline pinned template causing POOR ad strength account-wide. Rewrote 10 priority ad groups with 15 headlines each (H1 pin only), 4 descriptions, product-specific content. Paused skeleton ads. Ad groups fixed: Heating Oil Prices Near Me Today, Heating Oil Suppliers Near Me, Wexford Heating Oil Suppliers, Home Heating Oil Carlow, Heating Oil Delivery Wicklow, Heating Oil For Homes Wicklow, Top Heating Oil Supplier Wicklow, Gas Cylinder For Sale, Kenny Fuels Brand, Fuel Oil For Home Heating. 100+ ad groups remain at Poor: lower priority, to be addressed progressively.</p>
       </div>
     </div>
 
@@ -480,7 +484,7 @@
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>Keyword Research: 25+ New Keywords Added Across Campaigns</h4>
-        <p>DataForSEO research (Ireland, location 2372) identified high-volume keywords missing from all three campaigns. Key additions to Brand &amp; General Search: "home heating oil prices ireland" (1,300/mo), "heating oil ireland" (210/mo), "home heating oil ireland" (210/mo), geographic variants for Wexford, Wicklow, Carlow. Key additions to Gas Bottle: "butane gas cylinders" (390/mo), "gas cylinder near me" (320/mo), "gas bottle near me" (260/mo), "lpg gas near me" (260/mo). Competitor negatives added: Calor Gas, Flogas (confirmed: Kenny Fuels does NOT stock Calor; does stock Flo Gas — Flo Gas negative was corrected within the same session).</p>
+        <p>DataForSEO research (Ireland, location 2372) identified high-volume keywords missing from all three campaigns. Key additions to Brand &amp; General Search: "home heating oil prices ireland" (1,300/mo), "heating oil ireland" (210/mo), "home heating oil ireland" (210/mo), geographic variants for Wexford, Wicklow, Carlow. Key additions to Gas Bottle: "butane gas cylinders" (390/mo), "gas cylinder near me" (320/mo), "gas bottle near me" (260/mo), "lpg gas near me" (260/mo). Competitor negatives added: Calor Gas, Flogas (confirmed: Kenny Fuels does NOT stock Calor; does stock Flo Gas: Flo Gas negative was corrected within the same session).</p>
       </div>
     </div>
 
@@ -489,7 +493,7 @@
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>Negative Keywords: Wasted Spend Blocked</h4>
-        <p>Multiple negative keyword fixes applied. Removed 5 blocking negatives from Brand &amp; General Search that were excluding high-intent searches: "price", "how much", "rates", "cost", "costs" were blocking "heating oil price" and "how much is home heating oil." Added competitor brand negatives: Flogas, Burkes Oil, TopOil, NaasOil, Certa. Added product exclusions: "oil tank" (Kenny Fuels doesn't sell tanks), "coal merchants" (Gas Bottle campaign). Removed "review" and "reviews" from negative list (were blocking brand reputation searches). Negative keyword audit: reviewed all 200+ negative keywords — removed 2 erroneous blocks, kept legitimate exclusions.</p>
+        <p>Multiple negative keyword fixes applied. Removed 5 blocking negatives from Brand &amp; General Search that were excluding high-intent searches: "price", "how much", "rates", "cost", "costs" were blocking "heating oil price" and "how much is home heating oil." Added competitor brand negatives: Flogas, Burkes Oil, TopOil, NaasOil, Certa. Added product exclusions: "oil tank" (Kenny Fuels doesn't sell tanks), "coal merchants" (Gas Bottle campaign). Removed "review" and "reviews" from negative list (were blocking brand reputation searches). Negative keyword audit: reviewed all 200+ negative keywords: removed 2 erroneous blocks, kept legitimate exclusions.</p>
       </div>
     </div>
 
@@ -507,7 +511,7 @@
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>Account Assets Updated: Callouts and Structured Snippets</h4>
-        <p>Added 6 new account-level callouts (EU Award Winner 2021, Free Quote Online, Trackable Delivery, Emergency Deliveries, No Minimum Order, Serving Wexford &amp; Wicklow) — these now appear across all campaigns. Updated Brand &amp; General Search structured snippet from generic values to specific product names (Home Heating Oil, Gas Cylinders, Solid Fuel, Kiln-Dried Firewood, Engine Lubricants, Composite Decking, Composite Fencing, Oil Tanks, Safety &amp; Workwear). Paused 2 zero-conversion sitelinks (Engine Lubricants, Hardware Products).</p>
+        <p>Added 6 new account-level callouts (EU Award Winner 2021, Free Quote Online, Trackable Delivery, Emergency Deliveries, No Minimum Order, Serving Wexford &amp; Wicklow): these now appear across all campaigns. Updated Brand &amp; General Search structured snippet from generic values to specific product names (Home Heating Oil, Gas Cylinders, Solid Fuel, Kiln-Dried Firewood, Engine Lubricants, Composite Decking, Composite Fencing, Oil Tanks, Safety &amp; Workwear). Paused 2 zero-conversion sitelinks (Engine Lubricants, Hardware Products).</p>
       </div>
     </div>
 
@@ -516,7 +520,7 @@
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>Account Structure: Renamed and Reorganised</h4>
-        <p>All campaigns renamed to a consistent KF - [Category] | [Product/Type] naming convention. Display Network disabled on Brand &amp; General Search (was running on Display placements — search campaign should not serve banner ads). 16 hardware-focused ad groups paused inside Brand &amp; General Search (previous agency had mixed hardware and fuel into one campaign). Budget reallocated from paused Shopping campaign to Brand &amp; General Search.</p>
+        <p>All campaigns renamed to a consistent KF - [Category] | [Product/Type] naming convention. Display Network disabled on Brand &amp; General Search (was running on Display placements: search campaign should not serve banner ads). 16 hardware-focused ad groups paused inside Brand &amp; General Search (previous agency had mixed hardware and fuel into one campaign). Budget reallocated from paused Shopping campaign to Brand &amp; General Search.</p>
       </div>
     </div>
 
@@ -538,7 +542,7 @@
 <section id="next">
   <div class="section-label">Going into May</div>
   <div class="section-title">May 2026 Priorities</div>
-  <p class="section-desc">The account is structurally fixed. May is about building on the foundation — launching hardware, letting Smart Bidding calibrate, and collecting accurate conversion data for the first time.</p>
+  <p class="section-desc">The account is structurally fixed. May is about building on the foundation: launching hardware, letting Smart Bidding calibrate, and collecting accurate conversion data for the first time.</p>
 
   <div class="next-grid">
     <div class="next-card">
@@ -564,12 +568,12 @@
     <div class="next-card">
       <span class="priority-tag priority-medium">Ongoing</span>
       <h4>Ad Copy: 100+ Poor Ad Groups Remaining</h4>
-      <p>10 priority ad groups were rewritten in April. 100+ ad groups in Brand &amp; General Search still show Poor ad strength due to the previous agency's 3-headline pinned template. Being addressed progressively — lower priority than hardware launch and campaign stabilisation.</p>
+      <p>10 priority ad groups were rewritten in April. 100+ ad groups in Brand &amp; General Search still show Poor ad strength due to the previous agency's 3-headline pinned template. Being addressed progressively: lower priority than hardware launch and campaign stabilisation.</p>
     </div>
     <div class="next-card">
       <span class="priority-tag priority-medium">Pending</span>
       <h4>GTM Access from Graphedia</h4>
-      <p>Access to GTM-5Z97JLX and GTM-TQR899VB has been requested. Once granted, Contact Us Form and Book Appointment broken tags can be fixed. Both are currently Secondary so they have no impact on bidding — this is a housekeeping fix, not urgent.</p>
+      <p>Access to GTM-5Z97JLX and GTM-TQR899VB has been requested. Once granted, Contact Us Form and Book Appointment broken tags can be fixed. Both are currently Secondary so they have no impact on bidding: this is a housekeeping fix, not urgent.</p>
     </div>
   </div>
 </section>
