@@ -89,20 +89,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* PREVIEW BANNER */
-        .preview-banner {
-            background: #fff8e1;
-            border-bottom: 2px solid #f9a825;
-            padding: 12px 40px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            color: #5d4037;
-        }
-
-        .preview-banner strong { color: #e65100; }
-
         /* HERO */
         .hero {
             padding: 80px 40px 60px;
@@ -208,25 +194,6 @@
             padding: 28px 24px;
             background: var(--white);
             position: relative;
-        }
-
-        .metric-card.preview-card {
-            border-color: #f9a825;
-            background: #fffdf5;
-        }
-
-        .preview-chip {
-            position: absolute;
-            top: 10px;
-            right: 12px;
-            background: #fff3cd;
-            color: #e65100;
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 2px 7px;
-            border-radius: 10px;
         }
 
         .metric-label {
@@ -338,6 +305,16 @@
             display: inline-block;
             background: #e3f2fd;
             color: #1565c0;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .status-new {
+            display: inline-block;
+            background: #f3e5f5;
+            color: #7b1fa2;
             font-size: 11px;
             font-weight: 700;
             padding: 3px 10px;
@@ -460,6 +437,7 @@
         .icon-done { background: #e8f5e9; }
         .icon-paused { background: #ffebee; }
         .icon-updated { background: #e3f2fd; }
+        .icon-new { background: #f3e5f5; }
 
         .change-content h4 {
             font-size: 15px;
@@ -546,24 +524,26 @@
         <li><a href="#next">What's Next</a></li>
     </ul>
     <div class="nav-right">
-        <span class="report-date">Apr 23 – Apr 30, 2026</span>
+        <span class="report-date">May 1 – May 7, 2026</span>
         <button class="btn-pdf" onclick="window.print()">⬇ Download PDF</button>
     </div>
 </nav>
 
-
 <!-- HERO -->
 <div class="hero">
-    <div class="period-badge">Apr 23 – Apr 30, 2026 &nbsp;·&nbsp; 7 days</div>
+    <div class="period-badge">May 1 – May 7, 2026 &nbsp;·&nbsp; 7 days</div>
     <h1>Kenny Fuels<span>Google Ads</span></h1>
-    <p>Weekly performance overview across all active campaigns. All figures in EUR. Reporting period: Thu Apr 23 – Thu Apr 30 (7 days). Comparisons against the previous full week (Apr 16–23).</p>
+    <p>Weekly performance overview across all active campaigns. All figures in EUR. Reporting period: Fri May 1 – Thu May 7 (7 days). Comparisons against the previous full week (Apr 24–30).</p>
 </div>
 
 <!-- NOTES -->
 <section id="notes" style="background: var(--gray); border-bottom: none;">
     <div class="section-title">This Week's Notes</div>
     <p style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 8px; color: var(--text-dark);">
-        This week was focused on deep account optimisation across all three fuel campaigns. We completed keyword research for all campaigns using Irish search data, tightened match types from broad to phrase across hundreds of keywords, rewrote ad copy for 6 priority ad groups in Brand and General Search (all were rated Poor due to the previous agency's 3-pinned-headline template), and fixed a second broken Target ROAS target on the Home Heating Oil Search campaign. Gas Bottle and Cylinders is showing the strongest early signal: conversion value up 230% week on week with 34% less spend. Brand and General Search is still in learning period following last week's ROAS fix and should normalise in early May. Hardware campaign builds are ready to go pending revised budget approval from the client.
+        This was the most active restructuring week since we took over the account. Three major themes ran in parallel. First, account hygiene: a full negative keyword audit identified conflicting broad negatives blocking seven active ad groups, the General Negatives shared list was found missing from all three fuel campaigns and applied, and 68 ad groups generating zero conversions were paused to concentrate budget on what is working. Second, the first hardware campaign launched on May 5: KF Hardware – Composite Decking is live with four themed ad groups, 18 phrase match keywords, and 15 sitelinks. Early CTRs are strong. Third, the account was repositioned for the off-season: heating oil and coal groups paused, budget shifted from Brand and General to Gas Bottle (BBQ season starting) and the new hardware campaign.
+    </p>
+    <p style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 16px; color: var(--text-dark);">
+        Brand and General Search recorded 0 conversions all week despite 834 clicks. A full investigation confirmed this is a tracking problem, not a campaign problem. Two GA4 measurement IDs are firing on every page of the website, and the property linked to Google Ads is only capturing 11% of sessions. The remaining 89% of Google Ads clicks go untracked — meaning purchases are happening but Google Ads cannot see them. A consolidated fix request was sent to the client on May 5 for forwarding to Graphedia. This is the single most important outstanding item: without the fix, the algorithm has no signal to optimise on when the heating oil season resumes in September.
     </p>
 </section>
 
@@ -571,63 +551,63 @@
 <section id="metrics">
     <div class="section-label">Key Metrics</div>
     <div class="section-title">Weekly Performance</div>
-    <p class="section-desc">Apr 23 – Apr 30, 2026 &nbsp;·&nbsp; 7 days. Comparisons against previous full week (Apr 16–23).</p>
-    <p class="section-commentary">Cost per lead improved significantly this week to €11.19 vs €24.95 last week: a 55% improvement driven primarily by Gas Bottle and Cylinders efficiency gains. Total spend for the week is €246 vs €449 last week (full week including Shopping). Brand and General Search volume is depressed as expected due to the learning period following the ROAS fix on Apr 23: impressions and clicks are down around 50% but CPL held steady at €6.97. CTR comparison versus last week is not meaningful: the Shopping campaign had 61,000+ impressions at 1.65% CTR which deflated the prior week average. With Shopping paused, this week's CTR reflects Search campaigns only.</p>
+    <p class="section-desc">May 1 – May 7, 2026 &nbsp;·&nbsp; 7 days. Prior week (Apr 24–30) shown for comparison.</p>
+    <p class="section-commentary">Phone call conversions are the only clean, reliable metric this week. Brand and General conversions are 0 due to the dual GA4 tag issue. Home Heating Oil Search and Gas Bottle both recorded 5 phone calls each — tracked directly by Google Ads with no GA4 dependency. Total spend is up from €623 to €1,202 because Home Heating Oil Search scaled from €4.73 to €364 spend after the late-April keyword additions took hold, and Composite Decking launched mid-week. Note: prior week conversion data is not directly comparable — GA4 key events were reconfigured on May 5 and some figures included events now removed.</p>
 
     <div class="metrics-grid">
         <div class="metric-card">
-            <div class="metric-label">Leads</div>
-            <div class="metric-value">22</div>
+            <div class="metric-label">Phone Call Leads</div>
+            <div class="metric-value">10</div>
             <div class="metric-comparisons">
                 <div class="metric-comp">
-                    <span class="comp-label">Last Week</span>
-                    <span class="neutral">18</span>
+                    <span class="comp-label">Source</span>
+                    <span class="neutral">HHO + Gas Bottle</span>
                 </div>
                 <div class="metric-comp">
                     <span class="comp-label">Note</span>
-                    <span class="neutral">Apr 23–28 data</span>
+                    <span class="neutral">Clean, GA4-independent</span>
                 </div>
             </div>
         </div>
         <div class="metric-card">
-            <div class="metric-label">Spend</div>
-            <div class="metric-value">€246</div>
+            <div class="metric-label">Total Spend</div>
+            <div class="metric-value">€1,202</div>
             <div class="metric-comparisons">
                 <div class="metric-comp">
-                    <span class="comp-label">Last Week</span>
-                    <span class="neutral">€449</span>
+                    <span class="comp-label">Prior Week</span>
+                    <span class="neutral">€623</span>
                 </div>
                 <div class="metric-comp">
                     <span class="comp-label">Note</span>
-                    <span class="neutral">Partial + no Shopping</span>
+                    <span class="neutral">HHO scale-up + new campaign</span>
                 </div>
             </div>
         </div>
         <div class="metric-card">
-            <div class="metric-label">Cost Per Lead</div>
-            <div class="metric-value">€11.19</div>
+            <div class="metric-label">HHO Search Spend</div>
+            <div class="metric-value">€364</div>
             <div class="metric-comparisons">
                 <div class="metric-comp">
-                    <span class="comp-label">Last Week</span>
-                    <span class="neutral">€24.95</span>
+                    <span class="comp-label">Prior Week</span>
+                    <span class="neutral">€4.73</span>
                 </div>
                 <div class="metric-comp">
-                    <span class="comp-label">Change</span>
-                    <span class="up">▲ 55% better</span>
+                    <span class="comp-label">Calls</span>
+                    <span class="up">▲ 5 phone calls</span>
                 </div>
             </div>
         </div>
         <div class="metric-card">
-            <div class="metric-label">Gas Bottle Conv. Value</div>
-            <div class="metric-value">€462</div>
+            <div class="metric-label">Composite Decking CTR</div>
+            <div class="metric-value">20.3%</div>
             <div class="metric-comparisons">
                 <div class="metric-comp">
-                    <span class="comp-label">Last Week</span>
-                    <span class="neutral">€140</span>
+                    <span class="comp-label">Launched</span>
+                    <span class="neutral">May 5 (3 days)</span>
                 </div>
                 <div class="metric-comp">
-                    <span class="comp-label">Change</span>
-                    <span class="up">▲ 230%</span>
+                    <span class="comp-label">Avg CPC</span>
+                    <span class="neutral">€1.36</span>
                 </div>
             </div>
         </div>
@@ -637,64 +617,57 @@
     <div class="table-card">
         <div class="table-card-header">
             <h3>Weekly Breakdown</h3>
-            <p>All campaigns combined, measured week by week (Thursday to Thursday). CTR jump in the current week is due to Shopping campaign being paused: Shopping had 61,000+ impressions at 1.65% CTR which was deflating the prior average. Current week CTR reflects Search only and is not directly comparable.</p>
+            <p>All active campaigns combined. Conversion data before May 5 is not directly comparable: GA4 key events were reconfigured on May 5 and some prior-week conversions reflected incorrectly configured events now removed. Spend and clicks are accurate for both periods.</p>
         </div>
         <table>
             <thead>
                 <tr>
                     <th>Week</th>
-                    <th>Leads</th>
                     <th>Spend</th>
                     <th>Clicks</th>
+                    <th>Impressions</th>
                     <th>CTR</th>
-                    <th>Cost Per Lead</th>
+                    <th>Phone Calls</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Apr 9 – Apr 15</td>
-                    <td>58</td>
-                    <td>€444</td>
-                    <td>2,774</td>
-                    <td>3.97%</td>
-                    <td>€7.66</td>
-                </tr>
-                <tr>
-                    <td>Apr 16 – Apr 23</td>
-                    <td>18</td>
-                    <td>€449</td>
-                    <td>2,571</td>
-                    <td>3.45%</td>
-                    <td>€24.95</td>
+                    <td>Apr 24 – Apr 30</td>
+                    <td>€623</td>
+                    <td>1,188</td>
+                    <td>7,058</td>
+                    <td>16.8%</td>
+                    <td>—*</td>
                 </tr>
                 <tr style="font-weight:600; background:#fffdf0;">
-                    <td>Apr 23 – Apr 30 ← This Week (figures through Apr 28)</td>
-                    <td>22</td>
-                    <td>€246</td>
-                    <td>706</td>
-                    <td>18.0%*</td>
-                    <td>€11.19</td>
+                    <td>May 1 – May 7 ← This Week</td>
+                    <td>€1,202</td>
+                    <td>1,510</td>
+                    <td>12,744</td>
+                    <td>11.9%</td>
+                    <td>10</td>
                 </tr>
             </tbody>
         </table>
+        <p style="padding: 12px 24px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--mid-gray);">*Prior week phone call data not isolated due to key event reconfiguration completed May 5. Spend and clicks are accurate.</p>
     </div>
 
     <!-- Chart -->
     <div class="chart-container">
         <div class="chart-header">
-            <span class="chart-title">Weekly Leads: Last 3 Periods</span>
+            <span class="chart-title">Spend by Campaign: May 1–7</span>
             <div class="chart-legend">
                 <div class="legend-item">
                     <div class="legend-dot" style="background:#243B98"></div>
-                    <span>Prior Weeks (full)</span>
+                    <span>Fuel Campaigns</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-dot" style="background:#E6211E"></div>
-                    <span>This Week (preview)</span>
+                    <span>Hardware</span>
                 </div>
             </div>
         </div>
-        <canvas id="leadsChart" height="100"></canvas>
+        <canvas id="spendChart" height="100"></canvas>
     </div>
 </section>
 
@@ -702,85 +675,97 @@
 <section id="campaigns">
     <div class="section-label">Campaign Performance</div>
     <div class="section-title">Active Campaigns</div>
-    <p class="section-desc">Apr 23 – Apr 30, 2026 &nbsp;·&nbsp; 7 days.</p>
+    <p class="section-desc">May 1 – May 7, 2026 &nbsp;·&nbsp; 7 days.</p>
     <ul class="section-commentary" style="padding-left: 32px; list-style: disc;">
-        <li style="margin-bottom: 10px;"><strong>KF - Fuel | Gas Bottle &amp; Cylinders:</strong> The standout this week. Conversion value up 230% (€140 to €462) with 34% less spend. Cost per lead halved from €50.85 to €23.82. Phrase match changes and Calor/Flo Gas brand cleanup are working.</li>
-        <li style="margin-bottom: 10px;"><strong>KF - Fuel | Brand &amp; General Search:</strong> Still in learning period following ROAS fix on Apr 23. Impressions and clicks down ~50% vs last week as expected. CPL held steady at €6.97. Should normalise in early May.</li>
-        <li style="margin-bottom: 10px;"><strong>KF - Fuel | Home Heating Oil Search:</strong> 4,996% Target ROAS removed Apr 28. Campaign was getting minimal impressions all week due to the broken target. 36 geographic and brand keywords added Apr 30: impressions jumped to 70 on day one. Conversion tracking fixed Apr 30.</li>
+        <li style="margin-bottom: 10px;"><strong>KF – Fuel | Home Heating Oil Search:</strong> The standout this week. Scaled from €4.73 spend last week to €364 this week after the keyword additions from late April took hold. Five phone calls recorded — the first conversions this campaign has generated since our engagement began. At €0.87 avg CPC this is the most efficient traffic in the account.</li>
+        <li style="margin-bottom: 10px;"><strong>KF – Fuel | Gas Bottle &amp; Cylinders:</strong> Five phone calls. Budget increased to €50/day for BBQ season. Seven summer BBQ keywords added. Impressions up to 4,413 from 3,176 the prior week. CPC held at €1.09. Solid performance heading into the summer demand period.</li>
+        <li style="margin-bottom: 10px;"><strong>KF – Fuel | Brand &amp; General Search:</strong> 834 clicks, €547 spend, 0 recorded conversions. Tracking issue confirmed as root cause: 89% of Google Ads sessions are going to a different GA4 property and Google Ads cannot see the purchases that are happening. CPCs are trending positively: avg CPC down from €0.85 (May 1) to €0.52 (May 7). The off-season restructure — 68 ad groups paused, 3 RSAs rebuilt, match types corrected — means the campaign is in good shape for when tracking is resolved.</li>
+        <li style="margin-bottom: 10px;"><strong>KF – Hardware | Composite Decking:</strong> Launched May 5. Three days of data. All four ad groups are active with healthy CTRs. Boards and Planks is leading volume. Impressions scaled from 31 to 94 over the first three days. No conversions expected yet — full review at the 3-week mark, approximately May 22.</li>
     </ul>
 
     <div class="table-card">
         <div class="table-card-header">
-            <h3>Kenny Fuels: All Campaigns</h3>
+            <h3>Kenny Fuels: All Active Campaigns</h3>
         </div>
         <table>
             <thead>
                 <tr>
                     <th>Campaign</th>
-                    <th>Type</th>
                     <th>Status</th>
                     <th>Spend</th>
-                    <th>Leads</th>
-                    <th>Cost Per Lead</th>
+                    <th>Clicks</th>
+                    <th>Avg CPC</th>
+                    <th>Leads / Calls</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- KF - Fuel | Brand & General Search -->
                 <tr>
                     <td>
-                        <div class="campaign-name">KF - Fuel | Brand &amp; General Search</div>
-                        <div class="adgroup-label">All Ad Groups (combined)</div>
+                        <div class="campaign-name">KF – Fuel | Brand &amp; General Search</div>
+                        <div class="adgroup-label">Brand, emergency, firewood, lubricants active &nbsp;·&nbsp; 42 heating oil groups paused off-season</div>
                     </td>
-                    <td>Search</td>
-                    <td><span class="status-learning">LEARNING</span></td>
-                    <td>€76</td>
-                    <td>10.85</td>
-                    <td>€6.97</td>
+                    <td><span class="status-learning">TRACKING ISSUE</span></td>
+                    <td>€547</td>
+                    <td>834</td>
+                    <td>€0.66</td>
+                    <td>0 <span class="zero-conv">⚠ GA4 tag unfixed</span></td>
                 </tr>
                 <tr class="campaign-note">
-                    <td colspan="6">Learning period: ROAS target removed Apr 23. Impressions down ~50% vs prior week. Recovery expected within 3-5 days of Apr 28 fix.</td>
+                    <td colspan="6">0 recorded conversions due to dual GA4 tag issue (89% session loss). Fix request sent to Graphedia May 5 — awaiting client chase. CPCs trending down: €0.85 to €0.52 over the week. Off-season restructure complete.</td>
                 </tr>
 
-                <!-- KF - Fuel | Gas Bottle & Cylinders -->
                 <tr>
                     <td>
-                        <div class="campaign-name">KF - Fuel | Gas Bottle &amp; Cylinders</div>
-                        <div class="adgroup-label">Gas Cylinders</div>
+                        <div class="campaign-name">KF – Fuel | Home Heating Oil Search</div>
+                        <div class="adgroup-label">Home Heating Oil — geographic and brand keywords</div>
                     </td>
-                    <td>Search</td>
                     <td><span class="status-active">ACTIVE</span></td>
-                    <td>€168</td>
-                    <td>7.05</td>
-                    <td>€23.82</td>
+                    <td>€364</td>
+                    <td>420</td>
+                    <td>€0.87</td>
+                    <td>5 phone calls</td>
                 </tr>
                 <tr class="campaign-note">
-                    <td colspan="6">Conversion value: €462 this week vs €140 last week (+230%). Phrase match and brand cleanup driving improvement.</td>
+                    <td colspan="6">Scaled from €4.73 last week — late-April keyword additions now generating real volume. Five phone calls from people calling directly after clicking the ad. Budget reduced to €25/day from May 7 (off-season bulk orders stopped; emergency and commercial calls continue year-round).</td>
                 </tr>
 
-                <!-- KF - Fuel | Home Heating Oil Search -->
                 <tr>
                     <td>
-                        <div class="campaign-name">KF - Fuel | Home Heating Oil Search</div>
-                        <div class="adgroup-label">Ad Group - Home Heating Oil <span class="zero-conv">⚠ Tracking broken: conv value = conv count</span></div>
+                        <div class="campaign-name">KF – Fuel | Gas Bottle &amp; Cylinders</div>
+                        <div class="adgroup-label">Gas Cylinders — phrase match, Flo Gas &amp; Calor Gas excluded</div>
                     </td>
-                    <td>Search</td>
-                    <td><span class="status-learning">RECOVERING</span></td>
-                    <td>€3</td>
-                    <td>4.00</td>
-                    <td>—</td>
+                    <td><span class="status-active">ACTIVE</span></td>
+                    <td>€235</td>
+                    <td>215</td>
+                    <td>€1.09</td>
+                    <td>5 phone calls</td>
                 </tr>
                 <tr class="campaign-note">
-                    <td colspan="6">4,996% Target ROAS removed Apr 28. Campaign was near-inactive all week. 36 new geographic and brand keywords added Apr 30: impressions expected to recover within 24-48 hours.</td>
+                    <td colspan="6">Budget increased to €50/day from May 7 for BBQ season. Seven summer BBQ keywords added. Impressions up to 4,413 from 3,176 the prior week.</td>
                 </tr>
 
-                <!-- Total row -->
+                <tr>
+                    <td>
+                        <div class="campaign-name">KF – Hardware | Composite Decking</div>
+                        <div class="adgroup-label">General &nbsp;·&nbsp; Price &amp; Buy &nbsp;·&nbsp; Geo &nbsp;·&nbsp; Boards &amp; Planks — launched May 5</div>
+                    </td>
+                    <td><span class="status-new">LAUNCHED</span></td>
+                    <td>€56</td>
+                    <td>41</td>
+                    <td>€1.36</td>
+                    <td>0 (too early)</td>
+                </tr>
+                <tr class="campaign-note">
+                    <td colspan="6">3 days of data only (May 5–7). 20.3% overall CTR on launch week. Boards and Planks leading with 17 clicks on May 7, CPC declining from €1.63 to €1.20. Budget increased to €25/day. Next review: ~May 22.</td>
+                </tr>
+
                 <tr style="font-weight:700; background: var(--gray);">
-                    <td>Total</td>
+                    <td>Total (4 active campaigns)</td>
                     <td></td>
-                    <td></td>
-                    <td>€246</td>
-                    <td>21.90</td>
-                    <td>€11.24</td>
+                    <td>€1,202</td>
+                    <td>1,510</td>
+                    <td>€0.80</td>
+                    <td>10 phone calls</td>
                 </tr>
             </tbody>
         </table>
@@ -791,241 +776,113 @@
 <section id="changes">
     <div class="section-label">Changes Made</div>
     <div class="section-title">Optimisations This Week</div>
-    <p class="section-desc">Google Ads account actions taken Apr 23–30, 2026.</p>
+    <p class="section-desc">Google Ads and GA4 account actions taken May 1–8, 2026.</p>
 
     <div class="changes-list">
 
         <div class="change-item">
             <div class="change-icon icon-updated">🔧</div>
             <div class="change-content">
-                <h4>Bidding Strategy Confirmed Fixed: Home Heating Oil Search</h4>
-                <p>Despite session notes from Apr 28 indicating the bidding strategy was updated, the API confirmed it had not taken effect: the campaign was still running on Maximise Clicks (Target Spend). This was identified and corrected on Apr 30. The campaign is now confirmed on Maximise Conversion Value with no Target ROAS. This is a critical fix: the campaign could not spend its €50/day budget properly under the Clicks strategy with the keyword mix it had.</p>
+                <h4>Conflicting Negatives Removed and General Negatives Applied (May 4)</h4>
+                <p>A full negative keyword audit across Brand and General Search identified broad match negatives that were blocking active ad groups from serving. Three were removed: "price" BROAD (blocking Heating Oil Prices Near Me Today, Best Home Heating Oil Prices Wexford, and Oil Prices Wexford), "prices" BROAD (same groups), and "cheapest" BROAD (blocking Cheapest Oil Prices Wexford). The competitor negative "top oil" BROAD was changed to EXACT so the competitor brand remains blocked while the Top Heating Oil Supplier Wicklow ad group is unblocked.</p>
+                <p style="margin-top:8px;">The General Negatives shared list was found missing from all three KF Fuel campaigns. This list blocks non-commercial queries such as photos, discount code searches, YouTube searches, and job-seeker terms. Applied to Brand and General Search, Home Heating Oil Search, and Gas Bottle and Cylinders. The firewood BROAD negative in the Fuel Campaigns - Hardware Exclusions list was also removed — Kenny Fuels sells firewood, so it was incorrectly blocking all firewood ad groups.</p>
             </div>
         </div>
 
         <div class="change-item">
             <div class="change-icon icon-updated">🔧</div>
             <div class="change-content">
-                <h4>40 New Keywords Added: Home Heating Oil Search</h4>
-                <p>The Home Heating Oil Search campaign had been running almost exclusively on "near me" keywords which generate near-zero impressions in Ireland. Two rounds of keyword additions were completed this week: 4 high-volume near-me terms added Apr 29 (heating oil near me 170/mo, home heating oil near me 140/mo, cheap heating oil near me 90/mo, heating oil supplier near me 50/mo) and a full geographic set added Apr 30:</p>
-                <p style="margin-top:8px;"><strong>County-level (18 keywords):</strong> Wexford, Wicklow, and Carlow variants: "heating oil wexford", "home heating oil wexford", "kerosene prices wexford", "heating oil prices wexford", "oil prices wexford", "kerosene wexford", "home heating oil delivery wexford" and equivalents for Wicklow and Carlow.</p>
-                <p style="margin-top:8px;"><strong>Town-level (5 keywords):</strong> Gorey, Enniscorthy, Arklow, and Ferns: "heating oil gorey", "kerosene gorey", "heating oil enniscorthy", "kerosene enniscorthy", "heating oil arklow", "kerosene arklow", "heating oil ferns".</p>
-                <p style="margin-top:8px;"><strong>Ireland-wide (5 keywords):</strong> "home heating oil ireland", "kerosene prices ireland", "heating oil prices ireland", "buy heating oil ireland", "order heating oil ireland".</p>
-                <p style="margin-top:8px;"><strong>Brand (7 keywords):</strong> "kenny fuels" (broad), "kenny fuels ferns", "kennys fuels", "kenny fuel", "kenny fuels wexford", "kenny fuels wicklow", "kenny fuels gorey": added so the campaign captures brand searches alongside geographic terms. "Kenny fuels ferns" was historically the campaign's top converting search term with 9.98 conversions before the ROAS issue took hold.</p>
+                <h4>Ad Group-Level Negatives Added (May 4–5)</h4>
+                <p>Search term audits identified two categories of irrelevant traffic passing through after the General Negatives list was applied.</p>
+                <p style="margin-top:8px;"><strong>Kenny Fuels brand ad group (9 phrase negatives):</strong> kevin building supplies, a142 mesh, discount code, petrol station, service station, building materials, decorative stone, landscaping, gravel.</p>
+                <p style="margin-top:8px;"><strong>Fuel Oil For Home Heating (10 competitor phrase negatives):</strong> o neills fuels, burkes oil, klass oil, capitol oil, corrib oil, emo oil, certas, texoil, atmos boilers, bunded tank. Competitor fuel brand searches will not convert for Kenny Fuels.</p>
+                <p style="margin-top:8px;"><strong>Campaign-level, Brand and General (6 negatives added May 5):</strong> kevin, zf, 20w50, boilers (broad); kiln dried shavings, wicklow wood fuels (phrase). Added following a May 1–4 search term review.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-paused">⏸</div>
+            <div class="change-content">
+                <h4>Gas Cylinder For Sale Ad Group Paused (May 4)</h4>
+                <p>The Gas Cylinder For Sale ad group in Brand and General Search was duplicating the dedicated Gas Bottle and Cylinders campaign. In May 1–3 it spent €23.62 with 0 conversions while the Gas Bottle campaign recorded 2 conversions over the same period. Pausing this ad group consolidates gas cylinder budget into the campaign that is actually converting and removes an internal auction conflict.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-new">🚀</div>
+            <div class="change-content">
+                <h4>Composite Decking Campaign Launched (May 5)</h4>
+                <p>The first hardware campaign — KF Hardware | Composite Decking — was built and launched on May 5.</p>
+                <p style="margin-top:8px;"><strong>Setup:</strong> Budget €15/day (increased to €25/day May 7), Maximise Clicks bidding, targeting Wexford, Wicklow, and Carlow. Hardware Campaigns - Fuel Exclusions negative list applied.</p>
+                <p style="margin-top:8px;"><strong>4 ad groups:</strong> General (4 keywords), Price and Buy (5 keywords), Geo (4 keywords), Boards and Planks (5 keywords). Each has 15 headlines and 4 descriptions. No keyword overlap between groups. 15 campaign-level sitelinks added covering all hardware product categories.</p>
+                <p style="margin-top:8px;"><strong>Early performance (May 5–7):</strong> 202 impressions, 41 clicks, 20.3% CTR, €1.36 avg CPC, €56 spend. Boards and Planks leading volume. CPCs in the lower end of the expected range for composite decking in Ireland.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-done">✅</div>
+            <div class="change-content">
+                <h4>GA4 Conversion Tracking Cleaned Up (May 5 and May 8)</h4>
+                <p>A full audit of GA4 key events identified four incorrectly configured events inflating conversion counts throughout April. All removed.</p>
+                <p style="margin-top:8px;"><strong>Removed May 5:</strong> view_item (product page views were counting as conversions), Purchase_2 (broken duplicate tag, 84 fires with €0 revenue), ads_conversion_Checkout_1 (duplicate of begin_checkout, 229 fires at €0), ads_conversion_Shopping_Cart_1 (duplicate of add_to_cart, 32 fires at €0).</p>
+                <p style="margin-top:8px;"><strong>Removed May 8:</strong> begin_checkout and add_to_cart unmarked as GA4 key events. Only purchase remains as a key event — giving a clean picture of actual buyer intent. Google Ads conversion actions reviewed: only two remain as Primary (Calls from ads and GA4 web purchase). All others are Secondary.</p>
             </div>
         </div>
 
         <div class="change-item">
             <div class="change-icon icon-updated">🔧</div>
             <div class="change-content">
-                <h4>Weak Keywords Paused and Negatives Added</h4>
-                <p><strong>Brand and General Search: Keywords paused:</strong> "home oil" (phrase): €71 spend over 30 days, QS 0, 0 conversions, was triggering "oil heating" searches. "order oil" (phrase): too generic, QS 0, 0 conversions.</p>
-                <p style="margin-top:8px;"><strong>Brand and General Search: Negative added:</strong> "oil heating" [exact]: reversed word order search with no purchase intent, €16 spend in last 7 days, 0 conversions.</p>
-                <p style="margin-top:8px;"><strong>Gas Bottle and Cylinders: Negative added:</strong> "coal merchants" [phrase]: wrong product category, 0 conversions.</p>
+                <h4>Dual GA4 Tag Root Cause Identified — Fix Request Sent (May 5)</h4>
+                <p>A full investigation identified why Brand and General shows 0 conversions in Google Ads while GA4 still shows purchase revenue. Two GA4 measurement IDs are firing on every page: G-0RM5FH1MST (PixelYourSite plugin, capturing ~89% of sessions) and G-BMD8SXLKC0 (direct gtag.js script). The property linked to Google Ads is only capturing 11% of sessions — so 89% of purchase events are invisible to Google Ads.</p>
+                <p style="margin-top:8px;">A consolidated fix request was sent to the client on May 5 for forwarding to Graphedia. Required actions: (1) confirm which measurement ID belongs to property 396621665 and remove the duplicate; (2) fix Contact Us Form and Book Appointment conversion tags in GTM; (3) install Google's phone snippet for website call tracking; (4) add form ID differentiation so Contact, Booking, and Quote forms are tracked separately.</p>
             </div>
         </div>
 
         <div class="change-item">
             <div class="change-icon icon-updated">🔧</div>
             <div class="change-content">
-                <h4>Competitor Brand and Price-Intent Negatives Added: Brand and General Search and Gas Bottle and Cylinders</h4>
-                <p>A search term review identified two categories of wasteful spend hitting both campaigns. Smart Bidding was bidding aggressively on terms that will never convert for Kenny Fuels.</p>
-                <p style="margin-top:8px;"><strong>Competitor brands blocked:</strong> "burkes oil", "burkes", "topoil", "top oil", "naasoil", "naas oil", "certa", "certas" added as negatives to Brand and General Search and Gas Bottle and Cylinders. These are competing fuel companies. Clicks on competitor searches do not convert as users are looking for a specific brand.</p>
-                <p style="margin-top:8px;"><strong>Price-comparison terms blocked:</strong> "prices", "price", "cheap", "cheapest" added to both campaigns. These queries attract users comparing prices rather than ready to order — high spend, near-zero conversion rate. Example: "oil heating" was costing €8.13 per click with 0 conversions.</p>
-                <p style="margin-top:8px;"><strong>Also added to Brand and General Search:</strong> "oil tank" — Kenny Fuels does not sell tanks, so this spend was entirely wasted.</p>
+                <h4>Brand and General Search: Bidding Strategy Updated (May 6)</h4>
+                <p>Switched from a portfolio Maximize Conversion Value strategy to standard campaign-level Maximize Conversion Value. The portfolio strategy was blocking the ability to set a maximum CPC bid limit. The algorithm now optimises on this campaign's data only. Average CPCs trended down from €0.85 to €0.52 over the week — the negative keyword fixes from May 4 are reducing high-CPC irrelevant queries. The €50/day daily budget acts as the practical spend ceiling.</p>
             </div>
         </div>
 
         <div class="change-item">
             <div class="change-icon icon-updated">🔧</div>
             <div class="change-content">
-                <h4>Daily Budget Reduced: Brand and General Search</h4>
-                <p>On Apr 29 the Brand and General Search campaign spent €179 against a €110/day budget: 163% overspend. This followed the Apr 28 bidding strategy fix which freed the Maximise Conversion Value strategy to bid more aggressively. The daily budget has been reduced from €110 to €80/day to stabilise spend while the campaign settles. Total account budget is now €165/day. We will monitor over the next several days and increase back to €110 once spend holds below cap.</p>
+                <h4>Off-Season Budget Reallocation (May 7)</h4>
+                <p>Total daily budget remains unchanged at €150/day — spend redistributed from off-season campaigns to those with active summer demand.</p>
+                <p style="margin-top:8px;"><strong>Brand and General Search:</strong> €80/day reduced to €50/day. Heating oil season ended.</p>
+                <p style="margin-top:8px;"><strong>Home Heating Oil Search:</strong> €50/day reduced to €25/day. Bulk residential orders stopped for the season; emergency calls continue at lower volume.</p>
+                <p style="margin-top:8px;"><strong>Gas Bottle and Cylinders:</strong> €35/day increased to €50/day. BBQ season starting.</p>
+                <p style="margin-top:8px;"><strong>Composite Decking:</strong> €15/day increased to €25/day. Strong launch CTRs warrant additional budget for data collection.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-paused">⏸</div>
+            <div class="change-content">
+                <h4>68 Off-Season Ad Groups Paused: Brand and General Search (May 7)</h4>
+                <p><strong>42 heating oil, coal, solid fuel, and briquettes ad groups:</strong> Primary revenue drivers during the September–March heating season. Near-zero conversions in May–August. All paused until September 2026.</p>
+                <p style="margin-top:8px;"><strong>26 gas and LPG ad groups:</strong> 895 impressions, 49 clicks, €46 cost, 0 conversions over 30 days — directly duplicating the Gas Bottle and Cylinders campaign. Consolidating all gas spend into the dedicated campaign removes the internal auction conflict. Remaining active in Brand and General: Kenny Fuels brand, emergency oil, lubricants, kiln dried logs, and firewood.</p>
             </div>
         </div>
 
         <div class="change-item">
             <div class="change-icon icon-updated">🔧</div>
             <div class="change-content">
-                <h4>Ad Copy Rewritten: 7 Ad Groups (Brand and General Search)</h4>
-                <p>A pattern of "skeleton" ads was identified across all Priority ad groups: each had a second ad with exactly 3 headlines all pinned to H1/H2/H3, causing POOR ad strength ratings across the account. The following ad groups were fixed: poor ads paused and better ads rewritten with 15 headlines, H1 pinned only, and 4 descriptions:</p>
-                <p style="margin-top:8px;"><strong>Kenny Fuels (brand ad group):</strong> Paused Ad 2 which had an irrelevant "Topsoil Costs Per Yard" headline in a fuel brand ad group. Rewrote Ad 1 with clean brand-focused content: "Kenny Fuels" pinned to H1, removed typo ("OIl"), replaced gas cylinder copy with brand-appropriate headlines.</p>
-                <p style="margin-top:8px;"><strong>Fuel Oil For Home Heating:</strong> Paused Ad 2 (AVERAGE, 0 conversions). Rewrote Ad 1 which had 8 gas bottle and cylinder headlines in a heating oil ad group: all replaced with heating oil content.</p>
-                <p style="margin-top:8px;"><strong>Heating Oil Prices Today Near Me, Wexford Home Heating Oil Services, Bags Of Firewood For Sale, Buy Home Heating Oil Carlow, Kerosene Heating Oil Near Me:</strong> Each had a skeleton ad (3 pinned headlines, POOR strength): paused and replaced with 15-headline, H1-pinned ads with product-specific copy.</p>
+                <h4>Brand and General: Ad Group Restructure and RSA Rebuilds (May 7)</h4>
+                <p><strong>Firewood consolidation:</strong> 20 single-keyword firewood ad groups replaced with 2 consolidated groups: Kiln Dried Logs (16 phrase match keywords) and Firewood (9 phrase match keywords). Each now has a full 15-headline RSA and 4 descriptions.</p>
+                <p style="margin-top:8px;"><strong>RSAs rebuilt (3 ad groups):</strong> Emergency Heating Oil Near Me, Emergency Oil Delivery Near Me, and Lubricants For Sale had old RSAs with only 5–6 headlines and descriptions referencing wrong products (heating oil copy in a lubricants ad group). All replaced with 15-headline RSAs with product-specific copy. Final URLs confirmed against the live website sitemap.</p>
+                <p style="margin-top:8px;"><strong>Match type fixes:</strong> 5 active keywords changed from BROAD to PHRASE in the emergency and lubricants ad groups. BROAD gives Google too much latitude on Maximize Conversion Value with no active conversion signal.</p>
+                <p style="margin-top:8px;"><strong>BBQ keywords added to Gas Bottle (7 phrase match):</strong> bbq gas ireland, bbq gas cylinder ireland, patio gas ireland, calor gas bbq, propane gas bbq, gas for bbq near me, bbq gas bottle near me.</p>
             </div>
         </div>
 
         <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
+            <div class="change-icon icon-done">✅</div>
             <div class="change-content">
-                <h4>Location Targeting Verified: All 3 Campaigns</h4>
-                <p>Confirmed all three active fuel campaigns (Brand and General Search, Home Heating Oil Search, Gas Bottle and Cylinders) are correctly targeting County Wexford, County Wicklow, and County Carlow. No issues found.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Target ROAS Removed: Home Heating Oil Search</h4>
-                <p>A 4,996% Target ROAS target was identified on the Home Heating Oil Search campaign: the same issue that was crippling Brand and General Search last week (6,600%). The campaign had been getting almost zero impressions since Apr 23 as a result. The ROAS constraint has been removed and the campaign is now on Maximise Conversion Value with no target. Impressions should recover within 3-5 days.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Keyword Research Completed: All 3 Campaigns (Ireland)</h4>
-                <p>Full keyword research conducted using Ireland search data. New high-volume keywords added across all campaigns as phrase match:</p>
-                <p style="margin-top:8px;"><strong>Brand and General Search (7 keywords):</strong> "home heating oil prices ireland" (1,300/mo), "heating oil ireland" (210/mo), "home heating oil ireland" (210/mo), "heating oil wexford" (140/mo), "home heating oil wexford" (140/mo), "heating oil wicklow" (70/mo), "heating oil carlow" (70/mo).</p>
-                <p style="margin-top:8px;"><strong>Gas Bottle and Cylinders (9 keywords):</strong> "lpg gas ireland" (90/mo), "gas cylinder ireland" (50/mo), "propane gas cylinder ireland" (40/mo), "propane gas ireland" (30/mo), "gas bottle ireland" (20/mo), "butane gas ireland" (20/mo), "bottled gas ireland" (20/mo), "patio gas ireland" (20/mo), "butane gas cylinder ireland" (10/mo).</p>
-                <p style="margin-top:8px;"><strong>Home Heating Oil Search (5 keywords):</strong> "heating oil prices ireland" (880/mo), "oil heating ireland" (210/mo), "kerosene ireland" (50/mo), "cheap heating oil ireland" (20/mo), "cheapest heating oil ireland" (20/mo).</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Match Type Sweep: All 3 Campaigns</h4>
-                <p>Broad match keywords across all three fuel campaigns were reviewed and replaced with phrase match. Specific ad groups worked through in Brand and General Search:</p>
-                <p style="margin-top:8px;"><strong>Fuel Oil For Home Heating:</strong> Paused 5 bad keywords (diesel heater terms, Top Oil competitor, oil boilers). Converted 4 to phrase match (heating oil online, home heating fuel, home oil, order oil).</p>
-                <p style="margin-top:8px;"><strong>Wexford Home Heating Oil Services:</strong> Paused "new line oil wexford" (competitor). Converted 4 to phrase match (cheapest oil prices wexford, oil companies wexford, oil prices wexford, oil wexford).</p>
-                <p style="margin-top:8px;"><strong>Home Heating Oil Company:</strong> Paused 3 service-intent keywords (oil boiler servicing, oil heating service). Converted 2 to phrase match.</p>
-                <p style="margin-top:8px;"><strong>Bulk sweep (9 ad groups):</strong> Coal For Delivery, Gas Cylinder For Sale, Briquettes For Sale, Heating Oil Prices Near Me Today, Top Heating Oil Supplier Wicklow, Heating Oil For Homes Wicklow, Home Heating Oil Company Carlow, LPG Gas Cylinders, Heating Oil Near Me Delivery Today: all broad match tightened to phrase.</p>
-                <p style="margin-top:8px;"><strong>Home Heating Oil Search:</strong> All 21 broad match keywords paused. 20 re-added as phrase match. 1 excluded (home heating propane: not relevant to oil campaign).</p>
-                <p style="margin-top:8px;"><strong>Gas Bottle and Cylinders:</strong> 5 additional broad keywords converted to phrase match (14kg gaslight forklift, butane cylinder for patio heater, buy 14kg gaslight forklift, propane cylinder for patio heater, propane gaslight cylinder 10kg).</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Gas Bottle and Cylinders: 10 New Keywords Added</h4>
-                <p>Full keyword research for the Gas Cylinders ad group was completed using Ireland DataForSEO data. 10 high-volume terms not previously in the account were added as phrase match:</p>
-                <p style="margin-top:8px;">"butane gas cylinders" (390/mo, €0.76), "gas cylinder near me" (320/mo, €0.34), "gas bottle near me" (260/mo, €1.30), "lpg gas near me" (260/mo, €1.79), "propane gas near me" (90/mo, €0.35), "gas refill near me" (90/mo, €2.23), "gas cylinders ireland" (50/mo, €1.38), "butane gas near me" (40/mo, €0.50), "flo gas ireland" (30/mo, €0.74), "gas canister ireland" (30/mo, €0.08).</p>
-                <p style="margin-top:8px;">Two additional keywords were extracted from zero-impression ad groups before pausing: "gas canister refills near me" (210/mo) added to Gas Cylinders, and "emergency heating oil delivery near me" (320/mo) added to Home Heating Oil Search — the highest CPC term found this week at €11.21, reflecting strong commercial intent from buyers in urgent need.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>69 Dead Ad Groups Paused Across the Week: Brand and General Search</h4>
-                <p>Three rounds of dead ad group cleanup were completed this week, removing enabled ad groups with zero impressions and zero conversions that were cluttering the campaign and diluting the budget allocation signal for Smart Bidding.</p>
-                <p style="margin-top:8px;"><strong>Round 1 (Apr 28, 46 ad groups):</strong> Firewood, kiln logs, hardware, coal, lubricants, and other irrelevant categories paused. Heating oil, gas, and kerosene ad groups excluded from the pause.</p>
-                <p style="margin-top:8px;"><strong>Round 2 (Apr 29, 8 ad groups):</strong> Gas and butane-related ad groups that duplicated the dedicated Gas Bottle and Cylinders campaign — Butane Gas Cylinders, Gas Cylinders Near Me, Buy Heating Oil Near Me, Buy Propane Gas Wicklow, Butane Suppliers Near Me, Butane Gas Refill Near Me, Butane Gas Canisters Near Me, Butane Gas Suppliers Near Me. Relevant keywords were moved to Gas Bottle and Cylinders before pausing.</p>
-                <p style="margin-top:8px;"><strong>Round 3 (Apr 29, 15 ad groups):</strong> Further zero-impression groups cleared — Buy Firewood, Butane Gas Near Me, Buy Hardwood Firewood, Local Firewood For Sale, Log Drying Kiln For Sale, Best Gas Supplier Wexford, Gas Bottle Refill Wicklow, Gas Tank Suppliers Near Me, Best Places To Buy Firewood, Bottled Gas Delivery Carlow, Gas Canister Refills Near Me, Buy Home Heating Oil Near Me, Kiln Firewood For Sale Near Me, Heating Oil Distributors Near Me, Emergency Heating Oil Delivery Near Me. Worthwhile keywords extracted before pausing.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Ad Copy Rewritten: 7 Priority Ad Groups (Brand and General Search)</h4>
-                <p>All priority heating oil ad groups in Brand and General Search had Poor ad strength: the lowest possible rating. The previous agency created every ad using a 3-pinned-headline template with identical generic copy ("Affordable, Reliable Service", "Most Trusted Ireland Supplier") across 120+ ad groups. The following 7 ad groups were each rewritten with 15 unique headlines, H1 pinned to the target keyword, H2-H15 unpinned, and 4 descriptions with D1 pinned only. The old Poor ads were paused in each.</p>
-                <p style="margin-top:8px;">Ad groups rewritten: Heating Oil Prices Near Me Today, Heating Oil Suppliers Near Me, Wexford Heating Oil Suppliers, Home Heating Oil Carlow, Home Heating Oil Company Carlow, Heating Oil Delivery Wicklow, Heating Oil For Homes Wicklow.</p>
-                <p style="margin-top:8px;">Headlines use real USPs sourced from the Kenny Fuels website: EU Business Award Winner 2021, Fully Trackable Delivery, Best Budget Heating Oil, Save With Online Pricing, Emergency Heating Oil Delivery.</p>
-                <p style="margin-top:8px;">Best Home Heating Oil Prices Wexford was already rated Excellent: no changes made. Gas Bottle and Cylinders (Excellent) and Home Heating Oil Search (Excellent with 4 weak headlines replaced) also reviewed.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Ad Copy Fixed: 3 Additional Ad Groups</h4>
-                <p><strong>Gas Cylinder For Sale:</strong> Paused the generic template ad (had heating oil and coal descriptions in a gas cylinder ad group). Rewrote the main ad with gas-specific content: 9 new headlines including Butane and Propane Cylinders, Gas Cylinders Wexford/Wicklow/Carlow, Next Day Gas Cylinder Delivery, Flo Gas Cylinders Delivered, LPG Gas Cylinders. Descriptions replaced with gas-specific copy referencing Calor Gas and Flo Gas availability.</p>
-                <p style="margin-top:8px;"><strong>Heating Oil For Homes Wicklow:</strong> Fixed 2 descriptions where the first character had been cut off by Google (both started with a missing letter). Headlines left unchanged — 15 were already in place from the Apr 28 rewrite.</p>
-                <p style="margin-top:8px;"><strong>Top Heating Oil Supplier Wicklow:</strong> Paused the generic template ad (0 clicks, 2 impressions). Rewrote the main ad: unpinned H2 and H3, added 11 new Wicklow-specific headlines, replaced generic descriptions with Wicklow-focused copy referencing local delivery and trackable service.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Sitelinks Cleaned Up: Home Heating Oil Search</h4>
-                <p>Home Heating Oil Search had 10 irrelevant sitelinks active including 4 Flo Gas product links, Lubricants, Order Gas Online, Buy Kiln Dried Logs, Kiln Firewood, and 2 duplicate Solid Fuel entries. All were paused on this campaign (they remain active on Gas Bottle and Cylinders where they belong). Descriptions were added to 3 sitelinks with blank fields (Order Home Heating Oil, Contact Us, Home Heating Oil Wexford). Two generic sitelinks were replaced: "Cheapest Prices" became "Get a Free Quote" and "Order Online" became "Track Your Delivery."</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Sitelinks Cleaned Up: Brand and General Search</h4>
-                <p>Two zero-conversion sitelinks were paused from Brand and General Search: Engine Lubricants (76 clicks, 0 conversions) and Hardware Products (52 clicks, 0 conversions). Both were taking up sitelink slots from the 5 converting sitelinks (Buy Heating Oil Today, Order Gas Online, Buy Wood and Coals, Buy Kiln Dried Logs, Contact Us) which all show positive CPL.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Calor Gas Competitor Negative Added: Gas Bottle and Cylinders</h4>
-                <p>Calor Gas is a direct competitor brand that Kenny Fuels does not stock. The keyword "calor gas bottle delivery" was paused and a broad match negative for "calor gas" was added at campaign level (320/mo searches) to prevent spend on searches that will not convert.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Flogas Competitor Negative Added: Brand and General Search</h4>
-                <p>Flogas (separate from Flo Gas) is a direct competitor fuel brand. A broad match negative keyword for "flogas" was added at campaign level to prevent Kenny Fuels ads from showing on Flogas brand searches.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Negative Keyword Audit: Brand and General Search</h4>
-                <p>The campaign's negative keyword list was reviewed. It contained 200+ broad match terms from a generic agency template, many of which were incorrectly blocking legitimate searches for Kenny Fuels.</p>
-                <p style="margin-top:8px;"><strong>Removed:</strong> "review" and "reviews" were incorrectly set as negatives. These were blocking brand reputation searches like "kenny fuels reviews" — warm leads checking the business before placing an order. Both have been removed.</p>
-                <p style="margin-top:8px;"><strong>Conflicting negatives fixed:</strong> Google Ads flagged a set of negative keywords that were conflicting with active positive keywords, preventing ads from showing. Applied Google's recommended fix to remove the specific conflicting entries.</p>
-                <p style="margin-top:8px;"><strong>Kept:</strong> Adult content terms, job and employment terms, competitor retailers, educational terms, US and UK retailer names, and comparison/informational terms (compare, vs, "what is") — these remain as negatives since research queries tend not to convert on a conversion-focused campaign.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Brand Keyword Performance Drop Investigated</h4>
-                <p>The "kenny fuels" brand keyword showed clicks down 24% and conversions down 43% vs the prior period. Investigation confirmed this is a search volume decline, not a competitor issue. Impression share on Apr 26-27 was 90-93%: Kenny Fuels is showing for almost every available brand search. Rank lost IS is low (6-10%) and CTR has improved (35% to 44%). The drop is a reduction in total branded searches, not a Google Ads problem. Recommendation: brand awareness activity off-platform to rebuild search demand.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>6 Account-Level Callouts Added</h4>
-                <p>Six new callout extensions were added at account level, meaning they are eligible to show across all active campaigns. Callouts are the short text snippets that appear below the ad and highlight key business features. These replace previously absent or generic callouts.</p>
-                <p style="margin-top:8px;">New callouts: EU Award Winner 2021, Free Quote Online, Trackable Delivery, Emergency Deliveries, No Minimum Order, Serving Wexford and Wicklow.</p>
-                <p style="margin-top:8px;">All were kept within Google's 25-character limit (e.g. "EU Business Award Winner 2021" was shortened to "EU Award Winner 2021").</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Service Catalog Snippet Updated: Brand and General Search</h4>
-                <p>The structured snippet (header: Service catalog) was showing vague one-word values that did not reflect the full product range. Updated to specific product names:</p>
-                <p style="margin-top:8px;"><strong>Old values:</strong> Heating oil, Gas, Solid fuel, Kiln-dried firewood, Engine lubricants, Hardware, Tanks.</p>
-                <p style="margin-top:8px;"><strong>New values:</strong> Home Heating Oil, Gas Cylinders, Solid Fuel, Kiln-Dried Firewood, Engine Lubricants, Composite Decking, Composite Fencing, Oil Tanks, Safety and Workwear.</p>
-                <p style="margin-top:8px;">Hardware campaigns are not yet live but including Composite Decking, Composite Fencing, and Safety and Workwear in the snippet builds brand awareness for these product lines before launch.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Tracking Setup Audited: Website and GTM</h4>
-                <p>A full audit of the tracking setup on kennyfuels.ie was completed. Multiple overlapping tags were identified that could be causing data duplication and the inflated conversion counts currently visible in the account.</p>
-                <p style="margin-top:8px;"><strong>Tags found on the website:</strong> 2 Google Tag Manager containers (GTM-5Z97JLX and GTM-TQR899VB), 2 GA4 property IDs (one via PixelYourSite plugin, one via direct gtag.js), and 1 Meta Pixel (also via PixelYourSite).</p>
-                <p style="margin-top:8px;"><strong>Issues identified:</strong> Both active GTM containers are managed by Graphedia (the web developer) and we do not currently have access. A third container (GTM-WD9M7345) was created under the Outposter account but was never configured and is empty. Three containers firing on one site increases the risk of duplicate tags and conflicting triggers.</p>
-                <p style="margin-top:8px;"><strong>Next step:</strong> Access to GTM-5Z97JLX and GTM-TQR899VB has been requested from Graphedia. Once granted, a full tag, trigger, and variable audit can be completed and duplicates removed.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Hardware Campaign Keyword Research Completed: Composite Decking</h4>
-                <p>Keyword research completed for the Composite Decking hardware campaign using Ireland search data. Top keywords identified: "composite decking" (3,600/mo, €0.46 CPC), "composite decking ireland" (1,000/mo, €0.49), "composite decking prices ireland" (210/mo, €0.47), "decking boards ireland" (210/mo, €0.33). Campaign structure planned with 3 ad groups. Launch on hold pending revised budget approval from client.</p>
+                <h4>Kiln Dried Logs RSA Disapproval Fixed (May 8)</h4>
+                <p>The Kiln Dried Logs RSA was disapproved with the reason "Destination not working" — the URL /kiln-dried-logs/ was returning a 404. The correct URL was confirmed via the kennyfuels.ie sitemap: /product-category/kiln-dried-firewood-logs/. The old RSA was removed and recreated with the correct URL. The ad has re-entered the Google review queue.</p>
             </div>
         </div>
 
@@ -1036,28 +893,28 @@
 <section id="next">
     <div class="section-label">What's Next</div>
     <div class="section-title">Upcoming Priorities</div>
-    <p class="section-desc">Performance-driven priorities for the coming week.</p>
+    <p class="section-desc">Performance-driven priorities for the coming weeks.</p>
 
     <div class="next-grid">
         <div class="next-card">
-            <span class="priority-tag priority-high">Up Next</span>
-            <h4>Hardware Campaign Build: Composite Decking</h4>
-            <p>Budget approved. Building KF - Hardware | Composite Decking as the first hardware campaign. Keyword research and campaign structure are ready. Launch on Maximise Clicks bidding at €15/day. Composite Fencing, Acoustic Panels, and Safety and Workwear to follow one by one once Composite Decking is live and spending.</p>
+            <span class="priority-tag priority-high">Urgent</span>
+            <h4>Graphedia Tracking Fix</h4>
+            <p>The fix request was sent to the client on May 5 — three days with no update. The client needs to re-chase Graphedia urgently. Without the fix, the algorithm has no purchase conversion signal on Brand and General Search. Every week without this fix is a week of lost algorithm learning time ahead of the heating oil season resuming in September.</p>
         </div>
         <div class="next-card">
-            <span class="priority-tag priority-done">Done Apr 30</span>
-            <h4>Conversion Tracking Fixed</h4>
-            <p>Admin access granted Apr 30. Four purchase conversion actions were firing simultaneously as Primary, inflating all conversion counts 3-4x. Fixed: only "Kenny Fuels - GA4 (web) purchase" remains Primary. All other purchase, contact, and booking actions set to Secondary. Conversion data is now accurate from Apr 30 onward. Historical figures before Apr 30 were inflated.</p>
+            <span class="priority-tag priority-medium">Monitor — Week of May 14</span>
+            <h4>Brand and General: First Clean Conversion Data</h4>
+            <p>With GA4 key events now correctly configured (as of May 8), any future conversions recorded will be accurate. Once Graphedia fixes the duplicate tag, Google Ads will start seeing purchase conversions again. The week of May 14 is the first check point: are conversions appearing? If yes, the algorithm can begin to recover.</p>
         </div>
         <div class="next-card">
-            <span class="priority-tag priority-medium">Monitor</span>
-            <h4>Home Heating Oil Search: New Keywords</h4>
-            <p>36 new geographic and brand keywords were added Apr 30 replacing the "near me" keyword strategy. The campaign should begin picking up impressions within 24-48 hours. Check impression counts and spend on May 1-2 to confirm the campaign is building toward its €50/day budget. If spend remains low by May 3, investigate bid competitiveness for the new keywords.</p>
+            <span class="priority-tag priority-medium">Check — May 15</span>
+            <h4>Firewood CPC and Gas Bottle Budget</h4>
+            <p>Two metrics to check on May 15. The new consolidated Firewood ad group showed a €2.93 avg CPC on day one — high as expected. By May 15 it should have settled below €2.00. If still elevated, review match types or add negatives. For Gas Bottle, confirm whether the €50/day cap is being hit consistently as BBQ season builds — if yes, a further budget increase may be warranted.</p>
         </div>
         <div class="next-card">
-            <span class="priority-tag priority-medium">Monitor</span>
-            <h4>Brand and General Search: Budget Stabilisation</h4>
-            <p>Daily budget was reduced from €110 to €80 on Apr 30 following a €179 spend spike on Apr 29. We are monitoring daily spend over the next several days. Once spend holds consistently below €80/day, budget will be restored to €110/day. If spend spikes again, we will review the bidding strategy settings further.</p>
+            <span class="priority-tag priority-low">Review — ~May 22</span>
+            <h4>Composite Decking 3-Week Review</h4>
+            <p>At the 3-week mark (~May 22–26) we will have meaningful CPCs, CTR trends, and early conversion data. This review determines whether to increase budget, adjust keyword targeting, or build the next hardware campaign. Composite Fencing and Cladding are the next candidates — only if Composite Decking data at 3 weeks is positive.</p>
         </div>
     </div>
 </section>
@@ -1067,16 +924,20 @@
 </footer>
 
 <script>
-    // Chart
-    const ctx = document.getElementById('leadsChart').getContext('2d');
+    const ctx = document.getElementById('spendChart').getContext('2d');
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Apr 9 – Apr 15', 'Apr 16 – Apr 23', 'Apr 23 – Apr 30'],
+            labels: [
+                'Brand & General Search',
+                'Home Heating Oil Search',
+                'Gas Bottle & Cylinders',
+                'Composite Decking'
+            ],
             datasets: [{
-                label: 'Leads',
-                data: [58, 18, 22],
-                backgroundColor: ['#243B98', '#243B98', '#E6211E'],
+                label: 'Spend (€)',
+                data: [547, 364, 235, 56],
+                backgroundColor: ['#243B98', '#243B98', '#243B98', '#E6211E'],
                 borderRadius: 4,
             }]
         },
@@ -1084,12 +945,22 @@
             responsive: true,
             plugins: {
                 legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return '€' + context.parsed.y;
+                        }
+                    }
+                }
             },
             scales: {
                 y: {
                     beginAtZero: true,
                     grid: { color: 'rgba(0,0,0,0.05)' },
-                    ticks: { font: { family: 'Lato', size: 11 } }
+                    ticks: {
+                        font: { family: 'Lato', size: 11 },
+                        callback: function(value) { return '€' + value; }
+                    }
                 },
                 x: {
                     grid: { display: false },
@@ -1098,7 +969,6 @@
             }
         }
     });
-
 </script>
 
 </body>
