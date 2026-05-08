@@ -539,12 +539,13 @@
 <!-- NOTES -->
 <section id="notes" style="background: var(--gray); border-bottom: none;">
     <div class="section-title">This Week's Notes</div>
-    <p style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 8px; color: var(--text-dark);">
-        This was the most active restructuring week since we took over the account. Three major themes ran in parallel. First, account hygiene: a full negative keyword audit identified conflicting broad negatives blocking seven active ad groups, the General Negatives shared list was found missing from all three fuel campaigns and applied, and 68 ad groups generating zero conversions were paused to concentrate budget on what is working. Second, the first hardware campaign launched on May 5: KF Hardware – Composite Decking is live with four themed ad groups, 18 phrase match keywords, and 15 sitelinks. Early CTRs are strong. Third, the account was repositioned for the off-season: heating oil and coal groups paused, budget shifted from Brand and General to Gas Bottle (BBQ season starting) and the new hardware campaign.
-    </p>
-    <p style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 16px; color: var(--text-dark);">
-        Brand and General Search recorded 0 conversions all week despite 834 clicks. A full investigation confirmed this is a tracking problem, not a campaign problem. Two GA4 measurement IDs are firing on every page of the website, and the property linked to Google Ads is only capturing 11% of sessions. The remaining 89% of Google Ads clicks go untracked — meaning purchases are happening but Google Ads cannot see them. A consolidated fix request was sent to the client on May 5 for forwarding to Graphedia. This is the single most important outstanding item: without the fix, the algorithm has no signal to optimise on when the heating oil season resumes in September.
-    </p>
+    <ul style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 8px; color: var(--text-dark); padding-left: 20px; list-style: disc;">
+        <li style="margin-bottom: 12px;"><strong>Account hygiene:</strong> A full negative keyword audit identified conflicting broad negatives blocking seven active ad groups. The General Negatives shared list was found missing from all three fuel campaigns and has been applied. 68 ad groups generating zero conversions were paused to concentrate budget on what is working.</li>
+        <li style="margin-bottom: 12px;"><strong>First hardware campaign launched:</strong> KF Hardware – Composite Decking went live May 5 with four themed ad groups, 18 phrase match keywords, and 15 sitelinks. Early CTRs are strong at 20.3% overall on launch week.</li>
+        <li style="margin-bottom: 12px;"><strong>Off-season repositioning:</strong> Heating oil and coal ad groups paused for the season. Budget shifted from Brand and General to Gas Bottle (BBQ season starting) and the new hardware campaign. Total daily budget unchanged at €150/day.</li>
+        <li style="margin-bottom: 12px;"><strong>Brand and General: 0 conversions despite 834 clicks.</strong> Root cause confirmed as a tracking problem, not a campaign problem. Two GA4 measurement IDs are firing on every page of the website, and the property linked to Google Ads is only capturing 11% of sessions. Purchases are happening but Google Ads cannot see them. Email sent directly to Graphedia on May 8 to fix the duplicate tag.</li>
+        <li style="margin-bottom: 0;"><strong>Conversion tracking cleanup:</strong> Four incorrectly configured GA4 key events removed that were inflating April conversion counts. Only the purchase event now counts as a conversion. Tracking is now accurate from May 8 onward.</li>
+    </ul>
 </section>
 
 <!-- METRICS -->
@@ -680,7 +681,7 @@
         <li style="margin-bottom: 10px;"><strong>KF – Fuel | Home Heating Oil Search:</strong> The standout this week. Scaled from €4.73 spend last week to €364 this week after the keyword additions from late April took hold. Five phone calls recorded — the first conversions this campaign has generated since our engagement began. At €0.87 avg CPC this is the most efficient traffic in the account.</li>
         <li style="margin-bottom: 10px;"><strong>KF – Fuel | Gas Bottle &amp; Cylinders:</strong> Five phone calls. Budget increased to €50/day for BBQ season. Seven summer BBQ keywords added. Impressions up to 4,413 from 3,176 the prior week. CPC held at €1.09. Solid performance heading into the summer demand period.</li>
         <li style="margin-bottom: 10px;"><strong>KF – Fuel | Brand &amp; General Search:</strong> 834 clicks, €547 spend, 0 recorded conversions. Tracking issue confirmed as root cause: 89% of Google Ads sessions are going to a different GA4 property and Google Ads cannot see the purchases that are happening. CPCs are trending positively: avg CPC down from €0.85 (May 1) to €0.52 (May 7). The off-season restructure — 68 ad groups paused, 3 RSAs rebuilt, match types corrected — means the campaign is in good shape for when tracking is resolved.</li>
-        <li style="margin-bottom: 10px;"><strong>KF – Hardware | Composite Decking:</strong> Launched May 5. Three days of data. All four ad groups are active with healthy CTRs. Boards and Planks is leading volume. Impressions scaled from 31 to 94 over the first three days. No conversions expected yet — full review at the 3-week mark, approximately May 22.</li>
+        <li style="margin-bottom: 10px;"><strong>KF – Hardware | Composite Decking:</strong> Launched May 5. Three days of data. All four ad groups are active with healthy CTRs. Boards and Planks is leading volume. Impressions scaled from 31 to 94 over the first three days. No conversions expected yet. Full review at the 3-week mark, approximately May 22.</li>
     </ul>
 
     <div class="table-card">
@@ -783,7 +784,7 @@
         <div class="change-item">
             <div class="change-icon icon-updated">🔧</div>
             <div class="change-content">
-                <h4>Conflicting Negatives Removed and General Negatives Applied (May 4)</h4>
+                <h4>Conflicting Negatives Removed and General Negatives Applied</h4>
                 <p>A full negative keyword audit across Brand and General Search identified broad match negatives that were blocking active ad groups from serving. Three were removed: "price" BROAD (blocking Heating Oil Prices Near Me Today, Best Home Heating Oil Prices Wexford, and Oil Prices Wexford), "prices" BROAD (same groups), and "cheapest" BROAD (blocking Cheapest Oil Prices Wexford). The competitor negative "top oil" BROAD was changed to EXACT so the competitor brand remains blocked while the Top Heating Oil Supplier Wicklow ad group is unblocked.</p>
                 <p style="margin-top:8px;">The General Negatives shared list was found missing from all three KF Fuel campaigns. This list blocks non-commercial queries such as photos, discount code searches, YouTube searches, and job-seeker terms. Applied to Brand and General Search, Home Heating Oil Search, and Gas Bottle and Cylinders. The firewood BROAD negative in the Fuel Campaigns - Hardware Exclusions list was also removed — Kenny Fuels sells firewood, so it was incorrectly blocking all firewood ad groups.</p>
             </div>
@@ -792,7 +793,7 @@
         <div class="change-item">
             <div class="change-icon icon-updated">🔧</div>
             <div class="change-content">
-                <h4>Ad Group-Level Negatives Added (May 4–5)</h4>
+                <h4>Ad Group-Level Negatives Added</h4>
                 <p>Search term audits identified two categories of irrelevant traffic passing through after the General Negatives list was applied.</p>
                 <p style="margin-top:8px;"><strong>Kenny Fuels brand ad group (9 phrase negatives):</strong> kevin building supplies, a142 mesh, discount code, petrol station, service station, building materials, decorative stone, landscaping, gravel.</p>
                 <p style="margin-top:8px;"><strong>Fuel Oil For Home Heating (10 competitor phrase negatives):</strong> o neills fuels, burkes oil, klass oil, capitol oil, corrib oil, emo oil, certas, texoil, atmos boilers, bunded tank. Competitor fuel brand searches will not convert for Kenny Fuels.</p>
@@ -803,7 +804,7 @@
         <div class="change-item">
             <div class="change-icon icon-paused">⏸</div>
             <div class="change-content">
-                <h4>Gas Cylinder For Sale Ad Group Paused (May 4)</h4>
+                <h4>Gas Cylinder For Sale Ad Group Paused</h4>
                 <p>The Gas Cylinder For Sale ad group in Brand and General Search was duplicating the dedicated Gas Bottle and Cylinders campaign. In May 1–3 it spent €23.62 with 0 conversions while the Gas Bottle campaign recorded 2 conversions over the same period. Pausing this ad group consolidates gas cylinder budget into the campaign that is actually converting and removes an internal auction conflict.</p>
             </div>
         </div>
@@ -811,7 +812,7 @@
         <div class="change-item">
             <div class="change-icon icon-new">🚀</div>
             <div class="change-content">
-                <h4>Composite Decking Campaign Launched (May 5)</h4>
+                <h4>Composite Decking Campaign Launched</h4>
                 <p>The first hardware campaign — KF Hardware | Composite Decking — was built and launched on May 5.</p>
                 <p style="margin-top:8px;"><strong>Setup:</strong> Budget €15/day (increased to €25/day May 7), Maximise Clicks bidding, targeting Wexford, Wicklow, and Carlow. Hardware Campaigns - Fuel Exclusions negative list applied.</p>
                 <p style="margin-top:8px;"><strong>4 ad groups:</strong> General (4 keywords), Price and Buy (5 keywords), Geo (4 keywords), Boards and Planks (5 keywords). Each has 15 headlines and 4 descriptions. No keyword overlap between groups. 15 campaign-level sitelinks added covering all hardware product categories.</p>
@@ -822,7 +823,7 @@
         <div class="change-item">
             <div class="change-icon icon-done">✅</div>
             <div class="change-content">
-                <h4>GA4 Conversion Tracking Cleaned Up (May 5 and May 8)</h4>
+                <h4>GA4 Conversion Tracking Cleaned Up</h4>
                 <p>A full audit of GA4 key events identified four incorrectly configured events inflating conversion counts throughout April. All removed.</p>
                 <p style="margin-top:8px;"><strong>Removed May 5:</strong> view_item (product page views were counting as conversions), Purchase_2 (broken duplicate tag, 84 fires with €0 revenue), ads_conversion_Checkout_1 (duplicate of begin_checkout, 229 fires at €0), ads_conversion_Shopping_Cart_1 (duplicate of add_to_cart, 32 fires at €0).</p>
                 <p style="margin-top:8px;"><strong>Removed May 8:</strong> begin_checkout and add_to_cart unmarked as GA4 key events. Only purchase remains as a key event — giving a clean picture of actual buyer intent. Google Ads conversion actions reviewed: only two remain as Primary (Calls from ads and GA4 web purchase). All others are Secondary.</p>
@@ -832,7 +833,7 @@
         <div class="change-item">
             <div class="change-icon icon-updated">🔧</div>
             <div class="change-content">
-                <h4>Dual GA4 Tag Root Cause Identified — Fix Request Sent (May 5)</h4>
+                <h4>Dual GA4 Tag Root Cause Identified</h4>
                 <p>A full investigation identified why Brand and General shows 0 conversions in Google Ads while GA4 still shows purchase revenue. Two GA4 measurement IDs are firing on every page: G-0RM5FH1MST (PixelYourSite plugin, capturing ~89% of sessions) and G-BMD8SXLKC0 (direct gtag.js script). The property linked to Google Ads is only capturing 11% of sessions — so 89% of purchase events are invisible to Google Ads.</p>
                 <p style="margin-top:8px;">A consolidated fix request was sent to the client on May 5 for forwarding to Graphedia. Required actions: (1) confirm which measurement ID belongs to property 396621665 and remove the duplicate; (2) fix Contact Us Form and Book Appointment conversion tags in GTM; (3) install Google's phone snippet for website call tracking; (4) add form ID differentiation so Contact, Booking, and Quote forms are tracked separately.</p>
             </div>
@@ -841,7 +842,7 @@
         <div class="change-item">
             <div class="change-icon icon-updated">🔧</div>
             <div class="change-content">
-                <h4>Brand and General Search: Bidding Strategy Updated (May 6)</h4>
+                <h4>Brand and General Search: Bidding Strategy Updated</h4>
                 <p>Switched from a portfolio Maximize Conversion Value strategy to standard campaign-level Maximize Conversion Value. The portfolio strategy was blocking the ability to set a maximum CPC bid limit. The algorithm now optimises on this campaign's data only. Average CPCs trended down from €0.85 to €0.52 over the week — the negative keyword fixes from May 4 are reducing high-CPC irrelevant queries. The €50/day daily budget acts as the practical spend ceiling.</p>
             </div>
         </div>
@@ -849,7 +850,7 @@
         <div class="change-item">
             <div class="change-icon icon-updated">🔧</div>
             <div class="change-content">
-                <h4>Off-Season Budget Reallocation (May 7)</h4>
+                <h4>Off-Season Budget Reallocation</h4>
                 <p>Total daily budget remains unchanged at €150/day — spend redistributed from off-season campaigns to those with active summer demand.</p>
                 <p style="margin-top:8px;"><strong>Brand and General Search:</strong> €80/day reduced to €50/day. Heating oil season ended.</p>
                 <p style="margin-top:8px;"><strong>Home Heating Oil Search:</strong> €50/day reduced to €25/day. Bulk residential orders stopped for the season; emergency calls continue at lower volume.</p>
@@ -861,7 +862,7 @@
         <div class="change-item">
             <div class="change-icon icon-paused">⏸</div>
             <div class="change-content">
-                <h4>68 Off-Season Ad Groups Paused: Brand and General Search (May 7)</h4>
+                <h4>68 Off-Season Ad Groups Paused: Brand and General Search</h4>
                 <p><strong>42 heating oil, coal, solid fuel, and briquettes ad groups:</strong> Primary revenue drivers during the September–March heating season. Near-zero conversions in May–August. All paused until September 2026.</p>
                 <p style="margin-top:8px;"><strong>26 gas and LPG ad groups:</strong> 895 impressions, 49 clicks, €46 cost, 0 conversions over 30 days — directly duplicating the Gas Bottle and Cylinders campaign. Consolidating all gas spend into the dedicated campaign removes the internal auction conflict. Remaining active in Brand and General: Kenny Fuels brand, emergency oil, lubricants, kiln dried logs, and firewood.</p>
             </div>
@@ -870,7 +871,7 @@
         <div class="change-item">
             <div class="change-icon icon-updated">🔧</div>
             <div class="change-content">
-                <h4>Brand and General: Ad Group Restructure and RSA Rebuilds (May 7)</h4>
+                <h4>Brand and General: Ad Group Restructure and RSA Rebuilds</h4>
                 <p><strong>Firewood consolidation:</strong> 20 single-keyword firewood ad groups replaced with 2 consolidated groups: Kiln Dried Logs (16 phrase match keywords) and Firewood (9 phrase match keywords). Each now has a full 15-headline RSA and 4 descriptions.</p>
                 <p style="margin-top:8px;"><strong>RSAs rebuilt (3 ad groups):</strong> Emergency Heating Oil Near Me, Emergency Oil Delivery Near Me, and Lubricants For Sale had old RSAs with only 5–6 headlines and descriptions referencing wrong products (heating oil copy in a lubricants ad group). All replaced with 15-headline RSAs with product-specific copy. Final URLs confirmed against the live website sitemap.</p>
                 <p style="margin-top:8px;"><strong>Match type fixes:</strong> 5 active keywords changed from BROAD to PHRASE in the emergency and lubricants ad groups. BROAD gives Google too much latitude on Maximize Conversion Value with no active conversion signal.</p>
@@ -881,7 +882,7 @@
         <div class="change-item">
             <div class="change-icon icon-done">✅</div>
             <div class="change-content">
-                <h4>Kiln Dried Logs RSA Disapproval Fixed (May 8)</h4>
+                <h4>Kiln Dried Logs RSA Disapproval Fixed</h4>
                 <p>The Kiln Dried Logs RSA was disapproved with the reason "Destination not working" — the URL /kiln-dried-logs/ was returning a 404. The correct URL was confirmed via the kennyfuels.ie sitemap: /product-category/kiln-dried-firewood-logs/. The old RSA was removed and recreated with the correct URL. The ad has re-entered the Google review queue.</p>
             </div>
         </div>
@@ -897,9 +898,9 @@
 
     <div class="next-grid">
         <div class="next-card">
-            <span class="priority-tag priority-high">Urgent</span>
+            <span class="priority-tag priority-medium">In Progress</span>
             <h4>Graphedia Tracking Fix</h4>
-            <p>The fix request was sent to the client on May 5 — three days with no update. The client needs to re-chase Graphedia urgently. Without the fix, the algorithm has no purchase conversion signal on Brand and General Search. Every week without this fix is a week of lost algorithm learning time ahead of the heating oil season resuming in September.</p>
+            <p>Email sent directly to Graphedia on May 8. Awaiting their response. Once the duplicate GA4 tag is removed and the GTM conversion tags are fixed, Google Ads will start recording purchase conversions on Brand and General Search. Resolution is important ahead of the heating oil season resuming in September.</p>
         </div>
         <div class="next-card">
             <span class="priority-tag priority-medium">Monitor — Week of May 14</span>
