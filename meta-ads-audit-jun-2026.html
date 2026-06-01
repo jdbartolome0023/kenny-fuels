@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenny Fuels Meta Ads – 3-Month Audit & June Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --black: #243B98;
+            --white: #ffffff;
+            --red: #E6211E;
+            --dark-red: #b5191a;
+            --gray: #f9f9f9;
+            --mid-gray: #e0e0e0;
+            --text-dark: #1a1a1a;
+            --text-muted: #777;
+            --green: #2e7d32;
+            --amber: #e65100;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 56px;
+        }
+
+        nav .logo img { height: 36px; width: auto; display: block; }
+
+        nav ul { display: flex; gap: 32px; list-style: none; }
+
+        nav ul a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        nav ul a:hover { color: var(--white); }
+
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+
+        .report-date { color: rgba(255,255,255,0.5); font-size: 12px; }
+
+        .btn-pdf {
+            background: var(--red);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero {
+            padding: 80px 40px 60px;
+            border-bottom: 1px solid var(--mid-gray);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .period-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gray);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .period-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--amber);
+        }
+
+        .hero h1 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 900;
+            font-size: 72px;
+            line-height: 1;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .hero h1 span { color: var(--red); display: block; }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Lato', sans-serif;
+            font-weight: 900;
+            font-size: 42px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .section-commentary {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+            max-width: 780px;
+            margin-bottom: 40px;
+            padding-left: 16px;
+            border-left: 3px solid var(--red);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .metrics-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .metric-card {
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            padding: 28px 24px;
+            background: var(--white);
+        }
+
+        .metric-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .metric-value {
+            font-family: 'Lato', sans-serif;
+            font-weight: 900;
+            font-size: 48px;
+            letter-spacing: 1px;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .metric-value.small { font-size: 36px; }
+
+        .metric-comparisons { display: flex; gap: 16px; font-size: 12px; flex-wrap: wrap; }
+
+        .metric-comp { display: flex; flex-direction: column; gap: 2px; }
+
+        .comp-label { color: var(--text-muted); font-size: 11px; }
+
+        .up { color: var(--green); font-weight: 600; }
+        .down { color: var(--red); font-weight: 600; }
+        .neutral { color: var(--text-muted); font-weight: 600; }
+
+        .table-card {
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+
+        .table-card-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        .table-card-header h3 { font-size: 16px; font-weight: 600; }
+
+        .table-card-header p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            line-height: 1.6;
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+
+        thead th {
+            background: var(--black);
+            color: var(--white);
+            padding: 12px 24px;
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        tbody tr { border-bottom: 1px solid var(--mid-gray); }
+        tbody tr:last-child { border-bottom: none; }
+        tbody tr:nth-child(even) { background: var(--gray); }
+        tbody td { padding: 14px 24px; font-size: 14px; }
+        tbody td:first-child { font-weight: 500; }
+
+        .highlight-row td { font-weight: 700; background: #fffdf0 !important; }
+
+        .trend-down { color: var(--red); font-weight: 700; }
+        .trend-up { color: var(--green); font-weight: 700; }
+        .trend-neutral { color: var(--text-muted); font-weight: 600; }
+
+        .status-active {
+            display: inline-block;
+            background: #e8f5e9;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .status-paused {
+            display: inline-block;
+            background: #fff3e0;
+            color: var(--amber);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .status-warning {
+            display: inline-block;
+            background: #ffebee;
+            color: var(--red);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .status-new {
+            display: inline-block;
+            background: #f3e5f5;
+            color: #7b1fa2;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .campaign-name { font-weight: 600; font-size: 14px; color: var(--text-dark); }
+
+        .campaign-note td {
+            padding: 8px 24px 10px 24px;
+            font-size: 12.5px;
+            font-style: italic;
+            color: var(--text-muted);
+            background: #fffdf5;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        .chart-container {
+            background: var(--gray);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .chart-title {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .chart-legend { display: flex; gap: 16px; font-size: 11px; }
+
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+
+        .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 32px;
+        }
+
+        .issues-list { display: flex; flex-direction: column; gap: 0; }
+
+        .issue-item {
+            display: flex;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--mid-gray);
+            align-items: flex-start;
+        }
+
+        .issue-item:last-child { border-bottom: none; }
+
+        .issue-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .icon-critical { background: #ffebee; }
+        .icon-warning { background: #fff8e1; }
+        .icon-good { background: #e8f5e9; }
+        .icon-info { background: #e3f2fd; }
+
+        .issue-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+
+        .issue-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        .next-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .next-card {
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            padding: 28px;
+        }
+
+        .next-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+
+        .next-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        .priority-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .priority-high { background: #ffebee; color: var(--red); }
+        .priority-medium { background: #fff8e1; color: #e65100; }
+        .priority-low { background: #e8f5e9; color: var(--green); }
+        .priority-strategic { background: #e3f2fd; color: #1565c0; }
+
+        .approval-box {
+            background: #fffdf0;
+            border: 2px solid var(--amber);
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin-bottom: 32px;
+        }
+
+        .approval-box h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--amber);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .approval-box p {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        footer {
+            background: var(--black);
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 24px 40px;
+            font-size: 12px;
+        }
+
+        footer strong { color: rgba(255,255,255,0.7); }
+
+        @media (max-width: 768px) {
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .metrics-grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .next-grid { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 48px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo"><img src="https://www.kennyfuels.ie/wp-content/uploads/2023/11/kenny-logo.png" alt="Kenny Fuels"></div>
+    <ul>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#monthly">Monthly</a></li>
+        <li><a href="#campaigns">Campaigns</a></li>
+        <li><a href="#findings">Findings</a></li>
+        <li><a href="#strategy">June Strategy</a></li>
+    </ul>
+    <div class="nav-right">
+        <span class="report-date">3-Month Audit · June 1, 2026</span>
+        <button class="btn-pdf" onclick="window.print()">⬇ Download PDF</button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="period-badge">March 1 – May 31, 2026 &nbsp;·&nbsp; 3 months</div>
+    <h1>Kenny Fuels<span>Meta Ads</span></h1>
+    <p>3-month performance audit and June strategy. Compiled June 1, 2026 at takeover. Account: act_320710110338354 · Ireland · EUR.</p>
+</div>
+
+<!-- NOTES -->
+<section style="background: var(--gray); border-bottom: none;">
+    <div class="section-title">Audit Summary</div>
+    <p style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 8px; color: var(--text-dark);">
+        The 3-month audit covers March through May 2026 — the final weeks of the heating season through to full off-season. Total spend of €3,944 generated €465,786 in attributed purchase revenue at a 118x overall ROAS. However, the monthly trend tells a starkly different story: March delivered 270x ROAS at a €1.10 cost per purchase, while May closed at 49x ROAS and €5.53 CPA. The account was not adjusted for seasonality — budgets remained flat at €60/day while demand collapsed, resulting in €1,852 being spent in May for 335 purchases versus €933 in March for 850 purchases.
+    </p>
+    <p style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 16px; color: var(--text-dark);">
+        Two structural gaps define the account at takeover: no retargeting has run in any period covered by this audit, leaving 1,745 abandoned add-to-carts completely unaddressed; and gas and heating oil — the business's primary product lines — have had zero paid advertising since late 2024. With September heating season 3 months away, building and testing those campaigns begins now. The account balance stands at €151.30 — critically low and requiring immediate top-up before any June changes can take effect.
+    </p>
+</section>
+
+<!-- SUMMARY -->
+<section id="summary">
+    <div class="section-label">Key Metrics</div>
+    <div class="section-title">3-Month Performance</div>
+    <p class="section-desc">March 1 – May 31, 2026 · All figures EUR.</p>
+    <p class="section-commentary">118x ROAS across 3 months masks a dramatic decline: 270x in March (peak heating season) → 49x in May (full off-season). The account was not adjusted for this shift. Spend doubled while purchases fell by 60%. The summer pivot to Compost and Sand+Stones is the right move — both campaigns launched April 22 and are still in early optimisation, so the best of their performance is ahead.</p>
+
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-label">3-Month Spend</div>
+            <div class="metric-value small">€3,944</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp"><span class="comp-label">March</span><span class="neutral">€933</span></div>
+                <div class="metric-comp"><span class="comp-label">April</span><span class="neutral">€1,160</span></div>
+                <div class="metric-comp"><span class="comp-label">May</span><span class="neutral">€1,852</span></div>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">3-Month Revenue</div>
+            <div class="metric-value small">€465K</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp"><span class="comp-label">March</span><span class="up">€252,555</span></div>
+                <div class="metric-comp"><span class="comp-label">April</span><span class="neutral">€121,927</span></div>
+                <div class="metric-comp"><span class="comp-label">May</span><span class="down">€91,304</span></div>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">3-Month ROAS</div>
+            <div class="metric-value">118x</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp"><span class="comp-label">March</span><span class="up">270x</span></div>
+                <div class="metric-comp"><span class="comp-label">April</span><span class="neutral">105x</span></div>
+                <div class="metric-comp"><span class="comp-label">May</span><span class="down">49x</span></div>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Cost per Purchase</div>
+            <div class="metric-value small">€2.43</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp"><span class="comp-label">March</span><span class="up">€1.10</span></div>
+                <div class="metric-comp"><span class="comp-label">April</span><span class="neutral">€2.66</span></div>
+                <div class="metric-comp"><span class="comp-label">May</span><span class="down">€5.53</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="two-col" style="margin-top: 0;">
+        <div class="chart-container" style="margin-top: 0;">
+            <div class="chart-header">
+                <span class="chart-title">ROAS by Month</span>
+            </div>
+            <canvas id="roasChart" height="160"></canvas>
+        </div>
+        <div class="chart-container" style="margin-top: 0;">
+            <div class="chart-header">
+                <span class="chart-title">Spend vs Revenue by Month</span>
+                <div class="chart-legend">
+                    <div class="legend-item"><div class="legend-dot" style="background:#243B98"></div><span>Spend</span></div>
+                    <div class="legend-item"><div class="legend-dot" style="background:#E6211E"></div><span>Revenue</span></div>
+                </div>
+            </div>
+            <canvas id="spendRevenueChart" height="160"></canvas>
+        </div>
+    </div>
+</section>
+
+<!-- MONTHLY -->
+<section id="monthly">
+    <div class="section-label">Monthly Trend</div>
+    <div class="section-title">Month by Month</div>
+    <p class="section-desc">Full funnel breakdown across March, April, and May 2026.</p>
+
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Monthly Performance Breakdown</h3>
+            <p>The off-season decline is clear. Spend rose 98% from March to May while purchases fell 61% and ROAS dropped 82%.</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Spend</th>
+                    <th>Impressions</th>
+                    <th>Reach</th>
+                    <th>Frequency</th>
+                    <th>CTR</th>
+                    <th>CPC</th>
+                    <th>Purchases</th>
+                    <th>Revenue</th>
+                    <th>ROAS</th>
+                    <th>CPA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>March 2026</td>
+                    <td>€933</td>
+                    <td>237,944</td>
+                    <td>43,798</td>
+                    <td>5.43</td>
+                    <td><span class="trend-up">3.41%</span></td>
+                    <td>€0.11</td>
+                    <td><span class="trend-up">850</span></td>
+                    <td><span class="trend-up">€252,555</span></td>
+                    <td><strong>270x</strong></td>
+                    <td><span class="trend-up">€1.10</span></td>
+                </tr>
+                <tr>
+                    <td>April 2026</td>
+                    <td>€1,160</td>
+                    <td>304,481</td>
+                    <td>58,152</td>
+                    <td>5.24</td>
+                    <td>3.11%</td>
+                    <td>€0.12</td>
+                    <td>436</td>
+                    <td>€121,927</td>
+                    <td>105x</td>
+                    <td>€2.66</td>
+                </tr>
+                <tr>
+                    <td>May 2026</td>
+                    <td>€1,852</td>
+                    <td>493,889</td>
+                    <td>95,378</td>
+                    <td>5.18</td>
+                    <td><span class="trend-down">2.40%</span></td>
+                    <td>€0.16</td>
+                    <td><span class="trend-down">335</span></td>
+                    <td><span class="trend-down">€91,304</span></td>
+                    <td><span class="trend-down">49x</span></td>
+                    <td><span class="trend-down">€5.53</span></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>3-Month Total</td>
+                    <td>€3,944</td>
+                    <td>1,036,314</td>
+                    <td>145,226</td>
+                    <td>7.14</td>
+                    <td>2.84%</td>
+                    <td>€0.13</td>
+                    <td>1,621</td>
+                    <td>€465,786</td>
+                    <td><strong>118x</strong></td>
+                    <td>€2.43</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Full Funnel by Month</h3>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Link Clicks</th>
+                    <th>Landing Page Views</th>
+                    <th>View Content</th>
+                    <th>Add to Cart</th>
+                    <th>Initiate Checkout</th>
+                    <th>Purchases</th>
+                    <th>IC → Purchase</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>March</td>
+                    <td>2,935</td>
+                    <td>1,961</td>
+                    <td>10,227</td>
+                    <td>718</td>
+                    <td>922</td>
+                    <td>850</td>
+                    <td><span class="trend-up">92%</span></td>
+                </tr>
+                <tr>
+                    <td>April</td>
+                    <td>3,719</td>
+                    <td>2,687</td>
+                    <td>9,220</td>
+                    <td>545</td>
+                    <td>438</td>
+                    <td>436</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>May</td>
+                    <td>5,138</td>
+                    <td>3,643</td>
+                    <td>9,645</td>
+                    <td>482</td>
+                    <td>452</td>
+                    <td>335</td>
+                    <td>74%</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>3-Month Total</td>
+                    <td>11,792</td>
+                    <td>8,291</td>
+                    <td>29,092</td>
+                    <td>1,745</td>
+                    <td>1,812</td>
+                    <td>1,621</td>
+                    <td>89%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- CAMPAIGNS -->
+<section id="campaigns">
+    <div class="section-label">Campaign Performance</div>
+    <div class="section-title">Campaigns & Creatives</div>
+    <p class="section-desc">March 1 – May 31, 2026.</p>
+    <p class="section-commentary">Firewood B2C and B2B dominated the period — together accounting for 70% of spend and 84% of revenue. Compost and Sand+Stones launched April 22 and account for only 6 weeks of data. Both are promising but underdeveloped. The most important creative signal in the account is the Digger Bath ad: 6.46% CTR at €0.06 CPC — almost 3x cheaper per click than any other ad in the account.</p>
+
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Campaign Breakdown — March to May</h3>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campaign</th>
+                    <th>Status</th>
+                    <th>Spend</th>
+                    <th>Purchases</th>
+                    <th>Revenue</th>
+                    <th>ROAS</th>
+                    <th>CPA</th>
+                    <th>Frequency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="campaign-name">[DV] Tofu | Firewood Website Sales</div>
+                        <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">B2C · 5 Co IE · Age 26–65 · Started 13 Feb</div>
+                    </td>
+                    <td><span class="status-active">ACTIVE</span></td>
+                    <td>€1,374</td>
+                    <td>735</td>
+                    <td>€214,031</td>
+                    <td><strong>155.7x</strong></td>
+                    <td>€1.87</td>
+                    <td>5.26</td>
+                </tr>
+                <tr class="campaign-note">
+                    <td colspan="8">Strong season performance. ROAS dropping sharply as off-season takes hold — 2 purchases in last 7 days at €52 CPA. Reduce to holding budget for June. Do not pause — preserve learnings for September.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="campaign-name">[DV] Tofu | Firewood B2B Website Sales</div>
+                        <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">B2B · All Ireland · Age 30–65 · Started 14 Feb</div>
+                    </td>
+                    <td><span class="status-active">ACTIVE</span></td>
+                    <td>€1,375</td>
+                    <td>605</td>
+                    <td>€188,352</td>
+                    <td><strong>137.1x</strong></td>
+                    <td>€2.27</td>
+                    <td>4.81</td>
+                </tr>
+                <tr class="campaign-note">
+                    <td colspan="8">1 purchase in last 7 days at €102 CPA. Off-season confirmed. Same approach as B2C — reduce to minimum holding budget, preserve learnings.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="campaign-name">[DV] Tofu | Compost Website Sales</div>
+                        <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">B2C · 5 Co IE · Age 26–65 · Started 22 Apr</div>
+                    </td>
+                    <td><span class="status-active">ACTIVE</span></td>
+                    <td>€598</td>
+                    <td>149</td>
+                    <td>€32,994</td>
+                    <td>55.2x</td>
+                    <td>€4.01</td>
+                    <td>4.10</td>
+                </tr>
+                <tr class="campaign-note">
+                    <td colspan="8">Only 6 weeks of data. Summer product — now entering peak demand window. Compost Trees creative (96x ROAS) is significantly outperforming main Compost ad (50x ROAS) but receiving 7x less budget. Creative split needs to be fixed.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="campaign-name">[DV] Tofu | Sand+Stones Website Sales</div>
+                        <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">B2C · 5 Co IE · Age 26–65 · Started 22 Apr</div>
+                    </td>
+                    <td><span class="status-active">ACTIVE</span></td>
+                    <td>€597</td>
+                    <td>132</td>
+                    <td>€30,409</td>
+                    <td>50.9x</td>
+                    <td>€4.52</td>
+                    <td>4.36</td>
+                </tr>
+                <tr class="campaign-note">
+                    <td colspan="8">Only 6 weeks of data. Sand tonne bags ad (62x ROAS) underserved vs Stones ad (49x ROAS) despite better performance. Ad 1 needs more budget exposure to prove its ceiling.</td>
+                </tr>
+                <tr style="font-weight:700; background: var(--gray);">
+                    <td>Total — 4 Active Campaigns</td>
+                    <td></td>
+                    <td>€3,944</td>
+                    <td>1,621</td>
+                    <td>€465,786</td>
+                    <td><strong>118x</strong></td>
+                    <td>€2.43</td>
+                    <td>7.14</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Creative Table -->
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Active Ad Creative Performance — March to May</h3>
+            <p>7 active ads. Highlighted rows indicate standout performers or misallocated budget.</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ad</th>
+                    <th>Campaign</th>
+                    <th>Spend</th>
+                    <th>CTR</th>
+                    <th>CPC</th>
+                    <th>Purchases</th>
+                    <th>Revenue</th>
+                    <th>ROAS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: #fffdf0;">
+                    <td><strong>Ad 2 Digger Bath 03.26</strong></td>
+                    <td>Firewood B2C</td>
+                    <td>€424.53</td>
+                    <td><strong style="color:var(--green)">6.46%</strong></td>
+                    <td><strong style="color:var(--green)">€0.06</strong></td>
+                    <td>208</td>
+                    <td>€61,351</td>
+                    <td>144.5x</td>
+                </tr>
+                <tr>
+                    <td>Ad 1 Firewood b2c+b2b 02.26</td>
+                    <td>Firewood B2C</td>
+                    <td>€949.96</td>
+                    <td>1.94%</td>
+                    <td>€0.19</td>
+                    <td>527</td>
+                    <td>€152,680</td>
+                    <td>160.7x</td>
+                </tr>
+                <tr>
+                    <td>Ad 1 Firewood b2b 02.26</td>
+                    <td>Firewood B2B</td>
+                    <td>€1,374.77</td>
+                    <td>2.23%</td>
+                    <td>€0.19</td>
+                    <td>605</td>
+                    <td>€188,352</td>
+                    <td>137.0x</td>
+                </tr>
+                <tr style="background: #fffdf0;">
+                    <td><strong>Ad 2 Compost Trees 04.26</strong></td>
+                    <td>Compost</td>
+                    <td>€72.60</td>
+                    <td>3.54%</td>
+                    <td>€0.10</td>
+                    <td>20</td>
+                    <td>€6,964</td>
+                    <td><strong style="color:var(--green)">95.9x</strong></td>
+                </tr>
+                <tr>
+                    <td>Ad 1 Compost 04.26</td>
+                    <td>Compost</td>
+                    <td>€525.05</td>
+                    <td>3.31%</td>
+                    <td>€0.13</td>
+                    <td>129</td>
+                    <td>€26,029</td>
+                    <td>49.6x</td>
+                </tr>
+                <tr>
+                    <td>Ad 1 Sand tonne bags 04.26</td>
+                    <td>Sand+Stones</td>
+                    <td>€108.71</td>
+                    <td>2.97%</td>
+                    <td>€0.10</td>
+                    <td>27</td>
+                    <td>€6,713</td>
+                    <td>61.8x</td>
+                </tr>
+                <tr>
+                    <td>Ad 2 Stones 04.26</td>
+                    <td>Sand+Stones</td>
+                    <td>€488.56</td>
+                    <td>2.51%</td>
+                    <td>€0.13</td>
+                    <td>105</td>
+                    <td>€23,696</td>
+                    <td>48.5x</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="padding:12px 24px; font-size:12px; color:var(--text-muted); border-top:1px solid var(--mid-gray);">Highlighted rows: Digger Bath has the highest CTR in the account (6.46%) and cheapest CPC (€0.06). Compost Trees delivers 96x ROAS vs 50x for the main Compost ad — nearly 2x — but has received only €72 in spend vs €525.</p>
+    </div>
+
+    <!-- Spend chart -->
+    <div class="chart-container">
+        <div class="chart-header">
+            <span class="chart-title">3-Month Spend by Campaign</span>
+            <div class="chart-legend">
+                <div class="legend-item"><div class="legend-dot" style="background:#243B98"></div><span>Firewood</span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#E6211E"></div><span>Summer Products</span></div>
+            </div>
+        </div>
+        <canvas id="campaignSpendChart" height="100"></canvas>
+    </div>
+</section>
+
+<!-- FINDINGS -->
+<section id="findings">
+    <div class="section-label">Audit Findings</div>
+    <div class="section-title">What We Found</div>
+    <p class="section-desc">Issues identified across the 3-month audit period.</p>
+
+    <div class="issues-list">
+        <div class="issue-item">
+            <div class="issue-icon icon-critical">🚨</div>
+            <div class="issue-content">
+                <h4>Account Balance Critical — €151.30 Remaining</h4>
+                <p>At €60/day current spend, the account has less than 3 days of budget remaining. The account could go dark before any June strategy changes take effect. Balance top-up from Ciaran is the single most urgent action — everything else is blocked until this is resolved.</p>
+            </div>
+        </div>
+        <div class="issue-item">
+            <div class="issue-icon icon-critical">🚨</div>
+            <div class="issue-content">
+                <h4>Budget Not Adjusted for Off-Season — Spend Doubled While Performance Halved</h4>
+                <p>From March to May, spend increased 98% (€933 → €1,852) while purchases fell 61% (850 → 335) and ROAS collapsed from 270x to 49x. The previous manager kept all four campaigns at flat €15/day budgets through a seasonal transition that fundamentally changed demand. €1,852 was spent in May for off-season Firewood clicks that were never going to convert.</p>
+            </div>
+        </div>
+        <div class="issue-item">
+            <div class="issue-icon icon-critical">🚨</div>
+            <div class="issue-content">
+                <h4>Zero Retargeting Running — 1,745 Abandoned ATCs Unaddressed</h4>
+                <p>In 3 months: 1,745 add-to-carts, 1,812 checkout initiations — not a single retargeting campaign to follow up. The BOF_Retargeting campaign has been paused for the entire audit period. These are the highest-intent audiences available and they are being abandoned completely. Retargeting warm audiences typically converts at 2–5x the ROAS of cold traffic.</p>
+            </div>
+        </div>
+        <div class="issue-item">
+            <div class="issue-icon icon-critical">🚨</div>
+            <div class="issue-content">
+                <h4>Gas &amp; Heating Oil — Core Products — Have No Active Campaigns</h4>
+                <p>Kenny Fuels' primary business is fuel. No gas or heating oil campaign has run in the 3-month audit period. September heating season is 3 months away — campaigns need to be built, tested, and out of the learning phase well before demand arrives. Planning starts now.</p>
+            </div>
+        </div>
+        <div class="issue-item">
+            <div class="issue-icon icon-warning">⚠️</div>
+            <div class="issue-content">
+                <h4>Compost Trees Creative Receiving 7x Less Budget Than Inferior Ad</h4>
+                <p>Ad 2 Compost Trees: 95.9x ROAS on €72.60 spend. Ad 1 Compost: 49.6x ROAS on €525.05 spend. Meta's algorithm is allocating the majority of budget to the lower-performing creative. This is a structural issue with running two ads in a single ad set — the algorithm settled on the wrong one. Fix required for June.</p>
+            </div>
+        </div>
+        <div class="issue-item">
+            <div class="issue-icon icon-warning">⚠️</div>
+            <div class="issue-content">
+                <h4>Account Frequency at 7.14 — Audiences Are Burning Out</h4>
+                <p>7+ average frequency over 3 months on a reach of 145k means the same people have been shown these ads repeatedly. CTR declined from 3.41% in March to 2.40% in May — a direct symptom of creative fatigue. New creatives and expanded or refreshed audiences are needed heading into June.</p>
+            </div>
+        </div>
+        <div class="issue-item">
+            <div class="issue-icon icon-warning">⚠️</div>
+            <div class="issue-content">
+                <h4>No Conversion API (CAPI) — Browser Pixel Only</h4>
+                <p>All tracking relies on browser-side pixel. Post-iOS14, browser tracking typically misses 15–30% of conversions due to tracking prevention and ad blockers. Given the high average order values on firewood and fuel products, each missed conversion is significant. CAPI installation is a week-one priority once pixel partner access is confirmed.</p>
+            </div>
+        </div>
+        <div class="issue-item">
+            <div class="issue-icon icon-warning">⚠️</div>
+            <div class="issue-content">
+                <h4>Pixel Partner Access Still Pending</h4>
+                <p>Pixel (614735617253875 — Kenny Fuels Dataset) is visible via API but not yet accessible in Events Manager. Email sent to Ciaran on May 26 requesting partner assignment via Business Settings → Data Sources → Pixels → Assign Partners. No response received. Without Events Manager access, CAPI cannot be installed and custom audiences cannot be built directly from pixel data.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JUNE STRATEGY -->
+<section id="strategy">
+    <div class="section-label">June Strategy</div>
+    <div class="section-title">Recommended Plan</div>
+    <p class="section-desc">Effective June 1, 2026 · Pending client budget approval.</p>
+
+    <div class="approval-box">
+        <h3>⚠ Pending Client Approval</h3>
+        <p>The budget changes below require sign-off from Kenny Fuels before implementation. Current total: €60/day. Proposed June total: €85/day. All changes are on hold pending approval and account balance top-up.</p>
+    </div>
+
+    <!-- Budget Table -->
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Proposed June Budget Allocation</h3>
+            <p>Redirecting spend from off-season Firewood to summer products and activating retargeting for the first time.</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campaign</th>
+                    <th>Current Budget</th>
+                    <th>Proposed June</th>
+                    <th>Change</th>
+                    <th>Rationale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Firewood B2C</td>
+                    <td>€15/day</td>
+                    <td><strong>€5/day</strong></td>
+                    <td><span class="trend-down">-€10/day</span></td>
+                    <td>Off-season. Minimum to preserve learnings for Sep</td>
+                </tr>
+                <tr>
+                    <td>Firewood B2B</td>
+                    <td>€15/day</td>
+                    <td><strong>€5/day</strong></td>
+                    <td><span class="trend-down">-€10/day</span></td>
+                    <td>Off-season. Same — preserve, don't pause</td>
+                </tr>
+                <tr>
+                    <td>Compost</td>
+                    <td>€15/day</td>
+                    <td><strong>€30/day</strong></td>
+                    <td><span class="trend-up">+€15/day</span></td>
+                    <td>Summer demand. 6 weeks of data. Scale now</td>
+                </tr>
+                <tr>
+                    <td>Sand+Stones</td>
+                    <td>€15/day</td>
+                    <td><strong>€25/day</strong></td>
+                    <td><span class="trend-up">+€10/day</span></td>
+                    <td>Summer demand. Scale for Q2 peak</td>
+                </tr>
+                <tr>
+                    <td>BOF Retargeting <span class="status-new">NEW</span></td>
+                    <td>€0</td>
+                    <td><strong>€20/day</strong></td>
+                    <td><span class="trend-up">+€20/day</span></td>
+                    <td>ATC + checkout abandoners. Cheapest conversions available</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Total</td>
+                    <td>€60/day (~€1,800/mo)</td>
+                    <td>€85/day (~€2,550/mo)</td>
+                    <td><span class="trend-up">+€25/day (+42%)</span></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="next-grid">
+        <div class="next-card">
+            <span class="priority-tag priority-high">Urgent — This Week</span>
+            <h4>Top Up Account Balance</h4>
+            <p>Balance is €151.30 — less than 3 days of budget. The account will go dark before any June strategy takes effect if this isn't resolved. Ciaran needs to add funds immediately. All other actions are blocked until this is done.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-high">Urgent — This Week</span>
+            <h4>Fix Compost Creative Split</h4>
+            <p>Compost Trees (95.9x ROAS) is receiving 7x less budget than the main Compost ad (49.6x ROAS). Duplicate the Compost campaign with Compost Trees as the sole ad at €20/day. Run the original at €10/day as a control. Let the better creative prove itself at scale.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-high">Urgent — This Week</span>
+            <h4>Reactivate BOF Retargeting</h4>
+            <p>Build a retargeting campaign targeting: ATC + checkout abandoners from last 30 days (Compost + Sand+Stones); video viewers 75%+ last 60 days. Budget: €20/day. Objective: OUTCOME_SALES. This is the fastest path to cheap conversions given the warm audience pool already built.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-medium">June — Build Phase</span>
+            <h4>Brief Gas &amp; Heating Oil Campaign</h4>
+            <p>Request creatives from Ciaran. Plan campaign structure: separate campaigns for Gas Cylinders and Heating Oil. Geography: 5-county B2C + all-Ireland B2B. Target launch: July 1. Campaigns need to be live and learning through July–August before September demand arrives.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-medium">June — Technical</span>
+            <h4>Confirm Pixel Access &amp; Install CAPI</h4>
+            <p>Follow up on May 26 email to Ciaran about pixel partner access (614735617253875). Once Events Manager access is confirmed, install Conversion API via the website platform. CAPI is expected to recover 15–30% more attributed conversions — significant at current order values.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-strategic">July/August — Prepare</span>
+            <h4>September Heating Season Prep</h4>
+            <p>September is the start of peak season. New Firewood creatives need to be produced in July. Firewood budgets scale back to €40–50/day from September 1. Gas/Heating Oil campaigns need to be in learning phase by August. Full funnel (TOF → MOF → BOF) needs to be live before October.</p>
+        </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="table-card" style="margin-top: 32px;">
+        <div class="table-card-header">
+            <h3>June KPIs</h3>
+            <p>Targets based on 3-month audit data and proposed budget changes.</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Current (May)</th>
+                    <th>June Target</th>
+                    <th>How</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Compost ROAS</td>
+                    <td>~49x</td>
+                    <td><strong>>80x</strong></td>
+                    <td>Fix creative split, scale budget, retargeting</td>
+                </tr>
+                <tr>
+                    <td>Sand+Stones ROAS</td>
+                    <td>~51x</td>
+                    <td><strong>>60x</strong></td>
+                    <td>Increased budget, improved creative distribution</td>
+                </tr>
+                <tr>
+                    <td>BOF Retargeting ROAS</td>
+                    <td>Not running</td>
+                    <td><strong>>150x</strong></td>
+                    <td>Warm audience — expected high return on low spend</td>
+                </tr>
+                <tr>
+                    <td>Account Frequency</td>
+                    <td>7.14 (3-month avg)</td>
+                    <td><strong>Below 5.0</strong></td>
+                    <td>Audience expansion + new creatives</td>
+                </tr>
+                <tr>
+                    <td>Monthly Spend</td>
+                    <td>€1,852 (May)</td>
+                    <td><strong>~€2,550</strong></td>
+                    <td>Pending budget approval at €85/day</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<footer>
+    <strong>Kenny Fuels Meta Ads — 3-Month Audit &amp; June Strategy</strong> &nbsp;|&nbsp; Compiled by Josette · June 1, 2026 &nbsp;|&nbsp; Pending client approval &nbsp;|&nbsp; Confidential
+</footer>
+
+<script>
+    // ROAS by Month
+    new Chart(document.getElementById('roasChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['March', 'April', 'May'],
+            datasets: [{
+                data: [270, 105, 49],
+                backgroundColor: ['#243B98', '#243B98', '#E6211E'],
+                borderRadius: 4,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                tooltip: { callbacks: { label: ctx => ctx.parsed.y + 'x ROAS' } }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: 'rgba(0,0,0,0.05)' },
+                    ticks: { font: { family: 'Lato', size: 11 }, callback: v => v + 'x' }
+                },
+                x: { grid: { display: false }, ticks: { font: { family: 'Lato', size: 11 } } }
+            }
+        }
+    });
+
+    // Spend vs Revenue
+    new Chart(document.getElementById('spendRevenueChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['March', 'April', 'May'],
+            datasets: [
+                { label: 'Spend', data: [933, 1160, 1852], backgroundColor: '#243B98', borderRadius: 4 },
+                { label: 'Revenue', data: [252555, 121927, 91304], backgroundColor: '#E6211E', borderRadius: 4 }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                tooltip: { callbacks: { label: ctx => '€' + ctx.parsed.y.toLocaleString() } }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: 'rgba(0,0,0,0.05)' },
+                    ticks: { font: { family: 'Lato', size: 11 }, callback: v => '€' + (v >= 1000 ? (v/1000).toFixed(0) + 'k' : v) }
+                },
+                x: { grid: { display: false }, ticks: { font: { family: 'Lato', size: 11 } } }
+            }
+        }
+    });
+
+    // Campaign spend
+    new Chart(document.getElementById('campaignSpendChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['Firewood B2C', 'Firewood B2B', 'Compost', 'Sand+Stones'],
+            datasets: [{
+                data: [1374, 1375, 598, 597],
+                backgroundColor: ['#243B98', '#243B98', '#E6211E', '#E6211E'],
+                borderRadius: 4,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                tooltip: { callbacks: { label: ctx => '€' + ctx.parsed.y.toLocaleString() } }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: 'rgba(0,0,0,0.05)' },
+                    ticks: { font: { family: 'Lato', size: 11 }, callback: v => '€' + v }
+                },
+                x: { grid: { display: false }, ticks: { font: { family: 'Lato', size: 11 } } }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
