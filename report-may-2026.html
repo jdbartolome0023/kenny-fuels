@@ -1,988 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenny Fuels Google Ads Report – May 1–7, 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
-    <style>
-        :root {
-            --black: #243B98;
-            --white: #ffffff;
-            --red: #E6211E;
-            --dark-red: #b5191a;
-            --gray: #f9f9f9;
-            --mid-gray: #e0e0e0;
-            --text-dark: #1a1a1a;
-            --text-muted: #777;
-            --green: #2e7d32;
-            --amber: #e65100;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background: var(--white);
-            color: var(--text-dark);
-            font-size: 15px;
-        }
-
-        /* NAV */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: var(--black);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 40px;
-            height: 56px;
-        }
-
-        nav .logo img {
-            height: 36px;
-            width: auto;
-            display: block;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        nav ul a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: color 0.2s;
-        }
-
-        nav ul a:hover { color: var(--white); }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .report-date {
-            color: rgba(255,255,255,0.5);
-            font-size: 12px;
-        }
-
-        .btn-pdf {
-            background: var(--red);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            font-family: 'Lato', sans-serif;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 4px;
-            letter-spacing: 0.5px;
-        }
-
-        /* HERO */
-        .hero {
-            padding: 80px 40px 60px;
-            border-bottom: 1px solid var(--mid-gray);
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .period-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--gray);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-        }
-
-        .period-badge::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--amber);
-        }
-
-        .hero h1 {
-            font-family: 'Lato', sans-serif; font-weight: 900;
-            font-size: 72px;
-            line-height: 1;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .hero h1 span {
-            color: var(--red);
-            display: block;
-        }
-
-        .hero p {
-            font-size: 16px;
-            color: var(--text-muted);
-            max-width: 520px;
-            margin-top: 20px;
-            line-height: 1.6;
-        }
-
-        /* SECTIONS */
-        section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 40px;
-            border-bottom: 1px solid var(--mid-gray);
-        }
-
-        .section-label {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-family: 'Lato', sans-serif; font-weight: 900;
-            font-size: 42px;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .section-desc {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        .section-commentary {
-            font-size: 15px;
-            color: var(--text-dark);
-            line-height: 1.8;
-            max-width: 780px;
-            margin-bottom: 40px;
-            padding-left: 16px;
-            border-left: 3px solid var(--red);
-        }
-
-        /* METRIC CARDS */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-bottom: 48px;
-        }
-
-        .metric-card {
-            border: 1px solid var(--mid-gray);
-            border-radius: 8px;
-            padding: 28px 24px;
-            background: var(--white);
-            position: relative;
-        }
-
-        .metric-label {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-
-        .metric-value {
-            font-family: 'Lato', sans-serif; font-weight: 900;
-            font-size: 48px;
-            letter-spacing: 1px;
-            line-height: 1;
-            margin-bottom: 12px;
-        }
-
-        .metric-comparisons {
-            display: flex;
-            gap: 16px;
-            font-size: 12px;
-        }
-
-        .metric-comp {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .comp-label {
-            color: var(--text-muted);
-            font-size: 11px;
-        }
-
-        .up { color: var(--green); font-weight: 600; }
-        .down { color: var(--red); font-weight: 600; }
-        .neutral { color: var(--text-muted); font-weight: 600; }
-
-        /* TABLE */
-        .table-card {
-            border: 1px solid var(--mid-gray);
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 32px;
-        }
-
-        .table-card-header {
-            padding: 20px 24px;
-            border-bottom: 1px solid var(--mid-gray);
-        }
-
-        .table-card-header h3 {
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .table-card-header p {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 4px;
-            line-height: 1.6;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        thead th {
-            background: var(--black);
-            color: var(--white);
-            padding: 12px 24px;
-            text-align: left;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        tbody tr {
-            border-bottom: 1px solid var(--mid-gray);
-        }
-
-        tbody tr:last-child { border-bottom: none; }
-
-        tbody tr:nth-child(even) { background: var(--gray); }
-
-        tbody td {
-            padding: 14px 24px;
-            font-size: 14px;
-        }
-
-        tbody td:first-child { font-weight: 500; }
-
-        .status-active {
-            display: inline-block;
-            background: #e8f5e9;
-            color: var(--green);
-            font-size: 11px;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 20px;
-            letter-spacing: 0.5px;
-        }
-
-        .status-learning {
-            display: inline-block;
-            background: #e3f2fd;
-            color: #1565c0;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 20px;
-        }
-
-        .status-new {
-            display: inline-block;
-            background: #f3e5f5;
-            color: #7b1fa2;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 20px;
-        }
-
-        .status-paused {
-            display: inline-block;
-            background: #fff3e0;
-            color: var(--amber);
-            font-size: 11px;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 20px;
-        }
-
-        .campaign-name {
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--text-dark);
-        }
-
-        .adgroup-label {
-            margin-top: 4px;
-            font-size: 12px;
-            font-weight: 400;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .campaign-note td {
-            padding: 8px 24px 10px 24px;
-            font-size: 12.5px;
-            font-style: italic;
-            color: var(--text-muted);
-            background: #fffdf5;
-            border-bottom: 1px solid var(--mid-gray);
-        }
-
-        .zero-conv {
-            color: var(--red);
-            font-size: 11px;
-            font-weight: 700;
-            margin-left: 6px;
-        }
-
-        /* CHART */
-        .chart-container {
-            background: var(--gray);
-            border-radius: 8px;
-            padding: 24px;
-            margin-top: 32px;
-        }
-
-        .chart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .chart-title {
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-
-        .chart-legend {
-            display: flex;
-            gap: 16px;
-            font-size: 11px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .legend-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 2px;
-        }
-
-        /* CHANGES */
-        .changes-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .change-item {
-            display: flex;
-            gap: 20px;
-            padding: 24px 0;
-            border-bottom: 1px solid var(--mid-gray);
-            align-items: flex-start;
-        }
-
-        .change-item:last-child { border-bottom: none; }
-
-        .change-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .icon-done { background: #e8f5e9; }
-        .icon-paused { background: #ffebee; }
-        .icon-updated { background: #e3f2fd; }
-        .icon-new { background: #f3e5f5; }
-
-        .change-content h4 {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .change-content p {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* WHAT'S NEXT */
-        .next-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        .next-card {
-            border: 1px solid var(--mid-gray);
-            border-radius: 8px;
-            padding: 28px;
-        }
-
-        .next-card h4 {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .next-card p {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .priority-tag {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-        }
-
-        .priority-high { background: #ffebee; color: var(--red); }
-        .priority-medium { background: #fff8e1; color: #e65100; }
-        .priority-done { background: #e8f5e9; color: #2e7d32; }
-        .priority-low { background: #e8f5e9; color: var(--green); }
-
-        /* FOOTER */
-        footer {
-            background: var(--black);
-            color: rgba(255,255,255,0.4);
-            text-align: center;
-            padding: 24px 40px;
-            font-size: 12px;
-        }
-
-        footer strong { color: rgba(255,255,255,0.7); }
-
-        @media (max-width: 768px) {
-            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-            .next-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 48px; }
-            nav ul { display: none; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenny Fuels - May 2026 Monthly Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #243B98;
+    --red: #E6211E;
+    --dark-red: #b5191a;
+    --green: #2e7d32;
+    --green-light: #e8f5e9;
+    --amber: #e65100;
+    --amber-light: #fff8e1;
+    --blue-light: #e8f0fe;
+    --border: #e0e0e0;
+    --bg: #f9f9f9;
+    --white: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #777;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: var(--white); color: var(--text); font-size: 15px; line-height: 1.6; }
+  .topnav { background: var(--brand); padding: 0 40px; display: flex; align-items: center; gap: 32px; height: 56px; position: sticky; top: 0; z-index: 100; }
+  .topnav-brand { font-weight: 900; font-size: 15px; color: var(--white); text-decoration: none; letter-spacing: 0.5px; }
+  .topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; }
+  .topnav a:hover { color: var(--white); }
+  .topnav-right { margin-left: auto; display: flex; gap: 16px; align-items: center; }
+  .report-type-badge { background: var(--red); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 0.5px; }
+  .notice-banner { background: var(--blue-light); border-bottom: 2px solid #3f51b5; padding: 12px 40px; font-size: 13px; color: #1a237e; }
+  .notice-banner strong { color: var(--brand); }
+  .hero { padding: 80px 40px 60px; border-bottom: 1px solid var(--border); max-width: 1100px; margin: 0 auto; }
+  .period-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--bg); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 24px; }
+  .period-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
+  .hero h1 { font-weight: 900; font-size: 72px; line-height: 1; letter-spacing: 1px; margin-bottom: 8px; }
+  .hero h1 span { color: var(--red); display: block; }
+  .hero p { font-size: 16px; color: var(--text-muted); max-width: 560px; margin-top: 20px; line-height: 1.6; }
+  .hero-meta { margin-top: 32px; display: flex; gap: 40px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 24px; }
+  .hero-meta-item { font-size: 12px; color: var(--text-muted); }
+  .hero-meta-item strong { font-size: 14px; color: var(--text); display: block; margin-bottom: 2px; font-weight: 700; }
+  section { padding: 60px 40px; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+  .section-title { font-weight: 900; font-size: 42px; letter-spacing: 1px; margin-bottom: 8px; }
+  .section-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; line-height: 1.6; max-width: 720px; }
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .summary-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; }
+  .summary-card .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; }
+  .summary-card .value { font-size: 32px; font-weight: 900; color: var(--text); line-height: 1; }
+  .summary-card .compare { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+  .summary-card .compare .up { color: var(--green); font-weight: 700; }
+  .summary-card .compare .down { color: var(--red); font-weight: 700; }
+  .summary-card .compare .neutral { color: var(--text-muted); font-weight: 700; }
+  .summary-card.highlight { border-left: 4px solid var(--brand); }
+  .context-box { background: var(--bg); border-left: 4px solid var(--brand); padding: 20px 24px; margin-bottom: 24px; font-size: 14px; color: var(--text); line-height: 1.7; }
+  .context-box strong { display: block; margin-bottom: 6px; font-size: 15px; font-weight: 700; color: var(--brand); }
+  .table-card { background: var(--white); border: 1px solid var(--border); overflow: hidden; margin-bottom: 24px; }
+  .table-card-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg); }
+  .table-card-header h3 { font-size: 15px; font-weight: 700; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--bg); padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+  td { padding: 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafafa; }
+  .campaign-name { font-weight: 700; font-size: 13px; }
+  .adgroup-label { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+  .campaign-note-row td { background: #fafafa; padding: 8px 14px 16px; font-size: 12px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+  .up { color: var(--green); font-weight: 700; }
+  .down { color: var(--red); font-weight: 700; }
+  .neutral-text { color: var(--text-muted); }
+  .status-active { background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
+  .status-monitoring { background: var(--blue-light); color: var(--brand); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
+  .phase-divider { background: var(--bg); border: 1px solid var(--border); padding: 10px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 24px 0 0; }
+  .changes-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-top: none; }
+  .change-item { background: var(--white); border-bottom: 1px solid var(--border); padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .change-item:last-child { border-bottom: none; }
+  .change-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .change-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .change-content p { font-size: 13px; color: var(--text-muted); margin-top: 4px; line-height: 1.6; }
+  .change-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; }
+  .tag-critical { background: #ffebee; color: var(--red); }
+  .tag-high { background: var(--amber-light); color: var(--amber); }
+  .tag-optimisation { background: var(--blue-light); color: var(--brand); }
+  .tag-done { background: var(--green-light); color: var(--green); }
+  .next-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .next-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 20px; }
+  .next-card h4 { font-size: 14px; font-weight: 700; margin: 8px 0 6px; }
+  .next-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .priority-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; }
+  .priority-high { background: #ffebee; color: var(--red); }
+  .priority-medium { background: var(--amber-light); color: var(--amber); }
+  .priority-done { background: var(--green-light); color: var(--green); }
+  .priority-launch { background: var(--blue-light); color: var(--brand); }
+  footer { background: var(--brand); padding: 32px 40px; text-align: center; color: rgba(255,255,255,0.6); font-size: 12px; }
+  footer p + p { margin-top: 6px; }
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+  @media (max-width: 768px) {
+    .hero { padding: 40px 20px; }
+    .hero h1 { font-size: 48px; }
+    section { padding: 40px 20px; }
+    .topnav { padding: 0 20px; gap: 16px; }
+  }
+</style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-    <div class="logo"><img src="https://www.kennyfuels.ie/wp-content/uploads/2023/11/kenny-logo.png" alt="Kenny Fuels"></div>
-    <ul>
-        <li><a href="#notes">Notes</a></li>
-        <li><a href="#metrics">Metrics</a></li>
-        <li><a href="#campaigns">Campaigns</a></li>
-        <li><a href="#changes">Changes</a></li>
-        <li><a href="#next">What's Next</a></li>
-    </ul>
-    <div class="nav-right">
-        <span class="report-date">May 1 – May 7, 2026</span>
-        <button class="btn-pdf" onclick="window.print()">⬇ Download PDF</button>
-    </div>
+<nav class="topnav">
+  <div style="display:flex; align-items:center; gap:32px; flex:1;">
+    <a class="topnav-brand" href="index.html">KENNY FUELS</a>
+    <a href="dashboard.html">Weekly Report</a>
+    <a href="report-apr-2026.html">April 2026</a>
+    <a href="report-may-2026.html">May 2026</a>
+  </div>
+  <div class="topnav-right">
+    <span class="report-type-badge">MONTHLY REPORT</span>
+  </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-    <div class="period-badge">May 1 – May 7, 2026 &nbsp;·&nbsp; 7 days</div>
-    <h1>Kenny Fuels<span>Google Ads</span></h1>
-    <p>Weekly performance overview across all active campaigns. All figures in EUR. Reporting period: Fri May 1 – Thu May 7 (7 days). Comparisons against the previous full week (Apr 24–30).</p>
+<div class="notice-banner">
+  <strong>Note on conversion data:</strong> Conversion value rules were applied on May 18 (HHO €350/call, Brand Search €220/call, Gas Bottle €90/call). Conversion <em>counts</em> from May 1 are accurate. Conversion <em>values</em> before May 18 are near-zero as calls were assigned a €1 placeholder. ROAS and value figures before May 18 significantly understate real performance.
 </div>
 
-<!-- NOTES -->
-<section id="notes" style="background: var(--gray); border-bottom: none;">
-    <div class="section-title">This Week's Notes</div>
-    <p style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 8px; color: var(--text-dark);">
-        This was the most active restructuring week since we took over the account. Three major themes ran in parallel. First, account hygiene: a full negative keyword audit identified conflicting broad negatives blocking seven active ad groups, the General Negatives shared list was found missing from all three fuel campaigns and applied, and 68 ad groups generating zero conversions were paused to concentrate budget on what is working. Second, the first hardware campaign launched on May 5: KF Hardware – Composite Decking is live with four themed ad groups, 18 phrase match keywords, and 15 sitelinks. Early CTRs are strong. Third, the account was repositioned for the off-season: heating oil and coal groups paused, budget shifted from B&amp;G to Gas Bottle (BBQ season starting) and the new hardware campaign.
-    </p>
-    <p style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 16px; color: var(--text-dark);">
-        Brand and General Search recorded 0 conversions all week despite 834 clicks. A full investigation confirmed this is a tracking problem, not a campaign problem. Two GA4 measurement IDs are firing on every page of the website, and the property linked to Google Ads is only capturing 11% of sessions. The remaining 89% of Google Ads clicks go untracked — meaning purchases happen but Google Ads cannot see them. A consolidated fix request was sent to the client on May 5 for forwarding to Graphedia. This is the single most important outstanding item: without the fix, the algorithm has no signal to optimise on when the heating oil season resumes in September.
-    </p>
+<div class="hero">
+  <div class="period-badge">May 2026 &nbsp;·&nbsp; Monthly Report</div>
+  <h1>Kenny Fuels<span>Google Ads: May 2026</span></h1>
+  <p>May was the account's first operational month. April fixed the structural issues inherited from the previous agency. May built on that foundation: conversion tracking was fully repaired, all four campaigns ran simultaneously for the first time, and the account recorded 149 conversions and €34,782 in tracked conversion value.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><strong>May 1 – May 31, 2026</strong>31 days</div>
+    <div class="hero-meta-item"><strong>4 active campaigns</strong>Brand Search, HHO, Gas Bottle, Hardware</div>
+    <div class="hero-meta-item"><strong>First clean data window</strong>May 18–31 (14 days)</div>
+    <div class="hero-meta-item"><strong>Total spend</strong>€5,116 across all campaigns</div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<section id="summary">
+  <div class="section-label">Month at a Glance</div>
+  <div class="section-title">May 2026 Summary</div>
+  <p class="section-desc">All 4 active campaigns. Conversion value figures reflect the full month. See tracking notice above for context on May 1–17 values.</p>
+
+  <div class="summary-grid">
+    <div class="summary-card highlight">
+      <div class="label">Total Spend</div>
+      <div class="value">€5,116</div>
+      <div class="compare">vs <strong>€1,853</strong> April (fuel only) &nbsp;<span class="up">First full-budget month</span></div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Conversions</div>
+      <div class="value">149</div>
+      <div class="compare">First meaningful conversion month &nbsp;<span class="up">baseline established</span></div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Tracked Conv. Value</div>
+      <div class="value">€34,782</div>
+      <div class="compare">May 18–31 clean window: <strong>€30,700</strong> &nbsp;<span class="neutral">12.5x ROAS</span></div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Top Campaign</div>
+      <div class="value" style="font-size:16px; margin-top:6px;">Home Heating Oil</div>
+      <div class="compare">44.5 conv &nbsp;·&nbsp; €11,120 value &nbsp;·&nbsp; 9.5x ROAS</div>
+    </div>
+  </div>
+
+  <div class="context-box">
+    <strong>Why spend is higher than April</strong>
+    April's lower spend reflected throttled campaigns: Brand Search had a 6,600% tROAS cap spending €17/day vs a €110 budget, and HHO had a 4,996% tROAS cap generating near-zero impressions. Both were fixed in April. May is the first month where all four campaigns ran at their intended budgets. The €210/day approved envelope was reached for the first time in the final week of May. The April vs May comparison reflects campaigns being fixed, not a change in activity level.
+  </div>
+
+  <div class="context-box">
+    <strong>Two phases of May data</strong>
+    May 1–17: Conversion counts are recorded but values are unreliable — phone calls were assigned a €1 placeholder before value rules were applied on May 18. The Complianz consent platform went live May 15, replacing CookieYes and fixing GA4 consent mode. May 18–31: First fully clean data. Value rules live, consent mode correct, call recording complete from May 20, PixelYourSite removed May 27–28. Use May 18–31 as the performance baseline going into June.
+  </div>
 </section>
 
-<!-- METRICS -->
-<section id="metrics">
-    <div class="section-label">Key Metrics</div>
-    <div class="section-title">Weekly Performance</div>
-    <p class="section-desc">May 1 – May 7, 2026 &nbsp;·&nbsp; 7 days. Prior week (Apr 24–30) shown for comparison.</p>
-    <p class="section-commentary">Phone call conversions are the only clean, reliable metric this week. Brand and General conversions are 0 due to the dual GA4 tag issue. Home Heating Oil Search and Gas Bottle both recorded 5 phone calls each (AD_CALL type — tracked directly by Google Ads, no GA4 dependency). Total spend is up from €623 to €1,202 because Home Heating Oil Search scaled from €4.73 to €364 spend after the keyword additions from late April, and Composite Decking launched mid-week. Note: prior week conversion data is not directly comparable — GA4 key events were reconfigured on May 5 and some prior-week figures included invalid events now removed.</p>
+<hr class="section-divider">
 
-    <div class="metrics-grid">
-        <div class="metric-card">
-            <div class="metric-label">Phone Call Leads</div>
-            <div class="metric-value">10</div>
-            <div class="metric-comparisons">
-                <div class="metric-comp">
-                    <span class="comp-label">Source</span>
-                    <span class="neutral">HHO + Gas Bottle</span>
-                </div>
-                <div class="metric-comp">
-                    <span class="comp-label">Note</span>
-                    <span class="neutral">Clean, GA4-independent</span>
-                </div>
-            </div>
-        </div>
-        <div class="metric-card">
-            <div class="metric-label">Total Spend</div>
-            <div class="metric-value">€1,202</div>
-            <div class="metric-comparisons">
-                <div class="metric-comp">
-                    <span class="comp-label">Prior Week</span>
-                    <span class="neutral">€623</span>
-                </div>
-                <div class="metric-comp">
-                    <span class="comp-label">Note</span>
-                    <span class="neutral">HHO scale-up + new campaign</span>
-                </div>
-            </div>
-        </div>
-        <div class="metric-card">
-            <div class="metric-label">HHO Search Spend</div>
-            <div class="metric-value">€364</div>
-            <div class="metric-comparisons">
-                <div class="metric-comp">
-                    <span class="comp-label">Prior Week</span>
-                    <span class="neutral">€4.73</span>
-                </div>
-                <div class="metric-comp">
-                    <span class="comp-label">Calls</span>
-                    <span class="up">▲ 5 phone calls</span>
-                </div>
-            </div>
-        </div>
-        <div class="metric-card">
-            <div class="metric-label">Composite Decking CTR</div>
-            <div class="metric-value">20.3%</div>
-            <div class="metric-comparisons">
-                <div class="metric-comp">
-                    <span class="comp-label">Launched</span>
-                    <span class="neutral">May 5 (3 days)</span>
-                </div>
-                <div class="metric-comp">
-                    <span class="comp-label">Avg CPC</span>
-                    <span class="neutral">€1.36</span>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- WEEKLY BREAKDOWN -->
+<section id="weekly">
+  <div class="section-label">Performance Trend</div>
+  <div class="section-title">Week-by-Week Breakdown</div>
+  <p class="section-desc">All campaigns combined. The step-change from week 3 to week 4 reflects conversion value rules being applied May 18. Conversion counts were accurate from May 1 — values were not.</p>
 
-    <!-- Weekly Breakdown Table -->
-    <div class="table-card">
-        <div class="table-card-header">
-            <h3>Weekly Breakdown</h3>
-            <p>All active campaigns combined. Conversion data before May 5 is not directly comparable: GA4 key events were reconfigured on May 5 and some prior-week conversions reflected incorrectly configured events that have since been removed. Spend and clicks are accurate for both periods.</p>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Week</th>
-                    <th>Spend</th>
-                    <th>Clicks</th>
-                    <th>Impressions</th>
-                    <th>CTR</th>
-                    <th>Phone Calls</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Apr 24 – Apr 30</td>
-                    <td>€623</td>
-                    <td>1,188</td>
-                    <td>7,058</td>
-                    <td>16.8%</td>
-                    <td>—*</td>
-                </tr>
-                <tr style="font-weight:600; background:#fffdf0;">
-                    <td>May 1 – May 7 ← This Week</td>
-                    <td>€1,202</td>
-                    <td>1,510</td>
-                    <td>12,744</td>
-                    <td>11.9%</td>
-                    <td>10</td>
-                </tr>
-            </tbody>
-        </table>
-        <p style="padding: 12px 24px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--mid-gray);">*Prior week phone call data not isolated due to key event reconfiguration. Spend and clicks are accurate.</p>
+  <div class="table-card">
+    <div class="table-card-header">
+      <h3>Weekly Performance: May 2026</h3>
+      <span style="font-size:12px; color: var(--text-muted);">All 4 campaigns combined</span>
     </div>
-
-    <!-- Chart -->
-    <div class="chart-container">
-        <div class="chart-header">
-            <span class="chart-title">Spend by Campaign: May 1–7</span>
-            <div class="chart-legend">
-                <div class="legend-item">
-                    <div class="legend-dot" style="background:#243B98"></div>
-                    <span>Fuel Campaigns</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-dot" style="background:#E6211E"></div>
-                    <span>Hardware</span>
-                </div>
-            </div>
-        </div>
-        <canvas id="spendChart" height="100"></canvas>
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Week</th>
+          <th>Spend</th>
+          <th>Impressions</th>
+          <th>Clicks</th>
+          <th>CTR</th>
+          <th>Conversions</th>
+          <th>Conv. Value</th>
+          <th>Key Event</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>May 1–7</td>
+          <td>€1,202</td>
+          <td>12,744</td>
+          <td>1,510</td>
+          <td>11.9%</td>
+          <td>~10</td>
+          <td style="color:var(--text-muted);">n/a</td>
+          <td style="font-size:11px; color:var(--text-muted);">Hardware launched May 5. Tracking issues active.</td>
+        </tr>
+        <tr>
+          <td>May 8–14</td>
+          <td>€1,173</td>
+          <td>11,543</td>
+          <td>1,422</td>
+          <td>12.3%</td>
+          <td>~21</td>
+          <td style="color:var(--text-muted);">n/a</td>
+          <td style="font-size:11px; color:var(--text-muted);">Conversion tracking fixed May 11. Values still €1.</td>
+        </tr>
+        <tr>
+          <td>May 15–21</td>
+          <td>€1,078</td>
+          <td>7,590</td>
+          <td>970</td>
+          <td>12.8%</td>
+          <td>28</td>
+          <td>€7,010</td>
+          <td style="font-size:11px; color:var(--text-muted);">Complianz live May 15. HHO uncapped. Value rules applied May 18.</td>
+        </tr>
+        <tr style="background:#fffdf0; font-weight:600;">
+          <td>May 22–28</td>
+          <td>€1,480</td>
+          <td>7,826</td>
+          <td>982</td>
+          <td>12.5%</td>
+          <td>53</td>
+          <td>€13,335</td>
+          <td style="font-size:11px; color:var(--text-muted);">First full clean week. Hardware expanded. PYS removed.</td>
+        </tr>
+        <tr>
+          <td>May 29–31 (3 days)</td>
+          <td>~€183</td>
+          <td>~1,424</td>
+          <td>~148</td>
+          <td>—</td>
+          <td>~37</td>
+          <td>~€1,407</td>
+          <td style="font-size:11px; color:var(--text-muted);">Partial week. Reporting access expired May 31.</td>
+        </tr>
+        <tr style="font-weight:700; background: var(--bg);">
+          <td>May Total</td>
+          <td>€5,116</td>
+          <td>41,127</td>
+          <td>5,032</td>
+          <td>12.2%</td>
+          <td>149</td>
+          <td>€34,782</td>
+          <td style="font-size:11px; color:var(--text-muted);">Full month. Values accurate from May 18.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
-<!-- CAMPAIGNS -->
+<hr class="section-divider">
+
+<!-- CAMPAIGN PERFORMANCE -->
 <section id="campaigns">
-    <div class="section-label">Campaign Performance</div>
-    <div class="section-title">Active Campaigns</div>
-    <p class="section-desc">May 1 – May 7, 2026 &nbsp;·&nbsp; 7 days.</p>
-    <ul class="section-commentary" style="padding-left: 32px; list-style: disc;">
-        <li style="margin-bottom: 10px;"><strong>KF – Fuel | Home Heating Oil Search:</strong> The standout this week. Scaled from €4.73 spend last week to €364 this week after the keyword additions from late April took hold. Five phone calls recorded — the first conversions this campaign has generated since our engagement began. At €0.87 avg CPC this is the most efficient traffic in the account.</li>
-        <li style="margin-bottom: 10px;"><strong>KF – Fuel | Gas Bottle &amp; Cylinders:</strong> Five phone calls. Budget increased to €50/day for BBQ season. Seven summer BBQ keywords added. Impressions up to 4,413 from 3,176 the prior week. CPC held at €1.09. Solid performance heading into the summer demand period.</li>
-        <li style="margin-bottom: 10px;"><strong>KF – Fuel | Brand &amp; General Search:</strong> 834 clicks, €547 spend, 0 recorded conversions. Tracking issue confirmed as root cause: 89% of Google Ads sessions are going to a different GA4 property and Google Ads cannot see the purchases that are happening. The account restructure this week (68 ad groups paused, RSAs rebuilt, match types fixed) is in good shape for when tracking is resolved. CPCs are trending positively: avg CPC down from €0.85 (May 1) to €0.52 (May 7).</li>
-        <li style="margin-bottom: 10px;"><strong>KF – Hardware | Composite Decking:</strong> Launched May 5. Three days of data. All four ad groups are active with healthy CTRs — Boards &amp; Planks is leading volume at 20%+ CTR. Impressions scaled from 31 to 94 over the first three days. No conversions yet — too early to expect any. Full review at the 3-week mark, approximately May 22.</li>
-    </ul>
+  <div class="section-label">Campaign Performance</div>
+  <div class="section-title">May: By Campaign</div>
+  <p class="section-desc">May 1–31. Full-month ROAS figures are understated due to the €1 placeholder before May 18. May 18–31 blended ROAS across all campaigns is 12.5x.</p>
 
-    <div class="table-card">
-        <div class="table-card-header">
-            <h3>Kenny Fuels: All Active Campaigns</h3>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Campaign</th>
-                    <th>Status</th>
-                    <th>Spend</th>
-                    <th>Clicks</th>
-                    <th>Avg CPC</th>
-                    <th>Leads / Calls</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Brand & General Search -->
-                <tr>
-                    <td>
-                        <div class="campaign-name">KF – Fuel | Brand &amp; General Search</div>
-                        <div class="adgroup-label">Brand, emergency, firewood, lubricants (active) &nbsp;·&nbsp; 42 heating oil groups paused off-season</div>
-                    </td>
-                    <td><span class="status-learning">TRACKING ISSUE</span></td>
-                    <td>€547</td>
-                    <td>834</td>
-                    <td>€0.66</td>
-                    <td>0 <span class="zero-conv">⚠ GA4 tag unfixed</span></td>
-                </tr>
-                <tr class="campaign-note">
-                    <td colspan="6">0 recorded conversions due to dual GA4 tag issue (89% session loss). Fix request sent to Graphedia May 5 — awaiting client chase. CPCs trending down: €0.85 → €0.52 over the week. Off-season restructure complete: 68 ad groups paused, 3 RSAs rebuilt, match types corrected.</td>
-                </tr>
-
-                <!-- Home Heating Oil Search -->
-                <tr>
-                    <td>
-                        <div class="campaign-name">KF – Fuel | Home Heating Oil Search</div>
-                        <div class="adgroup-label">Home Heating Oil (single ad group, geographic + brand keywords)</div>
-                    </td>
-                    <td><span class="status-active">ACTIVE</span></td>
-                    <td>€364</td>
-                    <td>420</td>
-                    <td>€0.87</td>
-                    <td>5 phone calls</td>
-                </tr>
-                <tr class="campaign-note">
-                    <td colspan="6">Scaled from €4.73 last week — keyword additions from Apr 30 now generating real volume. Five phone calls from people calling directly after clicking the ad. Budget reduced to €25/day from May 7 (off-season): bulk heating oil orders have stopped for the year, but emergency and commercial calls continue year-round at lower volume.</td>
-                </tr>
-
-                <!-- Gas Bottle & Cylinders -->
-                <tr>
-                    <td>
-                        <div class="campaign-name">KF – Fuel | Gas Bottle &amp; Cylinders</div>
-                        <div class="adgroup-label">Gas Cylinders (phrase match, Flo Gas &amp; Calor Gas excluded)</div>
-                    </td>
-                    <td><span class="status-active">ACTIVE</span></td>
-                    <td>€235</td>
-                    <td>215</td>
-                    <td>€1.09</td>
-                    <td>5 phone calls</td>
-                </tr>
-                <tr class="campaign-note">
-                    <td colspan="6">Budget increased to €50/day from May 7 for BBQ season. Seven BBQ and summer keywords added (bbq gas ireland, patio gas ireland, bbq gas cylinder ireland, and more). Impressions up to 4,413 from 3,176 the prior week. Forklift negative reviewed and confirmed correct: Kenny Fuels stocks domestic and BBQ cylinders only.</td>
-                </tr>
-
-                <!-- Composite Decking -->
-                <tr>
-                    <td>
-                        <div class="campaign-name">KF – Hardware | Composite Decking</div>
-                        <div class="adgroup-label">General &nbsp;·&nbsp; Price &amp; Buy &nbsp;·&nbsp; Geo &nbsp;·&nbsp; Boards &amp; Planks (launched May 5)</div>
-                    </td>
-                    <td><span class="status-new">LAUNCHED</span></td>
-                    <td>€56</td>
-                    <td>41</td>
-                    <td>€1.36</td>
-                    <td>0 (too early)</td>
-                </tr>
-                <tr class="campaign-note">
-                    <td colspan="6">3 days of data only (May 5–7). 20.3% overall CTR on launch week — above expectations. Boards &amp; Planks leading with 17 clicks on May 7, CPC declining from €1.63 to €1.20. No conversions expected yet: composite decking purchases require consideration time. Budget increased to €25/day from May 7. Next review: ~May 22.</td>
-                </tr>
-
-                <!-- Total -->
-                <tr style="font-weight:700; background: var(--gray);">
-                    <td>Total (4 active campaigns)</td>
-                    <td></td>
-                    <td>€1,202</td>
-                    <td>1,510</td>
-                    <td>€0.80</td>
-                    <td>10 phone calls</td>
-                </tr>
-            </tbody>
-        </table>
+  <div class="table-card">
+    <div class="table-card-header">
+      <h3>Kenny Fuels: All Active Campaigns</h3>
+      <span style="font-size:12px; color: var(--text-muted);">May 1–31, 2026</span>
     </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Campaign</th>
+          <th>Status</th>
+          <th>Impressions</th>
+          <th>Clicks</th>
+          <th>Avg CPC</th>
+          <th>Conversions</th>
+          <th>Spend</th>
+          <th>Conv. Value</th>
+          <th>ROAS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="campaign-name">KF – Fuel | Brand Search</div>
+            <div class="adgroup-label">€110/day &nbsp;·&nbsp; tROAS 4x &nbsp;·&nbsp; Learning period ended ~May 18</div>
+          </td>
+          <td><span class="status-active">ACTIVE</span></td>
+          <td>13,723</td>
+          <td>2,699</td>
+          <td>€0.79</td>
+          <td>68.6</td>
+          <td>€2,130</td>
+          <td>€19,456</td>
+          <td>9.1x</td>
+        </tr>
+        <tr class="campaign-note-row">
+          <td colspan="9">Strongest conversion volume. Learning period (from May 14 tROAS change) confirmed ended ~May 18: Rank Lost IS dropped from 20–49% to consistently under 7%. IS averaged 41–47% for the month. Budget reached approved €110/day from May 21 (was €50/day for most of the month). tROAS review scheduled June 9: real ROAS consistently above 9x suggests current 4x target can be raised to unlock more impression share.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="campaign-name">KF – Fuel | Home Heating Oil Search</div>
+            <div class="adgroup-label">€50/day &nbsp;·&nbsp; Maximize Conversions (uncapped) &nbsp;·&nbsp; Uncapped May 15</div>
+          </td>
+          <td><span class="status-active">ACTIVE</span></td>
+          <td>8,805</td>
+          <td>965</td>
+          <td>€1.21</td>
+          <td>44.5</td>
+          <td>€1,167</td>
+          <td>€11,120</td>
+          <td>9.5x</td>
+        </tr>
+        <tr class="campaign-note-row">
+          <td colspan="9">Best ROAS in the account. Had a €8 tCPA cap limiting it through early May — removed May 15, campaign responded immediately with 15 conversions in 3 days. Budget formalised at €50/day. Monday overspend pattern noted (up to 2x daily budget): decision to hold off on capping to avoid throttling on high-intent days. tROAS assessment June 23 after 5 weeks of clean data.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="campaign-name">KF – Fuel | Gas Bottle &amp; Cylinders</div>
+            <div class="adgroup-label">€35/day from May 26 &nbsp;·&nbsp; tROAS 1.5x &nbsp;·&nbsp; Restored from €15/day</div>
+          </td>
+          <td><span class="status-active">ACTIVE</span></td>
+          <td>14,837</td>
+          <td>848</td>
+          <td>€1.40</td>
+          <td>28.2</td>
+          <td>€1,185</td>
+          <td>€2,799</td>
+          <td>2.4x</td>
+        </tr>
+        <tr class="campaign-note-row">
+          <td colspan="9">2.4x ROAS significantly understates performance: conversion values before May 18 used the €1 placeholder. Gas Bottle had the most impressions of any campaign (14,837) but IS is constrained to ~20% by the tROAS 1.5x target. Budget was reduced to €15/day on May 21 (rank-constrained, not budget-constrained at that point), then restored to €35/day on May 26 when it showed "Limited by budget" — confirming it hit tROAS target and wanted more spend. tROAS review June 9: real ROAS likely 3–5x.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="campaign-name">KF – Hardware</div>
+            <div class="adgroup-label">€15/day &nbsp;·&nbsp; Maximize Clicks &nbsp;·&nbsp; 9 ad groups from May 26 &nbsp;·&nbsp; Ireland-wide</div>
+          </td>
+          <td><span class="status-monitoring">MONITORING</span></td>
+          <td>3,762</td>
+          <td>520</td>
+          <td>€1.22</td>
+          <td>8.0</td>
+          <td>€634</td>
+          <td>€1,407</td>
+          <td>2.2x</td>
+        </tr>
+        <tr class="campaign-note-row">
+          <td colspan="9">Launched May 5 as Composite Decking only (4 ad groups). Restructured May 26: renamed KF - Hardware, expanded to 9 ad groups (Composite Fencing, Composite Cladding, Gardening and Landscaping, Building Materials, Power and Hand Tools, Acoustic Wall Panels, Welding Supplies, Safety Equipment, Animal Feed), geo expanded to Ireland-wide. Composite Fencing immediately led impressions (261 in first 3 days). First conversion from Power and Hand Tools May 27. Budget review scheduled June 9 after 2 weeks of expanded data.</td>
+        </tr>
+        <tr style="font-weight:700; background: var(--bg);">
+          <td>Total (4 campaigns)</td>
+          <td></td>
+          <td>41,127</td>
+          <td>5,032</td>
+          <td>€1.02</td>
+          <td>149.3</td>
+          <td>€5,116</td>
+          <td>€34,782</td>
+          <td>6.8x</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="padding: 12px 20px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border);">ROAS = Tracked Conversion Value / Spend. Conversion values before May 18 used a €1 placeholder for phone calls. May 18–31 blended ROAS (all campaigns): 12.5x. Gas Bottle and Hardware full-month ROAS will appear significantly higher once a full clean month of data is available in June.</p>
+  </div>
 </section>
 
-<!-- CHANGES -->
+<hr class="section-divider">
+
+<!-- OPTIMISATIONS -->
 <section id="changes">
-    <div class="section-label">Changes Made</div>
-    <div class="section-title">Optimisations This Week</div>
-    <p class="section-desc">Google Ads and GA4 account actions taken May 1–8, 2026.</p>
+  <div class="section-label">What Changed</div>
+  <div class="section-title">May Optimisations</div>
+  <p class="section-desc">All Google Ads, GA4, and GTM actions taken during May 2026, grouped by phase.</p>
 
-    <div class="changes-list">
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Conflicting Negatives Removed and General Negatives Applied (May 4)</h4>
-                <p>A full negative keyword audit across Brand and General Search identified several broad match negatives that were blocking active ad groups from serving. Three conflicting negatives were removed: "price" BROAD (blocking Heating Oil Prices Near Me Today, Best Home Heating Oil Prices Wexford, and Oil Prices Wexford ad groups), "prices" BROAD (blocking the same groups), and "cheapest" BROAD (blocking Cheapest Oil Prices Wexford). The competitor negative "top oil" BROAD was changed to EXACT so the competitor brand remains blocked while the Top Heating Oil Supplier Wicklow ad group is unblocked.</p>
-                <p style="margin-top:8px;">Separately, the General Negatives shared list was found missing from all three KF Fuel campaigns. This list blocks non-commercial queries such as photos, discount code searches, YouTube searches, and job-seeker terms. It has now been applied to Brand and General Search, Home Heating Oil Search, and Gas Bottle and Cylinders. The firewood BROAD negative in the Fuel Campaigns - Hardware Exclusions list was also removed — Kenny Fuels sells firewood, so it was incorrectly blocking all firewood ad groups.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Ad Group-Level Negatives Added: Brand Ad Group and Fuel Oil For Home Heating (May 4–5)</h4>
-                <p>Search term audits identified two categories of irrelevant traffic passing through into active ad groups after the General Negatives list was applied.</p>
-                <p style="margin-top:8px;"><strong>Kenny Fuels brand ad group (9 phrase negatives added):</strong> kevin building supplies, a142 mesh, discount code, petrol station, service station, building materials, decorative stone, landscaping, gravel. These were non-fuel, non-brand searches pulling through because the General Negatives list had not been applied and the brand ad group was matching broadly.</p>
-                <p style="margin-top:8px;"><strong>Fuel Oil For Home Heating (10 competitor phrase negatives added):</strong> o neills fuels, burkes oil, klass oil, capitol oil, corrib oil, emo oil, certas, texoil, atmos boilers, bunded tank. Competitor fuel brand searches appearing in search terms — clicks on these will not convert for Kenny Fuels.</p>
-                <p style="margin-top:8px;"><strong>Campaign-level (May 5, 6 negatives added):</strong> kevin, zf, 20w50, boilers (broad match); kiln dried shavings, wicklow wood fuels (phrase match). Added following a May 1–4 search term review on Brand and General Search.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-paused">⏸</div>
-            <div class="change-content">
-                <h4>Gas Cylinder For Sale Ad Group Paused (May 4)</h4>
-                <p>The Gas Cylinder For Sale ad group in Brand and General Search was found to be duplicating the dedicated Gas Bottle and Cylinders campaign. In May 1–3 it spent €23.62 with 0 conversions while the Gas Bottle campaign recorded 2 conversions over the same period. Pausing this ad group consolidates gas cylinder budget into the campaign that is actually converting and removes an internal auction conflict between the two campaigns.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-new">🚀</div>
-            <div class="change-content">
-                <h4>Composite Decking Campaign Launched (May 5)</h4>
-                <p>The first hardware campaign — KF Hardware | Composite Decking — was built and launched on May 5 as planned.</p>
-                <p style="margin-top:8px;"><strong>Campaign setup:</strong> Budget €15/day (increased to €25/day May 7), Maximise Clicks bidding, targeting Wexford, Wicklow, and Carlow. Hardware Campaigns - Fuel Exclusions negative list applied.</p>
-                <p style="margin-top:8px;"><strong>Ad groups (4):</strong> Composite Decking - General (4 keywords), Composite Decking - Price and Buy (5 keywords), Composite Decking - Geo (4 keywords), Composite Decking - Boards and Planks (5 keywords). Each has 15 headlines and 4 descriptions. Keyword overlap between ad groups confirmed none.</p>
-                <p style="margin-top:8px;"><strong>Sitelinks (15 campaign-level):</strong> Composite Decking Boards, Premium Decking Range, Composite Fencing, Premium Cladding, Domestic Products, Hardware Products, Acoustic Wall Panels, Safety Equipment, Workwear Ireland, Power and Hand Tools, Building Products, Gardening and Landscaping, Gardening Tools, General Hardware, Animal Feed and Supplies.</p>
-                <p style="margin-top:8px;"><strong>Early performance (May 5–7):</strong> 202 impressions, 41 clicks, 20.3% CTR, €1.36 avg CPC, €56 spend. Boards and Planks leading volume. CTRs strong across all ad groups on launch week. CPCs tracking at the lower end of expected range for composite decking in Ireland.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-done">✅</div>
-            <div class="change-content">
-                <h4>GA4 Conversion Tracking Cleaned Up (May 5 and May 8)</h4>
-                <p>A full audit of GA4 key events identified four incorrectly configured events that were inflating conversion counts throughout April. These have now been removed or corrected.</p>
-                <p style="margin-top:8px;"><strong>Removed on May 5:</strong> view_item (product page views were counting as conversions — removed as key event), Purchase_2 (broken duplicate tag, firing 84 times with €0 revenue), ads_conversion_Checkout_1 (duplicate of begin_checkout, 229 fires with €0 revenue), ads_conversion_Shopping_Cart_1 (duplicate of add_to_cart, 32 fires with €0 revenue).</p>
-                <p style="margin-top:8px;"><strong>Removed on May 8:</strong> begin_checkout and add_to_cart unmarked as GA4 key events. Only purchase remains as a key event. Begin_checkout and add_to_cart are still recorded as GA4 events — they just no longer count as conversions imported into Google Ads. This gives a cleaner picture of actual purchase intent.</p>
-                <p style="margin-top:8px;">Google Ads conversion actions reviewed: 17 active actions audited. Only two are set to Primary (count toward the Conversions column): Calls from ads (phone calls directly from Google Ads) and Kenny Fuels GA4 (web) purchase. All others are Secondary — recorded but not used for bidding.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Dual GA4 Tag Root Cause Identified (May 5)</h4>
-                <p>A full investigation was conducted into why Brand and General Search shows 0 conversions in Google Ads while GA4 shows purchase revenue attributed to Google Ads sessions. The root cause has been identified.</p>
-                <p style="margin-top:8px;">Two GA4 measurement IDs are firing on every page of the kennyfuels.ie website: G-0RM5FH1MST (fired by the PixelYourSite plugin, capturing approximately 89% of sessions) and G-BMD8SXLKC0 (fired by a direct gtag.js script). The Google Ads account is linked to property 396621665. That property is only capturing 11% of sessions — meaning for every 100 visitors from Google Ads, only 11 are being tracked in the right property. The other 89 go to a different property and their conversions are never reported back to Google Ads.</p>
-                <p style="margin-top:8px;">A consolidated fix request was sent to the client on May 5 for forwarding to Graphedia. Required actions: (1) confirm which measurement ID belongs to property 396621665 and remove the duplicate tag from the website; (2) fix the Contact Us Form and Book Appointment conversion tags in GTM; (3) install Google's phone snippet for website call tracking so that calls made after clicking an ad are captured; (4) add form ID differentiation so Contact, Booking, and Quote forms are tracked separately rather than as a single form_submit event.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Brand and General Search: Bidding Strategy Updated (May 6)</h4>
-                <p>The Brand and General Search campaign was switched from a portfolio Maximize Conversion Value strategy to a standard campaign-level Maximize Conversion Value strategy. The portfolio strategy was blocking the ability to set a maximum CPC bid limit on the campaign. The switch means the algorithm now optimises on this campaign's data only, rather than pooling signals across a portfolio.</p>
-                <p style="margin-top:8px;">A maximum CPC ceiling of €2.50 was attempted to control costs on non-brand ad groups. This is not currently available in the Google Ads UI for this campaign type, and the API returned a context error. The €50/day daily budget (as of May 7) acts as the practical ceiling. Average CPCs trended down over the week from €0.85 to €0.52 — the negative keyword fixes from May 4 are reducing wasteful high-CPC queries.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Off-Season Budget Reallocation (May 7)</h4>
-                <p>With the heating oil season now closed for the year, the account budget was repositioned for summer on May 7. Total daily budget remains unchanged at €150/day — spend was shifted from off-season campaigns to those with active summer demand.</p>
-                <p style="margin-top:8px;"><strong>Brand and General Search:</strong> €80/day reduced to €50/day. The 42 paused heating oil and coal groups mean the remaining budget concentrates on brand, emergency, gas, firewood, and lubricants — all year-round or summer-relevant categories.</p>
-                <p style="margin-top:8px;"><strong>Home Heating Oil Search:</strong> €50/day reduced to €25/day. Bulk residential heating oil orders have stopped for the season. Emergency and commercial calls continue year-round at lower volume — campaign maintained at reduced budget rather than paused.</p>
-                <p style="margin-top:8px;"><strong>Gas Bottle and Cylinders:</strong> €35/day increased to €50/day. BBQ season is beginning. Higher summer demand expected for gas cylinders through May–August.</p>
-                <p style="margin-top:8px;"><strong>Composite Decking:</strong> €15/day increased to €25/day. Strong launch CTRs indicate the campaign can use additional budget productively for data collection over the next 2–3 weeks.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-paused">⏸</div>
-            <div class="change-content">
-                <h4>68 Off-Season Ad Groups Paused: Brand and General Search (May 7)</h4>
-                <p>The Brand and General Search campaign was fully repositioned for the summer off-season. Two categories of ad groups were paused.</p>
-                <p style="margin-top:8px;"><strong>42 heating oil, coal, solid fuel, and briquettes ad groups:</strong> These are the primary revenue drivers during the September–March heating season. They generate near-zero conversions in May–August and were consuming budget with no return. All paused for the off-season. Re-enable date: September 2026, ahead of the new heating season.</p>
-                <p style="margin-top:8px;"><strong>26 gas and LPG ad groups:</strong> These groups had 895 impressions, 49 clicks, €46 cost, and 0 conversions over 30 days — directly duplicating the Gas Bottle and Cylinders dedicated campaign which is the one actually converting. Consolidating all gas spend into the Gas Bottle campaign removes the internal auction conflict and concentrates the budget where it works.</p>
-                <p style="margin-top:8px;">Remaining active ad groups in Brand and General: Kenny Fuels brand, Emergency Heating Oil Near Me, Emergency Oil Delivery Near Me, Lubricants For Sale, Kiln Dried Logs, and Firewood. These are all year-round or summer-relevant categories.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-updated">🔧</div>
-            <div class="change-content">
-                <h4>Brand and General: Ad Group Restructure, RSA Rebuilds, and Match Type Fixes (May 7)</h4>
-                <p>Six changes were made to bring the remaining active Brand and General ad groups into good shape ahead of the off-season period.</p>
-                <p style="margin-top:8px;"><strong>Firewood consolidation (20 SKAGs to 2 ad groups):</strong> Twenty single-keyword firewood ad groups were consolidated into two themed groups: Kiln Dried Logs (16 phrase match keywords) and Firewood (9 phrase match keywords). Each now has a full 15-headline RSA and 4 descriptions. The old SKAGs had minimal or no RSAs.</p>
-                <p style="margin-top:8px;"><strong>RSAs rebuilt (3 ad groups):</strong> Emergency Heating Oil Near Me, Emergency Oil Delivery Near Me, and Lubricants For Sale each had old RSAs with only 5–6 headlines and descriptions referencing the wrong products (heating oil descriptions in a lubricants ad group, coal descriptions in an emergency oil group). All three replaced with full 15-headline RSAs with product-specific copy and pinned H1. Final URLs confirmed against the live website sitemap.</p>
-                <p style="margin-top:8px;"><strong>Broad match to phrase (5 keywords):</strong> Five active keywords were changed from BROAD to PHRASE match in Emergency Heating Oil Near Me, Emergency Oil Delivery Near Me, and Lubricants For Sale. BROAD match gives Google too much latitude on Maximize Conversion Value with no conversion signal in the account.</p>
-                <p style="margin-top:8px;"><strong>Brand ad group keyword cleanup:</strong> 9 non-brand positive keywords removed from the Kenny Fuels brand ad group (these were pre-existing SKAG-era terms already blocked by negatives added May 4 — removed to clean up the ad group properly). 3 competitor keywords found in positive keyword slots removed from Gas Bottle and Brand and General.</p>
-                <p style="margin-top:8px;"><strong>BBQ keywords (7 phrase match) added to Gas Bottle:</strong> bbq gas ireland, bbq gas cylinder ireland, patio gas ireland, calor gas bbq, propane gas bbq, gas for bbq near me, bbq gas bottle near me. Targeting the summer BBQ demand shift.</p>
-            </div>
-        </div>
-
-        <div class="change-item">
-            <div class="change-icon icon-done">✅</div>
-            <div class="change-content">
-                <h4>Kiln Dried Logs RSA Disapproval Fixed (May 8)</h4>
-                <p>The Kiln Dried Logs ad group RSA was disapproved with the reason "Destination not working". The final URL /kiln-dried-logs/ was returning a 404 error on the live website. The correct URL was confirmed via the kennyfuels.ie sitemap: /product-category/kiln-dried-firewood-logs/. The old disapproved RSA was removed and a new RSA recreated with the correct URL, the same 15 headlines and 4 descriptions. The ad has re-entered the Google review queue and will be approved within 1 business day.</p>
-            </div>
-        </div>
-
+  <div class="phase-divider">Phase 1: May 1–14 — Foundation and Cleanup</div>
+  <div class="changes-list">
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-critical">Critical Fix</span>
+        <h4>Duplicate Conversion Tracking Removed — May 11</h4>
+        <p>Two dead conversion actions (Transactions - All Web Site Data and Purchase GTM) were still set as Primary, sending duplicate signals to Smart Bidding. Set to Secondary. From May 11, Smart Bidding received a clean, single conversion signal for the first time. This was the most impactful fix of the month: without it, Google's algorithm was optimising against inflated and unreliable data.</p>
+      </div>
     </div>
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-critical">Critical Fix</span>
+        <h4>Brand Search: tROAS Set to 4x (400%) — May 11</h4>
+        <p>Following the tracking fix, Brand Search was switched to Maximize Conversion Value with a tROAS of 400%. The prior 30-day ROAS was 853%, so Google had room to operate while the 400% floor prevents daily overspend. A Smart Bidding learning period began May 14, confirmed ended ~May 18 when Rank Lost IS dropped to under 7%.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">🔧</div>
+      <div class="change-content">
+        <span class="change-tag tag-high">High Priority</span>
+        <h4>Hardware Campaign Launched: Composite Decking — May 5</h4>
+        <p>First hardware campaign built and launched. Four ad groups: General, Price and Buy, Geo, Boards and Planks. 18 phrase match keywords. 15 sitelinks. Budget €25/day on Maximize Clicks. Boards and Planks led with 20%+ CTR on launch. Impression share reached ~65% within the first week. Full 2-week review completed May 21.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">🔧</div>
+      <div class="change-content">
+        <span class="change-tag tag-high">High Priority</span>
+        <h4>68 Non-Converting Ad Groups Paused — May 1–7</h4>
+        <p>A full audit of Brand and General Search identified 68 enabled ad groups with zero conversions over 30 days. All paused to concentrate budget on converting ad groups. Categories cleared: hardware, lubricants, firewood, coal, and gas terms duplicating the Gas Bottle campaign. DataForSEO volumes checked on all keywords before pausing.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">🔧</div>
+      <div class="change-content">
+        <span class="change-tag tag-optimisation">Optimisation</span>
+        <h4>100+ Negative Keywords Added Across All Campaigns — May 15–21</h4>
+        <p>Full search term audit covering May 12–21. Gas Bottle: 55 negatives (competitor brands, wrong product queries). HHO: 13 negatives (competitor brands, wrong-intent terms). Brand Search: 10 negatives (non-fuel terms appearing via broad match). Composite Decking: 23 negatives (competitor brands, installation intent, wrong product).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-divider" style="margin-top:24px;">Phase 2: May 15–21 — Tracking Repaired, Account Aligned</div>
+  <div class="changes-list">
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-done">Resolved</span>
+        <h4>Consent Mode Live: Complianz Replaced CookieYes — May 15</h4>
+        <p>Complianz replaced CookieYes as the consent management platform on kennyfuels.ie. New GTM workspace configured with ads data redaction enabled and URL passthrough enabled — both required for GDPR-compliant consent mode. Website-based conversion tracking (click-to-call, contact form submissions, purchase events) now flows correctly to Google Ads.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-done">Resolved</span>
+        <h4>Conversion Value Rules Applied — May 18</h4>
+        <p>Phone call conversion values were at the €1 Google default since account inception. Value rules applied May 18: HHO phone calls €350 (average heating oil delivery order), Brand Search phone calls €220 (blended fuel order value), Gas Bottle phone calls €90 (average cylinder order). From May 18, ROAS figures reflect real business revenue. All previous conversion value data is near-zero and should not be used as a benchmark.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-done">Resolved</span>
+        <h4>HHO: tCPA Cap Removed, Uncapped Maximize Conversions — May 15</h4>
+        <p>The HHO campaign had a €8 tCPA — set when phone calls were valued at €1. With calls now correctly valued at €350, a €8 CPA was preventing the campaign from entering any auction. Cap removed, switched to Maximize Conversions uncapped. Impression share jumped to 75% and 15 conversions came in within 3 days. Budget formalised at €50/day.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-done">Resolved</span>
+        <h4>Call Recording Restored: Call Extension Fixed — May 20</h4>
+        <p>The call extension pointed to a conversion action that had been removed. Calls were happening through Google's forwarding number but not logging as conversions — Smart Bidding could not see them. Updated to point to the correct active conversion action. All calls from ads record and feed Smart Bidding from May 20 onward.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">🔧</div>
+      <div class="change-content">
+        <span class="change-tag tag-optimisation">Optimisation</span>
+        <h4>Budget Realigned to Full Approved €210/day — May 21</h4>
+        <p>All four campaigns moved to approved daily budgets for the first time. Brand Search increased from €50/day to €110/day (was losing 77% of impression share to budget). Gas Bottle reduced to €15/day (rank-constrained by tROAS target). HHO formalised at €50/day. Hardware increased to €35/day. Total: €210/day as approved by Ciaran.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-divider" style="margin-top:24px;">Phase 3: May 22–31 — Expansion and Clean Data</div>
+  <div class="changes-list">
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-done">Resolved</span>
+        <h4>PixelYourSite Tracking Script Fully Removed — May 27–28</h4>
+        <p>PixelYourSite had been injecting a duplicate GA4 tracking script, inflating sessions and events. Plugin deleted and script removed from theme files. GA4 confirmed clean: "Pageview" (capital P, PixelYourSite signature) event no longer firing. ads_conversion_Checkout_1 also removed. GA4 data from May 28 is clean and single-source through GTM.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-done">Completed</span>
+        <h4>Hardware Campaign Expanded: 9 Ad Groups, Ireland-Wide — May 26</h4>
+        <p>Renamed from "KF - Hardware | Composite Decking" to "KF - Hardware." County geo restrictions removed — hardware products deliver nationwide via courier. Nine new ad groups launched based on DataForSEO keyword research (Ireland, location 2372): Composite Fencing (top keyword: fencing ireland 1,000/mo), Composite Cladding, Gardening and Landscaping, Building Materials, Power and Hand Tools, Acoustic Wall Panels (wall acoustic panels 5,400/mo), Welding Supplies, Safety Equipment, Animal Feed. A conflicting campaign negative was removed and a disapproved ad URL was corrected. Composite Fencing led impressions (261 in first 3 days). First conversion from Power and Hand Tools on May 27.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">🔧</div>
+      <div class="change-content">
+        <span class="change-tag tag-optimisation">Optimisation</span>
+        <h4>Budget Swap: Gas Bottle Restored to €35/day, Hardware Reduced to €15/day — May 26</h4>
+        <p>Gas Bottle showed "Limited by budget" at €15/day — it hit its tROAS target and wanted more spend. Restored to original approved €35/day. Hardware reduced from €35/day to €15/day: Composite Decking alone could only spend ~€29/day due to limited niche search volume. The expanded 9-ad-group campaign has significantly more combined volume. Budget review after 2 weeks of data (June 9). Total stays at €210/day.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-done">Confirmed</span>
+        <h4>Brand Search Learning Period Confirmed Ended ~May 18 — Verified May 28</h4>
+        <p>Data analysis confirmed Rank Lost IS dropped from 20–49% during the learning phase (May 14–17) to consistently under 7% from May 18 onwards. Conversions recording daily at 4–8/day. Campaign stable at €110/day. tROAS review on schedule for June 9 with 3 weeks of clean data.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- WHAT'S NEXT -->
-<section id="next">
-    <div class="section-label">What's Next</div>
-    <div class="section-title">Upcoming Priorities</div>
-    <p class="section-desc">Performance-driven priorities for the coming weeks.</p>
+<hr class="section-divider">
 
-    <div class="next-grid">
-        <div class="next-card">
-            <span class="priority-tag priority-high">Urgent</span>
-            <h4>Graphedia Tracking Fix</h4>
-            <p>The Graphedia fix request was sent to the client on May 5 — three days ago with no update. The client needs to re-chase Graphedia urgently. Until the dual GA4 tag issue is resolved, the Google Ads algorithm has no purchase conversion signal on Brand and General Search. The algorithm will be unable to optimise for revenue when the heating oil season resumes in September. Every week without this fix is a week of wasted algorithm learning time ahead of the peak season.</p>
-        </div>
-        <div class="next-card">
-            <span class="priority-tag priority-medium">Monitor — Week of May 14</span>
-            <h4>Brand and General: First Clean Conversion Data</h4>
-            <p>With the GA4 key events now correctly configured (as of May 8), any future conversions recorded will be accurate. Once Graphedia fixes the duplicate tag, Google Ads will start seeing purchase conversions again. The week of May 14 is the first check point: are any conversions appearing? If not, confirm the Graphedia fix has been completed. If yes, the algorithm can begin to recover.</p>
-        </div>
-        <div class="next-card">
-            <span class="priority-tag priority-medium">Check — May 15</span>
-            <h4>Firewood CPC and Gas Bottle Budget</h4>
-            <p>Two metrics to check on May 15. First, the new consolidated Firewood ad group showed a €2.93 avg CPC on its first day (May 7) — high as expected while the algorithm explores. By May 15 it should have settled below €2.00. If still elevated, review match types or add negatives. Second, Gas Bottle budget: with the €50/day cap and BBQ season building, confirm whether the campaign is hitting the daily cap consistently. If yes, a budget increase may be warranted.</p>
-        </div>
-        <div class="next-card">
-            <span class="priority-tag priority-low">Review — ~May 22</span>
-            <h4>Composite Decking 3-Week Review</h4>
-            <p>The 3-week mark for Composite Decking is approximately May 22–26. At that point we will have meaningful CPCs, CTR trends, and early conversion data to review. The review will determine whether to increase budget further, adjust keyword targeting, or build the next hardware campaign. Composite Fencing and Cladding are the candidates for the next build — but only if Composite Decking data at 3 weeks is positive.</p>
-        </div>
+<!-- GOING INTO JUNE -->
+<section id="next">
+  <div class="section-label">Going into June</div>
+  <div class="section-title">June 2026 Priorities</div>
+  <p class="section-desc">May established the clean data baseline. June is about optimising bid strategies with real data, reviewing Hardware volume, and scoping new growth opportunities.</p>
+
+  <div class="next-grid">
+    <div class="next-card">
+      <span class="priority-tag priority-high">May 31</span>
+      <h4>HHO Sunday and Monday Overspend Decision</h4>
+      <p>HHO recorded 0 conversions on Sundays while spending ~€18. If May 31 shows 0 conversions, Sunday will be removed from the schedule. A Monday overspend pattern (up to 2x daily budget) is also being monitored. If confirmed, a light tCPA of €60–80 will be applied to cap spend without throttling high-intent days.</p>
     </div>
+    <div class="next-card">
+      <span class="priority-tag priority-high">June 9</span>
+      <h4>Gas Bottle and Brand Search tROAS Review</h4>
+      <p>Gas Bottle tROAS is 1.5x — real ROAS is likely 3–5x with clean data, meaning the current target is capping impression share unnecessarily. Brand Search tROAS is 4x with real ROAS consistently above 9x. Both will be assessed and adjusted on June 9 with 3 weeks of clean data.</p>
+    </div>
+    <div class="next-card">
+      <span class="priority-tag priority-high">June 9</span>
+      <h4>Hardware: Search Terms Audit and Budget Review</h4>
+      <p>After 2 weeks of data from the 9-ad-group expansion, the search terms report will be reviewed for negatives. If the €15/day budget is capping multiple ad groups, a budget increase to €35/day will be proposed to Ciaran.</p>
+    </div>
+    <div class="next-card">
+      <span class="priority-tag priority-medium">June 16</span>
+      <h4>Full tROAS Baseline Review: All Campaigns</h4>
+      <p>June 16 is the first point at which Complianz (May 15), conversion value rules (May 18), and repaired call recording (May 20) will all have been live for 4 weeks simultaneously. Full account tROAS review at this date.</p>
+    </div>
+    <div class="next-card">
+      <span class="priority-tag priority-medium">June 23</span>
+      <h4>HHO tROAS Assessment</h4>
+      <p>HHO is running Maximize Conversions uncapped. After 5 weeks of clean data (by June 23), the campaign will be assessed for a switch to Maximize Conversion Value with a tROAS target.</p>
+    </div>
+    <div class="next-card">
+      <span class="priority-tag priority-launch">Scoping</span>
+      <h4>Kenergy Solar: New Campaign Opportunity</h4>
+      <p>Ciaran has requested help with Kenergy Solar, describing it as a significant growth area. Scoping underway: landing page status, target action, geographic coverage, budget, and key competitors. No build until scoping confirmed with Ciaran.</p>
+    </div>
+    <div class="next-card">
+      <span class="priority-tag priority-medium">Awaiting</span>
+      <h4>Composite Decking and HHO Landing Pages</h4>
+      <p>Composite Decking: delivery zones, sample project cost, and reviews awaited from Amy (composite lead, CC'd by Ciaran). HHO: pricing section to be added by Graphedia (Niall) once content is confirmed. Both landing page updates will improve Quality Scores and lower cost per lead.</p>
+    </div>
+    <div class="next-card">
+      <span class="priority-tag priority-medium">September 2026</span>
+      <h4>Heating Season: Re-Enable Paused Campaigns</h4>
+      <p>42 heating oil and coal ad groups paused for the off-season. Re-enable from September as demand returns. All keywords and ad copy to be reviewed against current account standards before re-enabling.</p>
+    </div>
+  </div>
 </section>
 
 <footer>
-    <strong>Kenny Fuels Google Ads Report</strong> &nbsp;|&nbsp; Generated weekly by Josette &nbsp;|&nbsp; Confidential
+  <p>Kenny Fuels &nbsp;·&nbsp; Google Ads Monthly Report &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Prepared by Outposter</p>
+  <p style="margin-top:6px;">Conversion values before May 18 used a €1 placeholder for phone calls. Full-month ROAS is understated. Use May 18–31 as the performance baseline going into June.</p>
 </footer>
-
-<script>
-    const ctx = document.getElementById('spendChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: [
-                'Brand & General Search',
-                'Home Heating Oil Search',
-                'Gas Bottle & Cylinders',
-                'Composite Decking'
-            ],
-            datasets: [{
-                label: 'Spend (€)',
-                data: [547, 364, 235, 56],
-                backgroundColor: ['#243B98', '#243B98', '#243B98', '#E6211E'],
-                borderRadius: 4,
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            return '€' + context.parsed.y;
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: { color: 'rgba(0,0,0,0.05)' },
-                    ticks: {
-                        font: { family: 'Lato', size: 11 },
-                        callback: function(value) { return '€' + value; }
-                    }
-                },
-                x: {
-                    grid: { display: false },
-                    ticks: { font: { family: 'Lato', size: 11 } }
-                }
-            }
-        }
-    });
-</script>
 
 </body>
 </html>
