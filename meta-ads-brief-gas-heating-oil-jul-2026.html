@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenny Fuels Meta Ads - Gas and Heating Oil Campaign Brief</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #243B98;
+            --white: #ffffff;
+            --red: #E6211E;
+            --gray: #f9f9f9;
+            --mid-gray: #e0e0e0;
+            --text-dark: #1a1a1a;
+            --text-muted: #777;
+            --green: #2e7d32;
+            --amber: #e65100;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 56px;
+        }
+
+        nav .logo img { height: 36px; width: auto; display: block; }
+
+        nav ul { display: flex; gap: 32px; list-style: none; }
+
+        nav ul a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        nav ul a:hover { color: var(--white); }
+
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .report-date { color: rgba(255,255,255,0.5); font-size: 12px; }
+
+        .btn-pdf {
+            background: var(--red);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero {
+            padding: 80px 40px 60px;
+            border-bottom: 1px solid var(--mid-gray);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .period-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gray);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .period-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--amber);
+        }
+
+        .hero h1 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 900;
+            font-size: 72px;
+            line-height: 1;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .hero h1 span { color: var(--red); display: block; }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Lato', sans-serif;
+            font-weight: 900;
+            font-size: 42px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .section-commentary {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+            max-width: 780px;
+            margin-bottom: 40px;
+            padding-left: 16px;
+            border-left: 3px solid var(--red);
+        }
+
+        .table-card {
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+
+        .table-card-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        .table-card-header h3 { font-size: 16px; font-weight: 600; }
+
+        .table-card-header p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            line-height: 1.6;
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+
+        thead th {
+            background: var(--black);
+            color: var(--white);
+            padding: 12px 24px;
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        tbody tr { border-bottom: 1px solid var(--mid-gray); }
+        tbody tr:last-child { border-bottom: none; }
+        tbody tr:nth-child(even) { background: var(--gray); }
+        tbody td { padding: 14px 24px; font-size: 14px; }
+        tbody td:first-child { font-weight: 500; }
+
+        .highlight-row td { font-weight: 700; background: #fffdf0 !important; }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .campaign-card {
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .campaign-card-header {
+            background: var(--black);
+            color: var(--white);
+            padding: 16px 24px;
+        }
+
+        .campaign-card-header h3 { font-size: 16px; font-weight: 700; }
+        .campaign-card-header p { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+        .campaign-card-body { padding: 24px; }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--mid-gray);
+            font-size: 14px;
+        }
+
+        .detail-row:last-child { border-bottom: none; }
+        .detail-label { color: var(--text-muted); }
+        .detail-value { font-weight: 600; }
+
+        .next-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .next-card {
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            padding: 28px;
+        }
+
+        .next-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+        .next-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        .priority-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .priority-high { background: #ffebee; color: var(--red); }
+        .priority-medium { background: #fff8e1; color: #e65100; }
+        .priority-low { background: #e8f5e9; color: var(--green); }
+
+        .approval-box {
+            background: #fffdf0;
+            border: 2px solid var(--amber);
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin-bottom: 32px;
+        }
+
+        .approval-box h3 {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--amber);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .approval-box p { font-size: 15px; color: var(--text-dark); line-height: 1.7; }
+
+        .timeline-list { display: flex; flex-direction: column; gap: 0; }
+
+        .timeline-item {
+            display: flex;
+            gap: 24px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--mid-gray);
+            align-items: flex-start;
+        }
+
+        .timeline-item:last-child { border-bottom: none; }
+
+        .timeline-date {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--black);
+            min-width: 100px;
+            padding-top: 2px;
+        }
+
+        .timeline-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+        .timeline-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        footer {
+            background: var(--black);
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 24px 40px;
+            font-size: 12px;
+        }
+
+        footer strong { color: rgba(255,255,255,0.7); }
+
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; }
+            .next-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 48px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo"><img src="https://www.kennyfuels.ie/wp-content/uploads/2023/11/kenny-logo.png" alt="Kenny Fuels"></div>
+    <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#campaigns">Campaigns</a></li>
+        <li><a href="#creative">Creative</a></li>
+        <li><a href="#budget">Budget</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+    </ul>
+    <div class="nav-right">
+        <span class="report-date">Campaign Brief · July 2026</span>
+        <button class="btn-pdf" onclick="window.print()">Download PDF</button>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="period-badge">Campaign Brief · Launch July 1, 2026</div>
+    <h1>Kenny Fuels<span>Meta Ads</span></h1>
+    <p>Gas Cylinders and Home Heating Oil campaign proposal. Prepared by Outposter. Pending Ciaran's approval before any changes are made.</p>
+</div>
+
+<section style="background: var(--gray); border-bottom: none;">
+    <div class="section-title">Why Now</div>
+    <p style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 8px; color: var(--text-dark);">
+        Gas cylinders and heating oil are Kenny Fuels' core products and currently have zero paid coverage on Meta. The heating season begins in September and Meta's algorithm needs 2 months of data before it can optimise effectively. Launching July 1 gives us July and August to build that signal so the campaigns are performing at their best when demand peaks in September and October.
+    </p>
+    <p style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 16px; color: var(--text-dark);">
+        Gas cylinders are also a year-round product with strong BBQ season demand through summer, so July is a natural time to launch that campaign too. Both products are already performing well on Google Ads. Adding Meta coverage will extend reach to audiences who aren't actively searching but would respond to the right ad.
+    </p>
+</section>
+
+<section id="overview">
+    <div class="section-label">Overview</div>
+    <div class="section-title">Two New Campaigns</div>
+    <p class="section-desc">Separate campaigns for Gas Cylinders and Home Heating Oil. Each with B2C and B2B ad sets.</p>
+
+    <div class="two-col">
+        <div class="campaign-card">
+            <div class="campaign-card-header">
+                <h3>Campaign 1: Gas Cylinders</h3>
+                <p>Year-round, launching July 1</p>
+            </div>
+            <div class="campaign-card-body">
+                <div class="detail-row"><span class="detail-label">Objective</span><span class="detail-value">Website Sales</span></div>
+                <div class="detail-row"><span class="detail-label">Product</span><span class="detail-value">Gas cylinders and bottles (Flogas range)</span></div>
+                <div class="detail-row"><span class="detail-label">Landing page</span><span class="detail-value">kennyfuels.ie/product-category/gas/</span></div>
+                <div class="detail-row"><span class="detail-label">B2C targeting</span><span class="detail-value">8 counties, age 25-65+</span></div>
+                <div class="detail-row"><span class="detail-label">B2B targeting</span><span class="detail-value">All Ireland, age 30-65+</span></div>
+                <div class="detail-row"><span class="detail-label">Daily budget</span><span class="detail-value">€30/day (€15 B2C + €15 B2B)</span></div>
+            </div>
+        </div>
+        <div class="campaign-card">
+            <div class="campaign-card-header">
+                <h3>Campaign 2: Home Heating Oil</h3>
+                <p>Launch July 1. Peak season September onwards</p>
+            </div>
+            <div class="campaign-card-body">
+                <div class="detail-row"><span class="detail-label">Objective</span><span class="detail-value">Website Sales</span></div>
+                <div class="detail-row"><span class="detail-label">Product</span><span class="detail-value">Home heating oil (kerosene)</span></div>
+                <div class="detail-row"><span class="detail-label">Landing page</span><span class="detail-value">kennyfuels.ie/home-heating-oil-wexford-carlow-wicklow/</span></div>
+                <div class="detail-row"><span class="detail-label">B2C targeting</span><span class="detail-value">8 counties, age 25-65+</span></div>
+                <div class="detail-row"><span class="detail-label">B2B targeting</span><span class="detail-value">All Ireland, age 30-65+</span></div>
+                <div class="detail-row"><span class="detail-label">Daily budget</span><span class="detail-value">€30/day (€15 B2C + €15 B2B)</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-card" style="margin-top: 32px;">
+        <div class="table-card-header">
+            <h3>Geography: 8 Target Counties</h3>
+            <p>Same coverage as current Compost and Sand+Stones campaigns. B2B also includes all of Ireland.</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>County</th>
+                    <th>B2C</th>
+                    <th>B2B</th>
+                    <th>Note</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Carlow</td><td>Yes</td><td>Yes</td><td>Core delivery area</td></tr>
+                <tr><td>Dublin</td><td>Yes</td><td>Yes</td><td>Largest market</td></tr>
+                <tr><td>Waterford</td><td>Yes</td><td>Yes</td><td>Core delivery area</td></tr>
+                <tr><td>Wexford</td><td>Yes</td><td>Yes</td><td>Core delivery area</td></tr>
+                <tr><td>Wicklow</td><td>Yes</td><td>Yes</td><td>Core delivery area</td></tr>
+                <tr><td>Kildare</td><td>Yes</td><td>Yes</td><td>Expanded June 2026</td></tr>
+                <tr><td>Kilkenny</td><td>Yes</td><td>Yes</td><td>Expanded June 2026</td></tr>
+                <tr><td>Tipperary</td><td>Yes</td><td>Yes</td><td>Expanded June 2026</td></tr>
+                <tr><td>All other IE counties</td><td>No</td><td>Yes (B2B only)</td><td>B2B covers all Ireland</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section id="creative">
+    <div class="section-label">Creative</div>
+    <div class="section-title">What We Need</div>
+    <p class="section-desc">Creative assets required before campaigns can be built.</p>
+    <p class="section-commentary">We will source as much as possible from the Kenny Fuels Facebook page and website. The items below are what we need confirmation or supply on before the July 1 launch.</p>
+
+    <div class="next-grid">
+        <div class="next-card">
+            <span class="priority-tag priority-high">Gas Cylinders</span>
+            <h4>Creative Assets</h4>
+            <p>Product shots of Flogas cylinders, BBQ lifestyle imagery for summer angle, or any existing photos/videos from the Kenny Fuels Facebook page or supplied by Ciaran. We will review the Facebook page for reusable content.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-high">Heating Oil</span>
+            <h4>Creative Assets</h4>
+            <p>Delivery truck imagery, residential home shots, or heating oil tank photos. Any existing content from Facebook page or supplied by Ciaran. Urgency and convenience messaging for early orders before winter.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-medium">Gas Ad Copy Direction</span>
+            <h4>Messaging</h4>
+            <p>Summer BBQ angle for July and August. Year-round convenience and fast delivery. Flogas range available online. Order from your door.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-medium">Heating Oil Ad Copy Direction</span>
+            <h4>Messaging</h4>
+            <p>Order before winter to avoid price increases. Fast reliable delivery across Wexford, Wicklow, Carlow, Dublin and surrounding counties. Easy online ordering at kennyfuels.ie.</p>
+        </div>
+    </div>
+
+    <div class="approval-box" style="margin-top: 32px;">
+        <h3>Note on Heating Oil Landing Page</h3>
+        <p>The current heating oil page (kennyfuels.ie/home-heating-oil-wexford-carlow-wicklow/) has no visible pricing, only a quote request form. This was also flagged in our Google Ads work in May. Adding indicative pricing before the July 1 launch would improve conversion rate significantly. We recommend asking Graphedia to add this ahead of launch.</p>
+    </div>
+</section>
+
+<section id="budget">
+    <div class="section-label">Budget</div>
+    <div class="section-title">Proposed Spend</div>
+    <p class="section-desc">Additional budget on top of current €85/day Meta Ads spend.</p>
+
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Budget Breakdown</h3>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campaign</th>
+                    <th>Ad Set</th>
+                    <th>Daily Budget</th>
+                    <th>Monthly Estimate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Gas Cylinders</td><td>B2C (8 counties)</td><td>€15/day</td><td>~€450</td></tr>
+                <tr><td>Gas Cylinders</td><td>B2B (all Ireland)</td><td>€15/day</td><td>~€450</td></tr>
+                <tr><td>Heating Oil</td><td>B2C (8 counties)</td><td>€15/day</td><td>~€450</td></tr>
+                <tr><td>Heating Oil</td><td>B2B (all Ireland)</td><td>€15/day</td><td>~€450</td></tr>
+                <tr class="highlight-row"><td>Total new campaigns</td><td></td><td>€60/day</td><td>~€1,800</td></tr>
+                <tr style="background: var(--gray); font-weight: 600;"><td>Combined total (all Meta)</td><td></td><td>€145/day</td><td>~€4,350</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p style="font-size: 14px; color: var(--text-muted); margin-top: 8px;">Budgets can be reviewed and adjusted after the first 4 weeks of data. We recommend scaling Heating Oil to €30-50/day per ad set from September 1 when demand peaks.</p>
+</section>
+
+<section id="timeline">
+    <div class="section-label">Timeline</div>
+    <div class="section-title">Launch Plan</div>
+    <p class="section-desc">Steps from approval to July 1 launch.</p>
+
+    <div class="timeline-list">
+        <div class="timeline-item">
+            <div class="timeline-date">June 5</div>
+            <div class="timeline-content">
+                <h4>Brief submitted to Ciaran</h4>
+                <p>Campaign proposal prepared by Outposter. Awaiting approval and creative assets.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">June 9-13</div>
+            <div class="timeline-content">
+                <h4>Creative review and copy writing</h4>
+                <p>Review Kenny Fuels Facebook page for existing creatives. Write ad copy for all 4 ad sets. Confirm landing pages are ready.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">June 16-20</div>
+            <div class="timeline-content">
+                <h4>Build campaign structures</h4>
+                <p>Build all campaigns, ad sets, and ads in Meta Ads Manager in paused status. Nothing goes live until July 1.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">June 23-27</div>
+            <div class="timeline-content">
+                <h4>Final review</h4>
+                <p>Review all ad previews and confirm everything is correct before launch. Heating oil page pricing check.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">July 1</div>
+            <div class="timeline-content">
+                <h4>Campaigns go live</h4>
+                <p>Both campaigns activated. Daily monitoring for first 2 weeks.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">July 31</div>
+            <div class="timeline-content">
+                <h4>First performance review</h4>
+                <p>4 weeks of data. Assess ROAS, CPA, CTR and make first optimisations.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">September 1</div>
+            <div class="timeline-content">
+                <h4>Scale Heating Oil for peak season</h4>
+                <p>Increase Heating Oil budget to €30-50/day per ad set. Scale Firewood campaigns back up. Full winter push begins.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <strong>Kenny Fuels Meta Ads - Gas and Heating Oil Campaign Brief</strong> &nbsp;|&nbsp; Prepared by Outposter · June 5, 2026 &nbsp;|&nbsp; Pending approval · Confidential
+</footer>
+
+</body>
+</html>
