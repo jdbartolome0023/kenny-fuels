@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenny Fuels Meta Ads - Week of June 5-11, 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #243B98;
+            --white: #ffffff;
+            --red: #E6211E;
+            --gray: #f9f9f9;
+            --mid-gray: #e0e0e0;
+            --text-dark: #1a1a1a;
+            --text-muted: #777;
+            --green: #2e7d32;
+            --amber: #e65100;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: 'Lato', sans-serif; background: var(--white); color: var(--text-dark); font-size: 15px; }
+
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--black);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 40px; height: 56px;
+        }
+
+        nav .logo img { height: 36px; width: auto; display: block; }
+        nav ul { display: flex; gap: 32px; list-style: none; }
+        nav ul a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
+        nav ul a:hover { color: var(--white); }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .report-date { color: rgba(255,255,255,0.5); font-size: 12px; }
+        .btn-pdf { background: var(--red); color: white; border: none; padding: 8px 16px; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; border-radius: 4px; letter-spacing: 0.5px; }
+
+        .hero { padding: 80px 40px 60px; border-bottom: 1px solid var(--mid-gray); max-width: 1100px; margin: 0 auto; }
+
+        .period-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--gray); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 24px; }
+        .period-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+
+        .hero h1 { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 72px; line-height: 1; letter-spacing: 1px; margin-bottom: 8px; }
+        .hero h1 span { color: var(--red); display: block; }
+        .hero p { font-size: 16px; color: var(--text-muted); max-width: 520px; margin-top: 20px; line-height: 1.6; }
+
+        section { max-width: 1100px; margin: 0 auto; padding: 60px 40px; border-bottom: 1px solid var(--mid-gray); }
+
+        .section-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+        .section-title { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 42px; letter-spacing: 1px; margin-bottom: 8px; }
+        .section-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; line-height: 1.6; }
+        .section-commentary { font-size: 15px; color: var(--text-dark); line-height: 1.8; max-width: 780px; margin-bottom: 40px; padding-left: 16px; border-left: 3px solid var(--red); }
+
+        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+        .metric-card { border: 1px solid var(--mid-gray); border-radius: 8px; padding: 28px 24px; background: var(--white); }
+        .metric-label { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+        .metric-value { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 48px; letter-spacing: 1px; line-height: 1; margin-bottom: 12px; }
+        .metric-value.small { font-size: 36px; }
+        .metric-comparisons { display: flex; gap: 16px; font-size: 12px; flex-wrap: wrap; }
+        .metric-comp { display: flex; flex-direction: column; gap: 2px; }
+        .comp-label { color: var(--text-muted); font-size: 11px; }
+        .up { color: var(--green); font-weight: 600; }
+        .down { color: var(--red); font-weight: 600; }
+        .neutral { color: var(--text-muted); font-weight: 600; }
+
+        .table-card { border: 1px solid var(--mid-gray); border-radius: 8px; overflow: hidden; margin-bottom: 32px; }
+        .table-card-header { padding: 20px 24px; border-bottom: 1px solid var(--mid-gray); }
+        .table-card-header h3 { font-size: 16px; font-weight: 600; }
+        .table-card-header p { font-size: 13px; color: var(--text-muted); margin-top: 4px; line-height: 1.6; }
+
+        table { width: 100%; border-collapse: collapse; }
+        thead th { background: var(--black); color: var(--white); padding: 12px 24px; text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        tbody tr { border-bottom: 1px solid var(--mid-gray); }
+        tbody tr:last-child { border-bottom: none; }
+        tbody tr:nth-child(even) { background: var(--gray); }
+        tbody td { padding: 14px 24px; font-size: 14px; }
+        tbody td:first-child { font-weight: 500; }
+        .highlight-row td { font-weight: 700; background: #fffdf0 !important; }
+
+        .status-active { display: inline-block; background: #e8f5e9; color: var(--green); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+        .status-paused { display: inline-block; background: #fff3e0; color: var(--amber); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+        .status-done { display: inline-block; background: #e3f2fd; color: #1565c0; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+        .status-pending { display: inline-block; background: #fff8e1; color: var(--amber); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+
+        .changes-list { display: flex; flex-direction: column; gap: 0; }
+        .change-item { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--mid-gray); align-items: flex-start; }
+        .change-item:last-child { border-bottom: none; }
+        .change-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+        .icon-done { background: #e8f5e9; }
+        .icon-updated { background: #e3f2fd; }
+        .icon-new { background: #f3e5f5; }
+        .icon-warning { background: #fff8e1; }
+        .change-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+        .change-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        .next-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .next-card { border: 1px solid var(--mid-gray); border-radius: 8px; padding: 28px; }
+        .next-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+        .next-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+        .priority-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
+        .priority-high { background: #ffebee; color: var(--red); }
+        .priority-medium { background: #fff8e1; color: #e65100; }
+        .priority-low { background: #e8f5e9; color: var(--green); }
+        .priority-done { background: #e3f2fd; color: #1565c0; }
+
+        footer { background: var(--black); color: rgba(255,255,255,0.4); text-align: center; padding: 24px 40px; font-size: 12px; }
+        footer strong { color: rgba(255,255,255,0.7); }
+
+        @media (max-width: 768px) {
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .next-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 48px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo"><img src="https://www.kennyfuels.ie/wp-content/uploads/2023/11/kenny-logo.png" alt="Kenny Fuels"></div>
+    <ul>
+        <li><a href="#notes">Notes</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#changes">Changes</a></li>
+        <li><a href="#next">What's Next</a></li>
+    </ul>
+    <div class="nav-right">
+        <span class="report-date">June 5 - June 11, 2026</span>
+        <button class="btn-pdf" onclick="window.print()">Download PDF</button>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="period-badge">June 5 - June 11, 2026 &nbsp;·&nbsp; Week 2</div>
+    <h1>Kenny Fuels<span>Meta Ads</span></h1>
+    <p>Second week of Meta Ads management. New budget structure fully live, Sand+Stones recovered after geography correction, and Gas and Heating Oil campaign budget approved by Ciaran.</p>
+</div>
+
+<section id="notes" style="background: var(--gray); border-bottom: none;">
+    <div class="section-title">Week Summary</div>
+    <p style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 8px; color: var(--text-dark);">
+        The new €85/day budget structure was fully active for its first complete week. Compost delivered 11 purchases in the first four days at strong volume, then went quiet for the final three days. Sand+Stones had no purchases through June 8 following the geography correction, then recovered from June 9 onwards with consistent daily performance. BOF Retargeting had a frequency issue resolved mid-week by expanding the audience to 60 days.
+    </p>
+    <p style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 16px; color: var(--text-dark);">
+        On the account side, Ciaran approved the Gas and Heating Oil campaign budget (€60/day additional) on June 9. Campaign structures are planned for the week of June 16-20 for a July 1 launch. A request is outstanding to Graphedia for the heating oil landing page pricing, which is a blocker for launch.
+    </p>
+</section>
+
+<section id="performance">
+    <div class="section-label">Performance</div>
+    <div class="section-title">This Week</div>
+    <p class="section-desc">June 5 - June 11, 2026. First full week of the new budget structure.</p>
+    <p class="section-commentary">Compost drove the majority of the week's revenue with 11 purchases, all in the first four days. The three zero-purchase days at the end of the week are a signal the single creative is beginning to fatigue — a second creative has been requested from Ciaran. Sand+Stones recovered well after the geography fix and delivered 6 purchases from June 9. BOF Retargeting frequency peaked at 9.17 before the audience expansion resolved it.</p>
+
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-label">Week Spend</div>
+            <div class="metric-value small">€623</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp"><span class="comp-label">Daily avg</span><span class="neutral">€89/day</span></div>
+                <div class="metric-comp"><span class="comp-label">Target</span><span class="up">€85/day</span></div>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Purchases</div>
+            <div class="metric-value">21</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp"><span class="comp-label">Revenue</span><span class="up">€6,849</span></div>
+                <div class="metric-comp"><span class="comp-label">CPA</span><span class="neutral">€29.68</span></div>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Account ROAS</div>
+            <div class="metric-value small">11.0x</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp"><span class="comp-label">Best campaign</span><span class="up">Compost 21.8x</span></div>
+                <div class="metric-comp"><span class="comp-label">Note</span><span class="neutral">Off-season Firewood diluting</span></div>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">BOF Frequency</div>
+            <div class="metric-value small">2.51</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp"><span class="comp-label">Peak this week</span><span class="down">9.17</span></div>
+                <div class="metric-comp"><span class="comp-label">Resolved</span><span class="up">Jun 9</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Campaign Performance — June 5-11</h3>
+            <p>Full week. All campaigns active at new budget levels set June 5.</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campaign</th>
+                    <th>Spend</th>
+                    <th>Purchases</th>
+                    <th>Revenue</th>
+                    <th>ROAS</th>
+                    <th>CPA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>BOF Retargeting</td>
+                    <td>€168.40</td>
+                    <td>2</td>
+                    <td>€861.90</td>
+                    <td>5.1x</td>
+                    <td>€84.20</td>
+                </tr>
+                <tr>
+                    <td>Firewood B2C</td>
+                    <td>€35.51</td>
+                    <td>0</td>
+                    <td>€0</td>
+                    <td>—</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Firewood B2B</td>
+                    <td>€35.07</td>
+                    <td>2</td>
+                    <td>€235.92</td>
+                    <td>6.7x</td>
+                    <td>€17.54</td>
+                </tr>
+                <tr>
+                    <td>Compost</td>
+                    <td>€206.76</td>
+                    <td>11</td>
+                    <td>€4,496.68</td>
+                    <td>21.8x</td>
+                    <td>€18.80</td>
+                </tr>
+                <tr>
+                    <td>Sand+Stones</td>
+                    <td>€177.63</td>
+                    <td>6</td>
+                    <td>€1,254.72</td>
+                    <td>7.1x</td>
+                    <td>€29.61</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Total</td>
+                    <td>€623.37</td>
+                    <td>21</td>
+                    <td>€6,849.22</td>
+                    <td>11.0x</td>
+                    <td>€29.68</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section id="changes">
+    <div class="section-label">Changes Made</div>
+    <div class="section-title">Actions This Week</div>
+    <p class="section-desc">June 5 - June 11, 2026.</p>
+
+    <div class="changes-list">
+
+        <div class="change-item">
+            <div class="change-icon icon-updated">🔧</div>
+            <div class="change-content">
+                <h4>Geography Corrected: Compost and Sand+Stones (June 9)</h4>
+                <p>Ciaran confirmed Kildare, Kilkenny, and Tipperary are outside Kenny Fuels' current service area. Both Compost and Sand+Stones ad sets reverted from 8 counties to the correct 5: Carlow, Dublin, Waterford, Wexford, Wicklow. Updated via API.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-updated">🔧</div>
+            <div class="change-content">
+                <h4>BOF Retargeting Audience Expanded (June 9)</h4>
+                <p>Frequency hit 9.17 across 5 days on a pool of 2,295 people — well above the healthy 3-5x range. Created a new Web Visits Last 60 Days audience (ID: 120245054721650643) and swapped it into the BOF ad set. By June 11 frequency had dropped to 2.51. Issue fully resolved.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-done">✅</div>
+            <div class="change-content">
+                <h4>Gas and Heating Oil Budget Approved by Ciaran (June 9)</h4>
+                <p>Ciaran replied to the campaign brief submitted June 5: "Happy with the budget." Additional €60/day confirmed for the two new campaigns. Campaign structures planned for June 16-20. Launch target: July 1, 2026.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-warning">⚠️</div>
+            <div class="change-content">
+                <h4>Compost: Second Creative Requested (June 11)</h4>
+                <p>Compost had 11 purchases in the first four days of the week (June 5-8), then zero purchases on June 9, 10, and 11. This pattern suggests the Compost Trees ad is beginning to fatigue after running as the sole creative. A second image or short video has been requested from Ciaran to give the algorithm options and restore momentum.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-warning">⚠️</div>
+            <div class="change-content">
+                <h4>Pixel Purchase Value Issue Identified (June 11-12)</h4>
+                <p>Meta Events Manager diagnostics flagged that 23% of Purchase events are firing without a value field. The pixel code is triggering the purchase event on some orders but not passing the order amount through. This affects ad optimisation and ROAS reporting accuracy. Graphedia have been contacted to identify and fix the relevant plugin or code handling the pixel on kennyfuels.ie.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-warning">⚠️</div>
+            <div class="change-content">
+                <h4>Heating Oil Landing Page Pricing (June 11)</h4>
+                <p>Ciaran flagged that the heating oil landing page (kennyfuels.ie/home-heating-oil-wexford-carlow-wicklow/) has no pricing visible to users. This is a blocker for the Gas and Heating Oil campaign launch on July 1. Graphedia have been contacted to add pricing before launch.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="next">
+    <div class="section-label">What's Next</div>
+    <div class="section-title">Upcoming Priorities</div>
+    <p class="section-desc">Week of June 12 onwards.</p>
+
+    <div class="next-grid">
+        <div class="next-card">
+            <span class="priority-tag priority-high">Awaiting Ciaran</span>
+            <h4>Compost: Second Creative</h4>
+            <p>Three consecutive zero-purchase days signal creative fatigue on the Compost Trees ad. A second image or short video is needed. Once received, it will be added to the Compost ad set alongside the existing creative.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-high">Awaiting Graphedia</span>
+            <h4>Pixel Purchase Value Fix</h4>
+            <p>23% of Purchase events are missing the value field. Graphedia have been asked which plugin manages the Meta Pixel on the site so we can identify and fix the issue. This affects both reporting accuracy and ROAS optimisation.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-high">Awaiting Graphedia</span>
+            <h4>Heating Oil Landing Page Pricing</h4>
+            <p>Pricing must be visible on the heating oil page before July 1. This is a prerequisite for running ads to that page. Graphedia have been contacted and this is being chased as a blocker for the campaign launch.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-medium">June 16-20</span>
+            <h4>Gas and Heating Oil Campaign Build</h4>
+            <p>Budget approved by Ciaran at €60/day. Two campaigns to be built: Gas Cylinders and Home Heating Oil. Ad sets targeting Wexford, Wicklow, Dublin, and Carlow. Launch date July 1, pending landing page and creative assets.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-medium">Review June 19</span>
+            <h4>Sand+Stones Creative Split Review</h4>
+            <p>Both ads currently running at €25/day. Ad 1 Sand tonne bags vs Ad 2 Stones. Review after 2 full weeks of data to determine if one ad should be paused in favour of the stronger performer.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-low">Monitor Weekly</span>
+            <h4>BOF Retargeting Frequency</h4>
+            <p>Frequency resolved to 2.51 after the 60-day audience expansion. Continue monitoring weekly. If frequency climbs above 5.0 again, the next step is to incorporate Facebook and Instagram engagers into the audience mix.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <strong>Kenny Fuels Meta Ads Report</strong> &nbsp;|&nbsp; Week of June 5-11, 2026 &nbsp;|&nbsp; Prepared by Josette &nbsp;|&nbsp; Confidential
+</footer>
+
+</body>
+</html>
