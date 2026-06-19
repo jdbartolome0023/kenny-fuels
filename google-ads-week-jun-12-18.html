@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenny Fuels Google Ads Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --black: #243B98;
+            --white: #ffffff;
+            --red: #E6211E;
+            --dark-red: #b5191a;
+            --gray: #f9f9f9;
+            --mid-gray: #e0e0e0;
+            --text-dark: #1a1a1a;
+            --text-muted: #777;
+            --green: #2e7d32;
+            --amber: #e65100;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 56px;
+        }
+
+        nav .logo img {
+            height: 36px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        nav ul a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        nav ul a:hover { color: var(--white); }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .report-date {
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+        }
+
+        .btn-pdf {
+            background: var(--red);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero {
+            padding: 80px 40px 60px;
+            border-bottom: 1px solid var(--mid-gray);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .period-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gray);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .period-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--amber);
+        }
+
+        .hero h1 {
+            font-family: 'Lato', sans-serif; font-weight: 900;
+            font-size: 72px;
+            line-height: 1;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .hero h1 span {
+            color: var(--red);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Lato', sans-serif; font-weight: 900;
+            font-size: 42px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .section-commentary {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+            max-width: 780px;
+            margin-bottom: 40px;
+            padding-left: 16px;
+            border-left: 3px solid var(--red);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .metric-card {
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            padding: 28px 24px;
+            background: var(--white);
+            position: relative;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .metric-value {
+            font-family: 'Lato', sans-serif; font-weight: 900;
+            font-size: 48px;
+            letter-spacing: 1px;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .metric-comparisons {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+        }
+
+        .metric-comp {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .comp-label {
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        .up { color: var(--green); font-weight: 600; }
+        .down { color: var(--red); font-weight: 600; }
+        .neutral { color: var(--text-muted); font-weight: 600; }
+
+        .table-card {
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+
+        .table-card-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        .table-card-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .table-card-header p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            background: var(--black);
+            color: var(--white);
+            padding: 12px 24px;
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        tbody tr:last-child { border-bottom: none; }
+
+        tbody tr:nth-child(even) { background: var(--gray); }
+
+        tbody td {
+            padding: 14px 24px;
+            font-size: 14px;
+        }
+
+        tbody td:first-child { font-weight: 500; }
+
+        .status-active {
+            display: inline-block;
+            background: #e8f5e9;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .status-learning {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1565c0;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .status-new {
+            display: inline-block;
+            background: #f3e5f5;
+            color: #7b1fa2;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .status-paused {
+            display: inline-block;
+            background: #fff3e0;
+            color: var(--amber);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .status-peak {
+            display: inline-block;
+            background: #e8f5e9;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .campaign-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .adgroup-label {
+            margin-top: 4px;
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .campaign-note td {
+            padding: 8px 24px 10px 24px;
+            font-size: 12.5px;
+            font-style: italic;
+            color: var(--text-muted);
+            background: #fffdf5;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        .chart-container {
+            background: var(--gray);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .chart-title {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 16px;
+            font-size: 11px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+        }
+
+        .changes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .change-item {
+            display: flex;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--mid-gray);
+            align-items: flex-start;
+        }
+
+        .change-item:last-child { border-bottom: none; }
+
+        .change-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .icon-done { background: #e8f5e9; }
+        .icon-paused { background: #ffebee; }
+        .icon-updated { background: #e3f2fd; }
+        .icon-new { background: #f3e5f5; }
+
+        .change-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .change-content p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .next-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .next-card {
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            padding: 28px;
+        }
+
+        .next-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .next-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .priority-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .priority-high { background: #ffebee; color: var(--red); }
+        .priority-medium { background: #fff8e1; color: #e65100; }
+        .priority-done { background: #e8f5e9; color: #2e7d32; }
+        .priority-low { background: #e8f5e9; color: var(--green); }
+
+        footer {
+            background: var(--black);
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 24px 40px;
+            font-size: 12px;
+        }
+
+        footer strong { color: rgba(255,255,255,0.7); }
+
+        @media (max-width: 768px) {
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .next-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 48px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo"><img src="https://www.kennyfuels.ie/wp-content/uploads/2023/11/kenny-logo.png" alt="Kenny Fuels"></div>
+    <ul>
+        <li><a href="#notes">Notes</a></li>
+        <li><a href="#metrics">Metrics</a></li>
+        <li><a href="#campaigns">Campaigns</a></li>
+        <li><a href="#changes">Changes</a></li>
+        <li><a href="#next">What's Next</a></li>
+    </ul>
+    <div class="nav-right">
+        <span class="report-date">Jun 12 – Jun 18, 2026</span>
+        <button class="btn-pdf" onclick="window.print()">&#11015; Download PDF</button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="period-badge">Jun 12 – Jun 18, 2026 &nbsp;·&nbsp; 7 days</div>
+    <h1>Kenny Fuels<span>Google Ads</span></h1>
+    <p>Weekly performance overview across all active campaigns. All figures in EUR. Reporting period: Fri Jun 12 – Thu Jun 18 (7 days). Comparisons against the previous week (Jun 5–Jun 11).</p>
+</div>
+
+<!-- NOTES -->
+<section id="notes" style="background: var(--gray); border-bottom: none;">
+    <div class="section-title">This Week's Notes</div>
+    <ul style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 8px; color: var(--text-dark); padding-left: 20px; list-style: disc;">
+        <li style="margin-bottom: 12px;"><strong>43 conversions, €9,113 tracked value, 5.7x ROAS.</strong> A step back from last week (50 conv, €11,250, 7.6x), driven by a heavy optimisation workload rather than a decline in account health. Brand Search delivered 26 conversions at 7.3x ROAS, comfortably above its 6x tROAS target. HHO produced 7 conversions at 12.5x ROAS despite seasonal softening. Monday Jun 16 was the strongest single day at 12.4x ROAS driven by Brand Search and HHO together.</li>
+        <li style="margin-bottom: 12px;"><strong>Gas Bottle campaign fully restructured (June 15).</strong> A 30-day search terms audit identified over €80 in wasted spend on competitor oil brand terms, heating oil searches, and wrong-category traffic in June alone. All 22 existing keywords were paused and replaced with three tightly targeted ad groups: Near Me, Order &amp; Buy, and Product &amp; Geo (41 keywords total, all exact or phrase match). 38 negative keywords were added at the same time. The campaign is in its learning phase following the restructure, which accounts for the reduced volume this week. Spend is being protected while Smart Bidding recalibrates.</li>
+        <li style="margin-bottom: 12px;"><strong>Kenergy Solar campaign launched (June 16).</strong> Four ad groups live targeting solar installation searches across Wexford, Wicklow, Dublin and Carlow: Solar Grant &amp; SEAI, Solar Cost &amp; Price, Solar Local Geo, Solar Installer Intent. All exact match. Budget €15/day, Maximize Conversions with a Target CPA of €40 set to manage spend during the learning phase. First performance review scheduled for early July after two weeks of data.</li>
+        <li style="margin-bottom: 0;"><strong>HHO order system now live on the landing page.</strong> Patrick at Graphedia confirmed this week that customers can now enter their location and volume and place an order directly from the HHO landing page, the same system as the homepage. This removes the primary quality score barrier that was affecting price-intent keywords and should improve ad rank for HHO over the coming weeks.</li>
+    </ul>
+</section>
+
+<!-- METRICS -->
+<section id="metrics">
+    <div class="section-label">Key Metrics</div>
+    <div class="section-title">Weekly Performance</div>
+    <p class="section-desc">Jun 12 – Jun 18, 2026 &nbsp;·&nbsp; 7 days. Prior week (Jun 5–Jun 11) shown for comparison.</p>
+    <p class="section-commentary">43 conversions, €9,113 tracked value, 5.7x ROAS. Down on last week (50 conv, €11,250, 7.6x), primarily because the Gas Bottle restructure on June 15 reduced campaign volume as Smart Bidding recalibrates with the new keyword structure, and Solar launched mid-week with no conversions yet in its learning phase. Brand Search (7.3x) and HHO (12.5x) both performed well against their targets. Jun 15 was the strongest individual day: 12 conversions, €3,287 tracked value, 12.4x ROAS.</p>
+
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-label">Conversions (Google Ads)</div>
+            <div class="metric-value">43</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp">
+                    <span class="comp-label">Prior Week</span>
+                    <span class="down">&#9660; 50 conv (-14%)</span>
+                </div>
+                <div class="metric-comp">
+                    <span class="comp-label">Best Day</span>
+                    <span class="neutral">Jun 15: 12 conv</span>
+                </div>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Total Spend</div>
+            <div class="metric-value">€1,588</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp">
+                    <span class="comp-label">Prior Week</span>
+                    <span class="neutral">€1,479 (+7%)</span>
+                </div>
+                <div class="metric-comp">
+                    <span class="comp-label">Daily Avg</span>
+                    <span class="neutral">€227/day</span>
+                </div>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Tracked Conversion Value</div>
+            <div class="metric-value">€9,113</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp">
+                    <span class="comp-label">Overall ROAS</span>
+                    <span class="neutral">5.7x</span>
+                </div>
+                <div class="metric-comp">
+                    <span class="comp-label">Prior Week</span>
+                    <span class="down">&#9660; €11,250 (7.6x)</span>
+                </div>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">New Campaign</div>
+            <div class="metric-value">Solar</div>
+            <div class="metric-comparisons">
+                <div class="metric-comp">
+                    <span class="comp-label">Launch Date</span>
+                    <span class="neutral">Jun 16, 2026</span>
+                </div>
+                <div class="metric-comp">
+                    <span class="comp-label">Budget</span>
+                    <span class="neutral">€15/day</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weekly Breakdown Table -->
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Weekly Breakdown</h3>
+            <p>All active campaigns combined. Phone calls tracked via Google Ads native call tracking (GA4-independent). Tracked call value uses per-campaign revenue values: HHO €350, Brand Search €220, Gas Bottle €90, Hardware €90/order.</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Spend</th>
+                    <th>Clicks</th>
+                    <th>Impressions</th>
+                    <th>CTR</th>
+                    <th>Conversions</th>
+                    <th>ROAS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>May 15 – May 21</td>
+                    <td>€1,078</td>
+                    <td>970</td>
+                    <td>7,590</td>
+                    <td>12.8%</td>
+                    <td>28</td>
+                    <td>n/a</td>
+                </tr>
+                <tr>
+                    <td>May 22 – May 28</td>
+                    <td>€1,480</td>
+                    <td>982</td>
+                    <td>7,826</td>
+                    <td>12.5%</td>
+                    <td>53</td>
+                    <td>n/a</td>
+                </tr>
+                <tr>
+                    <td>May 29 – Jun 4</td>
+                    <td>€1,430</td>
+                    <td>1,172</td>
+                    <td>9,225</td>
+                    <td>12.7%</td>
+                    <td>46</td>
+                    <td>7.2x</td>
+                </tr>
+                <tr>
+                    <td>Jun 5 – Jun 11</td>
+                    <td>€1,479</td>
+                    <td>1,506</td>
+                    <td>12,190</td>
+                    <td>12.4%</td>
+                    <td>50</td>
+                    <td>7.6x</td>
+                </tr>
+                <tr style="font-weight:600; background:#fffdf0;">
+                    <td>Jun 12 – Jun 18 &#8592; This Week</td>
+                    <td>€1,588</td>
+                    <td>2,089</td>
+                    <td>14,451</td>
+                    <td>14.5%</td>
+                    <td>43</td>
+                    <td>5.7x</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="padding: 12px 24px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--mid-gray);">This week included the Gas Bottle campaign restructure (Jun 15) and Kenergy Solar launch (Jun 16). Both campaigns contribute reduced conversion volume while in their learning phases. Jun 14 (Sunday): HHO does not run Sundays. Brand Search and Gas Bottle also saw very low Sunday volume. Clicks and impressions rose significantly week-on-week, reflecting the broader reach of the restructured and expanded account.</p>
+    </div>
+
+    <!-- Daily Breakdown Table -->
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Daily Breakdown: Jun 12–18</h3>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Spend</th>
+                    <th>Conversions</th>
+                    <th>Tracked Value</th>
+                    <th>ROAS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fri Jun 12</td>
+                    <td>€222.53</td>
+                    <td>7.3</td>
+                    <td>€1,203.73</td>
+                    <td>5.4x</td>
+                </tr>
+                <tr>
+                    <td>Sat Jun 13</td>
+                    <td>€233.70</td>
+                    <td>3.0</td>
+                    <td>€399.60</td>
+                    <td>1.7x</td>
+                </tr>
+                <tr>
+                    <td>Sun Jun 14</td>
+                    <td>€81.13</td>
+                    <td>2.0</td>
+                    <td>€180.00</td>
+                    <td>2.2x &nbsp;·&nbsp; HHO off Sundays</td>
+                </tr>
+                <tr>
+                    <td>Mon Jun 15</td>
+                    <td>€264.42</td>
+                    <td>12.0</td>
+                    <td>€3,287.02</td>
+                    <td>12.4x</td>
+                </tr>
+                <tr>
+                    <td>Tue Jun 16</td>
+                    <td>€255.85</td>
+                    <td>5.0</td>
+                    <td>€1,096.29</td>
+                    <td>4.3x</td>
+                </tr>
+                <tr>
+                    <td>Wed Jun 17</td>
+                    <td>€280.19</td>
+                    <td>10.0</td>
+                    <td>€2,067.30</td>
+                    <td>7.4x</td>
+                </tr>
+                <tr>
+                    <td>Thu Jun 18</td>
+                    <td>€249.72</td>
+                    <td>4.0</td>
+                    <td>€878.62</td>
+                    <td>3.5x</td>
+                </tr>
+                <tr style="font-weight:700; background: var(--gray);">
+                    <td>Total</td>
+                    <td>€1,587.54</td>
+                    <td>43.3</td>
+                    <td>€9,112.56</td>
+                    <td>5.7x</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Chart -->
+    <div class="chart-container">
+        <div class="chart-header">
+            <span class="chart-title">Spend by Campaign: Jun 12–Jun 18</span>
+            <div class="chart-legend">
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#243B98"></div>
+                    <span>Fuel Campaigns</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#E6211E"></div>
+                    <span>Hardware</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#7b1fa2"></div>
+                    <span>Solar</span>
+                </div>
+            </div>
+        </div>
+        <canvas id="spendChart" height="100"></canvas>
+    </div>
+</section>
+
+<!-- CAMPAIGNS -->
+<section id="campaigns">
+    <div class="section-label">Campaign Performance</div>
+    <div class="section-title">Active Campaigns</div>
+    <p class="section-desc">Jun 12 – Jun 18, 2026 &nbsp;·&nbsp; 7 days.</p>
+    <ul class="section-commentary" style="padding-left: 32px; list-style: disc;">
+        <li style="margin-bottom: 10px;"><strong>KF – Fuel | Brand Search:</strong> 26 conversions, €788 spend, €0.80 avg CPC, €5,763 tracked value, 7.3x ROAS. Comfortably above the 6x tROAS target set on June 9. Budget Lost IS of 43.3% means the campaign regularly runs out of budget before capturing all available searches. Rank Lost IS is only 9%, meaning when it is active it is winning auctions. Impression share at 47.7% up significantly from 32.7% average in early May.</li>
+        <li style="margin-bottom: 10px;"><strong>KF – Fuel | Home Heating Oil Search:</strong> 7 conversions, €196 spend, €1.31 avg CPC, €2,449 tracked value, 12.5x ROAS. Solid performance against the off-season €25/day budget. HHO order system confirmed live this week by Graphedia, which removes the main quality score barrier for price-intent keywords. Expect ad rank and impression share to improve as Google registers the landing page improvement.</li>
+        <li style="margin-bottom: 10px;"><strong>KF – Fuel | Gas Bottle &amp; Cylinders:</strong> 3 conversions, €64 spend, €1.13 avg CPC, €270 tracked value, 4.25x ROAS. Campaign fully restructured on June 15 (3 new tightly focused ad groups, 38 negatives, Display Network disabled). Volume is low as Smart Bidding learns the new structure. 4.25x ROAS on the spend that did occur is above the 3x tROAS target. Volume recovery expected over June 22–26.</li>
+        <li style="margin-bottom: 10px;"><strong>KF – Hardware:</strong> 7 conversions, €504 spend, €0.57 avg CPC, €630 tracked value, 1.25x ROAS. Three zero-conversion ad groups paused on June 15 (Acoustic Wall Panels, Building Materials, Safety Equipment) and 24 further negative keywords added. Gardening &amp; Landscaping max CPC raised to €2.00. Rank Lost IS remains high at 72.5%, driven by Composite Decking ad groups where landing page conversion barriers (lack of visible pricing and Add to Cart on the category page) reduce ad quality scores.</li>
+        <li style="margin-bottom: 10px;"><strong>KF – Fuel | Kenergy Solar:</strong> 0 conversions, €37 spend. Launched June 16 with 4 ad groups targeting solar panel installation across Wexford, Wicklow, Dublin and Carlow. Campaign in early learning phase. Target CPA of €40 in place. Low spend is expected for the first two weeks as Google maps the search landscape. First performance review scheduled for early July.</li>
+    </ul>
+
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Kenny Fuels: All Active Campaigns</h3>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campaign</th>
+                    <th>Status</th>
+                    <th>Spend</th>
+                    <th>Clicks</th>
+                    <th>Avg CPC</th>
+                    <th>Conv / ROAS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="campaign-name">KF – Fuel | Brand Search</div>
+                        <div class="adgroup-label">tROAS 600% (6x) &nbsp;·&nbsp; Budget: €110/day &nbsp;·&nbsp; IS: 47.7% | Budget Lost: 43.3%</div>
+                    </td>
+                    <td><span class="status-active">ACTIVE</span></td>
+                    <td>€788</td>
+                    <td>990</td>
+                    <td>€0.80</td>
+                    <td>26 conv / 7.3x</td>
+                </tr>
+                <tr class="campaign-note">
+                    <td colspan="6">26 conversions, €5,763 tracked value at 7.3x ROAS, above the 6x tROAS target. Budget Lost IS at 43.3% indicates the campaign regularly exhausts its daily €110 budget before capturing all brand searches available. Impression share rising strongly from 32.7% in early May to 47.7% this week.</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="campaign-name">KF – Fuel | Home Heating Oil Search</div>
+                        <div class="adgroup-label">Maximize Conversions (uncapped) &nbsp;·&nbsp; Budget: €25/day &nbsp;·&nbsp; Mon–Sat only &nbsp;·&nbsp; Order system now live</div>
+                    </td>
+                    <td><span class="status-active">ACTIVE</span></td>
+                    <td>€196</td>
+                    <td>149</td>
+                    <td>€1.31</td>
+                    <td>7 conv / 12.5x</td>
+                </tr>
+                <tr class="campaign-note">
+                    <td colspan="6">7 conversions, €2,449 tracked value at 12.5x ROAS. HHO landing page order system confirmed live this week by Graphedia. Quality score improvement expected for price-intent keywords as Google picks up the updated landing page. Jun 23: scheduled tROAS assessment to consider switching to Maximize Conversion Value with a target.</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="campaign-name">KF – Fuel | Gas Bottle &amp; Cylinders</div>
+                        <div class="adgroup-label">tROAS 300% (3x) &nbsp;·&nbsp; Budget: €35/day &nbsp;·&nbsp; Restructured Jun 15 &nbsp;·&nbsp; 3 new ad groups in learning</div>
+                    </td>
+                    <td><span class="status-learning">LEARNING</span></td>
+                    <td>€64</td>
+                    <td>56</td>
+                    <td>€1.13</td>
+                    <td>3 conv / 4.25x</td>
+                </tr>
+                <tr class="campaign-note">
+                    <td colspan="6">3 conversions, €270 tracked value at 4.25x ROAS, above the 3x target on the spend that occurred. Campaign in post-restructure learning phase following the June 15 rebuild: 3 new tightly focused ad groups (Near Me, Order &amp; Buy, Product &amp; Geo), 38 negative keywords added, Display Network disabled. Volume recovery expected June 22–26 as Smart Bidding adjusts to the new structure.</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="campaign-name">KF – Hardware</div>
+                        <div class="adgroup-label">Maximize Clicks &nbsp;·&nbsp; Budget: €70/day &nbsp;·&nbsp; 3 ad groups paused Jun 15 &nbsp;·&nbsp; 24 negatives added</div>
+                    </td>
+                    <td><span class="status-peak">PEAK SEASON</span></td>
+                    <td>€504</td>
+                    <td>885</td>
+                    <td>€0.57</td>
+                    <td>7 conv / 1.25x</td>
+                </tr>
+                <tr class="campaign-note">
+                    <td colspan="6">7 conversions, €630 tracked value. Three zero-conversion ad groups paused (Acoustic Wall Panels, Building Materials, Safety Equipment). 24 negatives added removing tool brand searches, wrong product types, and outside-service-area geo terms. Gardening &amp; Landscaping max CPC raised to €2.00 (best performing ad group: 3.4% CVR, 6.5x ROAS). Rank Lost IS of 72.5% driven primarily by Composite Decking ad groups where landing page quality score is the limiting factor.</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="campaign-name">KF – Fuel | Kenergy Solar</div>
+                        <div class="adgroup-label">Maximize Conversions, tCPA €40 &nbsp;·&nbsp; Budget: €15/day &nbsp;·&nbsp; 4 ad groups &nbsp;·&nbsp; Launched Jun 16</div>
+                    </td>
+                    <td><span class="status-new">NEW</span></td>
+                    <td>€37</td>
+                    <td>9</td>
+                    <td>€4.06</td>
+                    <td>0 conv / learning</td>
+                </tr>
+                <tr class="campaign-note">
+                    <td colspan="6">New campaign, launched June 16. Four exact match ad groups: Solar Grant &amp; SEAI, Solar Cost &amp; Price, Solar Local Geo, Solar Installer Intent. Geo: Wexford, Wicklow, Dublin, Carlow. Low spend in first week is expected. Target CPA of €40 set to manage bidding during the learning phase. First performance review: early July after 2 weeks of data.</td>
+                </tr>
+
+                <tr style="font-weight:700; background: var(--gray);">
+                    <td>Total (5 active campaigns)</td>
+                    <td></td>
+                    <td>€1,588</td>
+                    <td>2,089</td>
+                    <td>€0.76</td>
+                    <td>43 conv / 5.7x</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- CHANGES -->
+<section id="changes">
+    <div class="section-label">Changes Made</div>
+    <div class="section-title">Optimisations This Week</div>
+    <p class="section-desc">Google Ads actions taken Jun 12 – Jun 18, 2026.</p>
+
+    <div class="changes-list">
+
+        <div class="change-item">
+            <div class="change-icon icon-done">&#10003;</div>
+            <div class="change-content">
+                <h4>Gas Bottle Campaign: Full Restructure (June 15)</h4>
+                <p>A 30-day search terms audit identified significant waste in the Gas Bottle campaign. Over €80 spent in June alone on competitor oil brand terms (Flo Gas, Capital Oil, Vale Oil), heating oil searches, and wrong-category traffic that had no path to conversion. All 22 existing keywords were paused and replaced with three tightly controlled ad groups targeting genuine buying intent: Near Me (12 exact match keywords: "gas bottle near me", "patio gas near me", etc.), Order &amp; Buy (12 exact and phrase keywords: "buy gas bottle ireland", "gas cylinder delivery ireland", etc.), and Product &amp; Geo (17 exact match keywords targeting Wexford, Wicklow, Carlow searchers specifically). 38 negative keywords were added at the same time to block competitor brands, heating oil terms, and own-brand traffic.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-done">&#10003;</div>
+            <div class="change-content">
+                <h4>Gas Bottle: Display Network Disabled (June 15)</h4>
+                <p>The Gas Bottle campaign had Display Network incorrectly enabled, meaning ads were being served on banner placements across non-search websites. This was not a setting we applied. It was set to FALSE, ensuring all Gas Bottle spend now goes exclusively to Google Search.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-done">&#10003;</div>
+            <div class="change-content">
+                <h4>Hardware: 3 Zero-Conversion Ad Groups Paused (June 15)</h4>
+                <p>Following a 90-day Hardware campaign analysis, three ad groups were paused that had generated spend with no conversions. Acoustic Wall Panels: 136 clicks, €68 spent, 0 conversions over 90 days. Off-season in June (260 searches/month now vs 1,300 in winter). Will be reactivated in September when seasonal demand returns and once the landing page is updated. Building Materials: 41 clicks, €20 spent, 0 conversions. Search intent is for trade suppliers, not products. Safety Equipment: 16 clicks, €9 spent, 0 conversions. Insufficient search volume (30 searches/month nationwide).</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-done">&#10003;</div>
+            <div class="change-content">
+                <h4>Hardware: 24 Negative Keywords Added and Gardening CPC Raised (June 15)</h4>
+                <p>24 negative keywords added to remove irrelevant traffic: tool brands (Ryobi, Makita, Dewalt, Milwaukee, Parkside), wrong product types (picket fencing, metal fencing, aluminium fencing, steel fencing, wire fencing), outside service area searches (Limerick, Cork, Galway, Mayo, Kerry), and informational terms (decking ideas, fencing ideas, diy fencing). Gardening &amp; Landscaping max CPC raised from €0.01 (placeholder) to €2.00. This is the best performing Hardware ad group at 3.4% CVR and 6.5x ROAS over 90 days. The previous €0.01 CPC was preventing competitive bidding.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-updated">&#9998;</div>
+            <div class="change-content">
+                <h4>Composite Cladding Ad URL Corrected (June 16)</h4>
+                <p>The Composite Cladding ad was pointing to /premium-cladding/, a URL that had been redirected by Graphedia to the correct category page. The ad was updated to point directly to the correct destination, removing the redirect chain. Graphedia had confirmed the server-side redirect on June 15.</p>
+            </div>
+        </div>
+
+        <div class="change-item">
+            <div class="change-icon icon-new">&#9679;</div>
+            <div class="change-content">
+                <h4>Kenergy Solar Campaign Launched (June 16)</h4>
+                <p>Four ad groups launched targeting solar installation searches in Wexford, Wicklow, Dublin and Carlow. All keywords on exact match to control intent: Solar Grant &amp; SEAI (capturing SEAI grant and incentive searches), Solar Cost &amp; Price (capturing installation cost and pricing queries), Solar Local Geo (local area searches), and Solar Installer Intent (searches for solar installers and contractors). Budget: €15/day. Bidding: Maximize Conversions with Target CPA of €40 to manage spend during learning. Landing page: kennyfuels.ie/solar-installation/. Full performance review after two weeks.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- WHAT'S NEXT -->
+<section id="next">
+    <div class="section-label">What's Next</div>
+    <div class="section-title">Upcoming Priorities</div>
+    <p class="section-desc">Performance-driven priorities for the coming weeks.</p>
+
+    <div class="next-grid">
+        <div class="next-card">
+            <span class="priority-tag priority-high">Monitor: Jun 22–26</span>
+            <h4>Gas Bottle Restructure Recovery</h4>
+            <p>The June 15 restructure replaced all existing Gas Bottle keywords with three new focused ad groups. Smart Bidding is now recalibrating with the new structure, which results in lower volume in the short term. The 4.25x ROAS on spend that did occur is above the 3x target. Volume and impression share should begin recovering by June 22–26 as the algorithm learns the new keyword set.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-high">Jun 23</span>
+            <h4>HHO tROAS Assessment</h4>
+            <p>Home Heating Oil has been running on Maximize Conversions (uncapped) for five weeks. At the Jun 23 review we will assess whether to switch to Maximize Conversion Value with a tROAS target. With the order system now live on the landing page (confirmed this week), landing page quality scores should improve, which may make this a stronger moment to introduce a tROAS constraint. Jun 16 baseline was 26.6x ROAS.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-medium">Awaiting Graphedia</span>
+            <h4>Composite Decking Landing Page</h4>
+            <p>We contacted Graphedia this week with requests to improve the Composite Decking category page: surface delivery information, add project cost context, and add visible pricing. Graphedia has responded to say some of this is already in place. We are verifying the live page this week before replying. The Composite Decking ad groups (General, Price &amp; Buy) have generated over 125 clicks combined with 0 conversions, pointing to the landing page as the primary barrier.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-medium">Chase by Jun 26</span>
+            <h4>Heating Oil Live Price Feed (September Launch)</h4>
+            <p>Ciaran has confirmed a September 1 launch target for Google Shopping on heating oil: "We would need to be live by 1st September. That's the busy time from then until end of March." Google Shopping requires a live price feed so ads update when the oil price changes. We have contacted Graphedia to scope the work. Response needed by June 26 to keep the September 1 timeline achievable.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-low">Jul 1</span>
+            <h4>Hardware Gardening Review</h4>
+            <p>Gardening &amp; Landscaping is the best-performing Hardware ad group: 3.4% CVR, 6.5x ROAS over 90 days. The max CPC was raised from €0.01 to €2.00 on June 15 to allow the algorithm to bid more competitively. We will review impressions, clicks, and conversions at July 1 to see whether the increased CPC ceiling is generating more volume at a similar efficiency.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-low">Jul 4</span>
+            <h4>Kenergy Solar: First Performance Review</h4>
+            <p>Kenergy Solar launched June 16 with four exact match ad groups across four counties. The campaign needs two weeks of data before any meaningful assessment of which ad groups, keywords, and search terms are performing. Review scheduled for early July. At that point we will evaluate search term quality, add negative keywords, and consider any bid or budget adjustments based on what the data shows.</p>
+        </div>
+        <div class="next-card">
+            <span class="priority-tag priority-low">September 2026</span>
+            <h4>Heating Season Preparation</h4>
+            <p>42 heating oil, coal, and solid fuel ad groups are currently paused for summer. These will be reviewed and reactivated in August/September ahead of the heating season. The HHO landing page order system is now live, and a Google Shopping campaign for heating oil is in planning for a September 1 launch alongside the seasonal push.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <strong>Kenny Fuels Google Ads Report</strong> &nbsp;|&nbsp; Generated weekly by Josette &nbsp;|&nbsp; Confidential
+</footer>
+
+<script>
+    const ctx = document.getElementById('spendChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+                'Brand Search',
+                'Hardware',
+                'Home Heating Oil',
+                'Gas Bottle',
+                'Kenergy Solar'
+            ],
+            datasets: [{
+                label: 'Spend (€)',
+                data: [788, 504, 196, 64, 37],
+                backgroundColor: ['#243B98', '#E6211E', '#243B98', '#243B98', '#7b1fa2'],
+                borderRadius: 4,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return '€' + context.parsed.y;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: 'rgba(0,0,0,0.05)' },
+                    ticks: {
+                        font: { family: 'Lato', size: 11 },
+                        callback: function(value) { return '€' + value; }
+                    }
+                },
+                x: {
+                    grid: { display: false },
+                    ticks: { font: { family: 'Lato', size: 11 } }
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
