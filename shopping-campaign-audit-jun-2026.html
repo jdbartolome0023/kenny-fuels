@@ -452,7 +452,7 @@
 
   <div class="alert alert-red">
     <div class="alert-icon">🚫</div>
-    <div><strong>Most important finding:</strong> Heating oil (kerosene) cannot run on Google Shopping. It is a restricted product: Google will not approve it. The shopping campaign needs to be built around the hardware, fencing, gas, and solid fuel products already on the site instead.</div>
+    <div><strong>Most important finding:</strong> Heating oil and diesel are not viable for Google Shopping. Google's price accuracy requirements, dangerous products policy, and the nature of fuel delivery make them effectively incompatible with Shopping feeds. The campaign should focus on fencing, hardware, gas cylinders, and solid fuel instead.</div>
   </div>
 
   <div class="alert alert-green">
@@ -472,7 +472,27 @@
   <div class="section-title">What Goes on Shopping</div>
 
   <div class="section-commentary">
-    Heating oil cannot appear on Google Shopping. Google classifies kerosene and diesel as restricted fuels. Any product from those categories submitted to a shopping feed will be immediately rejected. This applies whether the product page is transactional or not. The live price feed development being scoped with Graphedia is not needed for shopping.
+    Heating oil and diesel are effectively off-limits for Google Shopping. Three factors make this the case, each independently enough to block a viable campaign.
+  </div>
+
+  <ul class="checklist" style="max-width: 820px; margin-bottom: 32px;">
+    <li>
+      <span class="check-icon">💰</span>
+      <div><strong>Price accuracy.</strong> Google Shopping requires the price in the product feed to exactly match the price on the website at all times. Heating oil prices change daily or weekly. Any mismatch triggers automatic disapproval. Managing a live fuel price feed accurately enough to avoid continuous disapprovals is not practical. This requirement is documented under <a href="https://support.google.com/merchants/answer/6149970" target="_blank" style="color: var(--black);">Google Shopping ads policies</a>.</div>
+    </li>
+    <li>
+      <span class="check-icon">⚠️</span>
+      <div><strong>Dangerous products policy.</strong> Google's policy prohibits products that "cause damage, harm, or injury", and its automated review system flags flammable materials. Fuel products are likely to trigger this review. Full policy: <a href="https://support.google.com/merchants/answer/6150004" target="_blank" style="color: var(--black);">Google Merchant Center: Dangerous products</a>. <em>Note: heating oil is not explicitly named in the policy. If fuel products are submitted to a feed in future, the actual GMC disapproval reason will be the definitive confirmation of which rule applies.</em></div>
+    </li>
+    <li>
+      <span class="check-icon">🛒</span>
+      <div><strong>Product type mismatch.</strong> Google Shopping is built for fixed-price, add-to-cart products where the customer can complete a purchase immediately. Heating oil is ordered by delivery area in variable quantities. The product structure itself is incompatible with how a Shopping feed works.</div>
+    </li>
+  </ul>
+
+  <div class="alert alert-blue" style="max-width: 820px; margin-bottom: 32px;">
+    <div class="alert-icon">💡</div>
+    <div>The live price feed development being scoped with Graphedia is not needed for Shopping. The existing search campaign continues as normal for heating oil. No change needed there.</div>
   </div>
 
   <div class="two-col">
