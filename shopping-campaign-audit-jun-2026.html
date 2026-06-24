@@ -407,7 +407,7 @@
   <ul>
     <li><a href="#summary">Summary</a></li>
     <li><a href="#strategy">Strategy</a></li>
-    <li><a href="#products">Products</a></li>
+    <li><a href="#products">Feed Health</a></li>
     <li><a href="#done">What's Done</a></li>
     <li><a href="#actions">Actions</a></li>
     <li><a href="#timeline">Timeline</a></li>
@@ -421,9 +421,9 @@
 </nav>
 
 <div class="hero">
-  <div class="period-badge">June 2026 · Pre-Launch · Target: 1 September 2026</div>
+  <div class="period-badge">June 2026 · Feed Active · Target Launch: 1 September 2026</div>
   <h1>Google Shopping<span>Readiness Audit</span></h1>
-  <p>A full review of kennyfuels.ie to determine what needs to happen before launching Google Shopping campaigns, and what the campaigns should actually focus on.</p>
+  <p>A full review of the live Google Merchant Center account for kennyfuels.ie: what is already working, what needs to be fixed before campaigns go live, and what the campaigns will focus on.</p>
 </div>
 
 <!-- SUMMARY -->
@@ -438,158 +438,178 @@
       <div class="sc-label">Website Foundations</div>
       <div class="sc-val">Ready</div>
     </div>
-    <div class="score-card sc-red">
-      <div class="sc-icon">⚠️</div>
-      <div class="sc-label">Campaign Strategy</div>
-      <div class="sc-val">Needs Rethink</div>
+    <div class="score-card sc-green">
+      <div class="sc-icon">✅</div>
+      <div class="sc-label">Product Feed</div>
+      <div class="sc-val">Active · 1,160 Approved</div>
     </div>
     <div class="score-card sc-amber">
-      <div class="sc-icon">🔧</div>
-      <div class="sc-label">Setup Remaining</div>
-      <div class="sc-val">4 Items</div>
+      <div class="sc-icon">⚠️</div>
+      <div class="sc-label">Quality Issues</div>
+      <div class="sc-val">18 Disapproved · 645 Images</div>
     </div>
-  </div>
-
-  <div class="alert alert-red">
-    <div class="alert-icon">🚫</div>
-    <div><strong>Most important finding:</strong> Heating oil and diesel are not the right fit for Google Shopping. Google's price accuracy requirements, dangerous products policy, and the nature of fuel delivery create significant challenges for a Shopping feed. The campaign should focus on fencing, hardware, gas cylinders, and solid fuel instead.</div>
   </div>
 
   <div class="alert alert-green">
     <div class="alert-icon">✅</div>
-    <div><strong>Good news:</strong> The website passes all basic Google Shopping requirements, and Google Merchant Center (ID 5089910050) is already live for Ireland with a Great store quality score. Not starting from zero. Shipping is already configured. The outstanding items are targeted and manageable.</div>
+    <div><strong>Most important finding:</strong> The product feed is already live. As of 24 June 2026, 1,160 products are active and approved for Google Shopping in Ireland. The work before launch is fixing quality issues in the existing feed, not building one from scratch.</div>
+  </div>
+
+  <div class="alert alert-green">
+    <div class="alert-icon">📦</div>
+    <div><strong>Feed is auto-syncing:</strong> The WooCommerce feed syncs automatically from kennyfuels.ie every day. Shipping is fully configured with free delivery, 1–2 days. 18 products are currently disapproved and need fixing. 645 product images are below Google's minimum size and need to be addressed before Google begins enforcing this requirement.</div>
   </div>
 
   <div class="alert alert-blue">
     <div class="alert-icon">📅</div>
-    <div><strong>September 1 target is still achievable</strong> for fencing, hardware, gas and solid fuel. With the right actions taken in July, the feed can be live and campaigns launched on time.</div>
+    <div><strong>September 1 target is achievable</strong> and may be beatable. The image fix is the most time-sensitive item. Everything else can be resolved through the feed directly without waiting on outside parties.</div>
   </div>
 </section>
 
-<!-- STRATEGY PIVOT -->
+<!-- STRATEGY -->
 <section id="strategy">
-  <div class="section-label">Strategy Pivot · Critical Finding</div>
-  <div class="section-title">What Goes on Shopping</div>
+  <div class="section-label">Strategy · Confirmed</div>
+  <div class="section-title">What's in the Feed</div>
 
   <div class="section-commentary">
-    Heating oil and diesel are not a practical fit for Google Shopping. Three factors make this the case, each on its own creating significant challenges for a viable campaign.
+    Heating oil is not in the product feed and does not need to be. It is a quote-based delivery service with variable pricing: the product structure is incompatible with how Google Shopping works. The existing search campaign handles it correctly. The feed contains the physical products that are right for Shopping.
   </div>
-
-  <ul class="checklist" style="max-width: 820px; margin-bottom: 32px;">
-    <li>
-      <span class="check-icon">💰</span>
-      <div><strong>Price accuracy.</strong> Google Shopping requires the price in the product feed to exactly match the price on the website at all times. Heating oil prices change daily or weekly. Any mismatch triggers automatic disapproval. Managing a live fuel price feed accurately enough to avoid continuous disapprovals is not practical. This requirement is documented under <a href="https://support.google.com/merchants/answer/6149970" target="_blank" style="color: var(--black);">Google Shopping ads policies</a>.</div>
-    </li>
-    <li>
-      <span class="check-icon">⚠️</span>
-      <div><strong>Dangerous products policy.</strong> Google's policy prohibits products that "cause damage, harm, or injury", and its automated review system flags flammable materials. Fuel products are likely to trigger this review. Full policy: <a href="https://support.google.com/merchants/answer/6150004" target="_blank" style="color: var(--black);">Google Merchant Center: Dangerous products</a>. <em>Note: heating oil is not explicitly named in the policy. If fuel products are submitted to a feed in future, the actual GMC disapproval reason will be the definitive confirmation of which rule applies.</em></div>
-    </li>
-    <li>
-      <span class="check-icon">🛒</span>
-      <div><strong>Product type mismatch.</strong> Google Shopping is built for fixed-price, add-to-cart products where the customer can complete a purchase immediately. Heating oil is ordered by delivery area in variable quantities. The product structure itself is incompatible with how a Shopping feed works.</div>
-    </li>
-  </ul>
 
   <div class="alert alert-blue" style="max-width: 820px; margin-bottom: 32px;">
     <div class="alert-icon">💡</div>
-    <div>The live price feed development being scoped with Graphedia is not needed for Shopping. The existing search campaign continues as normal for heating oil. No change needed there.</div>
+    <div>Why heating oil does not belong in the feed. Three reasons: price accuracy (Google requires the price in the feed to match the site at all times — fuel prices change daily), product type mismatch (Shopping is built for fixed-price add-to-cart products), and flammable materials policy risk (<a href="https://support.google.com/merchants/answer/6150004" target="_blank" style="color: var(--black);">Google Merchant Center: Dangerous products</a>). The existing search campaign continues to run for heating oil. No change needed there.</div>
   </div>
 
   <div class="two-col">
     <div>
-      <h3>Not Recommended for Shopping</h3>
+      <h3>Not in the Feed</h3>
       <table>
         <thead><tr><th>Product</th><th>Why</th></tr></thead>
         <tbody>
-          <tr class="row-red"><td>Home Heating Oil (Kerosene)</td><td>Restricted fuel. Google policy.</td></tr>
-          <tr class="row-red"><td>Diesel</td><td>Restricted fuel. Google policy.</td></tr>
-          <tr class="row-red"><td>Motor / Aviation Fuel</td><td>Restricted fuel. Google policy.</td></tr>
+          <tr class="row-red"><td>Home Heating Oil (Kerosene)</td><td>Variable-price delivery service. Stays on search.</td></tr>
+          <tr class="row-red"><td>Diesel</td><td>Variable-price delivery service. Stays on search.</td></tr>
+          <tr class="row-red"><td>Motor / Aviation Fuel</td><td>Variable-price delivery service.</td></tr>
         </tbody>
       </table>
-      <span class="sub" style="margin-top: 12px; display: block;">Heating oil stays on search campaigns only. The existing search campaign continues to run as normal. No change needed there.</span>
     </div>
     <div>
-      <h3>Can Run on Shopping</h3>
+      <h3>In the Feed · Approved</h3>
       <table>
         <thead><tr><th>Product</th><th>Status</th></tr></thead>
         <tbody>
-          <tr class="row-green"><td>Composite Fencing Panels &amp; Kits</td><td><span class="badge badge-green">Eligible</span></td></tr>
-          <tr class="row-green"><td>Premium Decking Boards</td><td><span class="badge badge-green">Eligible</span></td></tr>
-          <tr class="row-green"><td>Butane &amp; Propane Gas Cylinders</td><td><span class="badge badge-green">Eligible</span></td></tr>
-          <tr class="row-green"><td>Coal, Briquettes, Solid Fuel</td><td><span class="badge badge-green">Eligible</span></td></tr>
-          <tr class="row-green"><td>Engine Oil, AdBlue, Lubricants</td><td><span class="badge badge-green">Eligible</span></td></tr>
-          <tr class="row-green"><td>Hardware, Tools, Gardening</td><td><span class="badge badge-green">Eligible</span></td></tr>
+          <tr class="row-green"><td>Composite Fencing Panels &amp; Kits</td><td><span class="badge badge-green">Approved</span></td></tr>
+          <tr class="row-green"><td>Premium Decking Boards</td><td><span class="badge badge-green">Approved</span></td></tr>
+          <tr class="row-green"><td>Gas Cylinders (Butane &amp; Propane)</td><td><span class="badge badge-green">Approved</span></td></tr>
+          <tr class="row-green"><td>Coal, Briquettes, Solid Fuel</td><td><span class="badge badge-green">Approved</span></td></tr>
+          <tr class="row-green"><td>Engine Oil, AdBlue, Lubricants</td><td><span class="badge badge-green">Approved</span></td></tr>
+          <tr class="row-green"><td>Hardware, Tools, Gardening</td><td><span class="badge badge-green">Approved</span></td></tr>
+          <tr class="row-green"><td>Fuel Storage Tanks &amp; Bunded Points</td><td><span class="badge badge-green">Approved</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS & OPPORTUNITY -->
+<!-- PRODUCTS & FEED HEALTH -->
 <section id="products">
-  <div class="section-label">Products</div>
-  <div class="section-title">Shopping Campaign Opportunity</div>
-  <div class="section-desc">These products are already live on the site and eligible for Google Shopping. When a customer searches for something like "composite fencing panels Ireland" or "gas cylinders Wexford", a shopping ad shows the product image, price, and name directly in Google results. No text ad needed.</div>
+  <div class="section-label">Feed Health · Live Data</div>
+  <div class="section-title">GMC Status as of 24 June 2026</div>
+  <div class="section-desc">Pulled directly from Google Merchant Center (ID 5089910050). The feed is running from kennyfuels.ie/wp-content/uploads/woo-feed/google/xml/kennyshoppingfeed.xml and syncs automatically each day.</div>
+
+  <div class="scorecard" style="margin-bottom: 32px;">
+    <div class="score-card sc-green">
+      <div class="sc-icon">✅</div>
+      <div class="sc-label">Approved for Shopping</div>
+      <div class="sc-val">1,160 products</div>
+    </div>
+    <div class="score-card sc-red">
+      <div class="sc-icon">🚫</div>
+      <div class="sc-label">Disapproved</div>
+      <div class="sc-val">18 products</div>
+    </div>
+    <div class="score-card sc-amber">
+      <div class="sc-icon">⚠️</div>
+      <div class="sc-label">Images Below 500px</div>
+      <div class="sc-val">645 products</div>
+    </div>
+  </div>
 
   <table>
     <thead>
       <tr>
-        <th>Priority</th>
-        <th>Category</th>
-        <th>Example Products</th>
-        <th>Price Range</th>
-        <th>Why Good for Shopping</th>
+        <th>Issue</th>
+        <th>Products Affected</th>
+        <th>Blocks Ads?</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><span class="badge badge-red">1st</span></td>
-        <td><strong>Composite Fencing</strong></td>
-        <td>Panels (1.8m &amp; 3.6m), Kits</td>
-        <td>€145 – €380</td>
-        <td>High value, clear product, strong visual for ads</td>
+      <tr class="row-red">
+        <td><strong>Images below 500×500px</strong><span class="sub">Google has announced upcoming enforcement. Products with images under 500px will be disapproved when it kicks in.</span></td>
+        <td>645</td>
+        <td><span class="badge badge-red">Soon</span></td>
+        <td>Graphedia to update product images in WooCommerce</td>
+      </tr>
+      <tr class="row-red">
+        <td><strong>Missing product price</strong><span class="sub">6 products have no price value in the feed.</span></td>
+        <td>6</td>
+        <td><span class="badge badge-red">Yes</span></td>
+        <td>Fix in WooCommerce product data</td>
+      </tr>
+      <tr class="row-red">
+        <td><strong>Missing product image</strong><span class="sub">3 products have no image link in the feed.</span></td>
+        <td>3</td>
+        <td><span class="badge badge-red">Yes</span></td>
+        <td>Add images in WooCommerce</td>
+      </tr>
+      <tr class="row-red">
+        <td><strong>Promotional text in title</strong><span class="sub">1 product title contains promotional or irrelevant text (e.g. "Sale", "Free delivery"). Not allowed by Google.</span></td>
+        <td>1</td>
+        <td><span class="badge badge-red">Yes</span></td>
+        <td>Clean up the product title</td>
+      </tr>
+      <tr class="row-red">
+        <td><strong>Promotional overlay on image</strong><span class="sub">1 product image has a banner or text overlay. Google prohibits promotional overlays on Shopping images.</span></td>
+        <td>1</td>
+        <td><span class="badge badge-red">Yes</span></td>
+        <td>Replace image with a clean product photo</td>
+      </tr>
+      <tr class="row-red">
+        <td><strong>Product page unavailable</strong><span class="sub">1 product URL is returning an error or is blocked from Google crawling.</span></td>
+        <td>1</td>
+        <td><span class="badge badge-red">Yes</span></td>
+        <td>Fix the broken product page</td>
+      </tr>
+      <tr class="row-red">
+        <td><strong>Tobacco policy violation</strong><span class="sub">1 product is flagged as tobacco-related. Likely a firelighter, BBQ lighter, or pipe accessory that triggered the automated check.</span></td>
+        <td>1</td>
+        <td><span class="badge badge-red">Yes</span></td>
+        <td>Identify the product and fix the description or exclude from feed</td>
+      </tr>
+      <tr class="row-red">
+        <td><strong>Healthcare / prescription drug flag</strong><span class="sub">6 products flagged. Likely animal health products (e.g. horse supplements) misclassified by Google's automated system.</span></td>
+        <td>6</td>
+        <td><span class="badge badge-red">Yes</span></td>
+        <td>Review product descriptions and recategorise or exclude</td>
       </tr>
       <tr>
-        <td><span class="badge badge-red">1st</span></td>
-        <td><strong>Premium Decking</strong></td>
-        <td>Composite decking boards</td>
-        <td>TBC</td>
-        <td>High margin, visual product, strong summer demand</td>
+        <td><strong>Titles in ALL CAPS</strong><span class="sub">Google flags excessive capitalisation. Ads still run but quality score is lower.</span></td>
+        <td>57</td>
+        <td><span class="badge badge-gray">No</span></td>
+        <td>Update product titles in WooCommerce to sentence case</td>
       </tr>
       <tr>
-        <td><span class="badge badge-orange">2nd</span></td>
-        <td><strong>Gas Cylinders</strong></td>
-        <td>Flo Gas Butane 7kg, 11.34kg, Propane</td>
-        <td>€33 – €149</td>
-        <td>Branded products, repeat purchasers, clear price</td>
-      </tr>
-      <tr>
-        <td><span class="badge badge-orange">2nd</span></td>
-        <td><strong>Solid Fuel</strong></td>
-        <td>Coal, briquettes, bulk deals</td>
-        <td>€155 – €710</td>
-        <td>Strong seasonal demand, October–March peak</td>
-      </tr>
-      <tr>
-        <td><span class="badge badge-gray">3rd</span></td>
-        <td><strong>Lubricants</strong></td>
-        <td>Engine oil, AdBlue, hydraulic oil</td>
-        <td>TBC</td>
-        <td>Commercial buyer audience, repeat orders</td>
-      </tr>
-      <tr>
-        <td><span class="badge badge-gray">3rd</span></td>
-        <td><strong>Hardware &amp; Gardening</strong></td>
-        <td>Tools, building materials</td>
-        <td>Various</td>
-        <td>Broad range, volume opportunity</td>
+        <td><strong>Missing unit pricing measure</strong><span class="sub">Required for liquid and weight-based products in the EU (e.g. price per litre, per kg).</span></td>
+        <td>253</td>
+        <td><span class="badge badge-gray">No</span></td>
+        <td>Add unit pricing to applicable products in feed</td>
       </tr>
     </tbody>
   </table>
 
   <div class="alert alert-blue" style="margin-top: 24px;">
-    <div class="alert-icon">💡</div>
-    <div><strong>How Google Shopping works:</strong> Instead of writing an ad, you give Google your product list (name, price, image, link). Google then shows your products as visual tiles at the top of search results. You pay per click only when someone clicks through to the website.</div>
+    <div class="alert-icon">📦</div>
+    <div><strong>Firewood Feed:</strong> There is a second feed called "Firewood Feed" (ID: 400074950) that is currently paused. It targets a separate label ("FIREWOOD") and appears to be an older Google Sheets feed. A decision is needed: activate it or remove it to avoid confusion.</div>
   </div>
 </section>
 
@@ -597,14 +617,14 @@
 <section id="done">
   <div class="section-label">What's Already in Place</div>
   <div class="section-title">Confirmed</div>
-  <div class="section-desc">Confirmed from the Graphedia email (23 June) and our own account records. None of these need to be actioned.</div>
+  <div class="section-desc">Confirmed from account records and directly from Google Merchant Center as of 24 June 2026. None of these need to be actioned.</div>
 
   <div class="two-col">
     <div>
       <h3>Website Requirements</h3>
       <ul class="checklist">
         <li><span class="check-icon">✅</span><div><strong>SSL / HTTPS</strong><span class="sub">Secure connection confirmed across the full site.</span></div></li>
-        <li><span class="check-icon">✅</span><div><strong>Working checkout with card payment</strong><span class="sub">Confirmed by Graphedia: customers can buy online.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Working checkout with card payment</strong><span class="sub">Customers can buy online.</span></div></li>
         <li><span class="check-icon">✅</span><div><strong>Privacy Policy page</strong><span class="sub">Live at kennyfuels.ie/privacy-policy</span></div></li>
         <li><span class="check-icon">✅</span><div><strong>Shipping / Delivery Policy</strong><span class="sub">Covered in Terms &amp; Conditions: 1–2 working day delivery.</span></div></li>
         <li><span class="check-icon">✅</span><div><strong>Returns / Refund Policy</strong><span class="sub">Confirmed present on site.</span></div></li>
@@ -612,13 +632,14 @@
       </ul>
     </div>
     <div>
-      <h3>Product Pages &amp; Tracking</h3>
+      <h3>Feed, Tracking &amp; GMC</h3>
       <ul class="checklist">
-        <li><span class="check-icon">✅</span><div><strong>Product pages with title, image, price &amp; buy button</strong><span class="sub">Confirmed for all hardware, fencing, gas and solid fuel products.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Active product feed: 1,160 products approved</strong><span class="sub">Kenny_Google_Feed is live and syncing from WooCommerce daily. 1,160 products approved for Shopping and Surfaces Across Google in Ireland as of 24 June 2026.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Shipping configured in GMC</strong><span class="sub">Free delivery, 1–2 days, Ireland only. Handling days: Monday–Saturday. Rated Exceptional by GMC.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Google Merchant Center active</strong><span class="sub">GMC ID 5089910050 live for Ireland. Site claimed. Store quality score: Great.</span></div></li>
         <li><span class="check-icon">✅</span><div><strong>Google Tag Manager installed</strong><span class="sub">Container GTM-5Z97JLX is live on the site.</span></div></li>
         <li><span class="check-icon">✅</span><div><strong>Google Analytics 4 (GA4) set up</strong><span class="sub">Property 396621665 is active and collecting data.</span></div></li>
         <li><span class="check-icon">✅</span><div><strong>Active Google Ads campaigns running</strong><span class="sub">Heating oil, gas, hardware search campaigns all live.</span></div></li>
-        <li><span class="check-icon">✅</span><div><strong>Google Merchant Center active</strong><span class="sub">GMC ID 5089910050 confirmed live for Ireland. Store quality score: Great. Shipping: Exceptional. Access confirmed June 2026.</span></div></li>
         <li><span class="check-icon">✅</span><div><strong>Cookie Policy</strong><span class="sub">Live at kennyfuels.ie/cookie-policy-eu</span></div></li>
         <li><span class="check-icon">✅</span><div><strong>Sitemap</strong><span class="sub">Submitted at kennyfuels.ie/sitemap_index.xml</span></div></li>
       </ul>
@@ -643,46 +664,67 @@
     </thead>
     <tbody>
       <tr>
-        <td><strong>Return policy settings in Merchant Center</strong><span class="sub">GMC currently shows return window and return cost as Incomplete. These need to be set inside GMC before the product feed is submitted.</span></td>
-        <td>Incomplete return settings affect store quality score and product eligibility</td>
+        <td><strong>Fix product images below 500×500px</strong><span class="sub">645 products in the current feed have images under Google's minimum size. Google has announced upcoming enforcement: when it kicks in, those products will be disapproved automatically.</span></td>
+        <td>Most urgent issue. 645 products at risk of disapproval when Google enforces this.</td>
+        <td><span class="badge badge-owner-graphedia">Graphedia</span></td>
+        <td>July — urgent</td>
+        <td><span class="badge badge-red">Not Fixed</span></td>
+      </tr>
+      <tr>
+        <td><strong>Fix 18 disapproved products</strong><span class="sub">Current disapprovals: 6 missing price, 3 missing image, 6 healthcare/misclassification flags, 1 promotional title text, 1 promotional image overlay, 1 broken product page URL, 1 tobacco policy flag (likely a firelighter or BBQ product).</span></td>
+        <td>Disapproved products do not show on Shopping ads at all.</td>
+        <td><span class="badge badge-owner-josette">Josette</span> + <span class="badge badge-owner-graphedia">Graphedia</span></td>
+        <td>July</td>
+        <td><span class="badge badge-red">Action Needed</span></td>
+      </tr>
+      <tr>
+        <td><strong>Return policy settings in Merchant Center</strong><span class="sub">GMC currently shows return window and return cost as Incomplete. These need to be completed inside GMC. This is in Merchant Center settings, not on the website.</span></td>
+        <td>Incomplete return settings lower the store quality score and affect product eligibility.</td>
         <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>July</td>
         <td><span class="badge badge-orange">Incomplete</span></td>
       </tr>
       <tr>
-        <td><strong>Purchase conversion tracking</strong><span class="sub">Confirming GA4 fires a "purchase" event every time someone completes a checkout. This is what Google uses to know a sale happened.</span></td>
-        <td>Smart Bidding won't work without this</td>
+        <td><strong>Verify purchase conversion tracking</strong><span class="sub">Confirming GA4 fires a "purchase" event every time someone completes a checkout. This is what Google uses to know a sale happened and optimise the campaign.</span></td>
+        <td>Smart Bidding cannot optimise without confirmed purchase data.</td>
         <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>30 June</td>
         <td><span class="badge badge-orange">To Verify</span></td>
       </tr>
       <tr>
-        <td><strong>Product barcodes (GTINs) for branded items</strong><span class="sub">The barcode number from the product packaging: e.g. for Flo Gas cylinders, Calor gas, branded tools. Campaigns can launch without these and barcodes can be added to the feed afterwards.</span></td>
-        <td>Improves product matching quality but not required to launch</td>
+        <td><strong>Delivery charge for orders under €100</strong><span class="sub">Google Shopping shows the delivery cost on every ad. Orders over €100 are free. The flat rate for smaller orders needs to be confirmed and added to the shipping settings in GMC.</span></td>
+        <td>Required for accurate delivery cost display on ads.</td>
         <td><span class="badge badge-owner-ciaran">Ciaran</span></td>
-        <td>When available</td>
-        <td><span class="badge badge-gray">Optional</span></td>
+        <td>Early July</td>
+        <td><span class="badge badge-orange">Pending</span></td>
       </tr>
       <tr>
-        <td><strong>Google Customer Reviews registration</strong><span class="sub">A free Google programme that emails customers after purchase asking for a star rating. Ads with stars get significantly more clicks. I set this up directly in Merchant Center: no special access needed from Kenny Fuels.</span></td>
-        <td>Needed to show star ratings on ads</td>
+        <td><strong>Firewood Feed: activate or remove</strong><span class="sub">A second feed called "Firewood Feed" (Google Sheets source) exists in GMC and is currently paused. If firewood is already in the main WooCommerce feed, this is a duplicate that should be removed. If it contains different products, a decision is needed.</span></td>
+        <td>Duplicate or outdated feeds can cause product conflicts and reporting confusion.</td>
         <td><span class="badge badge-owner-josette">Josette</span></td>
+        <td>July</td>
+        <td><span class="badge badge-orange">Paused / Unclear</span></td>
+      </tr>
+      <tr>
+        <td><strong>Fix ALL CAPS product titles</strong><span class="sub">57 products have titles in all capitals. Ads still run, but Google flags this and it lowers quality score. Titles should be in sentence case or title case.</span></td>
+        <td>Affects quality score and how professional ads appear.</td>
+        <td><span class="badge badge-owner-graphedia">Graphedia</span></td>
+        <td>July</td>
+        <td><span class="badge badge-gray">Not Blocking</span></td>
+      </tr>
+      <tr>
+        <td><strong>Google Customer Reviews registration</strong><span class="sub">A free Google programme that sends review request emails to customers after purchase. Ads with star ratings get significantly more clicks. I set this up inside Merchant Center. Graphedia to add the opt-in snippet to the order confirmation page.</span></td>
+        <td>Needed to show star ratings on ads. Does not block launch.</td>
+        <td><span class="badge badge-owner-josette">Josette</span> + <span class="badge badge-owner-graphedia">Graphedia</span></td>
         <td>July</td>
         <td><span class="badge badge-red">Not Started</span></td>
       </tr>
       <tr>
-        <td><strong>Delivery charge for orders under €100</strong><span class="sub">Google Shopping displays delivery cost on every ad. Orders over €100 are free: we need the flat rate for smaller orders.</span></td>
-        <td>Required for accurate shopping ad display</td>
+        <td><strong>Product barcodes (GTINs) for branded items</strong><span class="sub">Barcode numbers from product packaging for Flo Gas cylinders, Calor gas, branded tools. Not required to launch. Improves product matching quality and can be added to the feed at any point after launch.</span></td>
+        <td>Improves product matching. Not a launch blocker.</td>
         <td><span class="badge badge-owner-ciaran">Ciaran</span></td>
-        <td>July</td>
-        <td><span class="badge badge-orange">Pending</span></td>
-      </tr>
-      <tr>
-        <td><strong>Product page speed check</strong><span class="sub">How fast the product pages load on mobile. Affects how Google scores the quality of the landing page: lower scores mean higher costs per click.</span></td>
-        <td>Affects ad cost and performance</td>
-        <td><span class="badge badge-owner-graphedia">Graphedia</span></td>
-        <td>July</td>
-        <td><span class="badge badge-orange">Not Tested</span></td>
+        <td>When available</td>
+        <td><span class="badge badge-gray">Optional</span></td>
       </tr>
     </tbody>
   </table>
@@ -698,31 +740,34 @@
     <div class="owner-block josette">
       <div class="owner-title">Josette · Google Ads</div>
       <ul>
-        <li>Google Merchant Center confirmed: GMC ID 5089910050 is live for Ireland with a Great store quality score. Site is already claimed and shipping is configured.</li>
-        <li>Complete the return policy settings in GMC (return window and return cost are currently marked Incomplete): this affects store quality score and shopping eligibility.</li>
-        <li>Verify purchase conversion tracking: check Google Ads and GA4 to confirm a "Purchase" event is recording every time a customer completes checkout</li>
-        <li>Confirm the flat rate delivery charge for orders under €100 with Ciaran and update the shipping settings in GMC accordingly</li>
-        <li>Build the product feed: excluding all heating oil, kerosene, and diesel</li>
-        <li>Map all products to their correct Google category (fencing, decking, gas, etc.)</li>
-        <li>Register Kenny Fuels for Google Customer Reviews directly inside Merchant Center: no access needed from Ciaran. Graphedia to add a small opt-in snippet to the order confirmation page once set up.</li>
+        <li>Identify and fix the 18 disapproved products in GMC. I will review each disapproval reason and work with Graphedia on the product data corrections where needed.</li>
+        <li>Complete the return policy settings in GMC: set return window and return cost (currently marked Incomplete in Merchant Center settings).</li>
+        <li>Verify purchase conversion tracking: confirm a "Purchase" event is recording in GA4 and Google Ads after every checkout. Due 30 June.</li>
+        <li>Confirm the flat rate delivery charge for orders under €100 with Ciaran and update the shipping settings in GMC.</li>
+        <li>Review the Firewood Feed (currently paused in GMC): determine if it should be removed or updated.</li>
+        <li>Register Kenny Fuels for Google Customer Reviews inside Merchant Center. Graphedia to add the opt-in snippet to the order confirmation page once set up.</li>
+        <li>Build Shopping campaigns in Google Ads once the feed quality issues are resolved.</li>
       </ul>
     </div>
 
     <div class="owner-block graphedia">
       <div class="owner-title">Graphedia · Developer</div>
       <ul>
-        <li>Run a mobile speed test on the composite fencing panel page and the gas cylinder page: share the scores with Josette. Target is 60+ on mobile.</li>
-        <li>Run a structured data check on two product pages (Josette will share the URLs) to confirm Google can read the price and availability correctly</li>
-        <li>Add Google Customer Reviews opt-in survey snippet to the order confirmation page: Josette will supply the code once registered in Merchant Center</li>
+        <li>Update product images to a minimum of 500×500px. This affects 645 products in the current feed and is the most urgent task. Google has announced enforcement is coming.</li>
+        <li>Fix the 6 products with no price value and 3 products with no image in WooCommerce: Josette will share the specific product IDs from GMC.</li>
+        <li>Update 57 product titles that are currently in ALL CAPS to sentence case or title case in WooCommerce.</li>
+        <li>Fix the 1 broken product page URL that GMC cannot reach.</li>
+        <li>Replace the 1 product image that has a promotional text overlay with a clean product photo.</li>
+        <li>Add Google Customer Reviews opt-in survey snippet to the order confirmation page: Josette will supply the code.</li>
       </ul>
     </div>
 
     <div class="owner-block ciaran">
       <div class="owner-title">Ciaran · Kenny Fuels</div>
       <ul>
-        <li>Provide the barcode numbers (printed on the packaging) for: Flo Gas 7kg cylinder, Flo Gas 11.34kg cylinder, Calor gas products, and any other branded items in stock. Send to Josette when available. Not urgent: campaigns can launch without them and barcodes can be added to the feed later.</li>
-        <li>Confirm the delivery charge for orders under €100: this number is shown on every shopping ad</li>
-        <li>Confirm the brand name for composite fencing and decking: sold under "Kenny Fuels" or a separate brand?</li>
+        <li>Confirm the delivery charge for orders under €100: this number is shown on every shopping ad and needs to be in the GMC shipping settings.</li>
+        <li>Confirm brand name for composite fencing and decking: sold under "Kenny Fuels" or a separate brand?</li>
+        <li>Provide barcode numbers (from product packaging) for branded items: Flo Gas 7kg cylinder, Flo Gas 11.34kg cylinder, Calor products, branded tools. Not urgent — campaigns can launch without them. Send to Josette when available.</li>
         <li>Brief the team to ask customers for a Google review after every delivery and order. Send this link by text after every job: g.page/r/CTLH5Aw1L13rEBM/review</li>
         <li>Target 100 reviews to unlock star ratings on shopping ads. Starting now means reaching that milestone before the Christmas peak.</li>
       </ul>
@@ -741,33 +786,33 @@
       <div class="timeline">
 
         <div class="timeline-item done">
-          <div class="tl-date">Done: June 2026</div>
+          <div class="tl-date">✅ Done: June 2026</div>
           <div class="tl-title">Website Foundations</div>
-          <div class="tl-desc">SSL, checkout, product pages, policies, GTM, GA4: all confirmed in place by Graphedia.</div>
+          <div class="tl-desc">SSL, checkout, product pages, policies, GTM, GA4: all in place.</div>
         </div>
 
         <div class="timeline-item done">
-          <div class="tl-date">✅ Done: GMC Confirmed</div>
-          <div class="tl-title">Merchant Center Active</div>
-          <div class="tl-desc">GMC ID 5089910050 is live for Ireland. Store quality: Great. Shipping: Exceptional. Outstanding: complete return policy settings and confirm delivery charge under €100.</div>
+          <div class="tl-date">✅ Done: June 2026</div>
+          <div class="tl-title">Feed Live · 1,160 Products Approved</div>
+          <div class="tl-desc">Kenny_Google_Feed is active. 1,160 products are approved for Shopping in Ireland. Shipping configured as free delivery, 1–2 days. GMC store quality: Great.</div>
         </div>
 
         <div class="timeline-item">
           <div class="tl-date">July, Week 1 &amp; 2</div>
-          <div class="tl-title">Product Feed Built</div>
-          <div class="tl-desc">I build the product feed with fencing, decking, gas, and solid fuel. Feed submitted to GMC for approval. Barcodes added to the feed as Ciaran provides them over time.</div>
+          <div class="tl-title">Fix Feed Quality Issues</div>
+          <div class="tl-desc">Graphedia updates 645 product images to 500×500px. I fix 18 disapprovals, complete return policy in GMC, verify conversion tracking, and clear up the Firewood Feed decision.</div>
         </div>
 
         <div class="timeline-item">
           <div class="tl-date">July, Week 3</div>
-          <div class="tl-title">Product Approvals</div>
-          <div class="tl-desc">GMC reviews submitted products. I resolve any disapprovals. Target: all fencing and gas products approved.</div>
+          <div class="tl-title">Feed Clean · Campaigns Built</div>
+          <div class="tl-desc">Disapprovals cleared and image warnings resolved. I build Shopping campaigns in Google Ads: fencing, hardware, gas, and solid fuel. Budgets set.</div>
         </div>
 
         <div class="timeline-item">
           <div class="tl-date">End of July</div>
-          <div class="tl-title">Campaigns Built &amp; Ready</div>
-          <div class="tl-desc">Shopping campaigns built in Google Ads. Budgets set. Ready to activate on 1 September.</div>
+          <div class="tl-title">Campaigns Ready to Launch</div>
+          <div class="tl-desc">Campaigns built, reviewed, and ready to activate. Google Customer Reviews set up in Merchant Center. Graphedia opt-in snippet added to order confirmation page.</div>
         </div>
 
         <div class="timeline-item launch">
@@ -794,9 +839,9 @@
 
       <div class="section-label" style="margin-bottom: 12px;">Key Risks to the Timeline</div>
       <ul class="checklist">
-        <li><span class="check-icon">⚠️</span><div>Return policy settings incomplete in GMC (return window and return cost): resolve before submitting the product feed to avoid quality score penalties</div></li>
-        <li><span class="check-icon">⚠️</span><div>Merchant Center product quality warnings for branded items without barcodes: not a disapproval, ads still run. Barcodes can be added to the feed at any point after launch.</div></li>
-        <li><span class="check-icon">⚠️</span><div>Graphedia unavailable for speed fix if pages are below threshold: request speed tests from Graphedia as early as possible</div></li>
+        <li><span class="check-icon">⚠️</span><div>Image enforcement by Google: if Graphedia cannot update 645 product images before Google enforces the 500px minimum, those products will be disapproved automatically. This is the most time-sensitive item.</div></li>
+        <li><span class="check-icon">⚠️</span><div>Return policy settings incomplete in GMC: resolve this in Merchant Center settings to avoid quality score penalties.</div></li>
+        <li><span class="check-icon">⚠️</span><div>18 disapprovals: most are fixable in WooCommerce (missing price, missing image, formatting issues). The healthcare and tobacco flags need to be identified and either corrected or excluded from the feed.</div></li>
       </ul>
     </div>
   </div>
@@ -871,63 +916,70 @@
     <tbody>
       <tr>
         <td>1</td>
-        <td><strong>Complete return policy settings in GMC</strong>: set return window and return cost in Merchant Center (currently Incomplete). GMC ID 5089910050 is confirmed live.</td>
-        <td><span class="badge badge-owner-josette">Josette</span></td>
-        <td>July</td>
-        <td><span class="badge badge-orange">Incomplete</span></td>
+        <td><strong>Update 645 product images to 500×500px minimum</strong>: most urgent item. Google enforcement is coming. Josette to share the list of affected product IDs from GMC.</td>
+        <td><span class="badge badge-owner-graphedia">Graphedia</span></td>
+        <td>July — urgent</td>
+        <td><span class="badge badge-red">Yes</span></td>
       </tr>
       <tr>
         <td>2</td>
-        <td><strong>Verify purchase conversion tracking:</strong> confirm a "Purchase" event is recording in GA4 and Google Ads after every checkout</td>
+        <td><strong>Fix 18 disapproved products:</strong> missing prices, missing images, promotional overlay, broken page, title text issue, tobacco and healthcare policy flags. I will identify each one and coordinate with Graphedia on fixes.</td>
+        <td><span class="badge badge-owner-josette">Josette</span> + <span class="badge badge-owner-graphedia">Graphedia</span></td>
+        <td>July</td>
+        <td><span class="badge badge-red">Yes</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Verify purchase conversion tracking:</strong> confirm a "Purchase" event is recording in GA4 and Google Ads after every checkout. Smart Bidding cannot optimise without this.</td>
         <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>30 June</td>
         <td><span class="badge badge-red">Yes</span></td>
       </tr>
       <tr>
-        <td>3</td>
-        <td><strong>Provide barcode/GTIN numbers</strong> for all branded products: Flo Gas cylinders, Calor, and any branded hardware. Not a launch blocker: products run without them but quality scores improve when they are included.</td>
-        <td><span class="badge badge-owner-ciaran">Ciaran</span></td>
-        <td>When available</td>
-        <td><span class="badge badge-gray">No</span></td>
-      </tr>
-      <tr>
         <td>4</td>
-        <td><strong>Confirm delivery charge</strong> for orders under €100: shown on every shopping ad</td>
-        <td><span class="badge badge-owner-ciaran">Ciaran</span></td>
-        <td>Early July</td>
-        <td><span class="badge badge-orange">Partial</span></td>
+        <td><strong>Complete return policy settings in GMC:</strong> set return window and return cost in Merchant Center. Currently marked Incomplete in GMC settings.</td>
+        <td><span class="badge badge-owner-josette">Josette</span></td>
+        <td>July</td>
+        <td><span class="badge badge-orange">Incomplete</span></td>
       </tr>
       <tr>
         <td>5</td>
-        <td><strong>Run mobile speed tests</strong> on fencing and gas product pages and share scores with Josette</td>
-        <td><span class="badge badge-owner-graphedia">Graphedia</span></td>
+        <td><strong>Confirm delivery charge for orders under €100:</strong> this is shown on every shopping ad and needs to go into the GMC shipping settings.</td>
+        <td><span class="badge badge-owner-ciaran">Ciaran</span></td>
         <td>Early July</td>
-        <td><span class="badge badge-orange">Partial</span></td>
+        <td><span class="badge badge-orange">Pending</span></td>
       </tr>
       <tr>
         <td>6</td>
-        <td><strong>Build and submit product feed</strong> to Merchant Center: excluding all fuel and oil products</td>
+        <td><strong>Firewood Feed: activate or remove.</strong> A second paused feed exists in GMC from a Google Sheets source. If firewood products are already in the main WooCommerce feed, this should be removed to avoid duplication.</td>
         <td><span class="badge badge-owner-josette">Josette</span></td>
-        <td>Mid July</td>
-        <td><span class="badge badge-red">Yes</span></td>
+        <td>July</td>
+        <td><span class="badge badge-orange">Decision Needed</span></td>
       </tr>
       <tr>
         <td>7</td>
-        <td><strong>Set up Google Customer Reviews</strong> inside Merchant Center: I register, Graphedia adds the opt-in code to the order confirmation page</td>
+        <td><strong>Set up Google Customer Reviews</strong> inside Merchant Center. I register, Graphedia adds the opt-in code to the order confirmation page. Does not block launch.</td>
         <td><span class="badge badge-owner-josette">Josette</span> + <span class="badge badge-owner-graphedia">Graphedia</span></td>
         <td>July</td>
         <td><span class="badge badge-gray">No</span></td>
       </tr>
       <tr>
         <td>8</td>
-        <td><strong>Build shopping campaigns</strong> in Google Ads: fencing, decking, gas, solid fuel, hardware</td>
+        <td><strong>Build Shopping campaigns</strong> in Google Ads: fencing, hardware, gas cylinders, solid fuel. Once feed quality issues are resolved.</td>
         <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>End July</td>
         <td><span class="badge badge-red">Yes</span></td>
       </tr>
       <tr>
         <td>9</td>
-        <td><strong>Launch:</strong> shopping campaigns go live</td>
+        <td><strong>Provide product barcodes</strong> (GTINs) for Flo Gas, Calor, and branded hardware. Not a launch blocker. Add to feed whenever available.</td>
+        <td><span class="badge badge-owner-ciaran">Ciaran</span></td>
+        <td>When available</td>
+        <td><span class="badge badge-gray">No</span></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td><strong>Launch:</strong> shopping campaigns go live for fencing, hardware, gas, and solid fuel.</td>
         <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>1 September</td>
         <td>N/A</td>
@@ -936,7 +988,7 @@
   </table>
 </section>
 
-<footer>Kenny Fuels &nbsp;·&nbsp; Google Shopping Audit &nbsp;·&nbsp; June 2026 &nbsp;·&nbsp; Outposter</footer>
+<footer>Kenny Fuels &nbsp;·&nbsp; Google Shopping Audit &nbsp;·&nbsp; June 2026</footer>
 
 </body>
 </html>
