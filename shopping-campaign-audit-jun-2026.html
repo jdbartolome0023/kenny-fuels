@@ -554,8 +554,8 @@
       <tr>
         <td><strong>Purchase conversion tracking</strong><br><span class="sub">Confirming GA4 fires a "purchase" event every time someone completes a checkout. This is what Google uses to know a sale happened.</span></td>
         <td>Smart Bidding won't work without this</td>
-        <td><span class="badge badge-blue">Josette</span> + <span class="badge" style="background:#f3e8ff;color:#6b21a8;">Graphedia</span></td>
-        <td>July</td>
+        <td><span class="badge badge-blue">Josette</span></td>
+        <td>30 June</td>
         <td><span class="badge badge-orange">To Verify</span></td>
       </tr>
       <tr>
@@ -566,9 +566,9 @@
         <td><span class="badge badge-orange">Pending</span></td>
       </tr>
       <tr>
-        <td><strong>Google Customer Reviews registration</strong><br><span class="sub">A free Google programme that emails customers after purchase asking for a star rating. Ads with stars get significantly more clicks.</span></td>
+        <td><strong>Google Customer Reviews registration</strong><br><span class="sub">A free Google programme that emails customers after purchase asking for a star rating. Ads with stars get significantly more clicks. Josette sets this up directly in Merchant Center — no special access needed from Kenny Fuels.</span></td>
         <td>Needed to show star ratings on ads</td>
-        <td><span class="badge" style="background:#fefcbf;color:#92400e;">Ciaran</span> + <span class="badge badge-blue">Josette</span></td>
+        <td><span class="badge badge-blue">Josette</span></td>
         <td>July</td>
         <td><span class="badge badge-red">Not Started</span></td>
       </tr>
@@ -612,33 +612,31 @@
       <ul>
         <li>Confirm Google Merchant Center account exists for kennyfuels.ie — or create one if not</li>
         <li>Verify the site is claimed inside Merchant Center (needed before any products can be submitted)</li>
-        <li>Check Google Ads account for a "Purchase" conversion action and confirm it is recording sales</li>
-        <li>Set up delivery/shipping rules inside Merchant Center for Ireland (free over €100, flat rate under €100)</li>
+        <li>Verify purchase conversion tracking — check Google Ads and GA4 to confirm a "Purchase" event is recording every time a customer completes checkout</li>
+        <li>Set up delivery/shipping rules inside Merchant Center for Ireland (free over €100, flat rate under €100 — Ciaran to confirm the flat rate)</li>
         <li>Build the product feed — excluding all heating oil, kerosene, and diesel</li>
         <li>Map all products to their correct Google category (fencing, decking, gas, etc.)</li>
-        <li>Register Kenny Fuels for Google Customer Reviews inside Merchant Center</li>
+        <li>Register Kenny Fuels for Google Customer Reviews directly inside Merchant Center — no access needed from Ciaran, this is done on the Google side only. Graphedia to add a small opt-in snippet to the order confirmation page once set up.</li>
       </ul>
     </div>
 
     <div class="owner-block graphedia">
       <div class="owner-title">Graphedia · Developer</div>
       <ul>
-        <li>Confirm GA4 purchase event fires on the order confirmation page — needed for conversion tracking to work</li>
-        <li>Run a mobile speed test on the fencing and gas product pages and share the scores</li>
-        <li>Run a structured data check on two product pages to confirm Google can read the price and availability correctly</li>
-        <li>Add Google Customer Reviews survey code to the order confirmation page (Josette will supply the code)</li>
-        <li>No live price feed development needed for shopping — scope can be dropped from the June 24 call</li>
+        <li>Run a mobile speed test on the composite fencing panel page and the gas cylinder page — share the scores with Josette. Target is 60+ on mobile.</li>
+        <li>Run a structured data check on two product pages (Josette will share the URLs) to confirm Google can read the price and availability correctly</li>
+        <li>Add Google Customer Reviews opt-in survey snippet to the order confirmation page — Josette will supply the code once registered in Merchant Center</li>
       </ul>
     </div>
 
     <div class="owner-block ciaran">
       <div class="owner-title">Ciaran · Kenny Fuels</div>
       <ul>
-        <li>Provide the barcode numbers (printed on packaging) for: Flo Gas 7kg cylinder, Flo Gas 11.34kg cylinder, Calor gas products, and any other branded items in stock</li>
-        <li>Confirm the delivery charge for orders under €100 — this is shown on every shopping ad</li>
-        <li>Confirm brand name for composite fencing and decking products — are they sold under "Kenny Fuels" or a separate brand?</li>
-        <li>Brief the team to ask customers for a Google review after every delivery — Josette will supply a review link to include in delivery messages</li>
-        <li>Start actively building reviews — we need 100 before star ratings appear on ads</li>
+        <li>Provide the barcode numbers (printed on the packaging) for: Flo Gas 7kg cylinder, Flo Gas 11.34kg cylinder, Calor gas products, and any other branded items in stock — send to Josette</li>
+        <li>Confirm the delivery charge for orders under €100 — this number is shown on every shopping ad</li>
+        <li>Confirm the brand name for composite fencing and decking — sold under "Kenny Fuels" or a separate brand?</li>
+        <li>Brief the team to ask customers for a Google review after every delivery and order. Use this link: g.page/r/CTLH5Aw1L13rEBM/review — send it by text after every job</li>
+        <li>Target 100 reviews to unlock star ratings on shopping ads. Starting now means reaching that milestone before the Christmas peak.</li>
       </ul>
     </div>
 
@@ -651,54 +649,11 @@
 </div>
 
 <!-- ══════════════════════════════════════════════════
-     SLIDE 8 · JUNE 24 CALL AGENDA
+     SLIDE 8 · TIMELINE TO SEPTEMBER 1
 ══════════════════════════════════════════════════ -->
 <div class="slide">
   <div class="slide-header">
     <div class="slide-num">7</div>
-    <h2>June 24 Call: Points to Cover</h2>
-    <div class="tag tag-blue">Tomorrow — 10am</div>
-  </div>
-
-  <p style="margin-bottom: 28px; font-size: 14px; color: #4a5568;">The call tomorrow between Ciaran and Niall (Graphedia) was set up to scope a live heating oil price feed. Based on this audit, the scope needs to change. Here is what should be discussed:</p>
-
-  <div class="alert alert-red">
-    <div class="alert-icon">1️⃣</div>
-    <div><strong>Drop the live heating oil price feed from scope.</strong> Heating oil cannot run on Google Shopping regardless of how the product page is built. There is no development work needed from Graphedia for the shopping campaign. This removes the July deadline pressure entirely.</div>
-  </div>
-
-  <div class="alert alert-orange">
-    <div class="alert-icon">2️⃣</div>
-    <div><strong>Confirm GA4 purchase tracking is set up correctly.</strong> Ask Graphedia to verify that a "purchase" event fires in GA4 every time someone completes a checkout. This is the single most important technical item. If it is not firing, we cannot use Smart Bidding on the shopping campaigns.</div>
-  </div>
-
-  <div class="alert alert-orange">
-    <div class="alert-icon">3️⃣</div>
-    <div><strong>Ask Graphedia to run speed tests on product pages.</strong> Specifically the composite fencing panel page and the gas cylinder page. They should share the mobile scores with Josette. If below 60, it needs to be fixed before launch.</div>
-  </div>
-
-  <div class="alert alert-blue">
-    <div class="alert-icon">4️⃣</div>
-    <div><strong>Confirm the shopping campaign will focus on fencing, hardware, gas, and solid fuel.</strong> These are the products already on the site, already priced, and already running on search. Shopping ads add a visual layer on top of what is already working.</div>
-  </div>
-
-  <div class="alert alert-green">
-    <div class="alert-icon">5️⃣</div>
-    <div><strong>Heating oil on search continues unchanged.</strong> The existing Home Heating Oil search campaign keeps running. Shopping is a separate channel and does not affect it.</div>
-  </div>
-
-  <div class="slide-footer">
-    <span>Call Agenda</span>
-    <span>kennyfuels.ie · Shopping Audit · June 2026</span>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════
-     SLIDE 9 · TIMELINE TO SEPTEMBER 1
-══════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-header">
-    <div class="slide-num">8</div>
     <h2>Timeline to September 1 Launch</h2>
     <div class="tag tag-green">On Track</div>
   </div>
@@ -711,12 +666,6 @@
           <div class="tl-date">✅ Done — June 2026</div>
           <div class="tl-title">Website Foundations</div>
           <div class="tl-desc">SSL, checkout, product pages, policies, GTM, GA4 — all confirmed in place by Graphedia.</div>
-        </div>
-
-        <div class="timeline-item call">
-          <div class="tl-date">📞 24 June 2026 — Call</div>
-          <div class="tl-title">Graphedia &amp; Ciaran Call</div>
-          <div class="tl-desc">Reset scope: no live price feed needed. Confirm GA4 purchase tracking. Agree speed test actions.</div>
         </div>
 
         <div class="timeline-item">
@@ -768,7 +717,7 @@
         <ul class="checklist">
           <li><span class="check-icon">⚠️</span><div>Merchant Center account does not exist and setup takes longer than expected</div></li>
           <li><span class="check-icon">⚠️</span><div>Product disapprovals in GMC due to missing barcode/GTIN data — mitigated by Ciaran providing barcodes early</div></li>
-          <li><span class="check-icon">⚠️</span><div>Graphedia unavailable for speed fix if pages are below threshold — flag early on June 24 call</div></li>
+          <li><span class="check-icon">⚠️</span><div>Graphedia unavailable for speed fix if pages are below threshold — request speed tests from Graphedia as early as possible</div></li>
         </ul>
       </div>
     </div>
@@ -785,7 +734,7 @@
 ══════════════════════════════════════════════════ -->
 <div class="slide">
   <div class="slide-header">
-    <div class="slide-num">9</div>
+    <div class="slide-num">8</div>
     <h2>Reviews: A Longer-Term Priority</h2>
     <div class="tag tag-amber">Start Now</div>
   </div>
@@ -847,7 +796,7 @@
 ══════════════════════════════════════════════════ -->
 <div class="slide">
   <div class="slide-header">
-    <div class="slide-num">10</div>
+    <div class="slide-num">9</div>
     <h2>Next Steps at a Glance</h2>
     <div class="tag tag-green">Summary</div>
   </div>
@@ -865,69 +814,62 @@
     <tbody>
       <tr>
         <td>1</td>
-        <td><strong>Raise heating oil restriction on June 24 call</strong> — drop live price feed from scope</td>
+        <td><strong>Confirm Google Merchant Center account</strong> exists and is verified for kennyfuels.ie</td>
         <td><span class="badge badge-blue">Josette</span></td>
-        <td>24 June</td>
+        <td>30 June</td>
         <td><span class="badge badge-red">Yes</span></td>
       </tr>
       <tr>
         <td>2</td>
-        <td><strong>Confirm Google Merchant Center account</strong> exists and is verified</td>
+        <td><strong>Verify purchase conversion tracking</strong> — confirm a "Purchase" event is recording in GA4 and Google Ads after every checkout</td>
         <td><span class="badge badge-blue">Josette</span></td>
         <td>30 June</td>
         <td><span class="badge badge-red">Yes</span></td>
       </tr>
       <tr>
         <td>3</td>
-        <td><strong>Verify purchase conversion tracking</strong> fires on order confirmation page</td>
-        <td><span class="badge badge-blue">Josette</span> + <span class="badge" style="background:#f3e8ff;color:#6b21a8;">Graphedia</span></td>
-        <td>30 June</td>
-        <td><span class="badge badge-red">Yes</span></td>
+        <td><strong>Provide barcode/GTIN numbers</strong> for all branded products — Flo Gas cylinders, Calor, and any branded hardware</td>
+        <td><span class="badge" style="background:#fefcbf;color:#92400e;">Ciaran</span></td>
+        <td>Early July</td>
+        <td><span class="badge badge-orange">Partial</span></td>
       </tr>
       <tr>
         <td>4</td>
-        <td><strong>Provide barcode/GTIN numbers</strong> for all branded products (Flo Gas cylinders, Calor, etc.)</td>
+        <td><strong>Confirm delivery charge</strong> for orders under €100 — shown on every shopping ad</td>
         <td><span class="badge" style="background:#fefcbf;color:#92400e;">Ciaran</span></td>
         <td>Early July</td>
         <td><span class="badge badge-orange">Partial</span></td>
       </tr>
       <tr>
         <td>5</td>
-        <td><strong>Confirm delivery charge</strong> for orders under €100</td>
-        <td><span class="badge" style="background:#fefcbf;color:#92400e;">Ciaran</span></td>
-        <td>Early July</td>
-        <td><span class="badge badge-orange">Partial</span></td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td><strong>Run mobile speed tests</strong> on fencing and gas product pages, share scores</td>
+        <td><strong>Run mobile speed tests</strong> on fencing and gas product pages and share scores with Josette</td>
         <td><span class="badge" style="background:#f3e8ff;color:#6b21a8;">Graphedia</span></td>
         <td>Early July</td>
         <td><span class="badge badge-orange">Partial</span></td>
       </tr>
       <tr>
-        <td>7</td>
-        <td><strong>Build and submit product feed</strong> to Merchant Center</td>
+        <td>6</td>
+        <td><strong>Build and submit product feed</strong> to Merchant Center — excluding all fuel and oil products</td>
         <td><span class="badge badge-blue">Josette</span></td>
         <td>Mid July</td>
         <td><span class="badge badge-red">Yes</span></td>
       </tr>
       <tr>
-        <td>8</td>
-        <td><strong>Register for Google Customer Reviews</strong> and start collecting reviews</td>
-        <td><span class="badge" style="background:#fefcbf;color:#92400e;">Ciaran</span> + <span class="badge badge-blue">Josette</span></td>
+        <td>7</td>
+        <td><strong>Set up Google Customer Reviews</strong> inside Merchant Center — Josette registers, Graphedia adds the opt-in code to the order confirmation page</td>
+        <td><span class="badge badge-blue">Josette</span> + <span class="badge" style="background:#f3e8ff;color:#6b21a8;">Graphedia</span></td>
         <td>July</td>
         <td><span class="badge badge-gray">No</span></td>
       </tr>
       <tr>
-        <td>9</td>
-        <td><strong>Build shopping campaigns</strong> in Google Ads — fencing, gas, solid fuel, hardware</td>
+        <td>8</td>
+        <td><strong>Build shopping campaigns</strong> in Google Ads — fencing, decking, gas, solid fuel, hardware</td>
         <td><span class="badge badge-blue">Josette</span></td>
         <td>End July</td>
         <td><span class="badge badge-red">Yes</span></td>
       </tr>
       <tr>
-        <td>10</td>
+        <td>9</td>
         <td><strong>🚀 Launch</strong> — shopping campaigns go live</td>
         <td><span class="badge badge-blue">Josette</span></td>
         <td>1 September</td>
