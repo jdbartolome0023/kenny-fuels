@@ -4,95 +4,225 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kenny Fuels – Google Shopping Audit · June 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #243B98;
+      --white: #ffffff;
+      --red: #E6211E;
+      --dark-red: #b5191a;
+      --gray: #f9f9f9;
+      --mid-gray: #e0e0e0;
+      --text-dark: #1a1a1a;
+      --text-muted: #777;
+      --green: #2e7d32;
+      --amber: #e65100;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f0f2f5;
-      color: #1a1a2e;
+      font-family: 'Lato', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      font-size: 15px;
     }
 
-    .slide {
-      width: 1100px;
-      min-height: 620px;
-      margin: 32px auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      padding: 56px 64px;
-      position: relative;
-      page-break-after: always;
-    }
-
-    .slide::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 6px;
-      background: linear-gradient(90deg, #e85d04, #f48c06);
-      border-radius: 12px 12px 0 0;
-    }
-
-    /* ── TITLE SLIDE ── */
-    .slide-title {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
-      color: #fff;
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--black);
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 560px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 56px;
     }
-    .slide-title::before { background: linear-gradient(90deg, #e85d04, #f48c06); }
-    .logo-area { display: flex; align-items: center; gap: 14px; margin-bottom: 52px; }
-    .logo-flame {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, #e85d04, #f48c06);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
+
+    nav .logo {
+      font-weight: 900;
+      font-size: 15px;
+      color: white;
+      text-decoration: none;
+      letter-spacing: 0.5px;
     }
-    .logo-text { font-size: 18px; font-weight: 600; color: #f48c06; letter-spacing: 1px; }
-    .slide-title h1 { font-size: 46px; font-weight: 700; line-height: 1.15; margin-bottom: 16px; }
-    .slide-title h1 span { color: #f48c06; display: block; }
-    .slide-title .subtitle { font-size: 18px; color: #a0aec0; margin-bottom: 52px; line-height: 1.5; max-width: 600px; }
-    .title-pills { display: flex; gap: 12px; flex-wrap: wrap; }
-    .title-pill {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #cbd5e0;
-      padding: 8px 20px;
-      border-radius: 24px;
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    nav ul a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
       font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
     }
 
-    /* ── SLIDE HEADERS ── */
-    .slide-header { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
-    .slide-num {
-      background: linear-gradient(135deg, #e85d04, #f48c06);
-      color: #fff;
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px; font-weight: 700; flex-shrink: 0;
+    nav ul a:hover { color: var(--white); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
-    .slide-header h2 { font-size: 28px; font-weight: 700; color: #1a1a2e; }
-    .slide-header .tag {
-      margin-left: auto;
-      font-size: 12px; font-weight: 700;
-      padding: 5px 14px;
+
+    .report-date {
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+    }
+
+    .btn-pdf {
+      background: var(--red);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero {
+      padding: 80px 40px 60px;
+      border-bottom: 1px solid var(--mid-gray);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .period-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gray);
+      padding: 6px 14px;
       border-radius: 20px;
-      white-space: nowrap;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 24px;
     }
-    .tag-red { background: #fff5f5; color: #c53030; border: 1px solid #fc8181; }
-    .tag-amber { background: #fffaf0; color: #c05621; border: 1px solid #f6ad55; }
-    .tag-green { background: #f0fff4; color: #276749; border: 1px solid #68d391; }
-    .tag-blue { background: #ebf8ff; color: #2b6cb0; border: 1px solid #90cdf4; }
 
-    /* ── ALERT BOXES ── */
+    .period-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .hero h1 {
+      font-weight: 900;
+      font-size: 72px;
+      line-height: 1;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 span {
+      color: var(--red);
+      display: block;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      border-bottom: 1px solid var(--mid-gray);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-weight: 900;
+      font-size: 42px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 32px;
+      line-height: 1.6;
+      max-width: 680px;
+    }
+
+    .section-commentary {
+      font-size: 15px;
+      color: var(--text-dark);
+      line-height: 1.8;
+      max-width: 780px;
+      margin-bottom: 40px;
+      padding-left: 16px;
+      border-left: 3px solid var(--red);
+    }
+
+    /* Scorecard */
+    .scorecard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .score-card {
+      border: 1px solid var(--mid-gray);
+      border-radius: 4px;
+      padding: 28px 24px;
+      text-align: center;
+      background: var(--white);
+    }
+
+    .score-card .sc-icon { font-size: 28px; margin-bottom: 10px; }
+
+    .score-card .sc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .score-card .sc-val {
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .sc-green { border-top: 3px solid var(--green); }
+    .sc-green .sc-val { color: var(--green); }
+    .sc-red { border-top: 3px solid var(--red); }
+    .sc-red .sc-val { color: var(--red); }
+    .sc-amber { border-top: 3px solid var(--amber); }
+    .sc-amber .sc-val { color: var(--amber); }
+
+    /* Alerts */
     .alert {
-      border-radius: 8px;
+      border-radius: 4px;
       padding: 16px 20px;
       margin-bottom: 14px;
       font-size: 14px;
@@ -101,185 +231,206 @@
       align-items: flex-start;
       line-height: 1.6;
     }
-    .alert-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
-    .alert-red { background: #fff5f5; border-left: 4px solid #e53e3e; color: #742a2a; }
-    .alert-orange { background: #fffaf0; border-left: 4px solid #e85d04; color: #7b341e; }
-    .alert-green { background: #f0fff4; border-left: 4px solid #38a169; color: #1c4532; }
-    .alert-blue { background: #ebf8ff; border-left: 4px solid #3182ce; color: #1a365d; }
+
+    .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+    .alert-red { background: #fff5f5; border-left: 4px solid var(--red); color: #742a2a; }
+    .alert-orange { background: #fff8f0; border-left: 4px solid var(--amber); color: #7b341e; }
+    .alert-green { background: #f1faf1; border-left: 4px solid var(--green); color: #1c4532; }
+    .alert-blue { background: #f0f4ff; border-left: 4px solid var(--black); color: #1a2860; }
     .alert strong { font-weight: 700; }
 
-    /* ── BADGES ── */
+    /* Badges */
     .badge {
       display: inline-block;
       padding: 3px 10px;
-      border-radius: 12px;
+      border-radius: 3px;
       font-size: 12px;
       font-weight: 700;
     }
-    .badge-green { background: #c6f6d5; color: #276749; }
-    .badge-orange { background: #feebc8; color: #7b341e; }
-    .badge-red { background: #fed7d7; color: #742a2a; }
-    .badge-blue { background: #bee3f8; color: #1a365d; }
-    .badge-gray { background: #e2e8f0; color: #4a5568; }
 
-    /* ── TABLES ── */
-    table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 8px; }
-    thead tr { background: #1a1a2e; color: #fff; }
-    thead th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; }
-    tbody tr { border-bottom: 1px solid #e2e8f0; }
-    tbody tr:hover { background: #f7fafc; }
-    tbody td { padding: 12px 14px; color: #2d3748; vertical-align: top; }
+    .badge-green { background: #e8f5e9; color: #2e7d32; }
+    .badge-orange { background: #fff3e0; color: #e65100; }
+    .badge-red { background: #ffebee; color: #c62828; }
+    .badge-blue { background: #e8eaf6; color: #243B98; }
+    .badge-gray { background: #f5f5f5; color: #616161; }
+
+    .badge-owner-josette { background: #e8eaf6; color: #243B98; border: 1px solid #c5cae9; }
+    .badge-owner-graphedia { background: #f3e8ff; color: #6b21a8; border: 1px solid #d6bcfa; }
+    .badge-owner-ciaran { background: #fffde7; color: #92400e; border: 1px solid #f9a825; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead tr { background: var(--black); color: var(--white); }
+    thead th { padding: 12px 14px; text-align: left; font-weight: 700; font-size: 13px; }
+    tbody tr { border-bottom: 1px solid var(--mid-gray); }
+    tbody tr:hover { background: var(--gray); }
+    tbody td { padding: 12px 14px; color: var(--text-dark); vertical-align: top; }
     tbody tr:last-child { border-bottom: none; }
-    .row-green td { background: #f0fff4; }
+    .row-green td { background: #f1faf1; }
     .row-red td { background: #fff5f5; }
 
-    /* ── SUMMARY SCORECARD ── */
-    .scorecard {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 36px;
-    }
-    .score-card {
-      border-radius: 10px;
-      padding: 24px 20px;
-      text-align: center;
-    }
-    .score-card .sc-icon { font-size: 32px; margin-bottom: 10px; }
-    .score-card .sc-label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
-    .score-card .sc-val { font-size: 22px; font-weight: 700; line-height: 1.2; }
-    .sc-red { background: #fff5f5; border: 1px solid #fc8181; }
-    .sc-red .sc-label { color: #c53030; }
-    .sc-red .sc-val { color: #742a2a; }
-    .sc-amber { background: #fffaf0; border: 1px solid #f6ad55; }
-    .sc-amber .sc-label { color: #c05621; }
-    .sc-amber .sc-val { color: #7b341e; }
-    .sc-green { background: #f0fff4; border: 1px solid #68d391; }
-    .sc-green .sc-label { color: #276749; }
-    .sc-green .sc-val { color: #1c4532; }
+    .sub { font-size: 13px; color: var(--text-muted); margin-top: 4px; line-height: 1.6; display: block; }
 
-    /* ── CHECKLIST ── */
+    /* Two column */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+
+    /* Checklist */
     .checklist { list-style: none; }
+
     .checklist li {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      padding: 10px 0;
-      border-bottom: 1px solid #f0f0f0;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--mid-gray);
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
-    .checklist li:last-child { border-bottom: none; }
-    .check-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
 
-    /* ── OWNER BLOCKS ── */
-    .owner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .owner-block { border-radius: 10px; padding: 24px; }
-    .owner-block.josette { background: #ebf8ff; border: 1px solid #90cdf4; }
-    .owner-block.graphedia { background: #f3e8ff; border: 1px solid #d6bcfa; }
-    .owner-block.ciaran { background: #fefcbf; border: 1px solid #f6e05e; }
-    .owner-title { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
-    .josette .owner-title { color: #2b6cb0; }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Owner blocks */
+    .owner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    .owner-block { border-radius: 4px; padding: 24px; }
+    .owner-block.josette { background: #f0f4ff; border: 1px solid #c5cae9; border-top: 3px solid var(--black); }
+    .owner-block.graphedia { background: #f3e8ff; border: 1px solid #d6bcfa; border-top: 3px solid #7c3aed; }
+    .owner-block.ciaran { background: #fffde7; border: 1px solid #f9e68c; border-top: 3px solid #f9a825; }
+
+    .owner-title {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .josette .owner-title { color: var(--black); }
     .graphedia .owner-title { color: #6b21a8; }
     .ciaran .owner-title { color: #92400e; }
+
     .owner-block ul { list-style: none; }
+
     .owner-block ul li {
       font-size: 13px;
-      color: #2d3748;
-      padding: 7px 0;
+      color: var(--text-dark);
+      padding: 8px 0;
       border-bottom: 1px solid rgba(0,0,0,0.06);
       display: flex;
       gap: 8px;
       align-items: flex-start;
       line-height: 1.5;
     }
+
     .owner-block ul li:last-child { border-bottom: none; }
     .owner-block ul li::before { content: '→'; flex-shrink: 0; font-weight: 700; margin-top: 1px; }
-    .josette ul li::before { color: #3182ce; }
+    .josette ul li::before { color: var(--black); }
     .graphedia ul li::before { color: #7c3aed; }
     .ciaran ul li::before { color: #d97706; }
 
-    /* ── TIMELINE ── */
+    /* Timeline */
     .timeline { position: relative; padding-left: 28px; }
+
     .timeline::before {
       content: '';
       position: absolute;
       left: 8px; top: 0; bottom: 0;
       width: 2px;
-      background: #e2e8f0;
+      background: var(--mid-gray);
     }
-    .timeline-item { position: relative; margin-bottom: 28px; }
+
+    .timeline-item { position: relative; margin-bottom: 32px; }
+
     .timeline-item::before {
       content: '';
       position: absolute;
       left: -24px; top: 5px;
       width: 12px; height: 12px;
       border-radius: 50%;
-      background: #e85d04;
-    }
-    .timeline-item .tl-date { font-size: 12px; font-weight: 700; color: #e85d04; letter-spacing: 0.5px; margin-bottom: 4px; }
-    .timeline-item .tl-title { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
-    .timeline-item .tl-desc { font-size: 13px; color: #718096; line-height: 1.5; }
-    .timeline-item.done::before { background: #38a169; }
-    .timeline-item.done .tl-date { color: #38a169; }
-    .timeline-item.call::before { background: #3182ce; }
-    .timeline-item.call .tl-date { color: #3182ce; }
-
-    /* ── TWO COL ── */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-
-    /* ── DIVIDER ── */
-    .divider { border: none; border-top: 1px solid #e2e8f0; margin: 28px 0; }
-
-    /* ── FOOTER ── */
-    .slide-footer {
-      position: absolute;
-      bottom: 28px; left: 64px; right: 64px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: #a0aec0;
+      background: var(--black);
     }
 
-    p { line-height: 1.7; }
-    .sub { font-size: 13px; color: #718096; margin-top: 6px; line-height: 1.6; }
-    h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 12px; }
-    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #e85d04; margin-bottom: 16px; }
+    .tl-date {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .tl-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .tl-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .timeline-item.done::before { background: var(--green); }
+    .timeline-item.done .tl-date { color: var(--green); }
+    .timeline-item.launch::before { background: var(--red); }
+    .timeline-item.launch .tl-date { color: var(--red); }
+
+    footer {
+      background: var(--black);
+      text-align: center;
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+      padding: 32px;
+    }
+
+    @media print {
+      nav { display: none; }
+      section { break-inside: avoid; }
+      .hero { padding-top: 40px; }
+    }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════
-     SLIDE 1 · TITLE
-══════════════════════════════════════════════════ -->
-<div class="slide slide-title">
-  <div class="logo-area">
-    <div class="logo-flame">🔥</div>
-    <div class="logo-text">KENNY FUELS</div>
+<nav>
+  <a class="logo" href="index.html">KENNY FUELS</a>
+  <ul>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#strategy">Strategy</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#done">What's Done</a></li>
+    <li><a href="#actions">Actions</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#next-steps">Next Steps</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="report-date">June 2026</span>
+    <button class="btn-pdf" onclick="window.print()">Print / PDF</button>
   </div>
-  <h1>Google Shopping<span>Website Readiness Audit</span></h1>
-  <p class="subtitle">A full review of kennyfuels.ie to determine what needs to happen before we can launch Google Shopping campaigns: and what the campaign should actually focus on.</p>
-  <div class="title-pills">
-    <div class="title-pill">June 2026</div>
-    <div class="title-pill">Prepared by Outposter</div>
-    <div class="title-pill">Target Launch: 1 September 2026</div>
-  </div>
-  <div class="slide-footer">
-    <span>kennyfuels.ie</span>
-    <span>Confidential · Outposter for Kenny Fuels</span>
-  </div>
+</nav>
+
+<div class="hero">
+  <div class="period-badge">June 2026 · Pre-Launch · Target: 1 September 2026</div>
+  <h1>Google Shopping<span>Readiness Audit</span></h1>
+  <p>A full review of kennyfuels.ie to determine what needs to happen before launching Google Shopping campaigns, and what the campaigns should actually focus on. Prepared by Outposter.</p>
 </div>
 
-<!-- ══════════════════════════════════════════════════
-     SLIDE 2 · SUMMARY
-══════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-header">
-    <div class="slide-num">1</div>
-    <h2>Summary: Where Things Stand</h2>
-    <div class="tag tag-amber">Action Required</div>
-  </div>
+<!-- SUMMARY -->
+<section id="summary">
+  <div class="section-label">Summary</div>
+  <div class="section-title">Where Things Stand</div>
+  <div class="section-desc">Full site audit against Google Shopping requirements, June 2026.</div>
 
   <div class="scorecard">
     <div class="score-card sc-green">
@@ -306,112 +457,59 @@
 
   <div class="alert alert-green">
     <div class="alert-icon">✅</div>
-    <div><strong>Good news:</strong> The website already passes all the basic requirements Google checks before allowing shopping ads: SSL, checkout, policies, contact details, and product pages are all confirmed in place. We are not starting from zero.</div>
+    <div><strong>Good news:</strong> The website already passes all the basic requirements Google checks before allowing shopping ads. SSL, checkout, policies, contact details, and product pages are all confirmed in place. Not starting from zero.</div>
   </div>
 
   <div class="alert alert-blue">
     <div class="alert-icon">📅</div>
-    <div><strong>Sept 1 target is still achievable</strong>: but for fencing, hardware, gas and solid fuel, not heating oil. With the right actions taken in July, the feed can be live and campaigns launched on time.</div>
+    <div><strong>September 1 target is still achievable</strong> for fencing, hardware, gas and solid fuel. With the right actions taken in July, the feed can be live and campaigns launched on time.</div>
+  </div>
+</section>
+
+<!-- STRATEGY PIVOT -->
+<section id="strategy">
+  <div class="section-label">Strategy Pivot · Critical Finding</div>
+  <div class="section-title">What Goes on Shopping</div>
+
+  <div class="section-commentary">
+    Heating oil cannot appear on Google Shopping. Google classifies kerosene and diesel as restricted fuels. Any product from those categories submitted to a shopping feed will be immediately rejected. This applies whether the product page is transactional or not. The live price feed development being scoped with Graphedia is not needed for shopping.
   </div>
 
-  <div class="slide-footer">
-    <span>Summary</span>
-    <span>kennyfuels.ie · Shopping Audit · June 2026</span>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════
-     SLIDE 3 · THE STRATEGY PIVOT
-══════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-header">
-    <div class="slide-num">2</div>
-    <h2>The Strategy Pivot: What Goes on Shopping</h2>
-    <div class="tag tag-red">Critical</div>
-  </div>
-
-  <div class="alert alert-red">
-    <div class="alert-icon">🚫</div>
-    <div><strong>Heating oil cannot appear on Google Shopping.</strong> Google classifies kerosene and diesel as restricted fuels. Any product from those categories submitted to a shopping feed will be immediately rejected. This applies whether the product page is transactional or not. The live price feed development being scoped with Graphedia is not needed for shopping.</div>
-  </div>
-
-  <div class="two-col" style="margin-top: 28px;">
+  <div class="two-col">
     <div>
-      <h3>What Cannot Run on Shopping</h3>
+      <h3>Cannot Run on Shopping</h3>
       <table>
-        <thead>
-          <tr><th>Product</th><th>Why</th></tr>
-        </thead>
+        <thead><tr><th>Product</th><th>Why</th></tr></thead>
         <tbody>
-          <tr class="row-red">
-            <td>Home Heating Oil (Kerosene)</td>
-            <td>Restricted fuel. Google policy.</td>
-          </tr>
-          <tr class="row-red">
-            <td>Diesel</td>
-            <td>Restricted fuel. Google policy.</td>
-          </tr>
-          <tr class="row-red">
-            <td>Motor/Aviation Fuel</td>
-            <td>Restricted fuel. Google policy.</td>
-          </tr>
+          <tr class="row-red"><td>Home Heating Oil (Kerosene)</td><td>Restricted fuel. Google policy.</td></tr>
+          <tr class="row-red"><td>Diesel</td><td>Restricted fuel. Google policy.</td></tr>
+          <tr class="row-red"><td>Motor / Aviation Fuel</td><td>Restricted fuel. Google policy.</td></tr>
         </tbody>
       </table>
-      <p class="sub" style="margin-top:12px;">Heating oil stays on search campaigns only: the existing search campaign continues to run as normal. No change needed there.</p>
+      <span class="sub" style="margin-top: 12px; display: block;">Heating oil stays on search campaigns only. The existing search campaign continues to run as normal. No change needed there.</span>
     </div>
     <div>
-      <h3>What Can Run on Shopping</h3>
+      <h3>Can Run on Shopping</h3>
       <table>
-        <thead>
-          <tr><th>Product</th><th>Status</th></tr>
-        </thead>
+        <thead><tr><th>Product</th><th>Status</th></tr></thead>
         <tbody>
-          <tr class="row-green">
-            <td>Composite Fencing Panels &amp; Kits</td>
-            <td><span class="badge badge-green">Eligible</span></td>
-          </tr>
-          <tr class="row-green">
-            <td>Premium Decking Boards</td>
-            <td><span class="badge badge-green">Eligible</span></td>
-          </tr>
-          <tr class="row-green">
-            <td>Butane &amp; Propane Gas Cylinders</td>
-            <td><span class="badge badge-green">Eligible</span></td>
-          </tr>
-          <tr class="row-green">
-            <td>Coal, Briquettes, Solid Fuel</td>
-            <td><span class="badge badge-green">Eligible</span></td>
-          </tr>
-          <tr class="row-green">
-            <td>Engine Oil, AdBlue, Lubricants</td>
-            <td><span class="badge badge-green">Eligible</span></td>
-          </tr>
-          <tr class="row-green">
-            <td>Hardware, Tools, Gardening</td>
-            <td><span class="badge badge-green">Eligible</span></td>
-          </tr>
+          <tr class="row-green"><td>Composite Fencing Panels &amp; Kits</td><td><span class="badge badge-green">Eligible</span></td></tr>
+          <tr class="row-green"><td>Premium Decking Boards</td><td><span class="badge badge-green">Eligible</span></td></tr>
+          <tr class="row-green"><td>Butane &amp; Propane Gas Cylinders</td><td><span class="badge badge-green">Eligible</span></td></tr>
+          <tr class="row-green"><td>Coal, Briquettes, Solid Fuel</td><td><span class="badge badge-green">Eligible</span></td></tr>
+          <tr class="row-green"><td>Engine Oil, AdBlue, Lubricants</td><td><span class="badge badge-green">Eligible</span></td></tr>
+          <tr class="row-green"><td>Hardware, Tools, Gardening</td><td><span class="badge badge-green">Eligible</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
+</section>
 
-  <div class="slide-footer">
-    <span>Strategy</span>
-    <span>kennyfuels.ie · Shopping Audit · June 2026</span>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════
-     SLIDE 4 · ELIGIBLE PRODUCTS + OPPORTUNITY
-══════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-header">
-    <div class="slide-num">3</div>
-    <h2>Shopping Campaign: Products and Opportunity</h2>
-    <div class="tag tag-green">Ready to Advertise</div>
-  </div>
-
-  <p style="margin-bottom: 24px; font-size: 14px; color: #4a5568;">These products are already live on the site and eligible for Google Shopping. When a customer searches for something like <em>"composite fencing panels Ireland"</em> or <em>"gas cylinders Wexford"</em>, a shopping ad would show your product image, price, and name directly in Google results: no click on a text ad needed.</p>
+<!-- PRODUCTS & OPPORTUNITY -->
+<section id="products">
+  <div class="section-label">Products</div>
+  <div class="section-title">Shopping Campaign Opportunity</div>
+  <div class="section-desc">These products are already live on the site and eligible for Google Shopping. When a customer searches for something like "composite fencing panels Ireland" or "gas cylinders Wexford", a shopping ad shows the product image, price, and name directly in Google results. No text ad needed.</div>
 
   <table>
     <thead>
@@ -436,7 +534,7 @@
         <td><strong>Premium Decking</strong></td>
         <td>Composite decking boards</td>
         <td>TBC</td>
-        <td>Same as fencing: high margin, visual product</td>
+        <td>High margin, visual product, strong summer demand</td>
       </tr>
       <tr>
         <td><span class="badge badge-orange">2nd</span></td>
@@ -471,67 +569,46 @@
 
   <div class="alert alert-blue" style="margin-top: 24px;">
     <div class="alert-icon">💡</div>
-    <div><strong>How Google Shopping works:</strong> Instead of writing an ad, you give Google your product list (name, price, image, link). Google then shows your products as visual tiles at the top of search results when people search for those items. You pay per click only when someone clicks through to your website.</div>
+    <div><strong>How Google Shopping works:</strong> Instead of writing an ad, you give Google your product list (name, price, image, link). Google then shows your products as visual tiles at the top of search results. You pay per click only when someone clicks through to the website.</div>
   </div>
+</section>
 
-  <div class="slide-footer">
-    <span>Products</span>
-    <span>kennyfuels.ie · Shopping Audit · June 2026</span>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════
-     SLIDE 5 · WHAT'S ALREADY DONE
-══════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-header">
-    <div class="slide-num">4</div>
-    <h2>What Is Already in Place</h2>
-    <div class="tag tag-green">Confirmed</div>
-  </div>
-
-  <p style="margin-bottom: 24px; font-size: 14px; color: #4a5568;">Confirmed from the Graphedia email (23 June) and our own account records. These do not need to be actioned.</p>
+<!-- WHAT'S DONE -->
+<section id="done">
+  <div class="section-label">What's Already in Place</div>
+  <div class="section-title">Confirmed</div>
+  <div class="section-desc">Confirmed from the Graphedia email (23 June) and our own account records. None of these need to be actioned.</div>
 
   <div class="two-col">
     <div>
-      <div class="section-label">Website Requirements</div>
+      <h3>Website Requirements</h3>
       <ul class="checklist">
-        <li><span class="check-icon">✅</span><div><strong>SSL / HTTPS</strong><br><span class="sub">Secure connection confirmed across the full site.</span></div></li>
-        <li><span class="check-icon">✅</span><div><strong>Working checkout with card payment</strong><br><span class="sub">Confirmed by Graphedia: customers can buy online.</span></div></li>
-        <li><span class="check-icon">✅</span><div><strong>Privacy Policy page</strong><br><span class="sub">Live at kennyfuels.ie/privacy-policy</span></div></li>
-        <li><span class="check-icon">✅</span><div><strong>Shipping / Delivery Policy</strong><br><span class="sub">Covered in Terms &amp; Conditions: 1–2 working day delivery.</span></div></li>
-        <li><span class="check-icon">✅</span><div><strong>Returns / Refund Policy</strong><br><span class="sub">Confirmed present on site.</span></div></li>
-        <li><span class="check-icon">✅</span><div><strong>Contact page</strong><br><span class="sub">Phone (053 937 2765), email (info@kennyfuels.ie), address listed.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>SSL / HTTPS</strong><span class="sub">Secure connection confirmed across the full site.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Working checkout with card payment</strong><span class="sub">Confirmed by Graphedia: customers can buy online.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Privacy Policy page</strong><span class="sub">Live at kennyfuels.ie/privacy-policy</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Shipping / Delivery Policy</strong><span class="sub">Covered in Terms &amp; Conditions: 1–2 working day delivery.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Returns / Refund Policy</strong><span class="sub">Confirmed present on site.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Contact page</strong><span class="sub">Phone (053 937 2765), email (info@kennyfuels.ie), address listed.</span></div></li>
       </ul>
     </div>
     <div>
-      <div class="section-label">Product Pages &amp; Tracking</div>
+      <h3>Product Pages &amp; Tracking</h3>
       <ul class="checklist">
-        <li><span class="check-icon">✅</span><div><strong>Product pages with title, image, price &amp; buy button</strong><br><span class="sub">Confirmed for all hardware, fencing, gas and solid fuel products.</span></div></li>
-        <li><span class="check-icon">✅</span><div><strong>Google Tag Manager installed</strong><br><span class="sub">Container GTM-5Z97JLX is live on the site.</span></div></li>
-        <li><span class="check-icon">✅</span><div><strong>Google Analytics 4 (GA4) set up</strong><br><span class="sub">Property 396621665 is active and collecting data.</span></div></li>
-        <li><span class="check-icon">✅</span><div><strong>Active Google Ads campaigns running</strong><br><span class="sub">Heating oil, gas, hardware search campaigns all live.</span></div></li>
-        <li><span class="check-icon">✅</span><div><strong>Cookie Policy</strong><br><span class="sub">Live at kennyfuels.ie/cookie-policy-eu</span></div></li>
-        <li><span class="check-icon">✅</span><div><strong>Sitemap</strong><br><span class="sub">Sitemap submitted at kennyfuels.ie/sitemap_index.xml</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Product pages with title, image, price &amp; buy button</strong><span class="sub">Confirmed for all hardware, fencing, gas and solid fuel products.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Google Tag Manager installed</strong><span class="sub">Container GTM-5Z97JLX is live on the site.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Google Analytics 4 (GA4) set up</strong><span class="sub">Property 396621665 is active and collecting data.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Active Google Ads campaigns running</strong><span class="sub">Heating oil, gas, hardware search campaigns all live.</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Cookie Policy</strong><span class="sub">Live at kennyfuels.ie/cookie-policy-eu</span></div></li>
+        <li><span class="check-icon">✅</span><div><strong>Sitemap</strong><span class="sub">Submitted at kennyfuels.ie/sitemap_index.xml</span></div></li>
       </ul>
     </div>
   </div>
+</section>
 
-  <div class="slide-footer">
-    <span>What's Done</span>
-    <span>kennyfuels.ie · Shopping Audit · June 2026</span>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════
-     SLIDE 6 · WHAT STILL NEEDS TO HAPPEN
-══════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-header">
-    <div class="slide-num">5</div>
-    <h2>What Still Needs to Happen</h2>
-    <div class="tag tag-amber">Action Required</div>
-  </div>
+<!-- WHAT STILL NEEDS TO HAPPEN -->
+<section id="actions">
+  <div class="section-label">Actions Required</div>
+  <div class="section-title">What Still Needs to Happen</div>
 
   <table>
     <thead>
@@ -545,65 +622,55 @@
     </thead>
     <tbody>
       <tr>
-        <td><strong>Google Merchant Center account</strong><br><span class="sub">The account where product listings are managed and connected to Google Ads.</span></td>
+        <td><strong>Google Merchant Center account</strong><span class="sub">The account where product listings are managed and connected to Google Ads.</span></td>
         <td>Cannot run shopping ads without it</td>
-        <td><span class="badge badge-blue">Josette</span></td>
+        <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>Now</td>
         <td><span class="badge badge-orange">To Confirm</span></td>
       </tr>
       <tr>
-        <td><strong>Purchase conversion tracking</strong><br><span class="sub">Confirming GA4 fires a "purchase" event every time someone completes a checkout. This is what Google uses to know a sale happened.</span></td>
+        <td><strong>Purchase conversion tracking</strong><span class="sub">Confirming GA4 fires a "purchase" event every time someone completes a checkout. This is what Google uses to know a sale happened.</span></td>
         <td>Smart Bidding won't work without this</td>
-        <td><span class="badge badge-blue">Josette</span></td>
+        <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>30 June</td>
         <td><span class="badge badge-orange">To Verify</span></td>
       </tr>
       <tr>
-        <td><strong>Product barcodes (GTINs) for branded items</strong><br><span class="sub">The barcode number from the product packaging: e.g. for Flo Gas cylinders, Calor gas, branded tools. Campaigns can launch without these and barcodes can be added to the feed afterwards.</span></td>
+        <td><strong>Product barcodes (GTINs) for branded items</strong><span class="sub">The barcode number from the product packaging: e.g. for Flo Gas cylinders, Calor gas, branded tools. Campaigns can launch without these and barcodes can be added to the feed afterwards.</span></td>
         <td>Improves product matching quality but not required to launch</td>
-        <td><span class="badge" style="background:#fefcbf;color:#92400e;">Ciaran</span> → <span class="badge badge-blue">Josette</span></td>
+        <td><span class="badge badge-owner-ciaran">Ciaran</span></td>
         <td>When available</td>
         <td><span class="badge badge-gray">Optional</span></td>
       </tr>
       <tr>
-        <td><strong>Google Customer Reviews registration</strong><br><span class="sub">A free Google programme that emails customers after purchase asking for a star rating. Ads with stars get significantly more clicks. Josette sets this up directly in Merchant Center: no special access needed from Kenny Fuels.</span></td>
+        <td><strong>Google Customer Reviews registration</strong><span class="sub">A free Google programme that emails customers after purchase asking for a star rating. Ads with stars get significantly more clicks. I set this up directly in Merchant Center: no special access needed from Kenny Fuels.</span></td>
         <td>Needed to show star ratings on ads</td>
-        <td><span class="badge badge-blue">Josette</span></td>
+        <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>July</td>
         <td><span class="badge badge-red">Not Started</span></td>
       </tr>
       <tr>
-        <td><strong>Delivery charge for orders under €100</strong><br><span class="sub">Google Shopping displays delivery cost on every ad. We know orders over €100 are free: we need the flat rate for smaller orders.</span></td>
+        <td><strong>Delivery charge for orders under €100</strong><span class="sub">Google Shopping displays delivery cost on every ad. Orders over €100 are free: we need the flat rate for smaller orders.</span></td>
         <td>Required for accurate shopping ad display</td>
-        <td><span class="badge" style="background:#fefcbf;color:#92400e;">Ciaran</span></td>
+        <td><span class="badge badge-owner-ciaran">Ciaran</span></td>
         <td>July</td>
         <td><span class="badge badge-orange">Pending</span></td>
       </tr>
       <tr>
-        <td><strong>Product page speed check</strong><br><span class="sub">How fast the product pages load on mobile. Affects how Google scores the quality of the landing page: lower scores mean higher costs per click.</span></td>
+        <td><strong>Product page speed check</strong><span class="sub">How fast the product pages load on mobile. Affects how Google scores the quality of the landing page: lower scores mean higher costs per click.</span></td>
         <td>Affects ad cost and performance</td>
-        <td><span class="badge" style="background:#f3e8ff;color:#6b21a8;">Graphedia</span></td>
+        <td><span class="badge badge-owner-graphedia">Graphedia</span></td>
         <td>July</td>
         <td><span class="badge badge-orange">Not Tested</span></td>
       </tr>
     </tbody>
   </table>
+</section>
 
-  <div class="slide-footer">
-    <span>Actions</span>
-    <span>kennyfuels.ie · Shopping Audit · June 2026</span>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════
-     SLIDE 7 · TASK OWNERS
-══════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-header">
-    <div class="slide-num">6</div>
-    <h2>Who Does What</h2>
-    <div class="tag tag-blue">Task Breakdown</div>
-  </div>
+<!-- WHO DOES WHAT -->
+<section id="owners">
+  <div class="section-label">Task Breakdown</div>
+  <div class="section-title">Who Does What</div>
 
   <div class="owner-grid">
 
@@ -616,7 +683,7 @@
         <li>Set up delivery/shipping rules inside Merchant Center for Ireland once Ciaran confirms the flat rate for orders under €100</li>
         <li>Build the product feed: excluding all heating oil, kerosene, and diesel</li>
         <li>Map all products to their correct Google category (fencing, decking, gas, etc.)</li>
-        <li>Register Kenny Fuels for Google Customer Reviews directly inside Merchant Center: no access needed from Ciaran, this is done on the Google side only. Graphedia to add a small opt-in snippet to the order confirmation page once set up.</li>
+        <li>Register Kenny Fuels for Google Customer Reviews directly inside Merchant Center: no access needed from Ciaran. Graphedia to add a small opt-in snippet to the order confirmation page once set up.</li>
       </ul>
     </div>
 
@@ -635,35 +702,25 @@
         <li>Provide the barcode numbers (printed on the packaging) for: Flo Gas 7kg cylinder, Flo Gas 11.34kg cylinder, Calor gas products, and any other branded items in stock. Send to Josette when available. Not urgent: campaigns can launch without them and barcodes can be added to the feed later.</li>
         <li>Confirm the delivery charge for orders under €100: this number is shown on every shopping ad</li>
         <li>Confirm the brand name for composite fencing and decking: sold under "Kenny Fuels" or a separate brand?</li>
-        <li>Brief the team to ask customers for a Google review after every delivery and order. Use this link: g.page/r/CTLH5Aw1L13rEBM/review: send it by text after every job</li>
+        <li>Brief the team to ask customers for a Google review after every delivery and order. Send this link by text after every job: g.page/r/CTLH5Aw1L13rEBM/review</li>
         <li>Target 100 reviews to unlock star ratings on shopping ads. Starting now means reaching that milestone before the Christmas peak.</li>
       </ul>
     </div>
 
   </div>
+</section>
 
-  <div class="slide-footer">
-    <span>Owners</span>
-    <span>kennyfuels.ie · Shopping Audit · June 2026</span>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════
-     SLIDE 8 · TIMELINE TO SEPTEMBER 1
-══════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-header">
-    <div class="slide-num">7</div>
-    <h2>Timeline to September 1 Launch</h2>
-    <div class="tag tag-green">On Track</div>
-  </div>
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="section-label">Timeline</div>
+  <div class="section-title">Road to September 1</div>
 
   <div class="two-col">
     <div>
       <div class="timeline">
 
         <div class="timeline-item done">
-          <div class="tl-date">✅ Done: June 2026</div>
+          <div class="tl-date">Done: June 2026</div>
           <div class="tl-title">Website Foundations</div>
           <div class="tl-desc">SSL, checkout, product pages, policies, GTM, GA4: all confirmed in place by Graphedia.</div>
         </div>
@@ -671,19 +728,19 @@
         <div class="timeline-item">
           <div class="tl-date">Week of 30 June</div>
           <div class="tl-title">Merchant Center Setup</div>
-          <div class="tl-desc">Josette confirms or creates GMC account, verifies site, sets up shipping settings for Ireland.</div>
+          <div class="tl-desc">I confirm or create the GMC account, verify the site, and set up shipping settings for Ireland.</div>
         </div>
 
         <div class="timeline-item">
           <div class="tl-date">July, Week 1 &amp; 2</div>
           <div class="tl-title">Product Feed Built</div>
-          <div class="tl-desc">Josette builds the product feed with fencing, decking, gas, and solid fuel. Feed submitted to GMC for approval. Barcodes added to the feed as Ciaran provides them over time.</div>
+          <div class="tl-desc">I build the product feed with fencing, decking, gas, and solid fuel. Feed submitted to GMC for approval. Barcodes added to the feed as Ciaran provides them over time.</div>
         </div>
 
         <div class="timeline-item">
           <div class="tl-date">July, Week 3</div>
           <div class="tl-title">Product Approvals</div>
-          <div class="tl-desc">GMC reviews submitted products. Josette resolves any disapprovals. Target: all fencing and gas products approved.</div>
+          <div class="tl-desc">GMC reviews submitted products. I resolve any disapprovals. Target: all fencing and gas products approved.</div>
         </div>
 
         <div class="timeline-item">
@@ -692,8 +749,8 @@
           <div class="tl-desc">Shopping campaigns built in Google Ads. Budgets set. Ready to activate on 1 September.</div>
         </div>
 
-        <div class="timeline-item">
-          <div class="tl-date">🚀 1 September 2026</div>
+        <div class="timeline-item launch">
+          <div class="tl-date">1 September 2026</div>
           <div class="tl-title">Shopping Campaigns Live</div>
           <div class="tl-desc">Fencing, hardware, gas cylinder, and solid fuel shopping ads go live ahead of the October–March heating season.</div>
         </div>
@@ -702,42 +759,32 @@
     </div>
 
     <div>
-      <div class="section-label" style="margin-bottom: 20px;">Why September 1?</div>
-      <div class="alert alert-blue" style="margin-bottom: 16px;">
+      <div class="section-label" style="margin-bottom: 16px;">Why September 1?</div>
+
+      <div class="alert alert-blue" style="margin-bottom: 14px;">
         <div class="alert-icon">📈</div>
         <div><strong>Algorithm learning takes 2–4 weeks.</strong> Google needs time to learn which searches convert before it can optimise spend. Launching Sept 1 gives the campaigns 4 weeks to learn before the October heating season peak.</div>
       </div>
-      <div class="alert alert-green">
+
+      <div class="alert alert-green" style="margin-bottom: 32px;">
         <div class="alert-icon">🏆</div>
         <div><strong>Fencing and decking have a June–August peak too.</strong> Launching the feed now would also capture the tail end of summer hardware demand while the algorithm is warming up.</div>
       </div>
 
-      <div style="margin-top: 28px;">
-        <div class="section-label">Key Risks to the Timeline</div>
-        <ul class="checklist">
-          <li><span class="check-icon">⚠️</span><div>Merchant Center account does not exist and setup takes longer than expected</div></li>
-          <li><span class="check-icon">⚠️</span><div>Merchant Center product quality warnings for branded items without barcodes: not a disapproval, ads still run. Barcodes can be added to the feed at any point after launch.</div></li>
-          <li><span class="check-icon">⚠️</span><div>Graphedia unavailable for speed fix if pages are below threshold: request speed tests from Graphedia as early as possible</div></li>
-        </ul>
-      </div>
+      <div class="section-label" style="margin-bottom: 12px;">Key Risks to the Timeline</div>
+      <ul class="checklist">
+        <li><span class="check-icon">⚠️</span><div>Merchant Center account does not exist and setup takes longer than expected</div></li>
+        <li><span class="check-icon">⚠️</span><div>Merchant Center product quality warnings for branded items without barcodes: not a disapproval, ads still run. Barcodes can be added to the feed at any point after launch.</div></li>
+        <li><span class="check-icon">⚠️</span><div>Graphedia unavailable for speed fix if pages are below threshold: request speed tests from Graphedia as early as possible</div></li>
+      </ul>
     </div>
   </div>
+</section>
 
-  <div class="slide-footer">
-    <span>Timeline</span>
-    <span>kennyfuels.ie · Shopping Audit · June 2026</span>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════
-     SLIDE 10 · REVIEWS
-══════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-header">
-    <div class="slide-num">8</div>
-    <h2>Reviews: A Longer-Term Priority</h2>
-    <div class="tag tag-amber">Start Now</div>
-  </div>
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-label">Reviews</div>
+  <div class="section-title">A Longer-Term Priority</div>
 
   <div class="scorecard">
     <div class="score-card sc-red">
@@ -757,16 +804,15 @@
     </div>
   </div>
 
-  <div class="alert alert-orange">
-    <div class="alert-icon">⭐</div>
-    <div><strong>Why this matters for shopping ads:</strong> Google Shopping can display star ratings directly on your ads: for example "★★★★★ 4.8 (127 reviews)". Ads with star ratings get significantly more clicks than those without. To unlock this, Kenny Fuels needs at least 100 verified reviews collected through Google Customer Reviews (a free Google programme). We currently have 5 reviews: all 7–8 years old.</div>
+  <div class="section-commentary">
+    Google Shopping can display star ratings directly on your ads: for example "4.8 (127 reviews)". Ads with star ratings get significantly more clicks than those without. To unlock this, Kenny Fuels needs at least 100 verified reviews collected through Google Customer Reviews (a free Google programme). There are currently 5 Google reviews on record, all from 7–8 years ago.
   </div>
 
-  <div class="two-col" style="margin-top: 24px;">
+  <div class="two-col">
     <div>
       <h3>What to Do</h3>
       <ul class="checklist">
-        <li><span class="check-icon">1️⃣</span><div><strong>Josette registers Kenny Fuels for Google Customer Reviews</strong> inside Merchant Center (free, takes 30 minutes). This triggers automatic review request emails to customers after every purchase.</div></li>
+        <li><span class="check-icon">1️⃣</span><div><strong>I register Kenny Fuels for Google Customer Reviews</strong> inside Merchant Center (free, takes 30 minutes). This triggers automatic review request emails to customers after every purchase.</div></li>
         <li><span class="check-icon">2️⃣</span><div><strong>Ciaran briefs the team</strong> to ask customers for a Google review by text or call after every oil delivery and hardware order. A direct review link can be included in delivery confirmation texts.</div></li>
         <li><span class="check-icon">3️⃣</span><div><strong>Review link:</strong> Already in the Graphedia email signature. Share this with drivers and staff to send to customers after every job: <em>g.page/r/CTLH5Aw1L13rEBM/review</em></div></li>
       </ul>
@@ -775,31 +821,21 @@
       <h3>Realistic Timeline</h3>
       <ul class="checklist">
         <li><span class="check-icon">📅</span><div><strong>Sept 1:</strong> Shopping campaigns launch without stars (still works, just lower CTR initially)</div></li>
-        <li><span class="check-icon">📅</span><div><strong>By end of 2026:</strong> If review collection starts now and 8–10 reviews per month are collected, star ratings should appear before Christmas: peak season</div></li>
+        <li><span class="check-icon">📅</span><div><strong>By end of 2026:</strong> If review collection starts now and 8–10 reviews per month are collected, star ratings should appear before Christmas peak season</div></li>
         <li><span class="check-icon">📅</span><div><strong>Target:</strong> 100 reviews to unlock stars, 150+ for consistent display</div></li>
       </ul>
       <div class="alert alert-green" style="margin-top: 16px;">
         <div class="alert-icon">💡</div>
-        <div>This does not block the September 1 launch. It is a parallel workstream that improves performance over time. Start it now so the reviews are building while the campaigns are being set up.</div>
+        <div>This does not block the September 1 launch. It is a parallel workstream that improves performance over time. Start it now so reviews are building while the campaigns are being set up.</div>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="slide-footer">
-    <span>Reviews</span>
-    <span>kennyfuels.ie · Shopping Audit · June 2026</span>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════
-     SLIDE 11 · NEXT STEPS SUMMARY
-══════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-header">
-    <div class="slide-num">9</div>
-    <h2>Next Steps at a Glance</h2>
-    <div class="tag tag-green">Summary</div>
-  </div>
+<!-- NEXT STEPS -->
+<section id="next-steps">
+  <div class="section-label">Next Steps</div>
+  <div class="section-title">At a Glance</div>
 
   <table>
     <thead>
@@ -815,74 +851,71 @@
       <tr>
         <td>1</td>
         <td><strong>Confirm Google Merchant Center account</strong> exists and is verified for kennyfuels.ie</td>
-        <td><span class="badge badge-blue">Josette</span></td>
+        <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>30 June</td>
         <td><span class="badge badge-red">Yes</span></td>
       </tr>
       <tr>
         <td>2</td>
-        <td><strong>Verify purchase conversion tracking</strong>: confirm a "Purchase" event is recording in GA4 and Google Ads after every checkout</td>
-        <td><span class="badge badge-blue">Josette</span></td>
+        <td><strong>Verify purchase conversion tracking:</strong> confirm a "Purchase" event is recording in GA4 and Google Ads after every checkout</td>
+        <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>30 June</td>
         <td><span class="badge badge-red">Yes</span></td>
       </tr>
       <tr>
         <td>3</td>
         <td><strong>Provide barcode/GTIN numbers</strong> for all branded products: Flo Gas cylinders, Calor, and any branded hardware. Not a launch blocker: products run without them but quality scores improve when they are included.</td>
-        <td><span class="badge" style="background:#fefcbf;color:#92400e;">Ciaran</span></td>
-        <td>July</td>
+        <td><span class="badge badge-owner-ciaran">Ciaran</span></td>
+        <td>When available</td>
         <td><span class="badge badge-gray">No</span></td>
       </tr>
       <tr>
         <td>4</td>
         <td><strong>Confirm delivery charge</strong> for orders under €100: shown on every shopping ad</td>
-        <td><span class="badge" style="background:#fefcbf;color:#92400e;">Ciaran</span></td>
+        <td><span class="badge badge-owner-ciaran">Ciaran</span></td>
         <td>Early July</td>
         <td><span class="badge badge-orange">Partial</span></td>
       </tr>
       <tr>
         <td>5</td>
         <td><strong>Run mobile speed tests</strong> on fencing and gas product pages and share scores with Josette</td>
-        <td><span class="badge" style="background:#f3e8ff;color:#6b21a8;">Graphedia</span></td>
+        <td><span class="badge badge-owner-graphedia">Graphedia</span></td>
         <td>Early July</td>
         <td><span class="badge badge-orange">Partial</span></td>
       </tr>
       <tr>
         <td>6</td>
         <td><strong>Build and submit product feed</strong> to Merchant Center: excluding all fuel and oil products</td>
-        <td><span class="badge badge-blue">Josette</span></td>
+        <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>Mid July</td>
         <td><span class="badge badge-red">Yes</span></td>
       </tr>
       <tr>
         <td>7</td>
-        <td><strong>Set up Google Customer Reviews</strong> inside Merchant Center: Josette registers, Graphedia adds the opt-in code to the order confirmation page</td>
-        <td><span class="badge badge-blue">Josette</span> + <span class="badge" style="background:#f3e8ff;color:#6b21a8;">Graphedia</span></td>
+        <td><strong>Set up Google Customer Reviews</strong> inside Merchant Center: I register, Graphedia adds the opt-in code to the order confirmation page</td>
+        <td><span class="badge badge-owner-josette">Josette</span> + <span class="badge badge-owner-graphedia">Graphedia</span></td>
         <td>July</td>
         <td><span class="badge badge-gray">No</span></td>
       </tr>
       <tr>
         <td>8</td>
         <td><strong>Build shopping campaigns</strong> in Google Ads: fencing, decking, gas, solid fuel, hardware</td>
-        <td><span class="badge badge-blue">Josette</span></td>
+        <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>End July</td>
         <td><span class="badge badge-red">Yes</span></td>
       </tr>
       <tr>
         <td>9</td>
-        <td><strong>🚀 Launch</strong>: shopping campaigns go live</td>
-        <td><span class="badge badge-blue">Josette</span></td>
+        <td><strong>Launch:</strong> shopping campaigns go live</td>
+        <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>1 September</td>
         <td>N/A</td>
       </tr>
     </tbody>
   </table>
+</section>
 
-  <div class="slide-footer">
-    <span>Next Steps</span>
-    <span>kennyfuels.ie · Shopping Audit · June 2026</span>
-  </div>
-</div>
+<footer>Kenny Fuels &nbsp;·&nbsp; Google Shopping Audit &nbsp;·&nbsp; June 2026 &nbsp;·&nbsp; Outposter</footer>
 
 </body>
 </html>
