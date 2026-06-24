@@ -475,9 +475,24 @@
     Heating oil is not in the product feed and does not need to be. It is a quote-based delivery service with variable pricing: the product structure is incompatible with how Google Shopping works. The existing search campaign handles it correctly. The feed contains the physical products that are right for Shopping.
   </div>
 
+  <ul class="checklist" style="max-width: 820px; margin-bottom: 32px;">
+    <li>
+      <span class="check-icon">💰</span>
+      <div><strong>Price accuracy.</strong> Google Shopping requires the price in the product feed to exactly match the price on the website at all times. Heating oil prices change daily or weekly. Any mismatch triggers automatic disapproval. Managing a live fuel price feed accurately enough to avoid continuous disapprovals is not practical. This requirement is documented under <a href="https://support.google.com/merchants/answer/6149970" target="_blank" style="color: var(--black);">Google Shopping ads policies</a>.</div>
+    </li>
+    <li>
+      <span class="check-icon">⚠️</span>
+      <div><strong>Dangerous products policy.</strong> Google's policy prohibits products that "cause damage, harm, or injury", and its automated review system flags flammable materials. Fuel products are likely to trigger this review. Full policy: <a href="https://support.google.com/merchants/answer/6150004" target="_blank" style="color: var(--black);">Google Merchant Center: Dangerous products</a>. Note: heating oil is not explicitly named in the policy. If fuel products are submitted to a feed in future, the actual GMC disapproval reason will be the definitive confirmation of which rule applies.</div>
+    </li>
+    <li>
+      <span class="check-icon">🛒</span>
+      <div><strong>Product type mismatch.</strong> Google Shopping is built for fixed-price, add-to-cart products where the customer can complete a purchase immediately. Heating oil is ordered by delivery area in variable quantities. The product structure itself is incompatible with how a Shopping feed works.</div>
+    </li>
+  </ul>
+
   <div class="alert alert-blue" style="max-width: 820px; margin-bottom: 32px;">
     <div class="alert-icon">💡</div>
-    <div>Why heating oil does not belong in the feed. Three reasons: price accuracy (Google requires the price in the feed to match the site at all times — fuel prices change daily), product type mismatch (Shopping is built for fixed-price add-to-cart products), and flammable materials policy risk (<a href="https://support.google.com/merchants/answer/6150004" target="_blank" style="color: var(--black);">Google Merchant Center: Dangerous products</a>). The existing search campaign continues to run for heating oil. No change needed there.</div>
+    <div>The existing search campaign continues to run as normal for heating oil. No change needed there.</div>
   </div>
 
   <div class="two-col">
