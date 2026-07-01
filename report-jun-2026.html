@@ -7,107 +7,151 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --brand: #243B98;
-    --red: #E6211E;
-    --green: #2e7d32;
-    --green-light: #e8f5e9;
-    --amber: #e65100;
-    --amber-light: #fff8e1;
-    --blue-light: #e8f0fe;
-    --border: #e0e0e0;
-    --bg: #f9f9f9;
-    --white: #ffffff;
-    --text: #1a1a1a;
-    --text-muted: #777;
+      --black: #243B98;
+      --white: #ffffff;
+      --red: #E6211E;
+      --dark-red: #b5191a;
+      --gray: #f9f9f9;
+      --mid-gray: #e0e0e0;
+      --text-dark: #1a1a1a;
+      --text-muted: #777;
+      --green: #2e7d32;
+      --amber: #e65100;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Lato', sans-serif; background: var(--white); color: var(--text); font-size: 15px; line-height: 1.6; }
-  .topnav { background: var(--brand); padding: 0 40px; display: flex; align-items: center; gap: 32px; height: 56px; position: sticky; top: 0; z-index: 100; }
-  .topnav-brand { font-weight: 900; font-size: 15px; color: var(--white); text-decoration: none; letter-spacing: 0.5px; }
-  .topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; }
-  .topnav a:hover { color: var(--white); }
-  .topnav-right { margin-left: auto; display: flex; gap: 16px; align-items: center; }
-  .report-type-badge { background: var(--red); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 0.5px; }
-  .notice-banner { background: var(--blue-light); border-bottom: 2px solid #3f51b5; padding: 12px 40px; font-size: 13px; color: #1a237e; }
-  .notice-banner strong { color: var(--brand); }
-  .hero { padding: 80px 40px 60px; border-bottom: 1px solid var(--border); max-width: 1100px; margin: 0 auto; }
-  .period-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--bg); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 24px; }
-  .period-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
-  .hero h1 { font-weight: 900; font-size: 72px; line-height: 1; letter-spacing: 1px; margin-bottom: 8px; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body { font-family: 'Lato', sans-serif; background: var(--white); color: var(--text-dark); font-size: 15px; }
+
+  nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--black);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 56px;
+  }
+  nav .logo img { height: 36px; width: auto; display: block; }
+  nav ul { display: flex; gap: 32px; list-style: none; }
+  nav ul a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
+  nav ul a:hover { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .report-date { color: rgba(255,255,255,0.5); font-size: 12px; }
+  .btn-pdf { background: var(--red); color: white; border: none; padding: 8px 16px; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; border-radius: 4px; letter-spacing: 0.5px; }
+
+  .notice-banner { background: #e8f0fe; border-bottom: 2px solid #3f51b5; padding: 12px 40px; font-size: 13px; color: #1a237e; }
+  .notice-banner strong { color: var(--black); }
+
+  .hero { padding: 80px 40px 60px; border-bottom: 1px solid var(--mid-gray); max-width: 1100px; margin: 0 auto; }
+  .period-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--gray); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 24px; }
+  .period-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+  .hero h1 { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 72px; line-height: 1; letter-spacing: 1px; margin-bottom: 8px; }
   .hero h1 span { color: var(--red); display: block; }
   .hero p { font-size: 16px; color: var(--text-muted); max-width: 620px; margin-top: 20px; line-height: 1.6; }
-  .hero-meta { margin-top: 32px; display: flex; gap: 40px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 24px; }
+  .hero-meta { margin-top: 32px; display: flex; gap: 40px; flex-wrap: wrap; border-top: 1px solid var(--mid-gray); padding-top: 24px; }
   .hero-meta-item { font-size: 12px; color: var(--text-muted); }
-  .hero-meta-item strong { font-size: 14px; color: var(--text); display: block; margin-bottom: 2px; font-weight: 700; }
-  section { padding: 60px 40px; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+  .hero-meta-item strong { font-size: 14px; color: var(--text-dark); display: block; margin-bottom: 2px; font-weight: 700; }
+
+  section { max-width: 1100px; margin: 0 auto; padding: 60px 40px; border-bottom: 1px solid var(--mid-gray); }
+
   .section-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
-  .section-title { font-weight: 900; font-size: 42px; letter-spacing: 1px; margin-bottom: 8px; }
-  .section-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; line-height: 1.6; max-width: 720px; }
-  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
-  .summary-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; }
-  .summary-card.highlight { border-left: 4px solid var(--brand); }
-  .summary-card .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; }
-  .summary-card .value { font-size: 32px; font-weight: 900; color: var(--text); line-height: 1; }
-  .summary-card .compare { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
-  .summary-card .compare .up { color: var(--green); font-weight: 700; }
-  .summary-card .compare .neutral { color: var(--text-muted); font-weight: 700; }
-  .context-box { background: var(--bg); border-left: 4px solid var(--brand); padding: 20px 24px; margin-bottom: 24px; font-size: 14px; color: var(--text); line-height: 1.7; }
-  .context-box strong { display: block; margin-bottom: 6px; font-size: 15px; font-weight: 700; color: var(--brand); }
-  .table-card { background: var(--white); border: 1px solid var(--border); overflow: hidden; margin-bottom: 24px; }
-  .table-card-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg); }
-  .table-card-header h3 { font-size: 15px; font-weight: 700; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { background: var(--bg); padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
-  td { padding: 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #fafafa; }
-  .campaign-name { font-weight: 700; font-size: 13px; }
-  .adgroup-label { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
-  .campaign-note-row td { background: #fafafa; padding: 8px 14px 16px; font-size: 12px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
-  .up { color: var(--green); font-weight: 700; }
-  .status-active { background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
-  .status-new { background: var(--blue-light); color: var(--brand); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
-  .status-monitoring { background: var(--amber-light); color: var(--amber); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
-  .phase-divider { background: var(--bg); border: 1px solid var(--border); padding: 10px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 24px 0 0; }
-  .changes-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-top: none; }
-  .change-item { background: var(--white); border-bottom: 1px solid var(--border); padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .section-title { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 42px; letter-spacing: 1px; margin-bottom: 8px; }
+  .section-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; line-height: 1.6; }
+  .section-commentary { font-size: 15px; color: var(--text-dark); line-height: 1.8; max-width: 780px; margin-bottom: 40px; padding-left: 16px; border-left: 3px solid var(--red); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+  .summary-card { border: 1px solid var(--mid-gray); border-radius: 8px; padding: 28px 24px; background: var(--white); }
+  .summary-card.highlight { border-left: 4px solid var(--black); }
+  .summary-card .label { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+  .summary-card .value { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 48px; letter-spacing: 1px; line-height: 1; margin-bottom: 12px; }
+  .summary-card .compare { font-size: 12px; color: var(--text-muted); }
+
+  .context-box { background: var(--gray); border-left: 3px solid var(--red); padding: 16px 20px; margin-bottom: 24px; font-size: 14px; color: var(--text-dark); line-height: 1.7; }
+  .context-box strong { display: block; margin-bottom: 6px; font-size: 15px; font-weight: 700; color: var(--text-dark); }
+
+  .table-card { border: 1px solid var(--mid-gray); border-radius: 8px; overflow: hidden; margin-bottom: 32px; }
+  .table-card-header { padding: 20px 24px; border-bottom: 1px solid var(--mid-gray); display: flex; align-items: center; justify-content: space-between; }
+  .table-card-header h3 { font-size: 16px; font-weight: 600; }
+  .table-card-header p { font-size: 13px; color: var(--text-muted); margin-top: 4px; line-height: 1.6; }
+  .table-card-header span { font-size: 12px; color: var(--text-muted); }
+
+  table { width: 100%; border-collapse: collapse; }
+  thead th { background: var(--black); color: var(--white); padding: 12px 24px; text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  tbody tr { border-bottom: 1px solid var(--mid-gray); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--gray); }
+  tbody td { padding: 14px 24px; font-size: 14px; }
+  tbody td:first-child { font-weight: 500; }
+
+  .campaign-name { font-weight: 600; font-size: 14px; color: var(--text-dark); }
+  .adgroup-label { margin-top: 4px; font-size: 12px; font-weight: 400; color: var(--text-muted); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .campaign-note-row td { padding: 8px 24px 10px; font-size: 12.5px; font-style: italic; color: var(--text-muted); background: #fffdf5; border-bottom: 1px solid var(--mid-gray); }
+
+  .up { color: var(--green); font-weight: 600; }
+  .down { color: var(--red); font-weight: 600; }
+  .neutral { color: var(--text-muted); font-weight: 600; }
+
+  .status-active { display: inline-block; background: #e8f5e9; color: var(--green); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px; }
+  .status-new { display: inline-block; background: #e8f0fe; color: var(--black); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .status-monitoring { display: inline-block; background: #fff3e0; color: var(--amber); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+
+  .phase-divider { background: var(--gray); border: 1px solid var(--mid-gray); padding: 10px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 24px 0 0; }
+
+  .changes-list { display: flex; flex-direction: column; gap: 0; }
+  .change-item { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--mid-gray); align-items: flex-start; }
   .change-item:last-child { border-bottom: none; }
-  .change-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
-  .change-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
-  .change-content p { font-size: 13px; color: var(--text-muted); margin-top: 4px; line-height: 1.6; }
+  .change-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+  .icon-done { background: #e8f5e9; }
+  .icon-updated { background: #e3f2fd; }
+  .icon-new { background: #f3e5f5; }
+  .icon-warning { background: #fff8e1; }
+  .change-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .change-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
   .change-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; }
-  .tag-high { background: var(--amber-light); color: var(--amber); }
-  .tag-optimisation { background: var(--blue-light); color: var(--brand); }
-  .tag-done { background: var(--green-light); color: var(--green); }
+  .tag-high { background: #fff8e1; color: var(--amber); }
+  .tag-optimisation { background: #e8f0fe; color: var(--black); }
+  .tag-done { background: #e8f5e9; color: var(--green); }
   .tag-launch { background: #f3e5f5; color: #7b1fa2; }
-  .next-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-  .next-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 20px; }
-  .next-card h4 { font-size: 14px; font-weight: 700; margin: 8px 0 6px; }
-  .next-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-  .priority-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; }
+
+  .next-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .next-card { border: 1px solid var(--mid-gray); border-radius: 8px; padding: 28px; }
+  .next-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+  .next-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .priority-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
   .priority-high { background: #ffebee; color: var(--red); }
-  .priority-medium { background: var(--amber-light); color: var(--amber); }
-  .priority-launch { background: var(--blue-light); color: var(--brand); }
-  footer { background: var(--brand); padding: 32px 40px; text-align: center; color: rgba(255,255,255,0.6); font-size: 12px; }
+  .priority-medium { background: #fff8e1; color: #e65100; }
+  .priority-done { background: #e8f5e9; color: #2e7d32; }
+  .priority-low { background: #e8f5e9; color: var(--green); }
+  .priority-launch { background: #e8f0fe; color: var(--black); }
+
+  footer { background: var(--black); color: rgba(255,255,255,0.4); text-align: center; padding: 24px 40px; font-size: 12px; }
+  footer strong { color: rgba(255,255,255,0.7); }
   footer p + p { margin-top: 6px; }
+
   @media (max-width: 768px) {
-    .hero { padding: 40px 20px; }
-    .hero h1 { font-size: 48px; }
-    section { padding: 40px 20px; }
-    .topnav { padding: 0 20px; gap: 16px; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); }
+      .next-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 48px; }
+      nav ul { display: none; }
+      nav { padding: 0 20px; }
+      section { padding: 40px 20px; }
+      .hero { padding: 40px 20px; }
   }
 </style>
 </head>
 <body>
 
-<nav class="topnav">
-  <div style="display:flex; align-items:center; gap:32px; flex:1;">
-    <a class="topnav-brand" href="index.html">KENNY FUELS</a>
-    <a href="report-jun-2026.html" style="color:white; font-weight:700;">June 2026</a>
-  </div>
-  <div class="topnav-right">
-    <span class="report-type-badge">MONTHLY REPORT</span>
-  </div>
+<nav>
+    <div class="logo"><img src="https://www.kennyfuels.ie/wp-content/uploads/2023/11/kenny-logo.png" alt="Kenny Fuels"></div>
+    <ul>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#weekly">Weekly</a></li>
+        <li><a href="#budgets">Budgets</a></li>
+        <li><a href="#changes">Optimisations</a></li>
+        <li><a href="#next">What's Next</a></li>
+    </ul>
+    <div class="nav-right">
+        <span class="report-date">June 2026 &nbsp;·&nbsp; Monthly</span>
+        <button class="btn-pdf" onclick="window.print()">&#11015; Download PDF</button>
+    </div>
 </nav>
 
 <div class="notice-banner">
@@ -415,6 +459,111 @@
   </div>
 </section>
 
+<!-- BUDGET CHANGES -->
+<section id="budgets">
+  <div class="section-label">Budget &amp; Bid History</div>
+  <div class="section-title">June Budget Changes</div>
+  <p class="section-desc">All budget and bid strategy changes made in June 2026, with approval and reason for each.</p>
+
+  <div class="table-card">
+    <div class="table-card-header">
+      <h3>Budget and Bid Strategy Changes: June 2026</h3>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Campaign</th>
+          <th>Change</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Approved By</th>
+          <th>Reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="campaign-name">HHO Search</div></td>
+          <td>Day schedule</td>
+          <td>Mon–Sun</td>
+          <td>Mon–Sat</td>
+          <td>Data / I</td>
+          <td>0 conversions recorded on two consecutive Sundays (€18 spend each). Sunday confirmed non-converting for heating oil.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Brand Search</div></td>
+          <td>tROAS target</td>
+          <td>4x (400%)</td>
+          <td>6x (600%)</td>
+          <td>Data / I</td>
+          <td>Actual ROAS tracking at 7.3x. Old 4x target was capping impression share — rank-lost IS unnecessarily high. Raising to 6x to recover IS while keeping a safety floor.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Gas Bottle</div></td>
+          <td>tROAS target</td>
+          <td>1.5x (150%)</td>
+          <td>3x (300%)</td>
+          <td>Data / I</td>
+          <td>Real Gas Bottle ROAS tracking at 3.4x. Old 1.5x target was throttling IS to ~20%. Pre-restructure raise to give algorithm more room.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Hardware</div></td>
+          <td>Daily budget</td>
+          <td>€55/day</td>
+          <td>€70/day</td>
+          <td>Ciaran Kenny</td>
+          <td>Peak season Jun–Aug. Ciaran approved budget raise to capture increased summer hardware demand (fencing, decking, gardening). Approved as part of June strategy review.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Hardware G&amp;L</div></td>
+          <td>Max CPC</td>
+          <td>€0.01</td>
+          <td>€2.00</td>
+          <td>Data / I</td>
+          <td>Gardening &amp; Landscaping ad group had a near-zero CPC cap — the ad group was unable to compete in auction. Raised to €2 to allow competitive bidding and generate meaningful performance data.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Gas Bottle</div></td>
+          <td>tROAS target</td>
+          <td>3x (300%)</td>
+          <td>2x (200%)</td>
+          <td>Data / I</td>
+          <td>Post-restructure impression share dropped to 10–20% (rank-lost IS 58–83%). tROAS relaxed from 3x to 2x to give the algorithm more bid flexibility during the learning period after the Jun 15 rebuild.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Gas Bottle</div></td>
+          <td>Daily budget</td>
+          <td>€35/day</td>
+          <td>€10/day</td>
+          <td>Data / I</td>
+          <td>Campaign was only spending €3.62/day — budget is not the constraint in off-season, tROAS is. Freed €25/day within the approved €255/day envelope. Budget reduced to reflect actual spend rather than hold unused budget allocation.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Hardware G&amp;L</div></td>
+          <td>Max CPC</td>
+          <td>€2.00</td>
+          <td>€3.00</td>
+          <td>Data / I</td>
+          <td>2-week G&amp;L review: 8 conversions, 4.2x ROAS, but rank-lost IS still at 74.7% — the €2 CPC cap was still limiting reach. Raised to €3 to recover impression share at peak season.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">KF – Fuel | Firewood</div></td>
+          <td>New campaign</td>
+          <td>—</td>
+          <td>€25/day</td>
+          <td>Ciaran Kenny</td>
+          <td>Summer overstock clearance sale confirmed by Ciaran (runs until ~Aug 1). No existing Google Ads coverage for firewood keywords. Budget allocated from Gas Bottle freed budget — total daily spend stays within the approved €255/day envelope. Launched Jul 1.</td>
+        </tr>
+        <tr style="font-weight:700; background: var(--gray);">
+          <td colspan="3">Total approved daily budget</td>
+          <td>€250/day (Jun 29)</td>
+          <td></td>
+          <td>€5 under approved €255/day envelope. Gas Bottle underspending; Firewood not yet launched in June.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <!-- OPTIMISATIONS -->
 <section id="changes">
   <div class="section-label">What Changed</div>
@@ -424,7 +573,7 @@
   <div class="phase-divider">Phase 1: Bid Strategy Raises and Cleanup</div>
   <div class="changes-list">
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>HHO Sunday Removed</h4>
@@ -432,7 +581,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>Brand Search tROAS Raised 4x to 6x</h4>
@@ -440,7 +589,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>Gas Bottle tROAS Raised 1.5x to 3x</h4>
@@ -452,7 +601,7 @@
   <div class="phase-divider" style="margin-top:24px;">Phase 2: Restructure, Solar Launch, Consent Confirmed</div>
   <div class="changes-list">
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-updated">&#9998;</div>
       <div class="change-content">
         <span class="change-tag tag-high">High Priority</span>
         <h4>Gas Bottle Full Restructure</h4>
@@ -460,7 +609,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-done">Resolved</span>
         <h4>Consent Mode Confirmed Working</h4>
@@ -468,7 +617,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">🚀</div>
+      <div class="change-icon icon-new">&#9679;</div>
       <div class="change-content">
         <span class="change-tag tag-launch">New Campaign</span>
         <h4>Kenergy Solar Campaign Launched</h4>
@@ -476,7 +625,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>Hardware: 3 Ad Groups Paused, Negatives Added, G&amp;L CPC Raised</h4>
@@ -488,7 +637,7 @@
   <div class="phase-divider" style="margin-top:24px;">Phase 3: Reviews, Shopping Audit, Budget Decisions</div>
   <div class="changes-list">
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-done">Completed</span>
         <h4>Google Shopping Audit</h4>
@@ -496,7 +645,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-updated">&#9998;</div>
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>Gas Bottle tROAS Relaxed 3x to 2x, Budget Cut to €10/day</h4>
@@ -504,7 +653,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>Hardware G&amp;L CPC Raised €2 to €3, Solar Value Rule Applied, Purchase Tracking Verified</h4>

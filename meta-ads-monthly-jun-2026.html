@@ -7,108 +7,150 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --brand: #243B98;
-    --meta: #1877F2;
-    --meta-dark: #0d5dbf;
-    --red: #E6211E;
-    --green: #2e7d32;
-    --green-light: #e8f5e9;
-    --amber: #e65100;
-    --amber-light: #fff8e1;
-    --blue-light: #e3f2fd;
-    --border: #e0e0e0;
-    --bg: #f9f9f9;
-    --white: #ffffff;
-    --text: #1a1a1a;
-    --text-muted: #777;
+      --black: #243B98;
+      --meta: #1877F2;
+      --white: #ffffff;
+      --red: #E6211E;
+      --gray: #f9f9f9;
+      --mid-gray: #e0e0e0;
+      --text-dark: #1a1a1a;
+      --text-muted: #777;
+      --green: #2e7d32;
+      --amber: #e65100;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Lato', sans-serif; background: var(--white); color: var(--text); font-size: 15px; line-height: 1.6; }
-  .topnav { background: var(--meta); padding: 0 40px; display: flex; align-items: center; gap: 32px; height: 56px; position: sticky; top: 0; z-index: 100; }
-  .topnav-brand { font-weight: 900; font-size: 15px; color: var(--white); text-decoration: none; letter-spacing: 0.5px; }
-  .topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; }
-  .topnav a:hover { color: var(--white); }
-  .topnav-right { margin-left: auto; display: flex; gap: 16px; align-items: center; }
-  .report-type-badge { background: rgba(0,0,0,0.2); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 0.5px; }
-  .notice-banner { background: var(--blue-light); border-bottom: 2px solid var(--meta); padding: 12px 40px; font-size: 13px; color: #0d47a1; }
-  .notice-banner strong { color: var(--meta-dark); }
-  .hero { padding: 80px 40px 60px; border-bottom: 1px solid var(--border); max-width: 1100px; margin: 0 auto; }
-  .period-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--bg); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 24px; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body { font-family: 'Lato', sans-serif; background: var(--white); color: var(--text-dark); font-size: 15px; }
+
+  nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--black);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 56px;
+  }
+  nav .logo img { height: 36px; width: auto; display: block; }
+  nav ul { display: flex; gap: 32px; list-style: none; }
+  nav ul a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
+  nav ul a:hover { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .report-date { color: rgba(255,255,255,0.5); font-size: 12px; }
+  .btn-pdf { background: var(--red); color: white; border: none; padding: 8px 16px; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; border-radius: 4px; letter-spacing: 0.5px; }
+
+  .notice-banner { background: #e3f2fd; border-bottom: 2px solid var(--meta); padding: 12px 40px; font-size: 13px; color: #0d47a1; }
+  .notice-banner strong { color: #0d5dbf; }
+
+  .hero { padding: 80px 40px 60px; border-bottom: 1px solid var(--mid-gray); max-width: 1100px; margin: 0 auto; }
+  .period-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--gray); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 24px; }
   .period-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--meta); }
-  .hero h1 { font-weight: 900; font-size: 72px; line-height: 1; letter-spacing: 1px; margin-bottom: 8px; }
+  .hero h1 { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 72px; line-height: 1; letter-spacing: 1px; margin-bottom: 8px; }
   .hero h1 span { color: var(--meta); display: block; }
   .hero p { font-size: 16px; color: var(--text-muted); max-width: 620px; margin-top: 20px; line-height: 1.6; }
-  .hero-meta { margin-top: 32px; display: flex; gap: 40px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 24px; }
+  .hero-meta { margin-top: 32px; display: flex; gap: 40px; flex-wrap: wrap; border-top: 1px solid var(--mid-gray); padding-top: 24px; }
   .hero-meta-item { font-size: 12px; color: var(--text-muted); }
-  .hero-meta-item strong { font-size: 14px; color: var(--text); display: block; margin-bottom: 2px; font-weight: 700; }
-  section { padding: 60px 40px; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border); }
-  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--meta); margin-bottom: 12px; }
-  .section-title { font-weight: 900; font-size: 42px; letter-spacing: 1px; margin-bottom: 8px; }
-  .section-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; line-height: 1.6; max-width: 720px; }
-  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
-  .summary-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; }
+  .hero-meta-item strong { font-size: 14px; color: var(--text-dark); display: block; margin-bottom: 2px; font-weight: 700; }
+
+  section { max-width: 1100px; margin: 0 auto; padding: 60px 40px; border-bottom: 1px solid var(--mid-gray); }
+
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+  .section-title { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 42px; letter-spacing: 1px; margin-bottom: 8px; }
+  .section-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; line-height: 1.6; }
+  .section-commentary { font-size: 15px; color: var(--text-dark); line-height: 1.8; max-width: 780px; margin-bottom: 40px; padding-left: 16px; border-left: 3px solid var(--red); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+  .summary-card { border: 1px solid var(--mid-gray); border-radius: 8px; padding: 28px 24px; background: var(--white); }
   .summary-card.highlight { border-left: 4px solid var(--meta); }
-  .summary-card .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; }
-  .summary-card .value { font-size: 32px; font-weight: 900; color: var(--text); line-height: 1; }
-  .summary-card .compare { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
-  .context-box { background: var(--bg); border-left: 4px solid var(--meta); padding: 20px 24px; margin-bottom: 24px; font-size: 14px; color: var(--text); line-height: 1.7; }
-  .context-box strong { display: block; margin-bottom: 6px; font-size: 15px; font-weight: 700; color: var(--meta-dark); }
-  .table-card { background: var(--white); border: 1px solid var(--border); overflow: hidden; margin-bottom: 24px; }
-  .table-card-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg); }
-  .table-card-header h3 { font-size: 15px; font-weight: 700; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { background: var(--bg); padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
-  td { padding: 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #fafafa; }
-  .campaign-name { font-weight: 700; font-size: 13px; }
-  .adgroup-label { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
-  .campaign-note-row td { background: #fafafa; padding: 8px 14px 16px; font-size: 12px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
-  .up { color: var(--green); font-weight: 700; }
-  .status-active { background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
-  .status-new { background: var(--blue-light); color: var(--meta); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
-  .status-monitoring { background: var(--amber-light); color: var(--amber); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
-  .phase-divider { background: var(--bg); border: 1px solid var(--border); padding: 10px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 24px 0 0; }
-  .changes-list { display: flex; flex-direction: column; border: 1px solid var(--border); border-top: none; }
-  .change-item { background: var(--white); border-bottom: 1px solid var(--border); padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .summary-card .label { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+  .summary-card .value { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 48px; letter-spacing: 1px; line-height: 1; margin-bottom: 12px; }
+  .summary-card .compare { font-size: 12px; color: var(--text-muted); }
+
+  .context-box { background: var(--gray); border-left: 3px solid var(--red); padding: 16px 20px; margin-bottom: 24px; font-size: 14px; color: var(--text-dark); line-height: 1.7; }
+  .context-box strong { display: block; margin-bottom: 6px; font-size: 15px; font-weight: 700; color: var(--text-dark); }
+
+  .table-card { border: 1px solid var(--mid-gray); border-radius: 8px; overflow: hidden; margin-bottom: 32px; }
+  .table-card-header { padding: 20px 24px; border-bottom: 1px solid var(--mid-gray); display: flex; align-items: center; justify-content: space-between; }
+  .table-card-header h3 { font-size: 16px; font-weight: 600; }
+  .table-card-header p { font-size: 13px; color: var(--text-muted); margin-top: 4px; line-height: 1.6; }
+  .table-card-header span { font-size: 12px; color: var(--text-muted); }
+
+  table { width: 100%; border-collapse: collapse; }
+  thead th { background: var(--black); color: var(--white); padding: 12px 24px; text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  tbody tr { border-bottom: 1px solid var(--mid-gray); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--gray); }
+  tbody td { padding: 14px 24px; font-size: 14px; }
+  tbody td:first-child { font-weight: 500; }
+
+  .campaign-name { font-weight: 600; font-size: 14px; color: var(--text-dark); }
+  .adgroup-label { margin-top: 4px; font-size: 12px; font-weight: 400; color: var(--text-muted); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .campaign-note-row td { padding: 8px 24px 10px; font-size: 12.5px; font-style: italic; color: var(--text-muted); background: #fffdf5; border-bottom: 1px solid var(--mid-gray); }
+
+  .up { color: var(--green); font-weight: 600; }
+  .down { color: var(--red); font-weight: 600; }
+  .neutral { color: var(--text-muted); font-weight: 600; }
+
+  .status-active { display: inline-block; background: #e8f5e9; color: var(--green); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px; }
+  .status-new { display: inline-block; background: #e3f2fd; color: var(--meta); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .status-monitoring { display: inline-block; background: #fff3e0; color: var(--amber); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+
+  .phase-divider { background: var(--gray); border: 1px solid var(--mid-gray); padding: 10px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 24px 0 0; }
+
+  .changes-list { display: flex; flex-direction: column; gap: 0; }
+  .change-item { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--mid-gray); align-items: flex-start; }
   .change-item:last-child { border-bottom: none; }
-  .change-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
-  .change-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
-  .change-content p { font-size: 13px; color: var(--text-muted); margin-top: 4px; line-height: 1.6; }
+  .change-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+  .icon-done { background: #e8f5e9; }
+  .icon-updated { background: #e3f2fd; }
+  .icon-new { background: #f3e5f5; }
+  .icon-warning { background: #fff8e1; }
+  .change-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .change-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
   .change-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; }
-  .tag-high { background: var(--amber-light); color: var(--amber); }
-  .tag-optimisation { background: var(--blue-light); color: var(--meta); }
-  .tag-done { background: var(--green-light); color: var(--green); }
+  .tag-high { background: #fff8e1; color: var(--amber); }
+  .tag-optimisation { background: #e3f2fd; color: var(--meta); }
+  .tag-done { background: #e8f5e9; color: var(--green); }
   .tag-launch { background: #f3e5f5; color: #7b1fa2; }
-  .next-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-  .next-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 20px; }
-  .next-card h4 { font-size: 14px; font-weight: 700; margin: 8px 0 6px; }
-  .next-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-  .priority-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; }
+
+  .next-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .next-card { border: 1px solid var(--mid-gray); border-radius: 8px; padding: 28px; }
+  .next-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+  .next-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .priority-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
   .priority-high { background: #ffebee; color: var(--red); }
-  .priority-medium { background: var(--amber-light); color: var(--amber); }
-  .priority-launch { background: var(--blue-light); color: var(--meta); }
-  footer { background: var(--meta); padding: 32px 40px; text-align: center; color: rgba(255,255,255,0.6); font-size: 12px; }
+  .priority-medium { background: #fff8e1; color: #e65100; }
+  .priority-done { background: #e8f5e9; color: #2e7d32; }
+  .priority-low { background: #e8f5e9; color: var(--green); }
+  .priority-launch { background: #e3f2fd; color: var(--meta); }
+
+  footer { background: var(--black); color: rgba(255,255,255,0.4); text-align: center; padding: 24px 40px; font-size: 12px; }
+  footer strong { color: rgba(255,255,255,0.7); }
   footer p + p { margin-top: 6px; }
+
   @media (max-width: 768px) {
-    .hero { padding: 40px 20px; }
-    .hero h1 { font-size: 48px; }
-    section { padding: 40px 20px; }
-    .topnav { padding: 0 20px; gap: 16px; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); }
+      .next-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 48px; }
+      nav ul { display: none; }
+      nav { padding: 0 20px; }
+      section { padding: 40px 20px; }
+      .hero { padding: 40px 20px; }
   }
 </style>
 </head>
 <body>
 
-<nav class="topnav">
-  <div style="display:flex; align-items:center; gap:32px; flex:1;">
-    <a class="topnav-brand" href="index.html">KENNY FUELS</a>
-    <a href="meta-ads-audit-jun-2026.html">Audit</a>
-    <a href="meta-ads-monthly-jun-2026.html" style="color:white; font-weight:700;">June Monthly</a>
-  </div>
-  <div class="topnav-right">
-    <span class="report-type-badge">META ADS · MONTHLY</span>
-  </div>
+<nav>
+    <div class="logo"><img src="https://www.kennyfuels.ie/wp-content/uploads/2023/11/kenny-logo.png" alt="Kenny Fuels"></div>
+    <ul>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#budgets">Budgets</a></li>
+        <li><a href="#changes">Actions</a></li>
+        <li><a href="#next">What's Next</a></li>
+    </ul>
+    <div class="nav-right">
+        <span class="report-date">June 2026 &nbsp;·&nbsp; Meta Ads Monthly</span>
+        <button class="btn-pdf" onclick="window.print()">&#11015; Download PDF</button>
+    </div>
 </nav>
 
 <div class="notice-banner">
@@ -313,6 +355,243 @@
   </div>
 </section>
 
+<!-- BUDGET CHANGES -->
+<section id="budgets">
+  <div class="section-label">Budget History</div>
+  <div class="section-title">June Budget Changes</div>
+  <p class="section-desc">All daily budget changes made in June 2026, with approval and reason for each.</p>
+
+  <div class="table-card">
+    <div class="table-card-header">
+      <h3>Daily Budget by Campaign: June 2026</h3>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Campaign</th>
+          <th>W1: Jun 1–4</th>
+          <th>W2: Jun 5–11</th>
+          <th>W3: Jun 12–18</th>
+          <th>W4: Jun 19–25</th>
+          <th>End of Jun</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Compost</td>
+          <td>€15 → €30</td>
+          <td>€30</td>
+          <td>€30</td>
+          <td>€30 → €15</td>
+          <td><strong>€8</strong></td>
+        </tr>
+        <tr>
+          <td>Sand+Stones</td>
+          <td>€15 → €25</td>
+          <td>€25</td>
+          <td>€25</td>
+          <td>€25 → €20</td>
+          <td><strong>€20</strong></td>
+        </tr>
+        <tr>
+          <td>Firewood B2B</td>
+          <td>Paused → €5</td>
+          <td>€5</td>
+          <td>€5 → €20</td>
+          <td>€20 → €25</td>
+          <td><strong>€12</strong></td>
+        </tr>
+        <tr>
+          <td>BOF Retargeting</td>
+          <td>Paused → €20</td>
+          <td>€20</td>
+          <td>€20</td>
+          <td>€20</td>
+          <td><strong>€25</strong></td>
+        </tr>
+        <tr>
+          <td>Firewood B2C</td>
+          <td>Paused → €5</td>
+          <td>€5</td>
+          <td>€5 → Paused</td>
+          <td>Reactivated €15</td>
+          <td><strong>€15</strong></td>
+        </tr>
+        <tr>
+          <td>Gas Cylinders</td>
+          <td style="color:var(--text-muted);">—</td>
+          <td style="color:var(--text-muted);">—</td>
+          <td style="color:var(--text-muted);">—</td>
+          <td>Launched €30</td>
+          <td><strong>€30</strong></td>
+        </tr>
+        <tr>
+          <td>Heating Oil</td>
+          <td style="color:var(--text-muted);">—</td>
+          <td style="color:var(--text-muted);">—</td>
+          <td style="color:var(--text-muted);">—</td>
+          <td style="color:var(--text-muted);">—</td>
+          <td><strong>€30</strong></td>
+        </tr>
+        <tr style="font-weight:700; background: var(--gray);">
+          <td>Total</td>
+          <td>€110/day</td>
+          <td>€110/day</td>
+          <td>€95/day</td>
+          <td>€125/day</td>
+          <td>€140/day</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-card" style="margin-top: 24px;">
+    <div class="table-card-header">
+      <h3>Budget Change Log: Approvals and Reasons</h3>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Campaign</th>
+          <th>Change</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Approved By</th>
+          <th>Reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="campaign-name">Compost</div></td>
+          <td>Daily budget raised</td>
+          <td>€15/day</td>
+          <td>€30/day</td>
+          <td>Ciaran Kenny</td>
+          <td>June strategy approved by Ciaran. Compost Trees creative confirmed as the strongest performer (95.9x historical ROAS) — restored to full budget from takeover.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Sand+Stones</div></td>
+          <td>Daily budget raised</td>
+          <td>€15/day</td>
+          <td>€25/day</td>
+          <td>Ciaran Kenny</td>
+          <td>June strategy approved by Ciaran. Sand+Stones underinvested relative to historical ROAS. Budget raised to allow algorithm to scale.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Firewood B2C &amp; B2B</div></td>
+          <td>Reactivated at holding budget</td>
+          <td>Paused</td>
+          <td>€5/day each</td>
+          <td>Ciaran Kenny</td>
+          <td>Previous agency had paused both campaigns. Reactivated at minimal holding budgets to preserve algorithm learnings for September scale-up. Ciaran confirmed pauses were authorized (Svetlana, internal).</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">BOF Retargeting</div></td>
+          <td>Reactivated</td>
+          <td>Paused</td>
+          <td>€20/day</td>
+          <td>Ciaran Kenny</td>
+          <td>BOF Retargeting was not running at takeover despite strong historical ROAS. Reactivated as part of June strategy to convert warm audiences (site visitors and checkout abandoners).</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Firewood B2C</div></td>
+          <td>Paused</td>
+          <td>€5/day</td>
+          <td>Paused</td>
+          <td>Data / I</td>
+          <td>End of planting season, low summer demand for retail firewood. No purchases in the prior week. Holding budget removed until a reactivation trigger (sale or season change) emerged.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Firewood B2B</div></td>
+          <td>Budget raised</td>
+          <td>€5/day</td>
+          <td>€20/day</td>
+          <td>Data / I</td>
+          <td>B2B confirmed 10.3x ROAS on €79 spend in Jun 1–15 (€812 revenue). B2B demand is year-round from restaurants and commercial buyers. Scaled to €20/day to capture demand.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Firewood B2C</div></td>
+          <td>Reactivated</td>
+          <td>Paused</td>
+          <td>€15/day</td>
+          <td>Ciaran Kenny</td>
+          <td>Ciaran confirmed a summer overstock clearance sale running until ~Aug 1. B2C reactivated to drive clearance. Four creatives added over the period (Digger Bath, Firewood Pallet video, Mairead WhatsApp video).</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Firewood B2B</div></td>
+          <td>Budget raised</td>
+          <td>€20/day</td>
+          <td>€25/day</td>
+          <td>Data / I</td>
+          <td>Consistent ROAS and purchases at €20/day. Budget raised to give the algorithm more spend room during the summer period when B2B demand is stronger than B2C.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Compost</div></td>
+          <td>Budget reduced</td>
+          <td>€30/day</td>
+          <td>€15/day</td>
+          <td>Data / I</td>
+          <td>Zero purchases in 7 days — driven by creative fatigue on the sole Compost Trees ad. Budget reduced to €15/day while waiting for Dmitry's second creative. Reduced further to €8/day in the following week.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Sand+Stones</div></td>
+          <td>Budget reduced</td>
+          <td>€25/day</td>
+          <td>€20/day</td>
+          <td>Data / I</td>
+          <td>Sand+Stones showing seasonal softening (mid-summer, lower landscaping demand). Creative split resolved (Sand ad paused). Budget trimmed proportionally to match reduced expected volume.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Gas Cylinders</div></td>
+          <td>New campaign launched</td>
+          <td>—</td>
+          <td>€30/day (€15 B2C + €15 B2B)</td>
+          <td>Ciaran Kenny</td>
+          <td>New campaign approved by Ciaran on Jun 8 as part of the Gas Cylinders and Heating Oil campaign proposal. Launched Jun 25 using Mar 2025 creatives. Budget within the approved total account ceiling.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Heating Oil</div></td>
+          <td>New campaign launched</td>
+          <td>—</td>
+          <td>€30/day (€15 B2C + €15 B2B)</td>
+          <td>Ciaran Kenny</td>
+          <td>New campaign approved by Ciaran on Jun 8. Launched Jun 26 using existing creatives (Urgency and Proof ads, Mar 2025). Landing page order form confirmed live. Total account budget remains within the approved ceiling of ~€155/day.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Compost</div></td>
+          <td>Budget reduced</td>
+          <td>€15/day</td>
+          <td>€8/day</td>
+          <td>Data / I</td>
+          <td>Still waiting on second creative from Dmitry. Reduced to absolute minimum to keep the algorithm warm while the creative gap persists. Second creative reactivated Jun 29 (Quality Compost video).</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">Firewood B2B</div></td>
+          <td>Budget reduced</td>
+          <td>€25/day</td>
+          <td>€12/day</td>
+          <td>Data / I</td>
+          <td>Off-season summer scale-back. B2B firewood demand is lower Jun–Aug. Budget reduced to a mid-season holding level pending the September scale-up.</td>
+        </tr>
+        <tr>
+          <td><div class="campaign-name">BOF Retargeting</div></td>
+          <td>Budget raised</td>
+          <td>€20/day</td>
+          <td>€25/day</td>
+          <td>Data / I</td>
+          <td>BOF delivered 14.82x ROAS in the prior week (€2,085 revenue on €141 spend). Best performer in the account. Budget raised to capitalise on strong performance before frequency hits fatigue threshold.</td>
+        </tr>
+        <tr style="font-weight:700; background: var(--gray);">
+          <td colspan="3">Account total at end of June</td>
+          <td>€140/day</td>
+          <td></td>
+          <td>Within the approved account ceiling (~€155/day). Gas Cylinders and Heating Oil together add €60/day vs the pre-takeover ~€95/day.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <!-- ACTIONS -->
 <section id="changes">
   <div class="section-label">What Changed</div>
@@ -322,7 +601,7 @@
   <div class="phase-divider">Phase 1: Takeover, Audit, and Fixes</div>
   <div class="changes-list">
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-done">Resolved</span>
         <h4>Pixel Access, Advanced Matching, and Custom Events Confirmed</h4>
@@ -330,7 +609,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-done">Resolved</span>
         <h4>Unauthorized Campaign Pauses Identified and Resolved</h4>
@@ -338,7 +617,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>Budget Restructure and BOF Retargeting Reactivated</h4>
@@ -350,7 +629,7 @@
   <div class="phase-divider" style="margin-top:24px;">Phase 2: Pixel, Creative, and Structural Fixes</div>
   <div class="changes-list">
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-done">Resolved</span>
         <h4>Pixel Purchase Value Issue Fixed by Graphedia</h4>
@@ -358,7 +637,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>Sand+Stones Creative Split Resolved</h4>
@@ -366,7 +645,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>Firewood B2C Reactivated for Overstock Sale, B2B Scaled</h4>
@@ -378,7 +657,7 @@
   <div class="phase-divider" style="margin-top:24px;">Phase 3: New Campaign Launches and Frequency Control</div>
   <div class="changes-list">
     <div class="change-item">
-      <div class="change-icon">🚀</div>
+      <div class="change-icon icon-new">&#9679;</div>
       <div class="change-content">
         <span class="change-tag tag-launch">New Campaign</span>
         <h4>Gas Cylinders Campaign Launched</h4>
@@ -386,7 +665,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">🚀</div>
+      <div class="change-icon icon-new">&#9679;</div>
       <div class="change-content">
         <span class="change-tag tag-launch">New Campaign</span>
         <h4>Heating Oil Campaign Launched</h4>
@@ -394,7 +673,7 @@
       </div>
     </div>
     <div class="change-item">
-      <div class="change-icon">✅</div>
+      <div class="change-icon icon-done">&#10003;</div>
       <div class="change-content">
         <span class="change-tag tag-optimisation">Optimisation</span>
         <h4>BOF Audience Expanded to 90 Days, Compost Second Creative Resolved</h4>
