@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenny Fuels - Meta Ads: June 2026 Monthly Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #243B98;
+    --meta: #1877F2;
+    --meta-dark: #0d5dbf;
+    --red: #E6211E;
+    --green: #2e7d32;
+    --green-light: #e8f5e9;
+    --amber: #e65100;
+    --amber-light: #fff8e1;
+    --blue-light: #e3f2fd;
+    --border: #e0e0e0;
+    --bg: #f9f9f9;
+    --white: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #777;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: var(--white); color: var(--text); font-size: 15px; line-height: 1.6; }
+  .topnav { background: var(--meta); padding: 0 40px; display: flex; align-items: center; gap: 32px; height: 56px; position: sticky; top: 0; z-index: 100; }
+  .topnav-brand { font-weight: 900; font-size: 15px; color: var(--white); text-decoration: none; letter-spacing: 0.5px; }
+  .topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; }
+  .topnav a:hover { color: var(--white); }
+  .topnav-right { margin-left: auto; display: flex; gap: 16px; align-items: center; }
+  .report-type-badge { background: rgba(0,0,0,0.2); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 0.5px; }
+  .notice-banner { background: var(--blue-light); border-bottom: 2px solid var(--meta); padding: 12px 40px; font-size: 13px; color: #0d47a1; }
+  .notice-banner strong { color: var(--meta-dark); }
+  .hero { padding: 80px 40px 60px; border-bottom: 1px solid var(--border); max-width: 1100px; margin: 0 auto; }
+  .period-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--bg); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 24px; }
+  .period-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--meta); }
+  .hero h1 { font-weight: 900; font-size: 72px; line-height: 1; letter-spacing: 1px; margin-bottom: 8px; }
+  .hero h1 span { color: var(--meta); display: block; }
+  .hero p { font-size: 16px; color: var(--text-muted); max-width: 620px; margin-top: 20px; line-height: 1.6; }
+  .hero-meta { margin-top: 32px; display: flex; gap: 40px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 24px; }
+  .hero-meta-item { font-size: 12px; color: var(--text-muted); }
+  .hero-meta-item strong { font-size: 14px; color: var(--text); display: block; margin-bottom: 2px; font-weight: 700; }
+  section { padding: 60px 40px; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--meta); margin-bottom: 12px; }
+  .section-title { font-weight: 900; font-size: 42px; letter-spacing: 1px; margin-bottom: 8px; }
+  .section-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; line-height: 1.6; max-width: 720px; }
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .summary-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; }
+  .summary-card.highlight { border-left: 4px solid var(--meta); }
+  .summary-card .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; }
+  .summary-card .value { font-size: 32px; font-weight: 900; color: var(--text); line-height: 1; }
+  .summary-card .compare { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+  .context-box { background: var(--bg); border-left: 4px solid var(--meta); padding: 20px 24px; margin-bottom: 24px; font-size: 14px; color: var(--text); line-height: 1.7; }
+  .context-box strong { display: block; margin-bottom: 6px; font-size: 15px; font-weight: 700; color: var(--meta-dark); }
+  .table-card { background: var(--white); border: 1px solid var(--border); overflow: hidden; margin-bottom: 24px; }
+  .table-card-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg); }
+  .table-card-header h3 { font-size: 15px; font-weight: 700; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--bg); padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+  td { padding: 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafafa; }
+  .campaign-name { font-weight: 700; font-size: 13px; }
+  .adgroup-label { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+  .campaign-note-row td { background: #fafafa; padding: 8px 14px 16px; font-size: 12px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+  .up { color: var(--green); font-weight: 700; }
+  .status-active { background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
+  .status-new { background: var(--blue-light); color: var(--meta); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
+  .status-monitoring { background: var(--amber-light); color: var(--amber); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
+  .phase-divider { background: var(--bg); border: 1px solid var(--border); padding: 10px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 24px 0 0; }
+  .changes-list { display: flex; flex-direction: column; border: 1px solid var(--border); border-top: none; }
+  .change-item { background: var(--white); border-bottom: 1px solid var(--border); padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .change-item:last-child { border-bottom: none; }
+  .change-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .change-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .change-content p { font-size: 13px; color: var(--text-muted); margin-top: 4px; line-height: 1.6; }
+  .change-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; }
+  .tag-high { background: var(--amber-light); color: var(--amber); }
+  .tag-optimisation { background: var(--blue-light); color: var(--meta); }
+  .tag-done { background: var(--green-light); color: var(--green); }
+  .tag-launch { background: #f3e5f5; color: #7b1fa2; }
+  .next-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .next-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 20px; }
+  .next-card h4 { font-size: 14px; font-weight: 700; margin: 8px 0 6px; }
+  .next-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .priority-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; }
+  .priority-high { background: #ffebee; color: var(--red); }
+  .priority-medium { background: var(--amber-light); color: var(--amber); }
+  .priority-launch { background: var(--blue-light); color: var(--meta); }
+  footer { background: var(--meta); padding: 32px 40px; text-align: center; color: rgba(255,255,255,0.6); font-size: 12px; }
+  footer p + p { margin-top: 6px; }
+  @media (max-width: 768px) {
+    .hero { padding: 40px 20px; }
+    .hero h1 { font-size: 48px; }
+    section { padding: 40px 20px; }
+    .topnav { padding: 0 20px; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div style="display:flex; align-items:center; gap:32px; flex:1;">
+    <a class="topnav-brand" href="index.html">KENNY FUELS</a>
+    <a href="meta-ads-audit-jun-2026.html">Audit</a>
+    <a href="meta-ads-monthly-jun-2026.html" style="color:white; font-weight:700;">June Monthly</a>
+  </div>
+  <div class="topnav-right">
+    <span class="report-type-badge">META ADS · MONTHLY</span>
+  </div>
+</nav>
+
+<div class="notice-banner">
+  <strong>First full month under Outposter management (takeover Jun 1).</strong> May figures quoted for context reflect the previous setup. June is off-season for firewood and heating products — seasonal demand is the primary factor in lower ROAS versus historical. Two new campaigns (Gas Cylinders, Heating Oil) launched in the final week with limited data.
+</div>
+
+<div class="hero">
+  <div class="period-badge">June 2026 &nbsp;·&nbsp; Meta Ads Monthly Report</div>
+  <h1>Kenny Fuels<span>Meta Ads: June 2026</span></h1>
+  <p>June is our first full month managing Meta Ads. Two new product campaigns launched (Gas Cylinders Jun 25, Heating Oil Jun 26), the pixel and conversion tracking were rebuilt, and the account structure was reset for the September heating season push. 75 purchases, €20,793 tracked revenue, 7.0x ROAS across 7 campaigns.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><strong>Jun 1 – Jun 30, 2026</strong>30 days &nbsp;·&nbsp; First full month</div>
+    <div class="hero-meta-item"><strong>7 campaigns</strong>Firewood B2C, B2B, Compost, Sand+Stones, BOF Retargeting, Gas Cylinders, Heating Oil</div>
+    <div class="hero-meta-item"><strong>€2,962 spend</strong>75 purchases &nbsp;·&nbsp; €20,793 tracked revenue</div>
+    <div class="hero-meta-item"><strong>7.0x ROAS</strong>Off-season &nbsp;·&nbsp; New campaigns in learning</div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<section id="summary">
+  <div class="section-label">Month at a Glance</div>
+  <div class="section-title">June Summary</div>
+  <p class="section-desc">7 campaigns. June 1–30. Gas Cylinders and Heating Oil data covers only 5–6 days (launched late June).</p>
+
+  <div class="context-box">
+    <strong>First month context: off-season + two new campaigns in learning</strong>
+    The previous agency's May Meta numbers (49x ROAS, 335 purchases, €91,304 revenue) reflected the tail of the winter heating season — a naturally high-demand period for firewood and heating products. June is mid-summer: firewood retail slows significantly, Gas Cylinders is new with no history, and Heating Oil launched with 0 purchases due to a landing page speed issue (Graphedia fix outstanding). June's 7.0x ROAS reflects these structural realities, not a campaign performance problem. The off-season ROAS benchmark from the previous setup (Q1–Q2 2026 average) was in the 79x range — June shows the seasonal floor under a deliberately restructured account.
+  </div>
+
+  <div class="context-box">
+    <strong>Pipeline is stronger than purchases suggest</strong>
+    Checkout initiations across all campaigns reached 115 in June, representing approximately €38,246 in pipeline value. The Heating Oil campaign alone generated 16 checkout initiations (estimated €9,235 value) with 4 completed purchases. The primary cause of lost checkouts is landing page load speed: TTFB 2.7s on mobile (target under 0.8s), LCP 4.1s (target under 2.5s). Graphedia has been briefed — once fixed, Heating Oil conversion rate should improve materially.
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-card highlight">
+      <div class="label">Total Spend</div>
+      <div class="value">€2,962</div>
+      <div class="compare">vs €1,852 May &nbsp;<span style="color:var(--text-muted); font-weight:700;">+60% (Gas Cylinders + Heating Oil added)</span></div>
+    </div>
+    <div class="summary-card highlight">
+      <div class="label">Purchases</div>
+      <div class="value">75</div>
+      <div class="compare">Off-season &nbsp;·&nbsp; 115 checkout initiations in pipeline</div>
+    </div>
+    <div class="summary-card highlight">
+      <div class="label">Tracked Revenue</div>
+      <div class="value">€20,793</div>
+      <div class="compare">7.0x ROAS &nbsp;·&nbsp; Pixel-attributed</div>
+    </div>
+    <div class="summary-card highlight">
+      <div class="label">Top Performer</div>
+      <div class="value" style="font-size:20px; margin-top:8px;">Compost</div>
+      <div class="compare">22 purchases &nbsp;·&nbsp; €6,200 revenue &nbsp;·&nbsp; 9.0x ROAS</div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-card-header">
+      <h3>All Active Campaigns: June 2026</h3>
+      <span style="font-size:12px; color: var(--text-muted);">Jun 1–30, 2026</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Campaign</th>
+          <th>Status</th>
+          <th>Spend</th>
+          <th>Reach</th>
+          <th>Purchases</th>
+          <th>Revenue</th>
+          <th>ROAS</th>
+          <th>CPA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="campaign-name">[DV] Tofu | Compost</div>
+            <div class="adgroup-label">€30/day → €15/day Jun 23 &nbsp;·&nbsp; Compost Trees + Quality Compost video</div>
+          </td>
+          <td><span class="status-active">ACTIVE</span></td>
+          <td>€687</td>
+          <td>73,502</td>
+          <td>22</td>
+          <td>€6,200</td>
+          <td class="up">9.0x</td>
+          <td>€31.21</td>
+        </tr>
+        <tr class="campaign-note-row">
+          <td colspan="8">Best ROAS of the month. Compost Trees creative restored to full budget Jun 5 (had been starved of budget vs a lower-performing ad). Budget reduced €30 to €15/day Jun 23 following 7 days of 0 purchases — recovered quickly with 5 purchases in Jun 18–24. Second creative reactivated Jun 29 (Quality Compost video, previously ran at 49.6x ROAS). Geography corrected Jun 9: removed Kildare, Kilkenny, Tipperary.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="campaign-name">[DV] Tofu | Sand+Stones</div>
+            <div class="adgroup-label">€25/day → €20/day Jun 23 &nbsp;·&nbsp; Ad 2 Stones only (Ad 1 paused Jun 18)</div>
+          </td>
+          <td><span class="status-active">ACTIVE</span></td>
+          <td>€686</td>
+          <td>75,784</td>
+          <td>17</td>
+          <td>€4,938</td>
+          <td>7.2x</td>
+          <td>€40.35</td>
+        </tr>
+        <tr class="campaign-note-row">
+          <td colspan="8">Creative split resolved Jun 18 (2-week review): Ad 2 Stones — 8 purchases, €2,217 revenue, 7.1x ROAS. Ad 1 Sand tonne bags — 0 purchases on 9% of budget. Ad 1 paused, Ad 2 now gets full budget. Budget reduced €25 to €20/day Jun 23. Geography corrected Jun 9.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="campaign-name">BOF Retargeting</div>
+            <div class="adgroup-label">€20/day → €25/day Jun 26 &nbsp;·&nbsp; Audience expanded to 90 days Jun 29</div>
+          </td>
+          <td><span class="status-active">ACTIVE</span></td>
+          <td>€543</td>
+          <td>23,191</td>
+          <td>12</td>
+          <td>€4,013</td>
+          <td>7.4x</td>
+          <td>€45.25</td>
+        </tr>
+        <tr class="campaign-note-row">
+          <td colspan="8">Reactivated Jun 5 — was not running at time of takeover. Targeting site visitors and checkout abandoners. Frequency hit 5.02 (Jun 22–29) — above the 5.0 threshold. Audience expanded from 60 to 90 days on Jun 29. Monitor frequency over next 7 days: expect normalisation as the broader audience dilutes reach.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="campaign-name">[DV] Tofu | Firewood B2B</div>
+            <div class="adgroup-label">€5/day → €20/day (Jun 17) → €25/day (Jun 23)</div>
+          </td>
+          <td><span class="status-active">ACTIVE</span></td>
+          <td>€344</td>
+          <td>40,525</td>
+          <td>8</td>
+          <td>€1,833</td>
+          <td>5.3x</td>
+          <td>€43.03</td>
+        </tr>
+        <tr class="campaign-note-row">
+          <td colspan="8">B2B demand is more year-round than retail — restaurants, pubs, and commercial kitchens ordering firewood throughout summer. Held at €5/day Jun 1–16 (holding budget). Scaled to €20/day Jun 17 after confirming 10.3x ROAS at low budget (€812 revenue on €79 spend, Jun 1–15). Scaled to €25/day Jun 23. Best summer channel for firewood revenue.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="campaign-name">[DV] Tofu | Firewood B2C</div>
+            <div class="adgroup-label">€5/day → paused Jun 17 → reactivated Jun 19 at €15/day (overstock sale)</div>
+          </td>
+          <td><span class="status-active">ACTIVE</span></td>
+          <td>€266</td>
+          <td>39,298</td>
+          <td>6</td>
+          <td>€944</td>
+          <td>3.5x</td>
+          <td>€44.34</td>
+        </tr>
+        <tr class="campaign-note-row">
+          <td colspan="8">Off-season retail firewood — lower ROAS in summer is expected. Reactivated Jun 19 for the overstock sale (Ciaran confirmed sale runs until ~Aug 1). Digger Bath creative retained. Three additional creatives added: Firewood Pallet video (Jun 23) and Mairead WhatsApp video (Jun 26). 4 ads now live in B2C.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="campaign-name">KF Meta – Gas Cylinders</div>
+            <div class="adgroup-label">€30/day &nbsp;·&nbsp; Launched Jun 25 &nbsp;·&nbsp; B2C 5 counties + B2B Wex/Wick/Car/Dub</div>
+          </td>
+          <td><span class="status-new">NEW – Jun 25</span></td>
+          <td>€243</td>
+          <td>52,233</td>
+          <td>6</td>
+          <td>€1,201</td>
+          <td>4.9x</td>
+          <td>€40.48</td>
+        </tr>
+        <tr class="campaign-note-row">
+          <td colspan="8">Launched Jun 25 using Mar 2025 creatives (Superser and Canisters images). 4 ads: 2 B2C (5 counties, 25–65+) + 2 B2B (Wexford, Wicklow, Carlow, Dublin — corrected Jun 26 from All Ireland). B2C performing well (8.1x ROAS in first days). B2B: 0 purchases vs 11 ATCs — business buyers prefer calling. B2B copy updated Jun 29 to include phone number CTA. Only 5 days of data — first proper review Jul 9.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="campaign-name">KF Meta – Heating Oil</div>
+            <div class="adgroup-label">€30/day &nbsp;·&nbsp; Launched Jun 26 &nbsp;·&nbsp; KENNY10 promo &nbsp;·&nbsp; Page speed issue</div>
+          </td>
+          <td><span class="status-monitoring">MONITORING</span></td>
+          <td>€193</td>
+          <td>33,763</td>
+          <td>4</td>
+          <td>€1,664</td>
+          <td>8.6x</td>
+          <td>€48.36</td>
+        </tr>
+        <tr class="campaign-note-row">
+          <td colspan="8">Launched Jun 26. KENNY10 promo code confirmed active in WooCommerce Jun 29. 16 checkout initiations (estimated €9,235 pipeline value) but low completed purchases due to landing page speed: TTFB 2.7s mobile (target under 0.8s), LCP 4.1s (target under 2.5s). 60% of link clicks are bouncing before the page loads. Graphedia (Niall) briefed Jun 29. B2B geography corrected Jun 29 from All Ireland to Wexford, Carlow, Wicklow. Only 4 days of data.</td>
+        </tr>
+        <tr style="font-weight:700; background: var(--bg);">
+          <td>Total (7 campaigns)</td>
+          <td></td>
+          <td>€2,962</td>
+          <td>200,902 reach</td>
+          <td>75</td>
+          <td>€20,793</td>
+          <td>7.0x</td>
+          <td>€39.49 avg</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="padding: 12px 20px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border);">ROAS = Tracked Revenue / Spend. Revenue tracked by Meta pixel (act_320710110338354). Gas Cylinders data covers Jun 25–30 (5 days). Heating Oil data covers Jun 26–30 (4 days).</p>
+  </div>
+</section>
+
+<!-- ACTIONS -->
+<section id="changes">
+  <div class="section-label">What Changed</div>
+  <div class="section-title">June Actions</div>
+  <p class="section-desc">All Meta Ads actions from account takeover through end of June 2026.</p>
+
+  <div class="phase-divider">Phase 1: Jun 1–9. Takeover, Audit, and Fixes</div>
+  <div class="changes-list">
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-done">Resolved</span>
+        <h4>Pixel Access, Advanced Matching, and Custom Events Confirmed: Jun 1–4</h4>
+        <p>Pixel 614735617253875 confirmed accessible via Kenny Fuels Ferns business portfolio. Advanced matching enabled with all 8 parameters: email, phone, name, gender, location, country, DOB, external ID. Graphedia fixed the fbq('init') code Jun 5. 11 custom events confirmed in Events Manager by Ciaran Jun 4.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-done">Resolved</span>
+        <h4>Unauthorized Campaign Pauses Identified and Resolved: Jun 4–5</h4>
+        <p>Firewood B2C and B2B were paused on Jun 2 at 18:33 by Svetlana Vasilkova via Power Editor. Investigated and confirmed: Svetlana is an internal Kenny Fuels team member, authorized by Ciaran to pause Firewood for off-season. Campaigns reactivated at reduced holding budgets (€5/day each) to preserve algorithm learnings for September scale-up.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-optimisation">Optimisation</span>
+        <h4>Budget Restructure and BOF Retargeting Reactivated: Jun 5</h4>
+        <p>Budgets rebuilt per June strategy (Ciaran-approved Jun 3): Compost raised €15 to €30/day, Sand+Stones raised €15 to €25/day, Firewood B2C and B2B held at €5/day. BOF Retargeting reactivated at €20/day. Compost creative split fixed: Compost Trees (95.9x historical ROAS) now receives full budget instead of the inferior ad. Geography corrected Jun 9: removed Kildare, Kilkenny, Tipperary from all campaigns (outside service area).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-divider" style="margin-top:24px;">Phase 2: Jun 10–22. Pixel, Creative, and Structural Fixes</div>
+  <div class="changes-list">
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-done">Resolved</span>
+        <h4>Pixel Purchase Value Issue Fixed by Graphedia: Jun 12</h4>
+        <p>Events Manager diagnostics showed 23% of Purchase events missing the value field entirely. Graphedia (Niall) rewrote the pixel code Jun 12, removing conflicting custom tracking from the thank-you page and relying solely on Meta's automatic pixel events. All 8 purchases recorded Jun 12–18 included full revenue values (€1,693.64 total). Issue confirmed resolved.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-optimisation">Optimisation</span>
+        <h4>Sand+Stones Creative Split Resolved: Jun 18</h4>
+        <p>2-week review (Jun 5–18): Ad 2 Stones — 8 purchases, €2,217, 7.1x ROAS. Ad 1 Sand tonne bags — 0 purchases on €30 spend (9% of budget). Ad 1 paused, Ad 2 gets full €25/day. Sand tonne bags creative to be tested again with new imagery when available.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-optimisation">Optimisation</span>
+        <h4>Firewood B2C Reactivated for Overstock Sale, B2B Scaled: Jun 17–23</h4>
+        <p>Ciaran confirmed Jun 18 the firewood overstock sale runs until ~Aug 1. Firewood B2C reactivated Jun 19 at €15/day. Three new creatives added: Firewood Pallet video (Jun 23) and Mairead WhatsApp video (Jun 26). B2B scaled from €5 to €20/day on Jun 17 after confirming 10.3x ROAS at low budget. Scaled to €25/day Jun 23.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-divider" style="margin-top:24px;">Phase 3: Jun 23–30. New Campaign Launches and Frequency Control</div>
+  <div class="changes-list">
+    <div class="change-item">
+      <div class="change-icon">🚀</div>
+      <div class="change-content">
+        <span class="change-tag tag-launch">New Campaign</span>
+        <h4>Gas Cylinders Campaign Launched: Jun 25</h4>
+        <p>B2C adset: 5 counties (Wexford, Wicklow, Carlow, Dublin, Waterford), 25–65+, €15/day. B2B adset: Wexford, Wicklow, Carlow, Dublin, 30–65+, €15/day (corrected from All Ireland Jun 26). 4 ads using Mar 2025 creatives (Superser and Canisters images). B2B phone CTA copy added Jun 29 to address 0-purchase B2B despite 11 ATCs.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">🚀</div>
+      <div class="change-content">
+        <span class="change-tag tag-launch">New Campaign</span>
+        <h4>Heating Oil Campaign Launched: Jun 26</h4>
+        <p>B2C: 5 counties, 25–65+, €15/day. B2B: Wexford, Carlow, Wicklow, 30–65+, €15/day (corrected from All Ireland Jun 29). KENNY10 promo code confirmed active in WooCommerce. Root cause of low purchases identified: landing page speed (TTFB 2.7s mobile, LCP 4.1s). Graphedia (Niall) briefed Jun 29 with full speed data.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon">✅</div>
+      <div class="change-content">
+        <span class="change-tag tag-optimisation">Optimisation</span>
+        <h4>BOF Audience Expanded to 90 Days, Compost Second Creative Resolved: Jun 29</h4>
+        <p>BOF frequency hit 5.02 (Jun 22–29) — above the 5.0 creative fatigue threshold. Audience expanded from 60 to 90 days (Web Visits Last 90 Days) to dilute frequency. Compost second creative reactivated Jun 29: "Ad 1 Compost 04.26" (Quality Compost video, historically 49.6x ROAS) — now two strong creatives running in Compost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOING INTO JULY -->
+<section id="next">
+  <div class="section-label">Looking Ahead</div>
+  <div class="section-title">Going into July</div>
+  <p class="section-desc">July priorities: fix the Heating Oil funnel, review Gas Cylinders at 2 weeks, and begin September season prep.</p>
+
+  <div class="next-grid">
+    <div class="next-card">
+      <span class="priority-tag priority-high">Urgent</span>
+      <h4>Heating Oil: Page Speed Fix</h4>
+      <p>The single biggest blocker. 16 checkout initiations (estimated €9,235 pipeline value) with only 4 completed purchases. Graphedia briefed Jun 29 on TTFB and LCP failures. Chase Niall if no response by Jul 4. Once fixed, conversion rate should recover materially.</p>
+    </div>
+    <div class="next-card">
+      <span class="priority-tag priority-high">Jul 9</span>
+      <h4>Gas Cylinders First 2-Week Review</h4>
+      <p>Launched Jun 25. Review Jul 9: B2C performing well (8.1x early ROAS — monitor if sustained). B2B: check if phone CTA addition drives calls or purchases. If B2B still 0 purchases by Jul 9, consider consolidating into B2C adset.</p>
+    </div>
+    <div class="next-card">
+      <span class="priority-tag priority-medium">Jul 9</span>
+      <h4>BOF Frequency Check</h4>
+      <p>Audience expanded to 90 days Jun 29. Check Jul 6–9: frequency should normalise below 4.0 with the broader audience. If still above 5.0, consider additional creative refresh or further audience expansion.</p>
+    </div>
+    <div class="next-card">
+      <span class="priority-tag priority-medium">Ongoing</span>
+      <h4>Compost: Second Creative Performance</h4>
+      <p>Quality Compost video reactivated Jun 29. Check 2-week performance vs Compost Trees. Historical ROAS was 49.6x — monitor if it performs at that level in the current off-season context.</p>
+    </div>
+    <div class="next-card">
+      <span class="priority-tag priority-medium">July</span>
+      <h4>Firewood B2C: Overstock Sale Monitoring</h4>
+      <p>Sale runs until ~Aug 1 per Ciaran. Monitor B2C spend and ROAS weekly. When sale ends, reduce budget back to holding (€5/day) and plan scale-up for September with new winter creatives.</p>
+    </div>
+    <div class="next-card">
+      <span class="priority-tag priority-launch">August</span>
+      <h4>September Heating Season Prep</h4>
+      <p>August 1 is the planning deadline. Actions: Firewood B2C scale plan (€40–50/day, new creatives). Heating Oil landing page pricing live. CAPI install (deprioritised from June). Lookalike audiences from purchaser list. BOF creative refresh if frequency remains elevated.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Kenny Fuels &nbsp;·&nbsp; Meta Ads Monthly Report &nbsp;·&nbsp; June 2026 &nbsp;·&nbsp; Prepared by Outposter</p>
+  <p>Ad Account: act_320710110338354 &nbsp;·&nbsp; Pixel: 614735617253875 &nbsp;·&nbsp; June is the first full month under Outposter management (takeover Jun 1).</p>
+</footer>
+
+</body>
+</html>
