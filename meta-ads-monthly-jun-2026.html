@@ -144,6 +144,8 @@
     <ul>
         <li><a href="#summary">Summary</a></li>
         <li><a href="#budgets">Budgets</a></li>
+        <li><a href="#attribution">Site &amp; Attribution</a></li>
+        <li><a href="#profitability">Profitability</a></li>
         <li><a href="#changes">Actions</a></li>
         <li><a href="#next">What's Next</a></li>
     </ul>
@@ -589,6 +591,91 @@
         </tr>
       </tbody>
     </table>
+  </div>
+</section>
+
+<!-- SITE SALES & ATTRIBUTION -->
+<section id="attribution">
+  <div class="section-label">The Full Picture</div>
+  <div class="section-title">Site Sales &amp; Attribution</div>
+  <p class="section-desc">Total site performance in June, and how it compares to what Meta Ads reports as attributed to its campaigns.</p>
+
+  <div class="context-box">
+    <strong>New vs returning customers</strong>
+    Of 360 total orders placed on the site in June, 135 were from new customers and 225 were from returning customers. Returning customers made up 62.5% of orders, in line with a fuel and hardware business with regular repeat buyers.
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-card highlight">
+      <div class="label">Total Site Orders</div>
+      <div class="value">360</div>
+      <div class="compare">All sources &nbsp;·&nbsp; June 1&ndash;30</div>
+    </div>
+    <div class="summary-card highlight">
+      <div class="label">Total Site Revenue</div>
+      <div class="value">€120,687</div>
+      <div class="compare">All sources, all channels</div>
+    </div>
+    <div class="summary-card highlight">
+      <div class="label">New Customers</div>
+      <div class="value">135</div>
+      <div class="compare">37.5% of June orders</div>
+    </div>
+    <div class="summary-card highlight">
+      <div class="label">Returning Customers</div>
+      <div class="value">225</div>
+      <div class="compare">62.5% of June orders</div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-card-header">
+      <h3>Meta-Attributed Sales: Two Ways of Counting</h3>
+      <p>Meta Ads reports what it thinks it drove. The site's own order data (WooCommerce) reports what it actually credits to a Meta/paid social source. The two numbers currently disagree by a wide margin.</p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Purchases</th>
+          <th>Revenue</th>
+          <th>% of Total Site Revenue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="campaign-name">Meta Ads (self-reported)</td>
+          <td>75</td>
+          <td>€20,793</td>
+          <td>17.2%</td>
+        </tr>
+        <tr>
+          <td class="campaign-name">WooCommerce's own attribution</td>
+          <td>4</td>
+          <td>€807</td>
+          <td>0.7%</td>
+        </tr>
+        <tr style="font-weight:700; background: var(--gray);">
+          <td>Gap</td>
+          <td>~19x</td>
+          <td>~26x</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="padding: 12px 20px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border);">WooCommerce attribution based on order-level Attribution field (source/referrer at last touch). This is the same gap flagged separately as a Meta Pixel attribution investigation, currently in progress with Graphedia: consent-gated pixel cookies likely mean purchases from visitors who decline marketing cookies fire into Meta's dataset but can't be linked back to the ad that drove them. Work is underway to confirm Conversions API (CAPI) status and recover attribution for these visits. Until resolved, treat Meta's self-reported purchase numbers as directional, not exact.</p>
+  </div>
+</section>
+
+<!-- PROFITABILITY -->
+<section id="profitability">
+  <div class="section-label">Beyond ROAS</div>
+  <div class="section-title">Profitability</div>
+  <p class="section-desc">Per your request to judge spend on profit rather than revenue or ROAS alone.</p>
+
+  <div class="context-box">
+    <strong>Gross profit by campaign: pending margin data</strong>
+    Cost per purchase (CPA) is already shown for every campaign in the June Summary table above, ranging from €31.21 (Compost, best) to €48.36 (Heating Oil). To go further and show actual gross profit per campaign, I need approximate margin percentages by product category (heating oil, gas cylinders, hardware, solar, firewood, compost, sand and stones). I've sent this ask separately. Once I have those figures, this section will show real profit per campaign and spend recommendations will be based on profit rather than ROAS, as requested.
   </div>
 </section>
 
