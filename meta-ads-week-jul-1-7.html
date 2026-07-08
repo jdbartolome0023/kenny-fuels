@@ -22,29 +22,26 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body { font-family: var(--font-display); background: var(--paper); color: var(--ink); font-size: 15px; }
 
-        nav {
-            position: sticky; top: 0; z-index: 100;
-            background: var(--black);
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 40px; height: 56px;
-        }
+        nav { position: sticky; top: 0; z-index: 100; background: var(--black); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 56px; }
         nav .logo img { height: 34px; width: auto; display: block; }
-        nav ul { display: flex; gap: 28px; list-style: none; }
-        nav ul a { color: rgba(255,255,255,0.68); text-decoration: none; font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.3px; transition: color 0.15s; }
+        nav ul { display: flex; gap: 24px; list-style: none; }
+        nav ul a { color: rgba(255,255,255,0.68); text-decoration: none; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.3px; transition: color 0.15s; }
         nav ul a:hover { color: #fff; }
+        nav ul a.method-link { color: #ffd166; }
         .nav-right { display: flex; align-items: center; gap: 16px; }
         .report-date { color: rgba(255,255,255,0.5); font-family: var(--font-mono); font-size: 11px; }
         .btn-pdf { background: var(--red); color: white; border: none; padding: 7px 14px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; cursor: pointer; border-radius: 4px; letter-spacing: 0.3px; }
 
         .hero { padding: 56px 40px 44px; border-bottom: 1px solid var(--line); max-width: 1080px; margin: 0 auto; }
-        .period-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); background: var(--paper-alt); padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 500; color: var(--muted); margin-bottom: 20px; letter-spacing: 0.3px; }
+        .period-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); background: var(--paper-alt); padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 500; color: var(--muted); margin-bottom: 12px; letter-spacing: 0.3px; }
         .period-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+        .method-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); background: #fdf2e2; padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; color: var(--amber); margin-bottom: 20px; margin-left: 8px; letter-spacing: 0.3px; }
         .hero h1 { font-family: var(--font-display); font-weight: 900; font-size: 52px; line-height: 1.02; letter-spacing: 0.2px; margin-bottom: 6px; }
         .hero h1 span { color: var(--red); display: block; font-size: 26px; font-weight: 700; margin-top: 4px; }
-        .hero p { font-size: 15px; color: var(--muted); max-width: 560px; margin-top: 16px; line-height: 1.6; }
+        .hero p { font-size: 15px; color: var(--muted); max-width: 600px; margin-top: 16px; line-height: 1.6; }
+        .hero p a { color: var(--black); }
 
         section { max-width: 1080px; margin: 0 auto; padding: 44px 40px; border-bottom: 1px solid var(--line); }
         section.alt { background: var(--paper-alt); }
@@ -52,6 +49,7 @@
         .eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
         .section-title { font-family: var(--font-display); font-weight: 900; font-size: 30px; letter-spacing: 0.2px; margin-bottom: 6px; text-wrap: balance; }
         .section-desc { color: var(--muted); font-size: 13.5px; margin-bottom: 20px; line-height: 1.55; max-width: 640px; }
+        .section-desc a { color: var(--black); }
 
         .notes-list { list-style: none; display: flex; flex-direction: column; gap: 14px; max-width: 720px; }
         .notes-list li { display: flex; gap: 12px; align-items: baseline; }
@@ -59,35 +57,42 @@
         .notes-list .txt { font-size: 14px; line-height: 1.65; color: var(--ink); }
         .notes-list .txt b { font-weight: 700; }
 
-        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 32px; }
+        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
         .metric-card { background: var(--paper); padding: 20px 20px; }
         .metric-label { font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
         .metric-value { font-family: var(--font-display); font-weight: 900; font-size: 34px; letter-spacing: 0.2px; line-height: 1; margin-bottom: 10px; font-variant-numeric: tabular-nums; }
         .metric-value.small { font-size: 26px; }
         .metric-comparisons { display: flex; flex-direction: column; gap: 4px; font-family: var(--font-mono); font-size: 11px; }
         .comp-label { color: var(--muted); }
-        .metric-note { font-family: var(--font-display); font-size: 11px; color: var(--muted); line-height: 1.4; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); }
         .up { color: var(--green); font-weight: 600; }
         .down { color: var(--red); font-weight: 600; }
         .neutral { color: var(--muted); font-weight: 600; }
 
-        /* Gap comparison visual */
-        .gap-compare { display: flex; align-items: center; gap: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: var(--paper); }
-        .gap-side { flex: 1; padding: 24px 28px; }
+        /* Range bar (floor/ceiling) */
+        .range-bar { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); padding: 22px 26px; margin-bottom: 12px; gap: 22px; }
+        .range-end { text-align: center; flex-shrink: 0; min-width: 96px; }
+        .range-end .lbl { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+        .range-end .val { font-family: var(--font-display); font-weight: 900; font-size: 24px; }
+        .range-end.floor .val { color: var(--red); }
+        .range-end.ceiling .val { color: var(--green); }
+        .range-track { flex: 1; height: 6px; background: linear-gradient(90deg, var(--red), var(--amber), var(--green)); border-radius: 3px; position: relative; }
+        .range-track .qmark { position: absolute; top: -26px; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 9.5px; color: var(--muted); text-align: center; white-space: nowrap; }
+
+        .source-tag { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.3px; color: var(--muted); margin-bottom: 16px; }
+
+        /* Purchase count comparison */
+        .gap-compare { display: flex; align-items: center; gap: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: var(--paper); }
+        .gap-side { flex: 1; padding: 22px 26px; }
         .gap-side.meta { border-right: 1px solid var(--line); }
         .gap-eyebrow { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.6px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
         .gap-num-row { display: flex; align-items: baseline; gap: 8px; }
-        .gap-num { font-family: var(--font-display); font-weight: 900; font-size: 42px; line-height: 1; font-variant-numeric: tabular-nums; }
+        .gap-num { font-family: var(--font-display); font-weight: 900; font-size: 38px; line-height: 1; font-variant-numeric: tabular-nums; }
         .gap-num.meta-val { color: var(--red); }
         .gap-num.woo-val { color: var(--green); }
-        .gap-num-caption { font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); }
-        .gap-sub { font-family: var(--font-mono); font-size: 15px; font-weight: 600; color: var(--ink); margin-top: 10px; font-variant-numeric: tabular-nums; }
-        .gap-sub .cap { display: block; font-size: 10px; font-weight: 400; letter-spacing: 0.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
-        .gap-pct { font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); }
-        .source-tag { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.3px; color: var(--muted); margin-bottom: 10px; }
-        .gap-mid { background: var(--ink); color: #fff; padding: 18px 22px; text-align: center; flex-shrink: 0; }
-        .gap-mid .x { font-family: var(--font-mono); font-weight: 600; font-size: 20px; }
-        .gap-mid .l { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 3px; }
+        .gap-num-caption { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+        .gap-mid { background: var(--ink); color: #fff; padding: 16px 20px; text-align: center; flex-shrink: 0; }
+        .gap-mid .x { font-family: var(--font-mono); font-weight: 600; font-size: 18px; }
+        .gap-mid .l { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.4px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 3px; }
 
         .table-card { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 24px; background: var(--paper); }
         .table-card-header { padding: 16px 20px; border-bottom: 1px solid var(--line); }
@@ -108,6 +113,8 @@
 
         .status-active { display: inline-block; background: #e5f2ea; color: var(--green); font-family: var(--font-mono); font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.3px; }
         .status-watch { display: inline-block; background: #fdeceb; color: var(--red); font-family: var(--font-mono); font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+        .tag-verified { display: inline-block; background: #e5f2ea; color: var(--green); font-family: var(--font-mono); font-size: 9.5px; font-weight: 600; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.3px; }
+        .tag-unverified { display: inline-block; background: #fdeceb; color: var(--red); font-family: var(--font-mono); font-size: 9.5px; font-weight: 600; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.3px; }
 
         .chart-container { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 20px; margin-top: 24px; }
         .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
@@ -137,18 +144,16 @@
         .note-strip { display: flex; gap: 10px; align-items: flex-start; padding: 14px 16px; background: var(--paper-alt); border-radius: 8px; margin-bottom: 16px; font-size: 12.5px; line-height: 1.55; color: var(--ink); }
         .note-strip b { font-weight: 700; }
         .note-strip .ic { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
-        .note-strip .head { font-weight: 700; margin-bottom: 6px; }
-        .note-strip ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-        .note-strip ul li { display: flex; gap: 8px; }
-        .note-strip ul li::before { content: '\2013'; color: var(--muted); flex-shrink: 0; }
+        .note-strip a { color: var(--black); font-weight: 700; }
 
         footer { background: var(--ink); color: rgba(255,255,255,0.4); text-align: center; padding: 22px 40px; font-family: var(--font-mono); font-size: 11px; }
         footer strong { color: rgba(255,255,255,0.72); }
+        footer a { color: rgba(255,255,255,0.6); }
 
         @media (max-width: 768px) {
             .metrics-grid { grid-template-columns: repeat(2, 1fr); }
             .next-grid { grid-template-columns: 1fr; }
-            .gap-compare { flex-direction: column; }
+            .gap-compare, .range-bar { flex-direction: column; }
             .gap-side.meta { border-right: none; border-bottom: 1px solid var(--line); }
             .hero h1 { font-size: 38px; }
             nav ul { display: none; }
@@ -164,8 +169,10 @@
         <li><a href="#metrics">This Week</a></li>
         <li><a href="#campaigns">Campaigns</a></li>
         <li><a href="#attribution">Real Picture</a></li>
+        <li><a href="#worth">What It's Worth</a></li>
         <li><a href="#changes">What We Did</a></li>
         <li><a href="#next">What's Next</a></li>
+        <li><a href="reporting-methodology.html" class="method-link">Method &rarr;</a></li>
     </ul>
     <div class="nav-right">
         <span class="report-date">JUL 01&ndash;07 2026</span>
@@ -175,19 +182,20 @@
 
 <div class="hero">
     <div class="period-badge">JUL 1&ndash;7, 2026 &nbsp;·&nbsp; WEEK 1 OF NEW MON&ndash;SUN CADENCE</div>
+    <span class="method-badge">&#9889; RANGE METHOD</span>
     <h1>Kenny Fuels<span>Meta Ads: Weekly Report</span></h1>
-    <p>Performance across all seven active campaigns for Jul 1&ndash;7. All figures in EUR.</p>
+    <p>Performance across all seven active campaigns for Jul 1&ndash;7. All figures in EUR. This version reports every uncertain figure as a floor-to-ceiling range rather than a single number, see <a href="reporting-methodology.html">the methodology page</a> for the full explanation of why.</p>
 </div>
 
 <!-- NOTES -->
 <section id="notes" class="alt">
     <div class="section-title">This Week's Notes</div>
     <ul class="notes-list">
-        <li><span class="dot">&#9656;</span><span class="txt"><b>28 purchases, &euro;6,805 revenue, 6.93x ROAS</b> on &euro;982 spend, up from 24 purchases the week before. Heating Oil led on ROAS (10.24x), Compost was the standout on efficiency (&euro;13.05 CPA), and BOF Retargeting's frequency came back under control.</span></li>
+        <li><span class="dot">&#9656;</span><span class="txt"><b>28 purchases, &euro;6,805 revenue (Meta's claim), 6.93x ROAS</b> on &euro;982 spend, up from 24 purchases the week before. Heating Oil led on ROAS (10.24x), Compost was the standout on efficiency (&euro;13.05 CPA), and BOF Retargeting's frequency came back under control.</span></li>
         <li><span class="dot">&#9656;</span><span class="txt"><b>Firewood B2C: zero purchases for the full week</b> despite &euro;105.48 spent and 8 checkout initiations worth an estimated &euro;7,235. Same landing-page speed issue already flagged on Heating Oil; a redirect fix went in Jul 7 but hasn't shown recovery yet. Chasing Graphedia directly this week.</span></li>
         <li><span class="dot">&#9656;</span><span class="txt"><b>BOF Retargeting frequency resolved</b>: down to 4.74 from 5.02, back under the 5.0 threshold following the Jun 29 audience expansion. No further action needed.</span></li>
         <li><span class="dot">&#9656;</span><span class="txt"><b>Compost budget restored to &euro;30/day</b> on Jul 8, right after this window closes, now that the creative blocker has cleared. Expect next week's spend to jump accordingly.</span></li>
-        <li><span class="dot">&#9656;</span><span class="txt"><b>Meta attribution is a permanent limit, not a bug I'm chasing.</b> Graphedia confirmed this week that consent-declining visitors can't legally be tracked back to a Meta ad by any method, even the server-side CAPI build we're doing respects that boundary. Detail in Real Picture below.</span></li>
+        <li><span class="dot">&#9656;</span><span class="txt"><b>Meta attribution is a permanent limit, not a bug I'm chasing.</b> Graphedia confirmed this week that consent-declining visitors can't legally be tracked back to a Meta ad by any method. Detail in Real Picture below.</span></li>
     </ul>
 </section>
 
@@ -199,7 +207,7 @@
 
     <div class="metrics-grid">
         <div class="metric-card">
-            <div class="metric-label">Purchases</div>
+            <div class="metric-label">Purchases <span class="tag-unverified" style="margin-left:4px;">META</span></div>
             <div class="metric-value">28</div>
             <div class="metric-comparisons">
                 <div><span class="comp-label">Prior wk</span> <span class="up">&#9650; 24</span></div>
@@ -213,26 +221,39 @@
             </div>
         </div>
         <div class="metric-card">
-            <div class="metric-label">Account ROAS</div>
+            <div class="metric-label">Account ROAS <span class="tag-unverified" style="margin-left:4px;">META</span></div>
             <div class="metric-value small">6.93x</div>
             <div class="metric-comparisons">
                 <div><span class="comp-label">Prior wk</span> <span class="up">&#9650; 6.36x</span></div>
             </div>
         </div>
         <div class="metric-card">
-            <div class="metric-label">Blended CPA</div>
-            <div class="metric-value small">&euro;196.35</div>
+            <div class="metric-label">Verified Purchases <span class="tag-verified" style="margin-left:4px;">WOO</span></div>
+            <div class="metric-value small">5</div>
             <div class="metric-comparisons">
-                <div><span class="comp-label">vs Meta's own</span> <span class="neutral">&euro;35.06</span></div>
+                <div><span class="comp-label">Basis for the floor CPA below</span></div>
             </div>
-            <div class="metric-note">Spend &divide; WooCommerce-verified orders, the real cost per sale.</div>
         </div>
     </div>
+
+    <div class="source-tag">COST PER PURCHASE, FLOOR TO CEILING</div>
+    <div class="range-bar">
+        <div class="range-end floor">
+            <div class="lbl">Floor (real cost)</div>
+            <div class="val">&euro;196.35</div>
+        </div>
+        <div class="range-track"><div class="qmark">spend &divide; WooCommerce-verified orders (5) vs Meta's own claimed purchases (28)</div></div>
+        <div class="range-end ceiling">
+            <div class="lbl">Ceiling (Meta's claim)</div>
+            <div class="val">&euro;35.06</div>
+        </div>
+    </div>
+    <p class="section-desc" style="margin-top: 4px;">The real cost per purchase this week is somewhere between these two, most likely closer to the floor since it's the only figure independently confirmed. See <a href="reporting-methodology.html">methodology</a> for why both ends matter.</p>
 
     <div class="table-card">
         <div class="table-card-header">
             <h3>Weekly Breakdown</h3>
-            <p>Account-level totals, Meta pixel-attributed data.</p>
+            <p>Account-level totals, Meta pixel-attributed data (unverified).</p>
         </div>
         <table>
             <thead><tr><th>Week</th><th>Spend</th><th>Purchases</th><th>Revenue</th><th>ROAS</th></tr></thead>
@@ -247,7 +268,7 @@
 
     <div class="chart-container">
         <div class="chart-header">
-            <span class="chart-title">Spend vs Revenue by Campaign</span>
+            <span class="chart-title">Spend vs Revenue by Campaign (Meta-reported)</span>
             <div class="chart-legend">
                 <div class="legend-item"><div class="legend-dot" style="background:#243B98"></div><span>Spend</span></div>
                 <div class="legend-item"><div class="legend-dot" style="background:#E6211E"></div><span>Revenue</span></div>
@@ -261,7 +282,7 @@
 <section id="campaigns" class="alt">
     <div class="eyebrow">The Detail</div>
     <div class="section-title">Active Campaigns</div>
-    <p class="section-desc">Jul 1&ndash;7, 2026, 7 days.</p>
+    <p class="section-desc">Jul 1&ndash;7, 2026, 7 days. <span class="tag-unverified">META SELF-REPORTED</span> &nbsp;WooCommerce doesn't break attribution down by individual campaign, so this table is the only tool available for comparing campaigns against each other. See <a href="reporting-methodology.html">methodology</a>.</p>
 
     <div class="table-card">
         <div class="table-card-header"><h3>Kenny Fuels Meta Ads: All Campaigns</h3></div>
@@ -334,41 +355,73 @@
 
     <div class="gap-compare">
         <div class="gap-side meta">
-            <div class="gap-eyebrow">Meta reports</div>
+            <div class="gap-eyebrow">Meta reports <span class="tag-unverified" style="margin-left:6px;">UNVERIFIED</span></div>
             <div class="gap-num-row"><div class="gap-num meta-val">28</div><div class="gap-num-caption">purchases</div></div>
-            <div class="gap-sub"><span class="cap">Revenue from those purchases</span>&euro;6,805</div>
-            <div class="gap-pct">27.6% of total site revenue</div>
         </div>
         <div class="gap-mid">
             <div class="x">5.6x</div>
             <div class="l">Meta<br>overstates</div>
         </div>
         <div class="gap-side">
-            <div class="gap-eyebrow">WooCommerce confirms</div>
+            <div class="gap-eyebrow">WooCommerce confirms <span class="tag-verified" style="margin-left:6px;">VERIFIED</span></div>
             <div class="gap-num-row"><div class="gap-num woo-val">5</div><div class="gap-num-caption">purchases</div></div>
-            <div class="gap-sub"><span class="cap">Revenue from those purchases</span>&euro;731</div>
-            <div class="gap-pct">3.0% of total site revenue</div>
         </div>
     </div>
-    <div class="source-tag" style="margin-top: -12px;">SOURCES: LEFT = META ADS MANAGER (SELF-REPORTED) &nbsp;·&nbsp; RIGHT = WOOCOMMERCE ORDER EXPORT, ATTRIBUTION FIELD = META/PAID SOCIAL</div>
+
+    <div class="source-tag">REVENUE, FLOOR TO CEILING (SAME UNDERLYING PURCHASES ABOVE)</div>
+    <div class="range-bar">
+        <div class="range-end floor">
+            <div class="lbl">Floor (WooCommerce)</div>
+            <div class="val">&euro;731</div>
+        </div>
+        <div class="range-track"><div class="qmark">true figure is somewhere in here, currently unknown</div></div>
+        <div class="range-end ceiling">
+            <div class="lbl">Ceiling (Meta's claim)</div>
+            <div class="val">&euro;6,805</div>
+        </div>
+    </div>
 
     <div class="note-strip">
         <span class="ic">&#128274;</span>
-        <div>
-            <div class="head">Permanent, not a bug</div>
-            <ul>
-                <li>Graphedia confirmed visitors who decline marketing cookies cannot legally be tracked for ad attribution, by any method, under Irish ePrivacy/GDPR rules.</li>
-                <li>This is a permanent limitation, not a bug in progress.</li>
-                <li>A server-side Conversions API build is underway, but it will only improve tracking for visitors who've already consented; it will not close this gap for visitors who decline.</li>
-                <li>The gap above also isn't purely "sales lost to consent": it includes traffic from completely unrelated non-Meta sources too, which WooCommerce's attribution can't separate out.</li>
-                <li>Treat the WooCommerce-attributed figures as the more reliable performance measure going forward.</li>
-            </ul>
-        </div>
+        <span><b>Permanent, not a bug:</b> visitors who decline marketing cookies cannot legally be tracked for ad attribution under Irish ePrivacy/GDPR rules (Graphedia confirmed Jul 7). The gap above also isn't purely consent-decline, it includes unrelated non-Meta traffic too. Full explanation on the <a href="reporting-methodology.html">methodology page</a>.</span>
     </div>
 </section>
 
+<!-- WHAT IT'S WORTH -->
+<section id="worth" class="alt">
+    <div class="eyebrow">What It's Worth</div>
+    <div class="section-title">Profitability Range</div>
+    <p class="section-desc">Revenue isn't profit, Kenny Fuels runs on tight margins. Real profit needs Ciaran's margin % by category, still pending. Until then, here's what the range above means in profit terms.</p>
+
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>This Week: &euro;982 Spent, Against Two Very Different Revenue Pictures</h3>
+        </div>
+        <table>
+            <thead><tr><th>Scenario</th><th>Revenue</th><th>vs &euro;982 Spend</th><th>Real Profit</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td class="campaign-name">Floor (WooCommerce-verified)</td>
+                    <td>&euro;731</td>
+                    <td style="color: var(--red); font-weight:700;">&euro;251 shortfall, before margin</td>
+                    <td>Loss at this end, regardless of margin %</td>
+                </tr>
+                <tr>
+                    <td class="campaign-name">Ceiling (Meta's claim)</td>
+                    <td>&euro;6,805</td>
+                    <td style="color: var(--green); font-weight:700;">&euro;5,823 surplus, before margin</td>
+                    <td>Depends entirely on margin % once supplied</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="padding: 12px 20px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--line);">"Before margin" means the cost of the product itself hasn't been subtracted yet, only ad spend. Once category margins are supplied, both rows convert into real gross profit, not just revenue minus ad spend. See the <a href="reporting-methodology.html">methodology page</a> for a worked example of how that math changes the picture.</p>
+    </div>
+
+    <p class="section-desc">The honest answer to "was this week profitable" sits somewhere between those two rows, and margin data is what narrows it, this table alone can't decide it.</p>
+</section>
+
 <!-- WHAT WE DID -->
-<section id="changes" class="alt">
+<section id="changes">
     <div class="eyebrow">What We Did</div>
     <div class="section-title">Actions This Week</div>
     <p class="section-desc">Meta Ads changes made Jul 1&ndash;7, 2026.</p>
@@ -392,7 +445,7 @@
 </section>
 
 <!-- WHAT'S NEXT -->
-<section id="next">
+<section id="next" class="alt">
     <div class="eyebrow">What's Next</div>
     <div class="section-title">Priorities for the Coming Week</div>
     <p class="section-desc">Where to shift spend based on profit signal, then the operational checks already scheduled.</p>
@@ -400,7 +453,7 @@
     <div class="table-card">
         <div class="table-card-header">
             <h3>Recommendations: Spend by Profit Signal, Not ROAS Alone</h3>
-            <p>Framed around cost-per-purchase until real gross profit figures are available.</p>
+            <p><span class="tag-unverified">META SELF-REPORTED, PER-CAMPAIGN</span> &nbsp;No independent WooCommerce check exists at this granularity, so per-campaign calls use Meta's own numbers; the account-wide range above stays the trustworthy figure for overall spend decisions.</p>
         </div>
         <table>
             <thead><tr><th>Campaign</th><th>Signal</th><th>Recommendation</th></tr></thead>
@@ -429,19 +482,19 @@
         </div>
         <div class="next-card">
             <span class="priority-tag priority-medium">Waiting</span>
-            <h4>Conversions API Build</h4>
-            <p>Scope agreed with Graphedia (consent-respecting CAPI). Offered to generate the access token. Waiting on Niall's timeline.</p>
+            <h4>Margin % By Category</h4>
+            <p>Still the single biggest unlock: turns the profitability range above into a real number. Asked of Ciaran, standing item.</p>
         </div>
         <div class="next-card">
             <span class="priority-tag priority-low">Ongoing</span>
-            <h4>Blended CPA as the Headline Metric</h4>
-            <p>Reporting cost-per-purchase as spend &divide; WooCommerce-verified orders (&euro;196.35), not Meta's own figure (&euro;35.06).</p>
+            <h4>Conversions API Build</h4>
+            <p>Scope agreed with Graphedia (consent-respecting CAPI). Offered to generate the access token. Waiting on Niall's timeline. Won't close the attribution gap, only helps already-consented visitors.</p>
         </div>
     </div>
 </section>
 
 <footer>
-    <strong>Kenny Fuels Meta Ads Report</strong> &nbsp;|&nbsp; Generated weekly by Josette &nbsp;|&nbsp; Confidential
+    <strong>Kenny Fuels Meta Ads Report</strong> &nbsp;|&nbsp; Range Method &nbsp;|&nbsp; <a href="reporting-methodology.html">How these numbers work</a> &nbsp;|&nbsp; Generated weekly by Josette &nbsp;|&nbsp; Confidential
 </footer>
 
 <script>
