@@ -132,9 +132,13 @@
         .priority-medium { background: #fdf2e2; color: var(--amber); }
         .priority-low { background: #e5f2ea; color: var(--green); }
 
-        .note-strip { display: flex; gap: 10px; align-items: flex-start; padding: 12px 16px; background: var(--paper-alt); border-radius: 8px; margin-bottom: 16px; font-size: 12.5px; line-height: 1.55; color: var(--ink); }
+        .note-strip { display: flex; gap: 10px; align-items: flex-start; padding: 14px 16px; background: var(--paper-alt); border-radius: 8px; margin-bottom: 16px; font-size: 12.5px; line-height: 1.55; color: var(--ink); }
         .note-strip b { font-weight: 700; }
         .note-strip .ic { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+        .note-strip .head { font-weight: 700; margin-bottom: 6px; }
+        .note-strip ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+        .note-strip ul li { display: flex; gap: 8px; }
+        .note-strip ul li::before { content: '\2013'; color: var(--muted); flex-shrink: 0; }
 
         footer { background: var(--ink); color: rgba(255,255,255,0.4); text-align: center; padding: 22px 40px; font-family: var(--font-mono); font-size: 11px; }
         footer strong { color: rgba(255,255,255,0.72); }
@@ -350,7 +354,16 @@
 
     <div class="note-strip">
         <span class="ic">&#128274;</span>
-        <span><b>Permanent, not a bug:</b> Graphedia confirmed visitors declining marketing cookies cannot legally be tracked to a Meta ad by any method under Irish ePrivacy/GDPR rules. The Conversions API build underway only helps already-consented visitors; it will not close this gap. The gap also isn't purely "consent-declined Meta sales": it includes traffic from unrelated non-Meta sources too, which WooCommerce can't separate out. Treat the WooCommerce figure as the reliable one going forward.</span>
+        <div>
+            <div class="head">Permanent, not a bug</div>
+            <ul>
+                <li>Graphedia confirmed visitors who decline marketing cookies cannot legally be tracked for ad attribution, by any method, under Irish ePrivacy/GDPR rules.</li>
+                <li>This is a permanent limitation, not a bug in progress.</li>
+                <li>A server-side Conversions API build is underway, but it will only improve tracking for visitors who've already consented; it will not close this gap for visitors who decline.</li>
+                <li>The gap above also isn't purely "sales lost to consent": it includes traffic from completely unrelated non-Meta sources too, which WooCommerce's attribution can't separate out.</li>
+                <li>Treat the WooCommerce-attributed figures as the more reliable performance measure going forward.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="table-card">
