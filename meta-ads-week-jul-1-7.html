@@ -383,6 +383,19 @@
         </div>
     </div>
 
+    <div class="chart-container">
+        <div class="chart-header">
+            <span class="chart-title">Spend vs Revenue vs Surplus: Meta's Claim vs WooCommerce Verified</span>
+            <div class="chart-legend">
+                <div class="legend-item"><div class="legend-dot" style="background:#243B98"></div><span>Spend</span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#E6211E"></div><span>Revenue</span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#1f7a4d"></div><span>Surplus</span></div>
+            </div>
+        </div>
+        <canvas id="attributionChart" height="90"></canvas>
+        <p style="padding: 10px 4px 0; font-size: 11px; color: var(--muted);">Same &euro;982 spend, two very different pictures depending which revenue figure it's measured against. Surplus = revenue minus spend, before margin, not real profit. See What It's Worth below.</p>
+    </div>
+
     <div class="note-strip">
         <span class="ic">&#128274;</span>
         <span><b>Permanent, not a bug:</b> visitors who decline marketing cookies cannot legally be tracked for ad attribution under Irish ePrivacy/GDPR rules (Graphedia confirmed Jul 7). The gap above also isn't purely consent-decline, it includes unrelated non-Meta traffic too. Full explanation on the <a href="reporting-methodology.html">methodology page</a>.</span>
@@ -509,6 +522,30 @@
                 { label: 'Spend (€)', data: [214, 210, 176, 140, 105, 84, 52], backgroundColor: '#243B98', borderRadius: 3 },
                 { label: 'Revenue (€)', data: [2188, 1417, 1041, 980, 0, 707, 472], backgroundColor: '#E6211E', borderRadius: 3 },
                 { label: 'Surplus, before margin (€)', data: [1974, 1207, 865, 840, -105, 623, 420], backgroundColor: '#1f7a4d', borderRadius: 3 }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                tooltip: { callbacks: { label: function(context) { return context.dataset.label + ': €' + context.parsed.y; } } }
+            },
+            scales: {
+                y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { font: { family: 'IBM Plex Mono', size: 10 }, callback: function(value) { return '€' + value; } } },
+                x: { grid: { display: false }, ticks: { font: { family: 'IBM Plex Mono', size: 10 } } }
+            }
+        }
+    });
+
+    const ctx2 = document.getElementById('attributionChart').getContext('2d');
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Meta Claim', 'WooCommerce Verified'],
+            datasets: [
+                { label: 'Spend (€)', data: [982, 982], backgroundColor: '#243B98', borderRadius: 3 },
+                { label: 'Revenue (€)', data: [6805, 731], backgroundColor: '#E6211E', borderRadius: 3 },
+                { label: 'Surplus, before margin (€)', data: [5823, -251], backgroundColor: '#1f7a4d', borderRadius: 3 }
             ]
         },
         options: {
