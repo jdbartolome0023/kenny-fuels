@@ -255,14 +255,15 @@
 
     <div class="chart-container">
         <div class="chart-header">
-            <span class="chart-title">Spend vs Revenue by Campaign</span>
+            <span class="chart-title">Spend vs Revenue vs Surplus by Campaign</span>
             <div class="chart-legend">
                 <div class="legend-item"><div class="legend-dot" style="background:#243B98"></div><span>Spend</span></div>
                 <div class="legend-item"><div class="legend-dot" style="background:#E6211E"></div><span>Revenue</span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#1f7a4d"></div><span>Surplus</span></div>
             </div>
         </div>
         <canvas id="spendChart" height="90"></canvas>
-        <p style="padding: 10px 4px 0; font-size: 11px; color: var(--muted);">Kenergy Solar excluded from this chart: its &euro;24,000 tracked value (synthetic &euro;12,000/conversion bidding value) would compress every other campaign's bar to near-zero. See the Daily Breakdown table above for Solar's full detail.</p>
+        <p style="padding: 10px 4px 0; font-size: 11px; color: var(--muted);">Surplus = revenue minus spend, <b>before margin</b>, not real profit. Real per-campaign profit still needs Ciaran's margin % by category, see the Recommendations table below. Kenergy Solar excluded from this chart: its &euro;24,000 tracked value (synthetic &euro;12,000/conversion bidding value) would compress every other campaign's bar to near-zero. See the Daily Breakdown table above for Solar's full detail.</p>
     </div>
 </section>
 
@@ -467,7 +468,8 @@
             labels: ['Brand Search', 'Home Heating Oil', 'Hardware', 'Gas Bottle', 'Firewood'],
             datasets: [
                 { label: 'Spend (€)', data: [776, 184, 501, 57, 144], backgroundColor: '#243B98', borderRadius: 3 },
-                { label: 'Revenue (€)', data: [7243, 3499, 1350, 450, 180], backgroundColor: '#E6211E', borderRadius: 3 }
+                { label: 'Revenue (€)', data: [7243, 3499, 1350, 450, 180], backgroundColor: '#E6211E', borderRadius: 3 },
+                { label: 'Surplus, before margin (€)', data: [6467, 3315, 849, 393, 36], backgroundColor: '#1f7a4d', borderRadius: 3 }
             ]
         },
         options: {
