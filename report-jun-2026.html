@@ -577,6 +577,11 @@
     Of 360 total orders placed on the site in June, 135 were from new customers and 225 were from returning customers. Returning customers made up 62.5% of orders, in line with a fuel and hardware business with regular repeat buyers. (Same site-wide order data used in the Meta Ads June report — this isn't channel-specific.)
   </div>
 
+  <div class="context-box">
+    <strong>Total site revenue corrected: €103,973, not €120,687</strong>
+    Now that June's full WooCommerce order export has been pulled (previously only Jul 1&ndash;7 had been checked), the real net sales figure for June is €103,972.81 across all 360 orders &mdash; lower than the €120,687 previously shown, which came from GA4's transaction revenue. WooCommerce's "Net Sales" excludes tax and shipping and reflects order-level data directly, so it's the more precise figure going forward; GA4's total likely includes tax/shipping in its transaction value. Both are legitimate ways to measure revenue, they just answer slightly different questions &mdash; using WooCommerce's net sales consistently from here since it's the same source used for the attribution comparison below.
+  </div>
+
   <div class="summary-grid">
     <div class="summary-card highlight">
       <div class="label">Total Site Orders</div>
@@ -585,8 +590,8 @@
     </div>
     <div class="summary-card highlight">
       <div class="label">Total Site Revenue</div>
-      <div class="value">€120,687</div>
-      <div class="compare">All sources, all channels</div>
+      <div class="value">€103,973</div>
+      <div class="compare">All sources, all channels &nbsp;·&nbsp; WooCommerce net sales</div>
     </div>
     <div class="summary-card highlight">
       <div class="label">New Customers</div>
@@ -603,13 +608,13 @@
   <div class="table-card">
     <div class="table-card-header">
       <h3>Google Ads-Reported Conversions vs Total Site Sales</h3>
-      <p>Google Ads' own conversion tracking for this account is a GA4 import, so it isn't an independent number in the way Meta's self-reported figure is — a true independent cross-check needs WooCommerce's order-level Attribution data for June, which hasn't been pulled yet (only Jul 1&ndash;7 has been checked so far, see note below).</p>
+      <p>Google Ads' own conversion tracking for this account is a GA4 import, so it isn't an independent number in the way Meta's self-reported figure is. June's WooCommerce order export (Attribution column) is the independent cross-check.</p>
     </div>
     <table>
       <thead>
         <tr>
           <th>Source</th>
-          <th>Conversions / Orders</th>
+          <th>Orders / Conversions</th>
           <th>Value</th>
           <th>% of Total Site Revenue</th>
         </tr>
@@ -619,17 +624,35 @@
           <td class="campaign-name">Google Ads (self-reported)</td>
           <td>273</td>
           <td>€71,706</td>
-          <td>59.4%</td>
+          <td>69.0%</td>
+        </tr>
+        <tr>
+          <td class="campaign-name">WooCommerce &mdash; clearly organic ("Organic: Google")</td>
+          <td>138</td>
+          <td>€32,850</td>
+          <td>31.6%</td>
+        </tr>
+        <tr>
+          <td class="campaign-name">WooCommerce &mdash; ambiguous ("Source: Google", paid/other unclear)</td>
+          <td>118</td>
+          <td>€39,661</td>
+          <td>38.2%</td>
+        </tr>
+        <tr style="font-weight:700; background: var(--gray);">
+          <td>Total Google-referred (organic + ambiguous)</td>
+          <td>256</td>
+          <td>€72,511</td>
+          <td>69.7%</td>
         </tr>
         <tr>
           <td class="campaign-name">Total site revenue (all sources)</td>
           <td>360 orders</td>
-          <td>€120,687</td>
+          <td>€103,973</td>
           <td>100%</td>
         </tr>
       </tbody>
     </table>
-    <p style="padding: 12px 20px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border);">Google's reported conversion value includes Kenergy Solar's synthetic €12,000/conversion bidding value (confirmed average job value, not literal per-order revenue), so it isn't directly comparable to WooCommerce order revenue &mdash; treat this as directional, not exact. A proper independent check (matching what's now done for Meta) needs June's WooCommerce order export with the Attribution column, which will confirm whether Google Ads clicks are auto-tagging correctly &mdash; a gap already found when checking the Jul 1&ndash;7 data: 31 of 89 orders that week showed only generic "Source: Google" with no way to confirm paid vs. other Google-referred traffic. <strong>Update Jul 8:</strong> a Final URL suffix fix has since been applied to all campaigns, so this should resolve for reporting periods from Jul 8 onward &mdash; still applies as a caveat for June.</p>
+    <p style="padding: 12px 20px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border);">Google's reported conversion value includes Kenergy Solar's synthetic €12,000/conversion bidding value, so it isn't directly comparable to WooCommerce order revenue &mdash; use order/conversion <em>count</em> as the more meaningful comparison. 273 Google Ads-reported conversions vs. 256 total Google-referred orders is a close match by count, directionally reassuring. But 118 of those 256 orders (€39,661, over a third of June's total site revenue) sit in the unconfirmed "Source: Google" bucket &mdash; WooCommerce couldn't tell paid Google Ads clicks apart from other Google-referred traffic all through June, for the same UTM/auto-tagging reason found when checking Jul 1&ndash;7 data. <strong>Fixed Jul 8:</strong> a Final URL suffix was added to all campaigns, so reporting periods from Jul 8 onward should show a cleaner split; this ambiguity still applies to all of June.</p>
   </div>
 
   <div class="context-box">
