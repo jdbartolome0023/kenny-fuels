@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenny Fuels: How the Profitability Numbers Work</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #243B98;
+            --red: #E6211E;
+            --ink: #1a1f2e;
+            --paper: #fbfaf8;
+            --paper-alt: #f3f1ec;
+            --line: #e4e1da;
+            --muted: #6b7280;
+            --green: #1f7a4d;
+            --amber: #b45309;
+            --font-display: 'Lato', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-display); background: var(--paper); color: var(--ink); font-size: 15px; }
+
+        nav { position: sticky; top: 0; z-index: 100; background: var(--black); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 56px; }
+        nav .logo img { height: 34px; width: auto; display: block; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .report-date { color: rgba(255,255,255,0.5); font-family: var(--font-mono); font-size: 11px; }
+        .btn-back { color: rgba(255,255,255,0.85); text-decoration: none; font-family: var(--font-mono); font-size: 11.5px; border: 1px solid rgba(255,255,255,0.3); padding: 6px 12px; border-radius: 4px; }
+        .btn-back:hover { border-color: rgba(255,255,255,0.6); }
+
+        .hero { padding: 56px 40px 44px; border-bottom: 1px solid var(--line); max-width: 1080px; margin: 0 auto; }
+        .period-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); background: var(--paper-alt); padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 500; color: var(--muted); margin-bottom: 20px; letter-spacing: 0.3px; }
+        .period-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--black); }
+        .hero h1 { font-family: var(--font-display); font-weight: 900; font-size: 44px; line-height: 1.08; letter-spacing: 0.2px; margin-bottom: 6px; text-wrap: balance; max-width: 760px; }
+        .hero p { font-size: 15.5px; color: var(--muted); max-width: 620px; margin-top: 16px; line-height: 1.6; }
+
+        section { max-width: 1080px; margin: 0 auto; padding: 44px 40px; border-bottom: 1px solid var(--line); }
+        section.alt { background: var(--paper-alt); }
+
+        .eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+        .section-title { font-family: var(--font-display); font-weight: 900; font-size: 28px; letter-spacing: 0.2px; margin-bottom: 6px; text-wrap: balance; }
+        .section-desc { color: var(--muted); font-size: 14px; margin-bottom: 22px; line-height: 1.6; max-width: 680px; }
+        .body-text { font-size: 14.5px; line-height: 1.7; color: var(--ink); max-width: 680px; margin-bottom: 16px; }
+        .body-text b { font-weight: 700; }
+        .body-text.narrow { max-width: 620px; }
+
+        /* Gap comparison, reused from the weekly report */
+        .gap-compare { display: flex; align-items: center; gap: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: var(--paper); }
+        .gap-side { flex: 1; padding: 22px 26px; }
+        .gap-side.meta { border-right: 1px solid var(--line); }
+        .gap-eyebrow { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.6px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+        .gap-num-row { display: flex; align-items: baseline; gap: 8px; }
+        .gap-num { font-family: var(--font-display); font-weight: 900; font-size: 36px; line-height: 1; font-variant-numeric: tabular-nums; }
+        .gap-num.meta-val { color: var(--red); }
+        .gap-num.woo-val { color: var(--green); }
+        .gap-num-caption { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+        .gap-mid { background: var(--ink); color: #fff; padding: 16px 20px; text-align: center; flex-shrink: 0; }
+        .gap-mid .x { font-family: var(--font-mono); font-weight: 600; font-size: 17px; }
+        .gap-mid .l { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.4px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 3px; }
+
+        .source-tag { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.3px; color: var(--muted); margin-bottom: 20px; }
+
+        .range-bar { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); padding: 24px 28px; margin-bottom: 12px; gap: 24px; }
+        .range-end { text-align: center; flex-shrink: 0; }
+        .range-end .lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+        .range-end .val { font-family: var(--font-display); font-weight: 900; font-size: 26px; }
+        .range-end.floor .val { color: var(--red); }
+        .range-end.ceiling .val { color: var(--green); }
+        .range-track { flex: 1; height: 6px; background: linear-gradient(90deg, var(--red), var(--amber), var(--green)); border-radius: 3px; position: relative; }
+        .range-track .qmark { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 10px; color: var(--muted); text-align: center; white-space: nowrap; }
+
+        .table-card { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 24px; background: var(--paper); }
+        .table-card-header { padding: 16px 20px; border-bottom: 1px solid var(--line); }
+        .table-card-header h3 { font-size: 14.5px; font-weight: 700; }
+        .table-card-header p { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+        table { width: 100%; border-collapse: collapse; }
+        thead th { background: var(--ink); color: #fff; padding: 9px 20px; text-align: left; font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.6px; text-transform: uppercase; }
+        tbody tr { border-bottom: 1px solid var(--line); }
+        tbody tr:last-child { border-bottom: none; }
+        tbody tr:nth-child(even) { background: var(--paper-alt); }
+        tbody td { padding: 11px 20px; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+        tbody td:first-child { font-weight: 600; font-variant-numeric: normal; }
+
+        .note-strip { display: flex; gap: 10px; align-items: flex-start; padding: 14px 16px; background: var(--paper-alt); border-radius: 8px; margin-bottom: 16px; font-size: 12.5px; line-height: 1.6; color: var(--ink); }
+        .note-strip b { font-weight: 700; }
+        .note-strip .ic { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+        .note-strip.example { background: #fdf2e2; }
+
+        .legend-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .legend-card { background: var(--paper); padding: 20px 22px; }
+        .legend-card .tag { display: inline-block; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.4px; padding: 3px 9px; border-radius: 3px; margin-bottom: 10px; }
+        .tag-verified { background: #e5f2ea; color: var(--green); }
+        .tag-unverified { background: #fdeceb; color: var(--red); }
+        .legend-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+        .steps { counter-reset: step; display: flex; flex-direction: column; gap: 0; }
+        .step { display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+        .step:last-child { border-bottom: none; }
+        .step-num { font-family: var(--font-mono); font-weight: 600; font-size: 13px; color: var(--red); flex-shrink: 0; width: 24px; }
+        .step-content h4 { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
+        .step-content p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+        footer { background: var(--ink); color: rgba(255,255,255,0.4); text-align: center; padding: 22px 40px; font-family: var(--font-mono); font-size: 11px; }
+        footer strong { color: rgba(255,255,255,0.72); }
+
+        @media (max-width: 768px) {
+            .gap-compare { flex-direction: column; }
+            .gap-side.meta { border-right: none; border-bottom: 1px solid var(--line); }
+            .legend-grid { grid-template-columns: 1fr; }
+            .range-bar { flex-direction: column; }
+            .hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo"><img src="https://www.kennyfuels.ie/wp-content/uploads/2023/11/kenny-logo.png" alt="Kenny Fuels"></div>
+    <div class="nav-right">
+        <a class="btn-back" href="meta-ads-week-jul-1-7.html">&larr; Back to weekly report</a>
+        <span class="report-date">REFERENCE &nbsp;·&nbsp; UPDATED JUL 8, 2026</span>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="period-badge">REPORTING METHODOLOGY &nbsp;·&nbsp; NOT A PERIOD REPORT</div>
+    <h1>How to Read the Profitability Numbers</h1>
+    <p>A standing reference for how blended CPA, the Meta/WooCommerce attribution gap, and real profit ranges are calculated across every Kenny Fuels report. This page doesn't change period to period the way the weekly and monthly reports do; it explains the method behind them so the numbers are auditable, not just asserted.</p>
+</div>
+
+<!-- THE PROBLEM -->
+<section>
+    <div class="eyebrow">The Problem</div>
+    <div class="section-title">Two Numbers, One Truth We Can't Fully See</div>
+    <p class="section-desc">Every Meta report shows two different figures for the same purchases: what Meta's pixel claims, and what WooCommerce's own order data can independently confirm. They disagree by a wide margin, and per Graphedia (confirmed Jul 7, 2026), that gap cannot be closed by any tracking fix, it's a permanent limit of what's legally trackable once a visitor declines marketing cookies.</p>
+
+    <div class="gap-compare">
+        <div class="gap-side meta">
+            <div class="gap-eyebrow">Meta reports (self-reported)</div>
+            <div class="gap-num-row"><div class="gap-num meta-val">28</div><div class="gap-num-caption">purchases</div></div>
+        </div>
+        <div class="gap-mid">
+            <div class="x">5.6x</div>
+            <div class="l">Meta<br>overstates</div>
+        </div>
+        <div class="gap-side">
+            <div class="gap-eyebrow">WooCommerce confirms</div>
+            <div class="gap-num-row"><div class="gap-num woo-val">5</div><div class="gap-num-caption">purchases</div></div>
+        </div>
+    </div>
+    <div class="source-tag">EXAMPLE: JUL 1&ndash;7, 2026 WEEK. THE MULTIPLE MOVES EVERY PERIOD, IT WAS ~19X FOR JUNE.</div>
+
+    <p class="body-text">Because that gap can't be closed, every profitability question has to be answered as a <b>range</b>, not a single number: a defensible floor (only what WooCommerce can verify) and a ceiling (Meta's own claim, known to be inflated). The true figure sits somewhere in between, and which end it's closer to can't currently be determined.</p>
+</section>
+
+<!-- THE RANGE METHOD -->
+<section class="alt">
+    <div class="eyebrow">The Method</div>
+    <div class="section-title">Reporting a Floor and a Ceiling, Not a Guess</div>
+    <p class="section-desc">Applied to June 2026: same €2,962 in Meta spend, two very different pictures depending which revenue figure it's measured against.</p>
+
+    <div class="range-bar">
+        <div class="range-end floor">
+            <div class="lbl">Floor (WooCommerce)</div>
+            <div class="val">&euro;731</div>
+        </div>
+        <div class="range-track"><div class="qmark">true figure is somewhere in here, currently unknown</div></div>
+        <div class="range-end ceiling">
+            <div class="lbl">Ceiling (Meta's claim)</div>
+            <div class="val">&euro;20,793</div>
+        </div>
+    </div>
+    <div class="source-tag">JUNE 2026 REVENUE ATTRIBUTABLE TO META, AGAINST &euro;2,962 SPEND.</div>
+
+    <div class="note-strip">
+        <span class="ic">&#128274;</span>
+        <span><b>Neither end is "the answer" on its own.</b> The floor is provably real but almost certainly too low, it excludes every consent-declining visitor Meta may have genuinely influenced. The ceiling is Meta's own number and known to include traffic it didn't verifiably drive. Reporting only the ceiling (the traditional approach) overstates performance; reporting only the floor understates it. Showing both is the honest answer until something narrows the range.</span>
+    </div>
+</section>
+
+<!-- FROM REVENUE TO PROFIT -->
+<section>
+    <div class="eyebrow">The Missing Piece</div>
+    <div class="section-title">From Revenue to Real Profit</div>
+    <p class="section-desc">Everything above is revenue. Kenny Fuels runs on tight margins, so revenue isn't profit, and a strong ROAS can still be a loss once the actual cost of the product is factored in. This is the one input only Ciaran can supply: approximate gross margin % by product category.</p>
+
+    <div class="note-strip example">
+        <span class="ic">&#128161;</span>
+        <span><b>Worked example, illustrative margins only, not Kenny Fuels' real numbers:</b> Compost generated &euro;6,200 revenue in June on &euro;687 spend (9.0x ROAS, looks like the best campaign in the account). At a 15% margin, gross profit is &euro;930, minus the &euro;687 spend leaves <b>&euro;243 real profit</b>. At an 8% margin, gross profit is &euro;496, which is <b>less than the &euro;687 spent</b>, a loss, despite the 9x ROAS. The margin percentage is what decides which of those two stories is true.</span>
+    </div>
+
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Margin Data Still Needed, By Category</h3>
+            <p>Rough estimates are fine, exact figures aren't required. Asked of Ciaran, standing item until supplied.</p>
+        </div>
+        <table>
+            <thead><tr><th>Category</th><th>Status</th></tr></thead>
+            <tbody>
+                <tr><td>Heating oil</td><td>Pending</td></tr>
+                <tr><td>Gas cylinders</td><td>Pending</td></tr>
+                <tr><td>Hardware (decking, cladding, fencing, gardening)</td><td>Pending</td></tr>
+                <tr><td>Solar installations</td><td>Pending</td></tr>
+                <tr><td>Firewood</td><td>Pending</td></tr>
+                <tr><td>Compost</td><td>Pending</td></tr>
+                <tr><td>Sand and stones</td><td>Pending</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="body-text narrow">Once supplied, margin % applies to <b>both ends</b> of the revenue range above, narrowing "was this profitable" from a revenue question into an actual profit floor and ceiling, campaign by campaign. It does not close the attribution gap itself, that stays permanent, but it makes each end of the range mean something real instead of just a number.</p>
+</section>
+
+<!-- SOURCE LABELS -->
+<section class="alt">
+    <div class="eyebrow">Reading The Reports</div>
+    <div class="section-title">What Each Label Means</div>
+    <p class="section-desc">Every figure in a Kenny Fuels report now carries one of these two labels. This is the key.</p>
+
+    <div class="legend-grid">
+        <div class="legend-card">
+            <span class="tag tag-verified">WOOCOMMERCE-VERIFIED</span>
+            <p>Comes from the site's own order data (WooCommerce Attribution field), independent of any ad platform's self-reporting. Trustworthy as a floor, but understates true Meta influence because consent-declining visitors can't be tracked back to Meta at all.</p>
+        </div>
+        <div class="legend-card">
+            <span class="tag tag-unverified">META SELF-REPORTED</span>
+            <p>Comes from Meta's own pixel and Ads Manager. Useful for comparing campaigns against each other (it's the only figure with per-campaign resolution), but known to overstate true attributable revenue account-wide, so it should never stand alone as "the" profit number.</p>
+        </div>
+    </div>
+</section>
+
+<!-- HOW THIS SHOWS UP -->
+<section>
+    <div class="eyebrow">In Practice</div>
+    <div class="section-title">How This Changes What Gets Reported</div>
+
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">01</div>
+            <div class="step-content"><h4>Every "was it profitable" question gets a range answer</h4><p>Never a single figure. Floor (verified) and ceiling (Meta's claim), both shown, both labelled.</p></div>
+        </div>
+        <div class="step">
+            <div class="step-num">02</div>
+            <div class="step-content"><h4>Recommendations stay conditional until margin data lands</h4><p>"Hold, pending margin confirmation" rather than a confident spend-up or spend-down call, on any campaign where the floor and ceiling would lead to different decisions.</p></div>
+        </div>
+        <div class="step">
+            <div class="step-num">03</div>
+            <div class="step-content"><h4>The permanent-limitation disclaimer stays current</h4><p>Language never implies the consent-tracking gap is "in progress" or "being fixed." It isn't, and won't be, per Graphedia's Jul 7 confirmation.</p></div>
+        </div>
+        <div class="step">
+            <div class="step-num">04</div>
+            <div class="step-content"><h4>This page updates if the method changes</h4><p>If margin data arrives, if the attribution gap narrows for any reason, or if a new measurement approach gets adopted, this reference gets updated in place rather than left stale while the period reports move on.</p></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <strong>Kenny Fuels Reporting Methodology</strong> &nbsp;|&nbsp; Maintained by Josette &nbsp;|&nbsp; Confidential
+</footer>
+
+</body>
+</html>
