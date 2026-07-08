@@ -255,15 +255,15 @@
 
     <div class="chart-container">
         <div class="chart-header">
-            <span class="chart-title">Spend vs Revenue vs Surplus by Campaign</span>
+            <span class="chart-title">Spend vs Revenue vs Profit by Campaign</span>
             <div class="chart-legend">
                 <div class="legend-item"><div class="legend-dot" style="background:#243B98"></div><span>Spend</span></div>
                 <div class="legend-item"><div class="legend-dot" style="background:#E6211E"></div><span>Revenue</span></div>
-                <div class="legend-item"><div class="legend-dot" style="background:#1f7a4d"></div><span>Surplus</span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#1f7a4d"></div><span>Profit</span></div>
             </div>
         </div>
         <canvas id="spendChart" height="90"></canvas>
-        <p style="padding: 10px 4px 0; font-size: 11px; color: var(--muted);">Surplus = revenue minus spend, <b>before margin</b>, not real profit. Real per-campaign profit still needs Ciaran's margin % by category, see the Recommendations table below. Kenergy Solar excluded from this chart: its &euro;24,000 tracked value (synthetic &euro;12,000/conversion bidding value) would compress every other campaign's bar to near-zero. See the Daily Breakdown table above for Solar's full detail.</p>
+        <p style="padding: 10px 4px 0; font-size: 11px; color: var(--muted);">Profit = (revenue &times; category margin) &minus; spend, using the margins Ciaran supplied Jul 8. <b>Brand Search's margin (14.6%) is an estimate</b>, derived from Google's own conversion-volume mix, not confirmed by Ciaran directly, since Brand Search is branded traffic, not one product. Kenergy Solar excluded from this chart: its &euro;24,000 tracked value is a synthetic bidding proxy, not a realized sale, so real profit can't be computed for it yet, see the note below.</p>
     </div>
 </section>
 
@@ -274,48 +274,51 @@
     <p class="section-desc">Jul 1&ndash;7, 2026, 7 days. <span class="tag-google">GOOGLE ADS, SELF-REPORTED</span></p>
 
     <div class="table-card">
-        <div class="table-card-header"><h3>Kenny Fuels: All Active Campaigns</h3></div>
+        <div class="table-card-header">
+            <h3>Kenny Fuels: All Active Campaigns</h3>
+            <p>Profit = (revenue &times; category margin) &minus; spend. *Brand Search margin (14.6%) is estimated, not confirmed by Ciaran. Kenergy Solar's profit isn't computable yet, its tracked value is a synthetic bidding proxy, not a realized sale.</p>
+        </div>
         <table>
-            <thead><tr><th>Campaign</th><th>Status</th><th>Spend</th><th>Clicks</th><th>Avg CPC</th><th>Conv / ROAS</th></tr></thead>
+            <thead><tr><th>Campaign</th><th>Status</th><th>Spend</th><th>Clicks</th><th>Avg CPC</th><th>Conv / ROAS</th><th>Profit</th></tr></thead>
             <tbody>
                 <tr>
-                    <td><div class="campaign-name">Brand Search</div><div class="adgroup-label">tROAS 600% &nbsp;·&nbsp; Budget: &euro;110/day &nbsp;·&nbsp; Budget Lost: 37.3%</div></td>
-                    <td><span class="status-active">ACTIVE</span></td><td>&euro;776</td><td>680</td><td>&euro;1.14</td><td>32.98 conv / 9.33x</td>
+                    <td><div class="campaign-name">Brand Search*</div><div class="adgroup-label">tROAS 600% &nbsp;·&nbsp; Budget: &euro;110/day &nbsp;·&nbsp; Budget Lost: 37.3%</div></td>
+                    <td><span class="status-active">ACTIVE</span></td><td>&euro;776</td><td>680</td><td>&euro;1.14</td><td>32.98 conv / 9.33x</td><td style="color: var(--green); font-weight:700;">+&euro;281</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">Budget Lost IS at 37.3%: now budget-constrained, not rank-constrained (Rank Lost IS only 7.3%). No headroom in the approved &euro;255/day envelope to raise without reallocating.</td></tr>
+                <tr class="campaign-note"><td colspan="7">Budget Lost IS at 37.3%: now budget-constrained, not rank-constrained (Rank Lost IS only 7.3%). No headroom in the approved &euro;255/day envelope to raise without reallocating. Profit uses the 14.6% estimated margin, see table note above.</td></tr>
 
                 <tr>
                     <td><div class="campaign-name">Home Heating Oil</div><div class="adgroup-label">Maximize Conversions &nbsp;·&nbsp; Budget: &euro;25/day &nbsp;·&nbsp; Mon-Sat only</div></td>
-                    <td><span class="status-active">ACTIVE</span></td><td>&euro;184</td><td>142</td><td>&euro;1.29</td><td>9.99 conv / 19.04x</td>
+                    <td><span class="status-active">ACTIVE</span></td><td>&euro;184</td><td>142</td><td>&euro;1.29</td><td>9.99 conv / 19.04x</td><td style="color: var(--green); font-weight:700;">+&euro;166</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">Strong off-season performance continuing. Next tROAS assessment Jul 21.</td></tr>
+                <tr class="campaign-note"><td colspan="7">Strong off-season performance continuing. Next tROAS assessment Jul 21.</td></tr>
 
                 <tr>
                     <td><div class="campaign-name">Gas Bottle &amp; Cylinders</div><div class="adgroup-label">tROAS 200% &nbsp;·&nbsp; Budget: &euro;35/day (running at &euro;10)</div></td>
-                    <td><span class="status-learning">RECOVERING</span></td><td>&euro;57</td><td>56</td><td>&euro;1.02</td><td>5.00 conv / 7.84x</td>
+                    <td><span class="status-learning">RECOVERING</span></td><td>&euro;57</td><td>56</td><td>&euro;1.02</td><td>5.00 conv / 7.84x</td><td style="color: var(--green); font-weight:700;">+&euro;33</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">5 conversions this week vs 0 the week before the Jun 26 tROAS relaxation. Recovery check due Jul 10.</td></tr>
+                <tr class="campaign-note"><td colspan="7">5 conversions this week vs 0 the week before the Jun 26 tROAS relaxation. Recovery check due Jul 10.</td></tr>
 
                 <tr>
                     <td><div class="campaign-name">Hardware</div><div class="adgroup-label">Maximize Clicks &nbsp;·&nbsp; Budget: &euro;70/day &nbsp;·&nbsp; Peak season</div></td>
-                    <td><span class="status-peak">PEAK SEASON</span></td><td>&euro;501</td><td>801</td><td>&euro;0.63</td><td>15.00 conv / 2.70x</td>
+                    <td><span class="status-peak">PEAK SEASON</span></td><td>&euro;501</td><td>801</td><td>&euro;0.63</td><td>15.00 conv / 2.70x</td><td style="color: var(--red); font-weight:700;">&minus;&euro;299</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">Rank Lost IS still elevated at 63.2% despite the Jun 29 max CPC raise. May need a further bid increase.</td></tr>
+                <tr class="campaign-note"><td colspan="7">Rank Lost IS still elevated at 63.2% despite the Jun 29 max CPC raise. Now confirmed a real loss this week at Hardware's 15% margin, not just a CPA flag: the margin-sensitivity warning from previous reports has materialised.</td></tr>
 
                 <tr>
                     <td><div class="campaign-name">Kenergy Solar</div><div class="adgroup-label">tCPA &euro;40 &nbsp;·&nbsp; Budget: &euro;15/day</div></td>
-                    <td><span class="status-new">LEARNING</span></td><td>&euro;63</td><td>12</td><td>&euro;5.27</td><td>2.00 conv / 380x*</td>
+                    <td><span class="status-new">LEARNING</span></td><td>&euro;63</td><td>12</td><td>&euro;5.27</td><td>2.00 conv / 380x*</td><td style="color: var(--muted);">n/a**</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">*Synthetic &euro;12,000/conversion bidding value. Actual CPA &euro;31.59, close to the &euro;40 tCPA target.</td></tr>
+                <tr class="campaign-note"><td colspan="7">*Synthetic &euro;12,000/conversion bidding value. Actual CPA &euro;31.59, close to the &euro;40 tCPA target. **If both calls convert to real installs at the average &euro;12,000 job value and 10% solar margin, projected profit would be roughly &euro;2,337 (&euro;2,400 gross profit &minus; &euro;63 spend), but that's a projection, not a realized number.</td></tr>
 
                 <tr>
                     <td><div class="campaign-name">Firewood</div><div class="adgroup-label">No tCPA yet &nbsp;·&nbsp; Budget: &euro;20/day &nbsp;·&nbsp; Launched Jul 1</div></td>
-                    <td><span class="status-new">NEW</span></td><td>&euro;144</td><td>80</td><td>&euro;1.80</td><td>2.00 conv / 1.25x</td>
+                    <td><span class="status-new">NEW</span></td><td>&euro;144</td><td>80</td><td>&euro;1.80</td><td>2.00 conv / 1.25x</td><td style="color: var(--red); font-weight:700;">&minus;&euro;99</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">Week one, still in learning. Weakest ROAS but too early to act on. Scheduled review Jul 15.</td></tr>
+                <tr class="campaign-note"><td colspan="7">Week one, still in learning. A loss at current volume, but expected this early, too soon to act on. Scheduled review Jul 15.</td></tr>
 
                 <tr style="font-weight:700; background: var(--paper-alt);">
-                    <td>Total (6 campaigns)</td><td></td><td>&euro;1,725</td><td>1,771</td><td>&euro;0.97</td><td>66.97 conv / 21.29x</td>
+                    <td>Total (6 campaigns)</td><td></td><td>&euro;1,725</td><td>1,771</td><td>&euro;0.97</td><td>66.97 conv / 21.29x</td><td style="color: var(--green);">+&euro;82 (ex-Solar)</td>
                 </tr>
             </tbody>
         </table>
@@ -406,18 +409,18 @@
 
     <div class="table-card">
         <div class="table-card-header">
-            <h3>Recommendations: Spend by Profit Signal, Not ROAS Alone</h3>
-            <p>Framed around cost-per-conversion until real gross profit figures are available. Will be re-cut on actual profit once margin data arrives.</p>
+            <h3>Recommendations: Ranked by Real Profit, Not ROAS</h3>
+            <p>First report using Ciaran's actual margin data (received Jul 8). Ranked by real weekly profit, best to worst. Brand Search's margin is an estimate, flagged where it applies.</p>
         </div>
         <table>
-            <thead><tr><th>Campaign</th><th>Signal</th><th>Recommendation</th></tr></thead>
+            <thead><tr><th>Campaign</th><th>Profit Signal</th><th>Recommendation</th></tr></thead>
             <tbody>
-                <tr><td class="campaign-name">Brand Search</td><td>&euro;23.53 CPA, 9.33x ROAS, 37.3% budget-lost IS</td><td>Likely the most profitable campaign even on unknown margins: capped by budget, not demand. Best candidate for a spend increase, but no headroom in the approved &euro;255/day envelope without reallocating.</td></tr>
-                <tr><td class="campaign-name">Home Heating Oil</td><td>&euro;18.40 CPA, second-lowest in account</td><td>Hold current budget through the off-season; strong efficiency signal. Revisit for a scale-up ahead of the September heating season.</td></tr>
-                <tr><td class="campaign-name">Gas Bottle &amp; Cylinders</td><td>&euro;11.48 CPA, but still low volume</td><td>Encouraging signal, but too early to act on with only 5 conversions. Hold and reassess after the Jul 10 recovery check.</td></tr>
-                <tr><td class="campaign-name">Hardware</td><td>&euro;33.38 CPA against the lowest per-conversion value (&euro;90)</td><td>Same margin-sensitivity flag as last month. Hold rather than increase until margin data confirms profitability.</td></tr>
-                <tr><td class="campaign-name">Kenergy Solar</td><td>&euro;31.59 actual CPA, &euro;12,000 confirmed average job value</td><td>Very likely profitable even before margin data. Strong candidate for budget increase once more weeks of data confirm the pattern holds.</td></tr>
-                <tr><td class="campaign-name">Firewood</td><td>&euro;71.89 CPA, week one</td><td>Too early to make a profit-based call. Hold and reassess at the Jul 15 scheduled review.</td></tr>
+                <tr><td class="campaign-name">Brand Search*</td><td>+&euro;281 profit (14.6% est. margin), capped by budget</td><td>Best real profit in the account this week, and capped by budget, not demand (37.3% lost to budget). Best candidate for a spend increase, but no headroom in the approved &euro;255/day envelope without reallocating. Worth confirming the estimated margin with Ciaran given how much weight this conclusion carries.</td></tr>
+                <tr><td class="campaign-name">Home Heating Oil</td><td>+&euro;166 profit, 10% margin</td><td>Second-best real profit, on the account's thinnest margin. Hold current budget through the off-season, revisit for a scale-up ahead of the September heating season.</td></tr>
+                <tr><td class="campaign-name">Kenergy Solar</td><td>Not yet computable, but ~&euro;2,337 projected if both calls convert</td><td>Can't confirm real profit until calls close, but the projected math is compelling given the average €12,000 job value. Strong candidate for budget increase once more weeks confirm real conversions, not just tracked calls.</td></tr>
+                <tr><td class="campaign-name">Gas Bottle &amp; Cylinders</td><td>+&euro;33 profit, thin but positive</td><td>Real profit is positive but small on low volume. Hold and reassess after the Jul 10 recovery check before scaling.</td></tr>
+                <tr><td class="campaign-name">Firewood</td><td>&minus;&euro;99 loss, week one</td><td>A real loss on paper, but expected this early: one week of data, no tCPA set yet. Hold, don't cut, and reassess at the Jul 15 scheduled review.</td></tr>
+                <tr><td class="campaign-name">Hardware</td><td>&minus;&euro;299 loss, confirmed at 15% margin</td><td>The margin-sensitivity risk flagged in previous reports has now materialised into a real, confirmed loss, not just a CPA warning. Hold spend, don't increase, and treat this as the clearest case for a budget reduction if the pattern repeats next week.</td></tr>
             </tbody>
         </table>
     </div>
@@ -465,11 +468,11 @@
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Brand Search', 'Home Heating Oil', 'Hardware', 'Gas Bottle', 'Firewood'],
+            labels: ['Brand Search*', 'Home Heating Oil', 'Hardware', 'Gas Bottle', 'Firewood'],
             datasets: [
                 { label: 'Spend (€)', data: [776, 184, 501, 57, 144], backgroundColor: '#243B98', borderRadius: 3 },
                 { label: 'Revenue (€)', data: [7243, 3499, 1350, 450, 180], backgroundColor: '#E6211E', borderRadius: 3 },
-                { label: 'Surplus, before margin (€)', data: [6467, 3315, 849, 393, 36], backgroundColor: '#1f7a4d', borderRadius: 3 }
+                { label: 'Profit (€)', data: [281, 166, -299, 33, -99], backgroundColor: '#1f7a4d', borderRadius: 3 }
             ]
         },
         options: {

@@ -268,15 +268,15 @@
 
     <div class="chart-container">
         <div class="chart-header">
-            <span class="chart-title">Spend vs Revenue vs Surplus by Campaign (Meta-reported)</span>
+            <span class="chart-title">Spend vs Revenue vs Profit by Campaign (Meta-reported)</span>
             <div class="chart-legend">
                 <div class="legend-item"><div class="legend-dot" style="background:#243B98"></div><span>Spend</span></div>
                 <div class="legend-item"><div class="legend-dot" style="background:#E6211E"></div><span>Revenue</span></div>
-                <div class="legend-item"><div class="legend-dot" style="background:#1f7a4d"></div><span>Surplus</span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#1f7a4d"></div><span>Profit</span></div>
             </div>
         </div>
         <canvas id="spendChart" height="90"></canvas>
-        <p style="padding: 10px 4px 0; font-size: 11px; color: var(--muted);">Surplus = Meta-reported revenue minus spend, <b>before margin</b>, not real profit, and still on Meta's own unverified per-campaign numbers (no independent WooCommerce check exists at this granularity). Firewood B2C shows negative: zero purchases this week despite live spend.</p>
+        <p style="padding: 10px 4px 0; font-size: 11px; color: var(--muted);">Profit = (Meta-reported revenue &times; category margin) &minus; spend, using the margins Ciaran supplied Jul 8, still on Meta's own unverified per-campaign numbers (no independent WooCommerce check exists at this granularity). <b>BOF Retargeting's margin (22.5%) is an estimate</b>, derived from Meta's own purchase-volume mix, not confirmed by Ciaran directly. Firewood B2C shows negative: zero purchases this week despite live spend.</p>
     </div>
 </section>
 
@@ -287,54 +287,57 @@
     <p class="section-desc">Jul 1&ndash;7, 2026, 7 days. <span class="tag-unverified">META SELF-REPORTED</span> &nbsp;WooCommerce doesn't break attribution down by individual campaign, so this table is the only tool available for comparing campaigns against each other. See <a href="reporting-methodology.html">methodology</a>.</p>
 
     <div class="table-card">
-        <div class="table-card-header"><h3>Kenny Fuels Meta Ads: All Campaigns</h3></div>
+        <div class="table-card-header">
+            <h3>Kenny Fuels Meta Ads: All Campaigns</h3>
+            <p>Profit = (revenue &times; category margin) &minus; spend. *BOF Retargeting margin (22.5%) is estimated, not confirmed by Ciaran. Uses Meta's own self-reported revenue, no independent per-campaign WooCommerce check exists.</p>
+        </div>
         <table>
-            <thead><tr><th>Campaign</th><th>Status</th><th>Spend</th><th>Purch.</th><th>Revenue</th><th>ROAS / CPA</th></tr></thead>
+            <thead><tr><th>Campaign</th><th>Status</th><th>Spend</th><th>Purch.</th><th>Revenue</th><th>ROAS / CPA</th><th>Profit</th></tr></thead>
             <tbody>
                 <tr>
                     <td><div class="campaign-name">Heating Oil</div><div class="adgroup-label">&euro;30/day &nbsp;·&nbsp; Freq 2.44</div></td>
-                    <td><span class="status-active">ACTIVE</span></td><td>&euro;214</td><td>6</td><td>&euro;2,188</td><td>10.24x / &euro;35.62</td>
+                    <td><span class="status-active">ACTIVE</span></td><td>&euro;214</td><td>6</td><td>&euro;2,188</td><td>10.24x / &euro;35.62</td><td style="color: var(--green); font-weight:700;">+&euro;5</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">Best ROAS this week, continuing to strengthen post-launch. KENNY10 promo confirmed active.</td></tr>
+                <tr class="campaign-note"><td colspan="7">Best ROAS this week, but only &euro;5 real profit at heating oil's thin 10% margin. Best ROAS in the account is not the same as best profit here.</td></tr>
 
                 <tr>
                     <td><div class="campaign-name">Gas Cylinders</div><div class="adgroup-label">&euro;30/day &nbsp;·&nbsp; Freq 1.79</div></td>
-                    <td><span class="status-active">ACTIVE</span></td><td>&euro;210</td><td>7</td><td>&euro;1,417</td><td>6.75x / &euro;30.00</td>
+                    <td><span class="status-active">ACTIVE</span></td><td>&euro;210</td><td>7</td><td>&euro;1,417</td><td>6.75x / &euro;30.00</td><td style="color: var(--green); font-weight:700;">+&euro;73</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">Most purchases of any campaign this week. Steady into its third week.</td></tr>
+                <tr class="campaign-note"><td colspan="7">Most purchases of any campaign this week. Steady into its third week.</td></tr>
 
                 <tr>
-                    <td><div class="campaign-name">BOF Retargeting</div><div class="adgroup-label">&euro;25/day &nbsp;·&nbsp; Freq 4.74</div></td>
-                    <td><span class="status-active">ACTIVE</span></td><td>&euro;176</td><td>4</td><td>&euro;1,041</td><td>5.90x / &euro;44.09</td>
+                    <td><div class="campaign-name">BOF Retargeting*</div><div class="adgroup-label">&euro;25/day &nbsp;·&nbsp; Freq 4.74</div></td>
+                    <td><span class="status-active">ACTIVE</span></td><td>&euro;176</td><td>4</td><td>&euro;1,041</td><td>5.90x / &euro;44.09</td><td style="color: var(--green); font-weight:700;">+&euro;58</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">Frequency resolved: down to 4.74 from 5.02. No further action needed.</td></tr>
+                <tr class="campaign-note"><td colspan="7">Frequency resolved: down to 4.74 from 5.02. No further action needed. Profit uses the 22.5% estimated margin, see table note above.</td></tr>
 
                 <tr>
                     <td><div class="campaign-name">Sand+Stones</div><div class="adgroup-label">&euro;20/day &nbsp;·&nbsp; Solo creative</div></td>
-                    <td><span class="status-active">ACTIVE</span></td><td>&euro;140</td><td>5</td><td>&euro;980</td><td>6.97x / &euro;28.10</td>
+                    <td><span class="status-active">ACTIVE</span></td><td>&euro;140</td><td>5</td><td>&euro;980</td><td>6.97x / &euro;28.10</td><td style="color: var(--green); font-weight:700;">+&euro;105</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">Consistent mid-pack performer, no changes this week.</td></tr>
+                <tr class="campaign-note"><td colspan="7">Consistent mid-pack performer, and second-best real profit this week. No changes.</td></tr>
 
                 <tr>
                     <td><div class="campaign-name">Firewood B2C</div><div class="adgroup-label">&euro;15/day &nbsp;·&nbsp; Overstock sale to ~Aug 1</div></td>
-                    <td><span class="status-watch">WATCH</span></td><td>&euro;105</td><td>0</td><td>&euro;0</td><td>N/A</td>
+                    <td><span class="status-watch">WATCH</span></td><td>&euro;105</td><td>0</td><td>&euro;0</td><td>N/A</td><td style="color: var(--red); font-weight:700;">&minus;&euro;105</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">Zero purchases despite 8 checkouts (~&euro;7,235 pipeline): page speed, same pattern as Heating Oil. Escalating to Graphedia.</td></tr>
+                <tr class="campaign-note"><td colspan="7">Zero purchases despite 8 checkouts (~&euro;7,235 pipeline): page speed, same pattern as Heating Oil. A pure loss this week, all spend, no revenue. Escalating to Graphedia.</td></tr>
 
                 <tr>
                     <td><div class="campaign-name">Firewood B2B</div><div class="adgroup-label">&euro;12/day</div></td>
-                    <td><span class="status-active">ACTIVE</span></td><td>&euro;84</td><td>2</td><td>&euro;707</td><td>8.46x / &euro;41.77</td>
+                    <td><span class="status-active">ACTIVE</span></td><td>&euro;84</td><td>2</td><td>&euro;707</td><td>8.46x / &euro;41.77</td><td style="color: var(--green); font-weight:700;">+&euro;93</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">Steady, year-round B2B demand.</td></tr>
+                <tr class="campaign-note"><td colspan="7">Steady, year-round B2B demand.</td></tr>
 
                 <tr>
                     <td><div class="campaign-name">Compost</div><div class="adgroup-label">&euro;15/day &rarr; &euro;30/day from Jul 8</div></td>
-                    <td><span class="status-active">ACTIVE</span></td><td>&euro;52</td><td>4</td><td>&euro;472</td><td>9.04x / &euro;13.05</td>
+                    <td><span class="status-active">ACTIVE</span></td><td>&euro;52</td><td>4</td><td>&euro;472</td><td>9.04x / &euro;13.05</td><td style="color: var(--green); font-weight:700;">+&euro;66</td>
                 </tr>
-                <tr class="campaign-note"><td colspan="6">Best cost-per-purchase in the account. Budget restored Jul 8.</td></tr>
+                <tr class="campaign-note"><td colspan="7">Best cost-per-purchase in the account. Budget restored Jul 8.</td></tr>
 
                 <tr style="font-weight:700; background: var(--paper-alt);">
-                    <td>Total (7 campaigns)</td><td></td><td>&euro;982</td><td>28</td><td>&euro;6,805</td><td>6.93x</td>
+                    <td>Total (7 campaigns)</td><td></td><td>&euro;982</td><td>28</td><td>&euro;6,805</td><td>6.93x</td><td style="color: var(--green);">+&euro;295</td>
                 </tr>
             </tbody>
         </table>
@@ -385,15 +388,15 @@
 
     <div class="chart-container">
         <div class="chart-header">
-            <span class="chart-title">Spend vs Revenue vs Surplus: Meta's Claim vs WooCommerce Verified</span>
+            <span class="chart-title">Spend vs Revenue vs Profit: Meta's Claim vs WooCommerce Verified</span>
             <div class="chart-legend">
                 <div class="legend-item"><div class="legend-dot" style="background:#243B98"></div><span>Spend</span></div>
                 <div class="legend-item"><div class="legend-dot" style="background:#E6211E"></div><span>Revenue</span></div>
-                <div class="legend-item"><div class="legend-dot" style="background:#1f7a4d"></div><span>Surplus</span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#1f7a4d"></div><span>Profit</span></div>
             </div>
         </div>
         <canvas id="attributionChart" height="90"></canvas>
-        <p style="padding: 10px 4px 0; font-size: 11px; color: var(--muted);">Same &euro;982 spend, two very different pictures depending which revenue figure it's measured against. Surplus = revenue minus spend, before margin, not real profit. See What It's Worth below.</p>
+        <p style="padding: 10px 4px 0; font-size: 11px; color: var(--muted);">Same &euro;982 spend, two very different pictures depending which revenue figure it's measured against. Ceiling profit (+&euro;295) sums each campaign's real margin, exact. Floor profit (&minus;&euro;834) applies a spend-weighted blended margin (20.2%) since the 5 WooCommerce-verified orders can't be broken down by which category they belong to. See What It's Worth below.</p>
     </div>
 
     <div class="note-strip">
@@ -406,33 +409,33 @@
 <section id="worth" class="alt">
     <div class="eyebrow">What It's Worth</div>
     <div class="section-title">Profitability Range</div>
-    <p class="section-desc">Revenue isn't profit, Kenny Fuels runs on tight margins. Real profit needs Ciaran's margin % by category, still pending. Until then, here's what the range above means in profit terms.</p>
+    <p class="section-desc">First report using Ciaran's actual margin data (received Jul 8). Real profit at both ends of the range below, not just revenue minus spend.</p>
 
     <div class="table-card">
         <div class="table-card-header">
             <h3>This Week: &euro;982 Spent, Against Two Very Different Revenue Pictures</h3>
         </div>
         <table>
-            <thead><tr><th>Scenario</th><th>Revenue</th><th>vs &euro;982 Spend</th><th>Real Profit</th></tr></thead>
+            <thead><tr><th>Scenario</th><th>Revenue</th><th>Margin Basis</th><th>Real Profit</th></tr></thead>
             <tbody>
                 <tr>
                     <td class="campaign-name">Floor (WooCommerce-verified)</td>
                     <td>&euro;731</td>
-                    <td style="color: var(--red); font-weight:700;">&euro;251 shortfall, before margin</td>
-                    <td>Loss at this end, regardless of margin %</td>
+                    <td>20.2% blended (spend-weighted average across all 7 campaigns, since the 5 verified orders can't be broken down by category)</td>
+                    <td style="color: var(--red); font-weight:700;">&minus;&euro;834 loss</td>
                 </tr>
                 <tr>
                     <td class="campaign-name">Ceiling (Meta's claim)</td>
                     <td>&euro;6,805</td>
-                    <td style="color: var(--green); font-weight:700;">&euro;5,823 surplus, before margin</td>
-                    <td>Depends entirely on margin % once supplied</td>
+                    <td>Exact, sum of each campaign's own category margin (see Campaigns table above)</td>
+                    <td style="color: var(--green); font-weight:700;">+&euro;295 profit</td>
                 </tr>
             </tbody>
         </table>
-        <p style="padding: 12px 20px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--line);">"Before margin" means the cost of the product itself hasn't been subtracted yet, only ad spend. Once category margins are supplied, both rows convert into real gross profit, not just revenue minus ad spend. See the <a href="reporting-methodology.html">methodology page</a> for a worked example of how that math changes the picture.</p>
+        <p style="padding: 12px 20px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--line);">The floor uses a blended margin because WooCommerce's 5 verified orders aren't broken down by product category; the ceiling is exact because Meta's own per-campaign revenue is known category by category. BOF Retargeting's 22.5% margin (used in both) is an estimate, not confirmed by Ciaran directly. See the <a href="reporting-methodology.html">methodology page</a> for the full worked example.</p>
     </div>
 
-    <p class="section-desc">The honest answer to "was this week profitable" sits somewhere between those two rows, and margin data is what narrows it, this table alone can't decide it.</p>
+    <p class="section-desc">The honest answer to "was this week profitable" is: <b>on Meta's own claimed numbers, yes, €295</b>; <b>on the only figure WooCommerce can independently verify, no, a €834 loss</b>. The permanent attribution gap means this range can't be collapsed to one number, that part hasn't changed even with real margin data. What's changed is that both ends of the range are now expressed in true profit, not just revenue.</p>
 </section>
 
 <!-- WHAT WE DID -->
@@ -467,19 +470,19 @@
 
     <div class="table-card">
         <div class="table-card-header">
-            <h3>Recommendations: Spend by Profit Signal, Not ROAS Alone</h3>
-            <p><span class="tag-unverified">META SELF-REPORTED, PER-CAMPAIGN</span> &nbsp;No independent WooCommerce check exists at this granularity, so per-campaign calls use Meta's own numbers; the account-wide range above stays the trustworthy figure for overall spend decisions.</p>
+            <h3>Recommendations: Ranked by Real Profit, Not ROAS</h3>
+            <p><span class="tag-unverified">META SELF-REPORTED, PER-CAMPAIGN</span> &nbsp;First report using Ciaran's actual margin data. No independent WooCommerce check exists at campaign granularity, so these use Meta's own revenue; the account-wide range in What It's Worth above stays the trustworthy figure for overall spend decisions. BOF Retargeting's margin is an estimate.</p>
         </div>
         <table>
-            <thead><tr><th>Campaign</th><th>Signal</th><th>Recommendation</th></tr></thead>
+            <thead><tr><th>Campaign</th><th>Profit Signal</th><th>Recommendation</th></tr></thead>
             <tbody>
-                <tr><td class="campaign-name">Compost</td><td>&euro;13.05 CPA, best in account</td><td>Best profit signal even on unknown margins. Budget already scaled to &euro;30/day Jul 8; watch it holds.</td></tr>
-                <tr><td class="campaign-name">Gas Cylinders</td><td>&euro;30.00 CPA, most purchases</td><td>Strong volume at a reasonable CPA in only its third week. Candidate for increase once a full month confirms the pattern.</td></tr>
-                <tr><td class="campaign-name">Heating Oil</td><td>&euro;35.62 CPA, best ROAS (10.24x)</td><td>Strengthening in month two. Hold budget, revisit once the shared page-speed fix is confirmed working.</td></tr>
-                <tr><td class="campaign-name">Sand+Stones</td><td>&euro;28.10 CPA, mid-pack</td><td>Hold current budget: consistent, no strong signal either way without margin data.</td></tr>
-                <tr><td class="campaign-name">Firewood B2B</td><td>&euro;41.77 CPA, year-round demand</td><td>More resilient than B2C on demand basis. Reasonable to hold.</td></tr>
-                <tr><td class="campaign-name">BOF Retargeting</td><td>&euro;44.09 CPA, warm traffic</td><td>CPA alone understates value since it's retargeting, not cold acquisition. Hold.</td></tr>
-                <tr><td class="campaign-name">Firewood B2C</td><td>0 purchases, real checkout intent (&euro;7,235)</td><td>Don't cut budget: demand is there, the blocker is the landing page. Hold and escalate the fix.</td></tr>
+                <tr><td class="campaign-name">Sand+Stones</td><td>+&euro;105 profit, 25% margin</td><td>Best real profit in the account this week. Hold current budget: consistent performer, no need to change anything.</td></tr>
+                <tr><td class="campaign-name">Firewood B2B</td><td>+&euro;93 profit, year-round demand</td><td>Second-best real profit. More resilient than B2C on demand basis. Reasonable to hold or modestly increase.</td></tr>
+                <tr><td class="campaign-name">Gas Cylinders</td><td>+&euro;73 profit, most purchases</td><td>Strong volume and solid profit at gas's 20% margin, in only its third week. Candidate for increase once a full month confirms the pattern.</td></tr>
+                <tr><td class="campaign-name">Compost</td><td>+&euro;66 profit, best CPA in account</td><td>Lowest CPA doesn't mean highest profit here, still solid. Budget already scaled to &euro;30/day Jul 8; watch it holds at the higher spend level.</td></tr>
+                <tr><td class="campaign-name">BOF Retargeting*</td><td>+&euro;58 profit, estimated margin</td><td>Positive, but the margin behind this number is an estimate. Hold; worth confirming with Ciaran given retargeting's real value is likely understated by CPA alone.</td></tr>
+                <tr><td class="campaign-name">Heating Oil</td><td>+&euro;5 profit despite best ROAS (10.24x)</td><td>The clearest case this week that ROAS misleads: best headline number, weakest real profit of any active campaign, heating oil's 10% margin is thin. Hold, don't scale on ROAS alone.</td></tr>
+                <tr><td class="campaign-name">Firewood B2C</td><td>&minus;&euro;105 loss, zero purchases</td><td>A real loss, but demand is proven (8 checkouts, &euro;7,235 pipeline). Don't cut budget: the blocker is the landing page, not the campaign. Hold and escalate the fix.</td></tr>
             </tbody>
         </table>
     </div>
@@ -496,9 +499,9 @@
             <p>Scaled to &euro;30/day Jul 8. Watch that 9.04x ROAS and &euro;13.05 CPA hold at the higher spend level.</p>
         </div>
         <div class="next-card">
-            <span class="priority-tag priority-medium">Waiting</span>
-            <h4>Margin % By Category</h4>
-            <p>Still the single biggest unlock: turns the profitability range above into a real number. Asked of Ciaran, standing item.</p>
+            <span class="priority-tag priority-low">Received Jul 8</span>
+            <h4>Margin % By Category, Now Applied</h4>
+            <p>Real profit is now live throughout this report. One follow-up remains: confirming the BOF Retargeting margin (22.5%, an estimate derived from purchase-volume weighting) directly with Ciaran, since it isn't one of his seven confirmed category numbers.</p>
         </div>
         <div class="next-card">
             <span class="priority-tag priority-low">Ongoing</span>
@@ -517,11 +520,11 @@
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Heating Oil', 'Gas Cylinders', 'BOF Retargeting', 'Sand+Stones', 'Firewood B2C', 'Firewood B2B', 'Compost'],
+            labels: ['Heating Oil', 'Gas Cylinders', 'BOF Retargeting*', 'Sand+Stones', 'Firewood B2C', 'Firewood B2B', 'Compost'],
             datasets: [
                 { label: 'Spend (€)', data: [214, 210, 176, 140, 105, 84, 52], backgroundColor: '#243B98', borderRadius: 3 },
                 { label: 'Revenue (€)', data: [2188, 1417, 1041, 980, 0, 707, 472], backgroundColor: '#E6211E', borderRadius: 3 },
-                { label: 'Surplus, before margin (€)', data: [1974, 1207, 865, 840, -105, 623, 420], backgroundColor: '#1f7a4d', borderRadius: 3 }
+                { label: 'Profit (€)', data: [5, 73, 58, 105, -105, 93, 66], backgroundColor: '#1f7a4d', borderRadius: 3 }
             ]
         },
         options: {
@@ -545,7 +548,7 @@
             datasets: [
                 { label: 'Spend (€)', data: [982, 982], backgroundColor: '#243B98', borderRadius: 3 },
                 { label: 'Revenue (€)', data: [6805, 731], backgroundColor: '#E6211E', borderRadius: 3 },
-                { label: 'Surplus, before margin (€)', data: [5823, -251], backgroundColor: '#1f7a4d', borderRadius: 3 }
+                { label: 'Profit (€)', data: [295, -834], backgroundColor: '#1f7a4d', borderRadius: 3 }
             ]
         },
         options: {
