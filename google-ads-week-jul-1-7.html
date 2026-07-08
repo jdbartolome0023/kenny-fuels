@@ -135,10 +135,10 @@
 <section id="notes" style="background: var(--gray); border-bottom: none;">
     <div class="section-title">This Week's Notes</div>
     <ul style="font-size: 15px; max-width: 720px; line-height: 1.8; margin-top: 8px; color: var(--text-dark); padding-left: 20px; list-style: disc;">
-        <li style="margin-bottom: 12px;"><strong>66.97 conversions, €1,725 spend, 21.3x account ROAS.</strong> The ROAS figure is inflated by Kenergy Solar's two conversions on July 2, each carrying a synthetic €12,000 bidding value (your confirmed average job value, not literal per-order revenue) — worth reading the campaign-level detail rather than the headline number alone.</li>
+        <li style="margin-bottom: 12px;"><strong>66.97 conversions, €1,725 spend, 21.3x account ROAS.</strong> The ROAS figure is inflated by Kenergy Solar's two conversions on July 2, each carrying a synthetic €12,000 bidding value (your confirmed average job value, not literal per-order revenue). Worth reading the campaign-level detail rather than the headline number alone.</li>
         <li style="margin-bottom: 12px;"><strong>Gas Bottle recovering.</strong> 5 conversions this week, up from 0 the week before the tROAS relaxation on June 26. Impression share still low (28.4%) but the algorithm is finding conversions again.</li>
-        <li style="margin-bottom: 12px;"><strong>Brand Search losing impression share to budget, not rank.</strong> 37.3% of available impressions lost to budget this week — the €110/day cap is now the binding constraint, not competitiveness. Worth a budget conversation if this persists, though there's no headroom left in the approved €255/day account envelope without reallocating.</li>
-        <li style="margin-bottom: 0;"><strong>Found a real tracking gap while checking Google's own numbers against WooCommerce orders.</strong> 31 of 89 site orders this week show generic "Source: Google" with no way to confirm whether they're paid or another kind of Google-referred traffic — unlike Meta campaigns, which tag cleanly. Likely a missing auto-tagging configuration on Google Ads' end. Checking this now; it's currently limiting how precisely I can independently verify Google's own reported numbers.</li>
+        <li style="margin-bottom: 12px;"><strong>Brand Search losing impression share to budget, not rank.</strong> 37.3% of available impressions lost to budget this week: the €110/day cap is now the binding constraint, not competitiveness. Worth a budget conversation if this persists, though there's no headroom left in the approved €255/day account envelope without reallocating.</li>
+        <li style="margin-bottom: 0;"><strong>Found a real tracking gap while checking Google's own numbers against WooCommerce orders.</strong> 31 of 89 site orders this week show generic "Source: Google" with no way to confirm whether they're paid or another kind of Google-referred traffic, unlike Meta campaigns, which tag cleanly. Likely a missing auto-tagging configuration on Google Ads' end. Checking this now; it's currently limiting how precisely I can independently verify Google's own reported numbers.</li>
     </ul>
 </section>
 
@@ -147,7 +147,7 @@
     <div class="section-label">Key Metrics</div>
     <div class="section-title">Weekly Performance</div>
     <p class="section-desc">Jul 1 – Jul 7, 2026 &nbsp;·&nbsp; 7 days. Prior comparable week (Jun 24–30) shown for comparison.</p>
-    <p class="section-commentary">66.97 conversions, €1,725 spend, 21.3x account ROAS — up from 18.8x the week before, though spend rose 19% too, meaning cost per conversion also rose (€25.76 vs €21.57). Kenergy Solar's two conversions on July 2 (€24,000 combined, at a synthetic €12,000/conversion bidding value) account for 65% of this week's total conversion value; excluding Solar, the account's like-for-like performance was roughly flat week-on-week.</p>
+    <p class="section-commentary">66.97 conversions, €1,725 spend, 21.3x account ROAS: up from 18.8x the week before, though spend rose 19% too, meaning cost per conversion also rose (€25.76 vs €21.57). Kenergy Solar's two conversions on July 2 (€24,000 combined, at a synthetic €12,000/conversion bidding value) account for 65% of this week's total conversion value; excluding Solar, the account's like-for-like performance was roughly flat week-on-week.</p>
 
     <div class="metrics-grid">
         <div class="metric-card">
@@ -214,7 +214,7 @@
                 </tr>
             </tbody>
         </table>
-        <p style="padding: 12px 24px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--mid-gray);">Jun 26–Jul 2 changes are logged in the internal tracker but that week's formal report wasn't finalised before the reporting cadence moved to Monday-Sunday — this row picks up directly from Jun 19-25. ROAS jump vs Jun 19-25 is driven by Solar's synthetic conversion values, not a genuine 2x efficiency gain.</p>
+        <p style="padding: 12px 24px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--mid-gray);">Jun 26–Jul 2 changes are logged in the internal tracker but that week's formal report wasn't finalised before the reporting cadence moved to Monday-Sunday. This row picks up directly from Jun 19-25. ROAS jump vs Jun 19-25 is driven by Solar's synthetic conversion values, not a genuine 2x efficiency gain.</p>
     </div>
 
     <div class="table-card">
@@ -255,7 +255,7 @@
 
     <div class="context-box">
         <strong>New vs returning customers</strong>
-        Of 89 total orders placed on the site this week, 39 were from new customers and 50 from returning customers — 56.2% returning.
+        Of 89 total orders placed on the site this week, 39 were from new customers and 50 from returning customers: 56.2% returning.
     </div>
 
     <div class="metrics-grid">
@@ -267,19 +267,17 @@
 
     <div class="table-card">
         <div class="table-card-header">
-            <h3>Google-Referred Orders: What WooCommerce Can and Can't Confirm</h3>
-            <p>Google Ads' own conversion tracking is a GA4 import, so it isn't independent of GA4 — WooCommerce's order-level attribution is the only genuinely separate check available.</p>
+            <h3>Google Ads-Reported Conversions vs Total Site Sales</h3>
+            <p>Google Ads' own conversion tracking is a GA4 import, so it isn't independent of GA4. WooCommerce's order-level attribution is the only genuinely separate check available. Organic Google search traffic is excluded entirely: it isn't driven by ad spend, so it has no place in a Google Ads attribution check.</p>
         </div>
         <table>
             <thead><tr><th>Source</th><th>Orders</th><th>Revenue</th></tr></thead>
             <tbody>
                 <tr><td class="campaign-name">Google Ads (self-reported conversions)</td><td>66.97</td><td>€36,721.59*</td></tr>
-                <tr><td class="campaign-name">WooCommerce — clearly organic</td><td>28</td><td>€6,352.00</td></tr>
-                <tr><td class="campaign-name">WooCommerce — "Source: Google" (paid/other, can't distinguish)</td><td>31</td><td>€9,541.47</td></tr>
-                <tr style="font-weight:700; background: var(--gray);"><td>Total Google-referred (organic + ambiguous)</td><td>59</td><td>€15,893.47</td></tr>
+                <tr><td class="campaign-name">WooCommerce paid-candidate orders ("Source: Google")</td><td>31</td><td>€9,541.47</td></tr>
             </tbody>
         </table>
-        <p style="padding: 12px 20px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border);">*Google's reported conversion value includes Kenergy Solar's synthetic €12,000/conversion bidding value, so it isn't directly comparable to literal order revenue — order count is the more meaningful comparison here. 66.97 reported conversions vs. 59 Google-referred orders is a reasonably close match, directionally reassuring, but 31 of those 59 orders can't be confirmed as paid Google Ads clicks specifically — WooCommerce shows them only as generic "Source: Google" with no paid/organic qualifier. This looks like a missing gclid/UTM auto-tagging configuration on the Google Ads side, unlike Meta campaigns which tag cleanly with the specific campaign name. Checking Account Settings &gt; Auto-tagging and campaign Final URL suffixes this week.</p>
+        <p style="padding: 12px 20px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border);">*Google's reported conversion value includes Kenergy Solar's synthetic €12,000/conversion bidding value, so it isn't directly comparable to literal order revenue; order count is the more meaningful comparison here. 66.97 reported conversions vs. 31 WooCommerce paid-candidate orders is a real gap (about 2.2x), not a close match. That "Source: Google" bucket isn't confirmed as 100% paid either: WooCommerce shows them only as generic "Source: Google" with no paid/organic qualifier, unlike Meta campaigns which tag cleanly with the specific campaign name. A separate 28 orders (€6,352.00) tagged cleanly as organic and are excluded here, since organic search has nothing to do with Google Ads spend. This looks like a missing gclid/UTM auto-tagging configuration on the Google Ads side. Fixed Jul 8: a Final URL suffix was added to all campaigns, so periods from Jul 8 onward should show a cleaner split.</p>
     </div>
 </section>
 
@@ -291,7 +289,7 @@
     <ul class="section-commentary" style="padding-left: 32px; list-style: disc;">
         <li style="margin-bottom: 10px;"><strong>KF – Fuel | Brand Search:</strong> 32.98 conversions, €775.91 spend, €7,242.61 tracked value, 9.33x ROAS. Above the 6x tROAS target. Budget Lost IS at 37.3% means the €110/day budget is now the binding constraint, not competitiveness (Rank Lost IS only 7.3%).</li>
         <li style="margin-bottom: 10px;"><strong>KF – Fuel | Home Heating Oil Search:</strong> 9.99 conversions, €183.78 spend, €3,499.19 tracked value, 19.04x ROAS. Strong off-season performance continuing.</li>
-        <li style="margin-bottom: 10px;"><strong>KF – Fuel | Gas Bottle &amp; Cylinders:</strong> 5 conversions, €57.40 spend, €450 tracked value, 7.84x ROAS. Recovering post-restructure — 5 conversions this week vs 0 the week before the June 26 tROAS relaxation. IS still low (28.4%), formal recovery check due Jul 10.</li>
+        <li style="margin-bottom: 10px;"><strong>KF – Fuel | Gas Bottle &amp; Cylinders:</strong> 5 conversions, €57.40 spend, €450 tracked value, 7.84x ROAS. Recovering post-restructure: 5 conversions this week vs 0 the week before the June 26 tROAS relaxation. IS still low (28.4%), formal recovery check due Jul 10.</li>
         <li style="margin-bottom: 10px;"><strong>KF – Hardware:</strong> 15.00 conversions, €500.74 spend, €1,349.79 tracked value, 2.70x ROAS. Gardening &amp; Landscaping remains the standout ad group. Rank Lost IS still elevated at 63.2% despite the earlier max CPC raise.</li>
         <li style="margin-bottom: 10px;"><strong>KF – Fuel | Kenergy Solar:</strong> 2 conversions, €63.18 spend, €24,000 tracked value (synthetic, €12,000/conversion), 380x ROAS. Both conversions landed July 2. Actual CPA €31.59, close to the €40 tCPA target.</li>
         <li style="margin-bottom: 0;"><strong>KF – Fuel | Firewood:</strong> 2 conversions, €143.77 spend, €180 tracked value, 1.25x ROAS. Still in learning phase (launched Jul 1, no tCPA set yet). Weakest ROAS in the account but too early to act on.</li>
@@ -357,7 +355,7 @@
             <div class="change-icon icon-new">&#9679;</div>
             <div class="change-content">
                 <h4>Firewood Campaign Launched</h4>
-                <p>New dedicated campaign, €20/day, Maximize Conversions (no tCPA yet — learning phase), funded from budget freed by the earlier Gas Bottle reduction. Two ad groups: Kiln Dried Logs and Firewood, geo-targeted to Wexford, Wicklow, Dublin.</p>
+                <p>New dedicated campaign, €20/day, Maximize Conversions (no tCPA yet, learning phase), funded from budget freed by the earlier Gas Bottle reduction. Two ad groups: Kiln Dried Logs and Firewood, geo-targeted to Wexford, Wicklow, Dublin.</p>
             </div>
         </div>
         <div class="change-item">
@@ -392,7 +390,7 @@
         <div class="next-card">
             <span class="priority-tag priority-high">This Week</span>
             <h4>Check Google Ads Auto-Tagging Configuration</h4>
-            <p>31 of 89 site orders this week show generic "Source: Google" attribution with no way to confirm paid vs. other Google-referred traffic. Checking Account Settings &gt; Auto-tagging and campaign Final URL suffixes — this is currently limiting how precisely Google's own numbers can be independently verified.</p>
+            <p>31 of 89 site orders this week show generic "Source: Google" attribution with no way to confirm paid vs. other Google-referred traffic. Checking Account Settings &gt; Auto-tagging and campaign Final URL suffixes. This is currently limiting how precisely Google's own numbers can be independently verified.</p>
         </div>
         <div class="next-card">
             <span class="priority-tag priority-medium">Monitor</span>
@@ -412,7 +410,7 @@
         <div class="next-card">
             <span class="priority-tag priority-low">September 2026</span>
             <h4>Google Shopping Launch Preparation</h4>
-            <p>Shipping rate card received Jul 8 — GMC is currently showing an inaccurate flat €0 nationwide rate that needs rebuilding before the Sep 1 launch, alongside the outstanding image and disapproval fixes with Graphedia.</p>
+            <p>Shipping rate card received Jul 8: GMC is currently showing an inaccurate flat €0 nationwide rate that needs rebuilding before the Sep 1 launch, alongside the outstanding image and disapproval fixes with Graphedia.</p>
         </div>
     </div>
 </section>

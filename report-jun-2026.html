@@ -574,7 +574,7 @@
 
   <div class="context-box">
     <strong>New vs returning customers</strong>
-    Of 360 total orders placed on the site in June, 135 were from new customers and 225 were from returning customers. Returning customers made up 62.5% of orders, in line with a fuel and hardware business with regular repeat buyers. (Same site-wide order data used in the Meta Ads June report — this isn't channel-specific.)
+    Of 360 total orders placed on the site in June, 135 were from new customers and 225 were from returning customers. Returning customers made up 62.5% of orders, in line with a fuel and hardware business with regular repeat buyers. (Same site-wide order data used in the Meta Ads June report. This isn't channel-specific.)
   </div>
 
   <div class="context-box">
@@ -608,7 +608,7 @@
   <div class="table-card">
     <div class="table-card-header">
       <h3>Google Ads-Reported Conversions vs Total Site Sales</h3>
-      <p>Google Ads' own conversion tracking for this account is a GA4 import, so it isn't an independent number in the way Meta's self-reported figure is. June's WooCommerce order export (Attribution column) is the independent cross-check.</p>
+      <p>Google Ads' own conversion tracking for this account is a GA4 import, so it isn't an independent number in the way Meta's self-reported figure is. June's WooCommerce order export (Attribution column) is the independent cross-check. Organic Google search traffic is excluded from this comparison entirely: it isn't driven by ad spend, so it has no place in a Google Ads attribution check.</p>
     </div>
     <table>
       <thead>
@@ -627,22 +627,10 @@
           <td>69.0%</td>
         </tr>
         <tr>
-          <td class="campaign-name">WooCommerce &mdash; clearly organic ("Organic: Google")</td>
-          <td>138</td>
-          <td>€32,850</td>
-          <td>31.6%</td>
-        </tr>
-        <tr>
-          <td class="campaign-name">WooCommerce &mdash; ambiguous ("Source: Google", paid/other unclear)</td>
+          <td class="campaign-name">WooCommerce &mdash; paid-candidate orders ("Source: Google")</td>
           <td>118</td>
           <td>€39,661</td>
-          <td>38.2%</td>
-        </tr>
-        <tr style="font-weight:700; background: var(--gray);">
-          <td>Total Google-referred (organic + ambiguous)</td>
-          <td>256</td>
-          <td>€72,511</td>
-          <td>69.7%</td>
+          <td>38.1%</td>
         </tr>
         <tr>
           <td class="campaign-name">Total site revenue (all sources)</td>
@@ -652,7 +640,7 @@
         </tr>
       </tbody>
     </table>
-    <p style="padding: 12px 20px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border);">Google's reported conversion value includes Kenergy Solar's synthetic €12,000/conversion bidding value, so it isn't directly comparable to WooCommerce order revenue &mdash; use order/conversion <em>count</em> as the more meaningful comparison. 273 Google Ads-reported conversions vs. 256 total Google-referred orders is a close match by count, directionally reassuring. But 118 of those 256 orders (€39,661, over a third of June's total site revenue) sit in the unconfirmed "Source: Google" bucket &mdash; WooCommerce couldn't tell paid Google Ads clicks apart from other Google-referred traffic all through June, for the same UTM/auto-tagging reason found when checking Jul 1&ndash;7 data. <strong>Fixed Jul 8:</strong> a Final URL suffix was added to all campaigns, so reporting periods from Jul 8 onward should show a cleaner split; this ambiguity still applies to all of June.</p>
+    <p style="padding: 12px 20px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border);">Google's reported conversion value includes Kenergy Solar's synthetic €12,000/conversion bidding value, so it isn't directly comparable to WooCommerce order revenue; use order/conversion count as the more meaningful comparison. 273 Google Ads-reported conversions vs. 118 WooCommerce paid-candidate orders is a real gap (about 2.3x), not a close match. That "Source: Google" bucket isn't confirmed as 100% paid either: WooCommerce couldn't tell Google Ads clicks apart from other non-organic Google-referred traffic through June, for the same UTM/auto-tagging reason found when checking Jul 1&ndash;7 data. A separate 138 orders (&euro;32,850) tagged cleanly as "Organic: Google" and are excluded here entirely, since organic search has nothing to do with Google Ads spend. Fixed Jul 8: a Final URL suffix was added to all campaigns, so reporting periods from Jul 8 onward should show a cleaner split; this ambiguity still applies to all of June.</p>
   </div>
 
   <div class="context-box">
@@ -710,12 +698,12 @@
         <tr>
           <td class="campaign-name">Gas Bottle &amp; Cylinders</td>
           <td>Post-restructure recovery, low volume</td>
-          <td>Too early to make a profit-based call — hold and reassess after the Jul 10 recovery check.</td>
+          <td>Too early to make a profit-based call. Hold and reassess after the Jul 10 recovery check.</td>
         </tr>
         <tr>
           <td class="campaign-name">Kenergy Solar</td>
           <td>€38.55 CPA, but each conversion is worth a confirmed €12,000 average job value</td>
-          <td>Extremely high per-conversion value makes this very likely profitable even at a higher CPA than other campaigns — a strong candidate for budget increase once more than 2 weeks of data confirms the pattern holds.</td>
+          <td>Extremely high per-conversion value makes this very likely profitable even at a higher CPA than other campaigns: a strong candidate for budget increase once more than 2 weeks of data confirms the pattern holds.</td>
         </tr>
       </tbody>
     </table>
