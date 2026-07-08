@@ -255,14 +255,14 @@
 
     <div class="chart-container">
         <div class="chart-header">
-            <span class="chart-title">Spend by Campaign: Jul 1&ndash;Jul 7</span>
+            <span class="chart-title">Spend vs Revenue by Campaign</span>
             <div class="chart-legend">
-                <div class="legend-item"><div class="legend-dot" style="background:#243B98"></div><span>Fuel</span></div>
-                <div class="legend-item"><div class="legend-dot" style="background:#E6211E"></div><span>Hardware</span></div>
-                <div class="legend-item"><div class="legend-dot" style="background:#6b3fa0"></div><span>Solar</span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#243B98"></div><span>Spend</span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#E6211E"></div><span>Revenue</span></div>
             </div>
         </div>
         <canvas id="spendChart" height="90"></canvas>
+        <p style="padding: 10px 4px 0; font-size: 11px; color: var(--muted);">Kenergy Solar excluded from this chart: its &euro;24,000 tracked value (synthetic &euro;12,000/conversion bidding value) would compress every other campaign's bar to near-zero. See the Daily Breakdown table above for Solar's full detail.</p>
     </div>
 </section>
 
@@ -342,17 +342,27 @@
         </div>
         <div class="gap-mid">
             <div class="x">2.2x</div>
-            <div class="l">Not yet<br>reconciled</div>
+            <div class="l">Ambiguous<br>pre-fix</div>
         </div>
         <div class="gap-side">
             <div class="gap-eyebrow">WooCommerce confirms <span class="tag-woo" style="margin-left:6px;">PAID-CANDIDATE</span></div>
             <div class="gap-num-row"><div class="gap-num woo-val">31</div><div class="gap-num-caption">orders</div></div>
         </div>
     </div>
+    <div class="source-tag">UNLIKE META, THIS GAP IS EXPECTED TO NARROW: SEE BELOW.</div>
 
     <div class="note-strip">
         <span class="ic">&#128295;</span>
-        <span><b>Fixable configuration gap, not a permanent limit.</b> Unlike Meta, this gap isn't a legal tracking barrier, it's a missing UTM auto-tagging configuration on the Google Ads side. Google's reported conversion value includes Kenergy Solar's synthetic &euro;12,000/conversion bidding value, so order count is the meaningful comparison, not revenue. The "Source: Google" bucket also isn't confirmed 100% paid: it shows generically with no paid/organic qualifier for orders before the fix. A separate 28 orders (&euro;6,352) tagged cleanly as organic and are excluded here entirely. <b>Fixed Jul 8:</b> a Final URL suffix was added to all campaigns, so periods from Jul 8 onward should show a cleaner split; this ambiguity applies only to data before that date.</span>
+        <div>
+            <div class="head">Fixable configuration gap, not a permanent limit</div>
+            <ul>
+                <li>Unlike Meta, this isn't a legal tracking barrier, it's a missing UTM auto-tagging configuration that was live on the Google Ads side through this whole reporting period.</li>
+                <li>Google's reported conversion value includes Kenergy Solar's synthetic &euro;12,000/conversion bidding value, so order count (66.97 vs 31) is the meaningful comparison here, not revenue.</li>
+                <li>The "Source: Google" bucket isn't confirmed 100% paid either: WooCommerce shows it generically, with no paid/organic qualifier, for any order placed before the fix.</li>
+                <li>A separate 28 orders (&euro;6,352) tagged cleanly as organic and are excluded here entirely, since organic search has nothing to do with Google Ads spend.</li>
+                <li><b>Fixed Jul 8:</b> a Final URL suffix was added to all campaigns, so orders from Jul 8 onward should tag with an explicit paid source. This ambiguity applies only to data before that date, and should resolve as post-fix orders accumulate over the next few reports.</li>
+            </ul>
+        </div>
     </div>
 </section>
 
@@ -454,17 +464,18 @@
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Brand Search', 'Hardware', 'Home Heating Oil', 'Firewood', 'Gas Bottle', 'Kenergy Solar'],
-            datasets: [{
-                label: 'Spend (€)',
-                data: [776, 501, 184, 144, 57, 63],
-                backgroundColor: ['#243B98', '#E6211E', '#243B98', '#243B98', '#243B98', '#6b3fa0'],
-                borderRadius: 3,
-            }]
+            labels: ['Brand Search', 'Home Heating Oil', 'Hardware', 'Gas Bottle', 'Firewood'],
+            datasets: [
+                { label: 'Spend (€)', data: [776, 184, 501, 57, 144], backgroundColor: '#243B98', borderRadius: 3 },
+                { label: 'Revenue (€)', data: [7243, 3499, 1350, 450, 180], backgroundColor: '#E6211E', borderRadius: 3 }
+            ]
         },
         options: {
             responsive: true,
-            plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(context) { return '€' + context.parsed.y; } } } },
+            plugins: {
+                legend: { display: false },
+                tooltip: { callbacks: { label: function(context) { return context.dataset.label + ': €' + context.parsed.y; } } }
+            },
             scales: {
                 y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { font: { family: 'IBM Plex Mono', size: 10 }, callback: function(value) { return '€' + value; } } },
                 x: { grid: { display: false }, ticks: { font: { family: 'IBM Plex Mono', size: 10 } } }
