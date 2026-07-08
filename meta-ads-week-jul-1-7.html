@@ -268,13 +268,15 @@
 
     <div class="chart-container">
         <div class="chart-header">
-            <span class="chart-title">Spend vs Revenue by Campaign (Meta-reported)</span>
+            <span class="chart-title">Spend vs Revenue vs Surplus by Campaign (Meta-reported)</span>
             <div class="chart-legend">
                 <div class="legend-item"><div class="legend-dot" style="background:#243B98"></div><span>Spend</span></div>
                 <div class="legend-item"><div class="legend-dot" style="background:#E6211E"></div><span>Revenue</span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#1f7a4d"></div><span>Surplus</span></div>
             </div>
         </div>
         <canvas id="spendChart" height="90"></canvas>
+        <p style="padding: 10px 4px 0; font-size: 11px; color: var(--muted);">Surplus = Meta-reported revenue minus spend, <b>before margin</b>, not real profit, and still on Meta's own unverified per-campaign numbers (no independent WooCommerce check exists at this granularity). Firewood B2C shows negative: zero purchases this week despite live spend.</p>
     </div>
 </section>
 
@@ -505,7 +507,8 @@
             labels: ['Heating Oil', 'Gas Cylinders', 'BOF Retargeting', 'Sand+Stones', 'Firewood B2C', 'Firewood B2B', 'Compost'],
             datasets: [
                 { label: 'Spend (€)', data: [214, 210, 176, 140, 105, 84, 52], backgroundColor: '#243B98', borderRadius: 3 },
-                { label: 'Revenue (€)', data: [2188, 1417, 1041, 980, 0, 707, 472], backgroundColor: '#E6211E', borderRadius: 3 }
+                { label: 'Revenue (€)', data: [2188, 1417, 1041, 980, 0, 707, 472], backgroundColor: '#E6211E', borderRadius: 3 },
+                { label: 'Surplus, before margin (€)', data: [1974, 1207, 865, 840, -105, 623, 420], backgroundColor: '#1f7a4d', borderRadius: 3 }
             ]
         },
         options: {
