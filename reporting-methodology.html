@@ -276,7 +276,7 @@
             <h4>Google: fixable, currently broken</h4>
             <ul>
                 <li>Google Ads' own consent handling (Consent Mode v2) is a different, less restrictive mechanism than Meta's: it uses anonymized statistical modeling rather than requiring identity-level matching, so Google's gap has historically run much smaller than Meta's.</li>
-                <li>A UTM tagging fix was applied Jul 8, 2026 to let WooCommerce cleanly separate Google Ads clicks from other Google-referred traffic. As of Jul 13, 2026, that fix is confirmed correctly configured but <b>not yet showing any effect</b>: root cause still under investigation with Graphedia.</li>
+                <li>Josette applied a UTM tagging fix to the Google Ads account Jul 8, 2026 (a Final URL suffix added via the Google Ads API, no website access needed) to let WooCommerce cleanly separate Google Ads clicks from other Google-referred traffic. As of Jul 13, 2026, that fix is confirmed correctly configured on the Google Ads side but <b>not yet showing any effect</b> in WooCommerce's own order data. Since the cause sits on the website side (WooCommerce settings, Complianz, or GTM, none of which Josette has access to beyond Analytics), the follow-up investigation was sent to Graphedia.</li>
                 <li>Once resolved, this gap should close for real, unlike Meta's. Until then, treat it with the same floor/ceiling caution.</li>
             </ul>
         </div>
