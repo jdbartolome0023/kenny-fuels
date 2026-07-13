@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenny Fuels: How the Profitability Numbers Work</title>
+    <title>Kenny Fuels: How the Reporting Numbers Work</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -33,7 +33,7 @@
         .period-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); background: var(--paper-alt); padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 500; color: var(--muted); margin-bottom: 20px; letter-spacing: 0.3px; }
         .period-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--black); }
         .hero h1 { font-family: var(--font-display); font-weight: 900; font-size: 44px; line-height: 1.08; letter-spacing: 0.2px; margin-bottom: 6px; text-wrap: balance; max-width: 760px; }
-        .hero p { font-size: 15.5px; color: var(--muted); max-width: 620px; margin-top: 16px; line-height: 1.6; }
+        .hero p { font-size: 15.5px; color: var(--muted); max-width: 660px; margin-top: 16px; line-height: 1.6; }
 
         section { max-width: 1080px; margin: 0 auto; padding: 44px 40px; border-bottom: 1px solid var(--line); }
         section.alt { background: var(--paper-alt); }
@@ -45,7 +45,6 @@
         .body-text b { font-weight: 700; }
         .body-text.narrow { max-width: 620px; }
 
-        /* Gap comparison, reused from the weekly report */
         .gap-compare { display: flex; align-items: center; gap: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: var(--paper); }
         .gap-side { flex: 1; padding: 22px 26px; }
         .gap-side.meta { border-right: 1px solid var(--line); }
@@ -86,12 +85,15 @@
         .note-strip b { font-weight: 700; }
         .note-strip .ic { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
         .note-strip.example { background: #fdf2e2; }
+        .note-strip.warn { background: #fdeceb; }
+        .note-strip.google { background: #e8eefb; }
 
-        .legend-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .legend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
         .legend-card { background: var(--paper); padding: 20px 22px; }
         .legend-card .tag { display: inline-block; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.4px; padding: 3px 9px; border-radius: 3px; margin-bottom: 10px; }
         .tag-verified { background: #e5f2ea; color: var(--green); }
         .tag-unverified { background: #fdeceb; color: var(--red); }
+        .tag-plausible { background: #fdf2e2; color: var(--amber); }
         .legend-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
         .steps { counter-reset: step; display: flex; flex-direction: column; gap: 0; }
@@ -101,13 +103,19 @@
         .step-content h4 { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
         .step-content p { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+        .compare-card { background: var(--paper); padding: 22px 24px; }
+        .compare-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+        .compare-card ul { padding-left: 18px; }
+        .compare-card li { font-size: 13px; color: var(--ink); line-height: 1.7; margin-bottom: 4px; }
+
         footer { background: var(--ink); color: rgba(255,255,255,0.4); text-align: center; padding: 22px 40px; font-family: var(--font-mono); font-size: 11px; }
         footer strong { color: rgba(255,255,255,0.72); }
 
         @media (max-width: 768px) {
             .gap-compare { flex-direction: column; }
             .gap-side.meta { border-right: none; border-bottom: 1px solid var(--line); }
-            .legend-grid { grid-template-columns: 1fr; }
+            .legend-grid, .compare-grid { grid-template-columns: 1fr; }
             .range-bar { flex-direction: column; }
             .hero h1 { font-size: 32px; }
         }
@@ -118,139 +126,193 @@
 <nav>
     <div class="logo"><img src="https://www.kennyfuels.ie/wp-content/uploads/2023/11/kenny-logo.png" alt="Kenny Fuels"></div>
     <div class="nav-right">
-        <a class="btn-back" href="meta-ads-week-jul-1-7.html">&larr; Back to weekly report</a>
-        <span class="report-date">REFERENCE &nbsp;·&nbsp; UPDATED JUL 8, 2026</span>
+        <span class="report-date">STANDING REFERENCE &nbsp;·&nbsp; UPDATED IN PLACE AS METHODS CHANGE, NOT PERIOD-SPECIFIC</span>
     </div>
 </nav>
 
 <div class="hero">
     <div class="period-badge">REPORTING METHODOLOGY &nbsp;·&nbsp; NOT A PERIOD REPORT</div>
-    <h1>How to Read the Profitability Numbers</h1>
-    <p>A standing reference for how blended CPA, the Meta/WooCommerce attribution gap, and real profit ranges are calculated across every Kenny Fuels report. This page doesn't change period to period the way the weekly and monthly reports do; it explains the method behind them so the numbers are auditable, not just asserted.</p>
+    <h1>How to Read the Numbers in Every Kenny Fuels Report</h1>
+    <p>A single, generic reference for how attribution, verification, and real profit are calculated across every Google Ads and Meta Ads report, for any period. This page doesn't change period to period the way the weekly reports do; it explains the method behind them once, so the numbers stay auditable rather than just asserted. Linked from every report, not rewritten for each one.</p>
 </div>
 
-<!-- THE PROBLEM -->
+<!-- THE CORE PROBLEM -->
 <section>
-    <div class="eyebrow">The Problem</div>
-    <div class="section-title">Two Numbers, One Truth We Can't Fully See</div>
-    <p class="section-desc">Every Meta report shows two different figures for the same purchases: what Meta's pixel claims, and what WooCommerce's own order data can independently confirm. They disagree by a wide margin, and per Graphedia (confirmed Jul 7, 2026), that gap cannot be closed by any tracking fix, it's a permanent limit of what's legally trackable once a visitor declines marketing cookies.</p>
+    <div class="eyebrow">The Core Problem</div>
+    <div class="section-title">What Ad Platforms Report Isn't What Happened</div>
+    <p class="section-desc">Every ad platform (Google, Meta) tracks conversions with its own pixel or tag, fired in the visitor's browser or via server-side API. That tracking depends on the visitor accepting cookies, and increasingly on statistical modeling to fill gaps when they don't. WooCommerce's own order data is the one source that's independent of any ad platform's self-reporting, it only records what actually got purchased. Every report compares the two.</p>
 
-    <div class="gap-compare">
-        <div class="gap-side meta">
-            <div class="gap-eyebrow">Meta reports (self-reported)</div>
-            <div class="gap-num-row"><div class="gap-num meta-val">28</div><div class="gap-num-caption">purchases</div></div>
-        </div>
-        <div class="gap-mid">
-            <div class="x">5.6x</div>
-            <div class="l">Meta<br>overstates</div>
-        </div>
-        <div class="gap-side">
-            <div class="gap-eyebrow">WooCommerce confirms</div>
-            <div class="gap-num-row"><div class="gap-num woo-val">5</div><div class="gap-num-caption">purchases</div></div>
-        </div>
+    <div class="note-strip">
+        <span class="ic">&#128274;</span>
+        <span><b>Why they diverge:</b> a platform's self-reported number can include purchases from visitors who declined tracking consent (statistically modeled, not observed), visitors on a different device than the one that clicked the ad, and in Google's case specifically, sometimes a technical misconfiguration on top. WooCommerce's own order data has no such inflation, but it can undercount too, since its own attribution capture has real limits (see Verification Tiers below).</span>
     </div>
-    <div class="source-tag">EXAMPLE: JUL 1&ndash;7, 2026 WEEK. THE MULTIPLE MOVES EVERY PERIOD, IT WAS ~19X FOR JUNE.</div>
-
-    <p class="body-text">Because that gap can't be closed, every profitability question has to be answered as a <b>range</b>, not a single number: a defensible floor (only what WooCommerce can verify) and a ceiling (Meta's own claim, known to be inflated). The true figure sits somewhere in between, and which end it's closer to can't currently be determined.</p>
 </section>
 
 <!-- THE RANGE METHOD -->
 <section class="alt">
     <div class="eyebrow">The Method</div>
     <div class="section-title">Reporting a Floor and a Ceiling, Not a Guess</div>
-    <p class="section-desc">Applied to June 2026: same €2,962 in Meta spend, two very different pictures depending which revenue figure it's measured against.</p>
+    <p class="section-desc">Whenever a platform's claimed number and WooCommerce's verified number disagree, the report shows both as a floor-to-ceiling range rather than picking one. Numbers below are illustrative of the method, not this period's actual figures, see the live weekly report for current numbers.</p>
 
     <div class="range-bar">
         <div class="range-end floor">
-            <div class="lbl">Floor (WooCommerce)</div>
-            <div class="val">&euro;731</div>
+            <div class="lbl">Floor (WooCommerce-verified)</div>
+            <div class="val">&euro;X</div>
         </div>
-        <div class="range-track"><div class="qmark">true figure is somewhere in here, currently unknown</div></div>
+        <div class="range-track"><div class="qmark">true figure is somewhere in here</div></div>
         <div class="range-end ceiling">
-            <div class="lbl">Ceiling (Meta's claim)</div>
-            <div class="val">&euro;20,793</div>
+            <div class="lbl">Ceiling (platform's claim)</div>
+            <div class="val">&euro;Y</div>
         </div>
     </div>
-    <div class="source-tag">JUNE 2026 REVENUE ATTRIBUTABLE TO META, AGAINST &euro;2,962 SPEND.</div>
 
     <div class="note-strip">
-        <span class="ic">&#128274;</span>
-        <span><b>Neither end is "the answer" on its own.</b> The floor is provably real but almost certainly too low, it excludes every consent-declining visitor Meta may have genuinely influenced. The ceiling is Meta's own number and known to include traffic it didn't verifiably drive. Reporting only the ceiling (the traditional approach) overstates performance; reporting only the floor understates it. Showing both is the honest answer until something narrows the range.</span>
+        <span class="ic">&#9878;&#65039;</span>
+        <span><b>Neither end is "the answer" on its own.</b> The floor is provably real but almost certainly too low: it excludes every consent-declining or cross-device visitor a platform may have genuinely influenced. The ceiling is the platform's own number, known to include some traffic it didn't verifiably drive. Reporting only the ceiling overstates performance; reporting only the floor understates it. Showing both is the honest answer until something narrows the range.</span>
     </div>
 </section>
 
-<!-- FROM REVENUE TO PROFIT -->
+<!-- VERIFICATION TIERS -->
 <section>
-    <div class="eyebrow">The Missing Piece</div>
-    <div class="section-title">From Revenue to Real Profit</div>
-    <p class="section-desc">Everything above is revenue. Kenny Fuels runs on tight margins, so revenue isn't profit, and a strong ROAS can still be a loss once the actual cost of the product is factored in. This is the one input only Ciaran can supply: approximate gross margin % by product category.</p>
+    <div class="eyebrow">Reading The Reports</div>
+    <div class="section-title">Three Tiers of Confidence, Not Two</div>
+    <p class="section-desc">Every figure in a Kenny Fuels report carries one of these three labels.</p>
+
+    <div class="legend-grid">
+        <div class="legend-card">
+            <span class="tag tag-verified">VERIFIED</span>
+            <p>Comes from WooCommerce's own order data, independent of any ad platform. The most trustworthy figure available, treated as the floor. Still likely an undercount, since WooCommerce's own attribution capture has the same consent limits, plus its own separate technical gaps under active investigation.</p>
+        </div>
+        <div class="legend-card">
+            <span class="tag tag-plausible">PLAUSIBLE SIGNAL</span>
+            <p>A secondary check, e.g. cross-referencing orders tagged to another channel against product categories a given platform doesn't advertise at all. Suggestive of undercounted attribution, never proof. Shown separately, never merged into the verified floor.</p>
+        </div>
+        <div class="legend-card">
+            <span class="tag tag-unverified">SELF-REPORTED</span>
+            <p>Comes from the platform's own dashboard. Useful for comparing that platform's campaigns against each other (it's the only figure with per-campaign resolution when WooCommerce can't confirm a specific campaign), but known to overstate true results, so it should never stand alone as "the" profit number.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PER-CAMPAIGN VERIFICATION -->
+<section class="alt">
+    <div class="eyebrow">A Real Limit, Worked Around Where Possible</div>
+    <div class="section-title">Verifying Down to the Campaign Level</div>
+    <p class="section-desc">WooCommerce's attribution usually only identifies the channel (e.g. "Meta"), not which specific campaign within it. But when a platform's own campaign name gets captured in the order's attribution tag, that order can be matched to one specific campaign, giving a real, if small, verified data point where one wouldn't otherwise exist.</p>
 
     <div class="note-strip example">
         <span class="ic">&#128161;</span>
-        <span><b>Worked example, illustrative margins only, not Kenny Fuels' real numbers:</b> Compost generated &euro;6,200 revenue in June on &euro;687 spend (9.0x ROAS, looks like the best campaign in the account). At a 15% margin, gross profit is &euro;930, minus the &euro;687 spend leaves <b>&euro;243 real profit</b>. At an 8% margin, gross profit is &euro;496, which is <b>less than the &euro;687 spent</b>, a loss, despite the 9x ROAS. The margin percentage is what decides which of those two stories is true.</span>
+        <span><b>Worked example, from the Jul 1-12, 2026 report:</b> of 6 WooCommerce-verified Meta orders that period, 3 carried a specific campaign name in their attribution tag (Compost x2, Firewood B2B x1); the other 3 only showed a generic "Paid Social" tag with no campaign identified. That gave real verified evidence for 2 of the account's 7 campaigns that period, and zero for the other 5, information the account-wide floor/ceiling range alone doesn't surface. Recommendations should treat those 5 zero-verification campaigns with real caution regardless of how strong their self-reported numbers look.</span>
     </div>
+
+    <p class="body-text narrow">This only works when it works: most Meta-attributed orders don't carry a campaign name, so most periods will still have far more "self-reported only" campaigns than verified ones. Report this honestly rather than implying every campaign has been checked.</p>
+</section>
+
+<!-- CATEGORY CROSS-REFERENCE -->
+<section>
+    <div class="eyebrow">A Secondary Check</div>
+    <div class="section-title">The Category Cross-Reference Technique</div>
+    <p class="section-desc">A way to surface plausibly-undercounted attribution without claiming false certainty: check whether orders tagged to one channel (or to no channel at all) are in product categories that another platform doesn't advertise.</p>
+
+    <div class="note-strip example">
+        <span class="ic">&#128269;</span>
+        <span><b>Worked example, from the Jul 1-12, 2026 report:</b> Compost and Sand+Stones are Meta-only categories, Google Ads doesn't run any campaign for them. 22 orders tagged Google/Organic/Direct that period were in those categories, worth &euro;3,165.57, none counted as Meta-attributed anywhere. This could be genuine Meta-influenced revenue that converted later through a different last-click channel, or it could be organic demand with no Meta involvement at all: not distinguishable from order data alone. Reported as a separate, clearly-labeled <span class="tag tag-plausible" style="margin:0 2px;">PLAUSIBLE SIGNAL</span>, never merged into the verified floor.</span>
+    </div>
+
+    <p class="body-text narrow">Worth repeating every period as a standing check, not a one-off. The specific categories and dollar amounts will change; the technique doesn't.</p>
+</section>
+
+<!-- FROM REVENUE TO PROFIT -->
+<section class="alt">
+    <div class="eyebrow">The Missing Piece, Now Resolved</div>
+    <div class="section-title">From Revenue to Real Profit</div>
+    <p class="section-desc">Revenue isn't profit. Kenny Fuels runs on tight margins, so a strong ROAS can still be a real loss once the actual cost of the product is factored in. Ciaran supplied approximate gross margin % by category on Jul 8, 2026, applied to every report since.</p>
 
     <div class="table-card">
         <div class="table-card-header">
-            <h3>Margin Data Still Needed, By Category</h3>
-            <p>Rough estimates are fine, exact figures aren't required. Asked of Ciaran, standing item until supplied.</p>
+            <h3>Margin % By Category</h3>
+            <p>Ciaran's real numbers, confirmed Jul 8, 2026, except the two marked estimated.</p>
         </div>
         <table>
-            <thead><tr><th>Category</th><th>Status</th></tr></thead>
+            <thead><tr><th>Category</th><th>Margin</th><th>Status</th></tr></thead>
             <tbody>
-                <tr><td>Heating oil</td><td>Pending</td></tr>
-                <tr><td>Gas cylinders</td><td>Pending</td></tr>
-                <tr><td>Hardware (decking, cladding, fencing, gardening)</td><td>Pending</td></tr>
-                <tr><td>Solar installations</td><td>Pending</td></tr>
-                <tr><td>Firewood</td><td>Pending</td></tr>
-                <tr><td>Compost</td><td>Pending</td></tr>
-                <tr><td>Sand and stones</td><td>Pending</td></tr>
+                <tr><td>Sand and stones</td><td>25%</td><td>Confirmed by Ciaran</td></tr>
+                <tr><td>Firewood</td><td>25%</td><td>Confirmed by Ciaran</td></tr>
+                <tr><td>Compost</td><td>25%</td><td>Confirmed by Ciaran</td></tr>
+                <tr><td>Hardware (decking, cladding, fencing, gardening)</td><td>15%</td><td>Confirmed by Ciaran</td></tr>
+                <tr><td>Gas cylinders</td><td>20%</td><td>Confirmed by Ciaran</td></tr>
+                <tr><td>Solar installations</td><td>10%</td><td>Confirmed by Ciaran</td></tr>
+                <tr><td>Heating oil</td><td>10%</td><td>Confirmed by Ciaran</td></tr>
+                <tr><td>Google Brand Search (mixed traffic)</td><td>14.6%</td><td>Estimated, derived from conversion-volume weighting, not one of Ciaran's direct figures</td></tr>
+                <tr><td>Meta BOF Retargeting (mixed traffic)</td><td>22.5%</td><td>Estimated, same method as above</td></tr>
             </tbody>
         </table>
     </div>
 
-    <p class="body-text narrow">Once supplied, margin % applies to <b>both ends</b> of the revenue range above, narrowing "was this profitable" from a revenue question into an actual profit floor and ceiling, campaign by campaign. It does not close the attribution gap itself, that stays permanent, but it makes each end of the range mean something real instead of just a number.</p>
+    <div class="note-strip example">
+        <span class="ic">&#128161;</span>
+        <span><b>Worked example, illustrative margins only:</b> a campaign generates &euro;6,200 claimed revenue on &euro;687 spend (9.0x ROAS, looks like the best campaign in the account). At a 15% margin, gross profit is &euro;930, minus the &euro;687 spend leaves <b>&euro;243 real profit</b>. At an 8% margin, gross profit is &euro;496, which is <b>less than the &euro;687 spent</b>, a loss, despite the identical 9x ROAS. The margin percentage is what decides which of those two stories is true, which is why ROAS alone is never used to justify a spend decision in any report.</span>
+    </div>
+
+    <p class="body-text narrow">Margin applies to <b>every tier</b>: the verified floor, the plausible signal, and the platform's self-reported ceiling alike. It narrows "was this profitable" from a revenue question into an actual profit range, campaign by campaign, but it does not close the attribution gap itself, that's a separate problem addressed below.</p>
 </section>
 
-<!-- SOURCE LABELS -->
-<section class="alt">
-    <div class="eyebrow">Reading The Reports</div>
-    <div class="section-title">What Each Label Means</div>
-    <p class="section-desc">Every figure in a Kenny Fuels report now carries one of these two labels. This is the key.</p>
+<!-- GOOGLE VS META -->
+<section>
+    <div class="eyebrow">One Important Difference</div>
+    <div class="section-title">Google's Gap and Meta's Gap Are Not the Same Problem</div>
+    <p class="section-desc">Both reports use the range method above, but for different reasons, and with different expected outcomes. Don't assume what fixes one will fix the other.</p>
 
-    <div class="legend-grid">
-        <div class="legend-card">
-            <span class="tag tag-verified">WOOCOMMERCE-VERIFIED</span>
-            <p>Comes from the site's own order data (WooCommerce Attribution field), independent of any ad platform's self-reporting. Trustworthy as a floor, but understates true Meta influence because consent-declining visitors can't be tracked back to Meta at all.</p>
+    <div class="compare-grid">
+        <div class="compare-card">
+            <h4>Meta: permanent, by law</h4>
+            <ul>
+                <li>Graphedia confirmed (Jul 7, 2026): visitors who decline marketing cookies cannot legally be tracked back to a Meta ad, by any method, including server-side Conversions API, under Irish ePrivacy/GDPR rules.</li>
+                <li>This is not an in-progress fix. The gap narrows only for the subset of visitors who <i>do</i> consent, never for those who decline.</li>
+                <li>Report language should never imply this is temporary or "being resolved."</li>
+            </ul>
         </div>
-        <div class="legend-card">
-            <span class="tag tag-unverified">META SELF-REPORTED</span>
-            <p>Comes from Meta's own pixel and Ads Manager. Useful for comparing campaigns against each other (it's the only figure with per-campaign resolution), but known to overstate true attributable revenue account-wide, so it should never stand alone as "the" profit number.</p>
+        <div class="compare-card">
+            <h4>Google: fixable, currently broken</h4>
+            <ul>
+                <li>Google Ads' own consent handling (Consent Mode v2) is a different, less restrictive mechanism than Meta's: it uses anonymized statistical modeling rather than requiring identity-level matching, so Google's gap has historically run much smaller than Meta's.</li>
+                <li>A UTM tagging fix was applied Jul 8, 2026 to let WooCommerce cleanly separate Google Ads clicks from other Google-referred traffic. As of Jul 13, 2026, that fix is confirmed correctly configured but <b>not yet showing any effect</b>: root cause still under investigation with Graphedia.</li>
+                <li>Once resolved, this gap should close for real, unlike Meta's. Until then, treat it with the same floor/ceiling caution.</li>
+            </ul>
         </div>
+    </div>
+
+    <div class="note-strip warn">
+        <span class="ic">&#9888;&#65039;</span>
+        <span><b>Don't port language between the two reports out of habit.</b> A phrase like "expected to narrow" is only ever true for Google's fixable issue, never for Meta's. A phrase like "permanent limitation" is only ever true for Meta's, never for Google's, unless a future finding proves otherwise.</span>
     </div>
 </section>
 
 <!-- HOW THIS SHOWS UP -->
-<section>
+<section class="alt">
     <div class="eyebrow">In Practice</div>
     <div class="section-title">How This Changes What Gets Reported</div>
 
     <div class="steps">
         <div class="step">
             <div class="step-num">01</div>
-            <div class="step-content"><h4>Every "was it profitable" question gets a range answer</h4><p>Never a single figure. Floor (verified) and ceiling (Meta's claim), both shown, both labelled.</p></div>
+            <div class="step-content"><h4>Every "was it profitable" question gets a range answer</h4><p>Never a single figure where a platform/WooCommerce gap exists. Floor (verified) and ceiling (platform's claim), both shown, both labelled.</p></div>
         </div>
         <div class="step">
             <div class="step-num">02</div>
-            <div class="step-content"><h4>Recommendations stay conditional until margin data lands</h4><p>"Hold, pending margin confirmation" rather than a confident spend-up or spend-down call, on any campaign where the floor and ceiling would lead to different decisions.</p></div>
+            <div class="step-content"><h4>Per-campaign recommendations get a confidence check, not just a number</h4><p>Before ranking campaigns by self-reported profit, check whether WooCommerce can verify any real order for each one. Campaigns with zero verified orders in a period get held, not recommended for a budget increase, regardless of how strong their self-reported number looks.</p></div>
         </div>
         <div class="step">
             <div class="step-num">03</div>
-            <div class="step-content"><h4>The permanent-limitation disclaimer stays current</h4><p>Language never implies the consent-tracking gap is "in progress" or "being fixed." It isn't, and won't be, per Graphedia's Jul 7 confirmation.</p></div>
+            <div class="step-content"><h4>The permanent-limitation disclaimer stays current, and stays Meta-specific</h4><p>Never implies Meta's consent-tracking gap is "in progress" or "being fixed." It isn't, and won't be, per Graphedia's Jul 7, 2026 confirmation. Google's separate, currently-broken-but-fixable tracking issue gets its own honest status update instead, not this language.</p></div>
         </div>
         <div class="step">
             <div class="step-num">04</div>
-            <div class="step-content"><h4>This page updates if the method changes</h4><p>If margin data arrives, if the attribution gap narrows for any reason, or if a new measurement approach gets adopted, this reference gets updated in place rather than left stale while the period reports move on.</p></div>
+            <div class="step-content"><h4>Margin data is applied, but its own confidence gaps stay flagged</h4><p>Category margins are live (received Jul 8, 2026). Two figures (Brand Search 14.6%, BOF Retargeting 22.5%) are still derived estimates, not Ciaran's direct numbers: every report using them carries an explicit disclaimer distinguishing them from the seven confirmed category margins.</p></div>
+        </div>
+        <div class="step">
+            <div class="step-num">05</div>
+            <div class="step-content"><h4>This page updates in place as the method changes</h4><p>If a tracking gap closes, if a new verification technique gets adopted, or if margin data changes, this reference gets updated here rather than re-explained inside each period's report.</p></div>
         </div>
     </div>
 </section>
