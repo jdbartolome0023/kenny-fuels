@@ -482,21 +482,51 @@
     <div class="section-title">Priorities for the Coming Period</div>
     <p class="section-desc">Where to shift spend based on profit signal, then the operational checks already scheduled.</p>
 
+    <div class="note-strip" style="background: #fdf2e2;">
+        <span class="ic">&#9888;&#65039;</span>
+        <span><b>Corrected this period:</b> the table below used to rank all 7 campaigns against each other using Meta's own claimed profit. That's misleading: WooCommerce can actually identify which campaign a verified order came from when it captures Meta attribution at all, and doing that check shows <b>5 of the 7 campaigns have zero verified orders this period</b>, not low, zero. Ranking those 5 by Meta's claimed profit builds false precision on numbers we already know are inflated. Split into what's actually verified vs. what's Meta's claim only below.</span>
+    </div>
+
     <div class="table-card">
         <div class="table-card-header">
-            <h3>Recommendations: Ranked by Real Profit, Not ROAS</h3>
-            <p><span class="tag-unverified">META SELF-REPORTED, PER-CAMPAIGN</span> &nbsp;No independent WooCommerce check exists at campaign granularity, so these use Meta's own revenue; the account-wide range in What It's Worth above stays the trustworthy figure for overall spend decisions. BOF Retargeting's margin is an estimate.</p>
+            <h3>What's Actually Verified This Period</h3>
+            <p><span class="tag-verified">WOOCOMMERCE, PER-CAMPAIGN</span> &nbsp;Only 2 of 7 campaigns have any independently-confirmed order this period. Sample sizes (1-2 orders) are too small to compute a reliable profit figure either way, shown as a caution, not a confirmed loss.</p>
         </div>
         <table>
-            <thead><tr><th>Campaign</th><th>Profit Signal</th><th>Recommendation</th></tr></thead>
+            <thead><tr><th>Campaign</th><th>Verified Orders</th><th>Verified Revenue</th><th>Spend</th><th>Note</th></tr></thead>
             <tbody>
-                <tr><td class="campaign-name">Gas Cylinders</td><td>+&euro;491 profit, 20% margin</td><td>Best real profit in the account this period. Strong candidate for a budget increase within the current headroom under the &euro;170/day approved envelope, once a full week of stable data confirms the pattern.</td></tr>
-                <tr><td class="campaign-name">Firewood B2B</td><td>+&euro;304 profit, year-round demand</td><td>Consistently strong. Reasonable to hold or modestly increase given resilient B2B demand.</td></tr>
-                <tr><td class="campaign-name">Sand+Stones</td><td>+&euro;329 profit, steady performer</td><td>Hold current budget: consistent, no need to change anything.</td></tr>
-                <tr><td class="campaign-name">BOF Retargeting*</td><td>+&euro;251 profit, estimated margin</td><td>Positive, but the margin behind this number is an estimate. Hold; worth confirming with Ciaran given retargeting's real value is likely understated by CPA alone.</td></tr>
-                <tr><td class="campaign-name">Firewood B2C</td><td>+&euro;219 profit despite the account's highest CPA (&euro;89.09)</td><td>Positive but inefficient relative to every other campaign. Hold budget, but flag for a creative refresh check if the high CPA persists into next period.</td></tr>
-                <tr><td class="campaign-name">Heating Oil</td><td>+&euro;203 profit despite best ROAS (15.71x)</td><td>Best headline ROAS in the account, but only third-best real profit at heating oil's thin 10% margin. Candidate for a budget increase given strong absolute numbers, but don't scale on ROAS alone.</td></tr>
-                <tr><td class="campaign-name">Compost</td><td>&minus;&euro;28 loss, root cause identified and fixed Jul 13</td><td>Don't scale again until the ad-level delivery skew resolves at the rolled-back &euro;15/day budget. If "Ad 1 Compost 04.26" keeps dominating delivery while underperforming, consider pausing it to let "Compost Trees" run.</td></tr>
+                <tr><td class="campaign-name">Compost</td><td>2</td><td>&euro;194</td><td>&euro;200</td><td>Meta claims 5 purchases/&euro;687 for this campaign, over 2x what's verified. At just 2 real orders, this is too small a sample to confirm real profit or loss, but it's real evidence demand exists, worth more than the 5 campaigns below with nothing at all.</td></tr>
+                <tr><td class="campaign-name">Firewood B2B</td><td>1</td><td>&euro;203</td><td>&euro;140</td><td>Meta claims 5 purchases/&euro;1,774, nearly 9x what's verified. Same caution: 1 order isn't enough to confirm anything, but it's the only other campaign with any real evidence at all this period.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Meta's Claim Only, Zero Independent Verification This Period</h3>
+            <p><span class="tag-unverified">META SELF-REPORTED, UNVERIFIED</span> &nbsp;Not one order tagged to any of these 5 campaigns appears anywhere in this period's WooCommerce export. Treat every figure below as a hypothesis from Meta's own dashboard, not a confirmed result. BOF Retargeting's margin is also an estimate.</p>
+        </div>
+        <table>
+            <thead><tr><th>Campaign</th><th>Meta's Claimed Profit</th><th>Recommendation</th></tr></thead>
+            <tbody>
+                <tr><td class="campaign-name">Gas Cylinders</td><td>+&euro;491 claimed</td><td>Meta's dashboard says this is the best performer in the account, but there is zero independent confirmation any of its 11 claimed purchases actually happened. Hold current budget: don't increase spend on an unverified number, however good it looks.</td></tr>
+                <tr><td class="campaign-name">Sand+Stones</td><td>+&euro;329 claimed</td><td>Same caution as above, no verified orders this period despite 8 claimed purchases. Hold.</td></tr>
+                <tr><td class="campaign-name">BOF Retargeting*</td><td>+&euro;251 claimed</td><td>Estimated margin on top of an unverified purchase count. Hold; lowest-confidence figure in the report.</td></tr>
+                <tr><td class="campaign-name">Firewood B2C</td><td>+&euro;219 claimed</td><td>Also the account's highest claimed CPA (&euro;89.09). Hold, and note that even Meta's own number here is weak relative to its other campaigns.</td></tr>
+                <tr><td class="campaign-name">Heating Oil</td><td>+&euro;203 claimed</td><td>Best claimed ROAS in the account (15.71x), but zero verified orders this period despite 13 claimed purchases. Hold, don't scale on an unverified headline number.</td></tr>
+            </tbody>
+        </table>
+        <p style="padding: 12px 20px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--line);">None of these 5 campaigns are recommended for a budget increase this period. That's a direct consequence of having zero verified sales to point to, not a judgment that they're performing badly, Meta's own dashboard says the opposite. Revisit once the WooCommerce attribution investigation with Graphedia resolves and a real per-campaign check becomes possible again.</p>
+    </div>
+
+    <div class="table-card">
+        <div class="table-card-header">
+            <h3>Compost: Separately Being Watched</h3>
+        </div>
+        <table>
+            <thead><tr><th>Campaign</th><th>Status</th><th>Recommendation</th></tr></thead>
+            <tbody>
+                <tr><td class="campaign-name">Compost</td><td>Root cause identified and fixed Jul 13</td><td>Independent of the verification question above: the ad-level delivery skew (one weak ad taking 99.7% of the Jul 8 budget increase) is fixed via the Jul 13 rollback to &euro;15/day. Don't scale again until delivery rebalances. If "Ad 1 Compost 04.26" keeps dominating delivery while underperforming, consider pausing it to let "Compost Trees" run.</td></tr>
             </tbody>
         </table>
     </div>
