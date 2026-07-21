@@ -450,7 +450,7 @@
     <div class="score-card sc-amber">
       <div class="sc-icon">⚠️</div>
       <div class="sc-label">Quality Issues</div>
-      <div class="sc-val">22 Disapproved · 654 Images</div>
+      <div class="sc-val">16 Disapproved · 654 Images</div>
     </div>
   </div>
 
@@ -461,7 +461,7 @@
 
   <div class="alert alert-orange">
     <div class="alert-icon">📦</div>
-    <div><strong>Feed quality has not improved since June.</strong> Images under Google's minimum size went from 645 to 654. Disapprovals went from 18 to 22 (three of the four new ones are Kerosene SKUs added since June - see below). ALL CAPS titles are unchanged at 57.</div>
+    <div><strong>Feed quality has not improved since June.</strong> Images under Google's minimum size went from 645 to 654. Disapprovals peaked at 22 (three of the four new ones were Kerosene SKUs added since June - see below); 7 of those (tobacco/healthcare) are now resolved via exclusion, leaving 16 live, including 1 new one found today (a local inventory data flag, not in the original breakdown). ALL CAPS titles are unchanged at 57.</div>
   </div>
 
   <div class="alert alert-green">
@@ -552,7 +552,7 @@
     <div class="score-card sc-red">
       <div class="sc-icon">🚫</div>
       <div class="sc-label">Disapproved</div>
-      <div class="sc-val">22 products <span style="font-size:12px;font-weight:400;">(was 18)</span></div>
+      <div class="sc-val">16 products <span style="font-size:12px;font-weight:400;">(peaked at 22, 7 resolved via exclusion)</span></div>
     </div>
     <div class="score-card sc-amber">
       <div class="sc-icon">⚠️</div>
@@ -717,7 +717,7 @@
         <td><span class="badge badge-red">Open</span></td>
       </tr>
       <tr>
-        <td><strong>Fix 22 disapproved products</strong><span class="sub">Current: 5 missing price, 3 missing image, 4 price mismatch (new, mostly Kerosene), 1 promotional title text, 1 promotional image overlay, 1 broken product page URL. Tobacco (1) and healthcare (6) flags resolved separately via exclusion, see below. Specific product URLs sent 25 June. <a href="https://jdbartolome0023.github.io/kenny-fuels/data/kenny-fuels-disapproved-products-jul21.csv" target="_blank" style="color: var(--black);">Full list of the disapproved products</a>.</span></td>
+        <td><strong>Fix 16 disapproved products</strong><span class="sub">Current: 5 missing price, 3 missing image, 4 price mismatch (mostly Kerosene), 1 promotional title text, 1 promotional image overlay, 1 broken product page URL, plus 1 new local inventory data flag found today. Tobacco (1) and healthcare (6) flags already resolved via exclusion, see below. Specific product URLs sent 25 June. <a href="https://jdbartolome0023.github.io/kenny-fuels/data/kenny-fuels-disapproved-products-jul21.csv" target="_blank" style="color: var(--black);">Full list of the disapproved products</a>.</span></td>
         <td>Disapproved products do not show on Shopping ads at all.</td>
         <td><span class="badge badge-owner-thea">Thea</span></td>
         <td>Due July</td>
@@ -725,7 +725,7 @@
       </tr>
       <tr>
         <td><strong>Tobacco &amp; healthcare policy flags</strong><span class="sub">7 products (1 tobacco, 6 animal health/equine) were being disapproved for policy reasons that don't really apply to them. Fixed differently to the rest of the table: excluded from the Shopping destination directly via API rather than waiting on a content fix.</span></td>
-        <td>Removes 7 of the original 18 disapprovals without needing WooCommerce changes.</td>
+        <td>Removes 7 of the 22 peak disapprovals without needing WooCommerce changes.</td>
         <td><span class="badge badge-owner-josette">Josette</span></td>
         <td>Done 17 July, re-confirmed 21 July</td>
         <td><span class="badge badge-green">Resolved</span></td>
@@ -1001,7 +1001,7 @@
       </tr>
       <tr>
         <td>3</td>
-        <td><strong>Fix remaining disapproved products:</strong> missing prices, missing images, price mismatches, promotional overlay, broken page, title text issue. URLs already sent 25 June. Tobacco/healthcare flags no longer need action here (resolved separately).</td>
+        <td><strong>Fix remaining 16 disapproved products:</strong> missing prices, missing images, price mismatches, promotional overlay, broken page, title text issue, plus 1 new local inventory data flag found today. URLs already sent 25 June. Tobacco/healthcare flags no longer need action here (resolved separately).</td>
         <td><span class="badge badge-owner-thea">Thea</span></td>
         <td>Open</td>
         <td><span class="badge badge-red">Yes</span></td>
