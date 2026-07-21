@@ -256,6 +256,7 @@
 
     .badge-owner-josette { background: #e8eaf6; color: #243B98; border: 1px solid #c5cae9; }
     .badge-owner-graphedia { background: #f3e8ff; color: #6b21a8; border: 1px solid #d6bcfa; }
+    .badge-owner-thea { background: #e0f2f1; color: #00695c; border: 1px solid #80cbc4; }
     .badge-owner-ciaran { background: #fffde7; color: #92400e; border: 1px solid #f9a825; }
 
     /* Tables */
@@ -299,10 +300,11 @@
     }
 
     /* Owner blocks */
-    .owner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .owner-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 
     .owner-block { border-radius: 4px; padding: 24px; }
     .owner-block.josette { background: #f0f4ff; border: 1px solid #c5cae9; border-top: 3px solid var(--black); }
+    .owner-block.thea { background: #e0f2f1; border: 1px solid #80cbc4; border-top: 3px solid #00695c; }
     .owner-block.graphedia { background: #f3e8ff; border: 1px solid #d6bcfa; border-top: 3px solid #7c3aed; }
     .owner-block.ciaran { background: #fffde7; border: 1px solid #f9e68c; border-top: 3px solid #f9a825; }
 
@@ -315,6 +317,7 @@
     }
 
     .josette .owner-title { color: var(--black); }
+    .thea .owner-title { color: #00695c; }
     .graphedia .owner-title { color: #6b21a8; }
     .ciaran .owner-title { color: #92400e; }
 
@@ -334,6 +337,7 @@
     .owner-block ul li:last-child { border-bottom: none; }
     .owner-block ul li::before { content: '→'; flex-shrink: 0; font-weight: 700; margin-top: 1px; }
     .josette ul li::before { color: var(--black); }
+    .thea ul li::before { color: #00695c; }
     .graphedia ul li::before { color: #7c3aed; }
     .ciaran ul li::before { color: #d97706; }
 
@@ -467,7 +471,7 @@
 
   <div class="alert alert-blue">
     <div class="alert-icon">📅</div>
-    <div><strong>September 1 target is still realistic, but no longer has slack in it.</strong> The image fix and disapprovals are Graphedia-owned and have sat untouched for a month - that's now the main risk to the date, not technical readiness on our side.</div>
+    <div><strong>September 1 target is still realistic, but no longer has slack in it.</strong> The image fix and disapprovals are Thea-owned (in-house, per Ciaran's 8 July routing decision) and have sat untouched for a month - that's now the main risk to the date, not technical readiness on our side.</div>
   </div>
 </section>
 
@@ -571,7 +575,7 @@
         <td><strong>Images below 500×500px</strong><span class="sub">Google has announced upcoming enforcement. Products with images under 500px will be disapproved when it kicks in. Still open since June. <a href="https://jdbartolome0023.github.io/kenny-fuels/data/kenny-fuels-small-images-jul21.csv" target="_blank" style="color: var(--black);">Full list of the 654 affected products</a>.</span></td>
         <td>654 <span class="sub" style="display:inline">(was 645)</span></td>
         <td><span class="badge badge-red">Soon</span></td>
-        <td>Graphedia to update product images in WooCommerce</td>
+        <td>Thea to update product images in WooCommerce</td>
       </tr>
       <tr class="row-red">
         <td><strong>Missing product price</strong><span class="sub">Products with no price value in the feed.</span></td>
@@ -643,7 +647,7 @@
 
   <div class="alert alert-green" style="margin-top: 16px;">
     <div class="alert-icon">✅</div>
-    <div><strong>Phase 2 - done, chased again 21 July.</strong> Specific product URLs for every June issue were sent to Graphedia on 25 June, grouped by issue type. A follow-up was sent 21 July with the image list re-referenced and a fresh, specific product list attached for the ALL CAPS titles issue (which wasn't in the original breakdown).</div>
+    <div><strong>Phase 2 - done, chased again 21 July.</strong> Specific product URLs for every June issue were sent on 25 June, grouped by issue type. Ciaran routed this catalogue work to Thea in-house on 8 July. A follow-up was sent 21 July with the image list re-referenced and a fresh, specific product list attached for the ALL CAPS titles issue (which wasn't in the original breakdown).</div>
   </div>
 </section>
 
@@ -707,15 +711,15 @@
       </tr>
       <tr>
         <td><strong>Fix product images below 500×500px</strong><span class="sub">654 products in the current feed have images under Google's minimum size (was 645 in June). Google has announced upcoming enforcement: when it kicks in, those products will be disapproved automatically. Chased again 21 July.</span></td>
-        <td>Most urgent Graphedia-owned issue. 654 products at risk of disapproval when Google enforces this.</td>
-        <td><span class="badge badge-owner-graphedia">Graphedia</span></td>
+        <td>Most urgent Thea-owned issue. 654 products at risk of disapproval when Google enforces this.</td>
+        <td><span class="badge badge-owner-thea">Thea</span></td>
         <td>Due July</td>
         <td><span class="badge badge-red">Open</span></td>
       </tr>
       <tr>
         <td><strong>Fix 22 disapproved products</strong><span class="sub">Current: 5 missing price, 3 missing image, 4 price mismatch (new, mostly Kerosene), 1 promotional title text, 1 promotional image overlay, 1 broken product page URL. Tobacco (1) and healthcare (6) flags resolved separately via exclusion, see below. Specific product URLs sent 25 June.</span></td>
         <td>Disapproved products do not show on Shopping ads at all.</td>
-        <td><span class="badge badge-owner-graphedia">Graphedia</span></td>
+        <td><span class="badge badge-owner-thea">Thea</span></td>
         <td>Due July</td>
         <td><span class="badge badge-red">Open</span></td>
       </tr>
@@ -757,7 +761,7 @@
       <tr>
         <td><strong>Fix ALL CAPS product titles</strong><span class="sub">57 products, unchanged since June. Mostly supplier SKU/model codes sitting in front of the title, not marketing language - likely a catalogue-import formatting fix rather than a one-by-one title edit. Fresh product list sent 21 July.</span></td>
         <td>Affects quality score and how professional ads appear.</td>
-        <td><span class="badge badge-owner-graphedia">Graphedia</span></td>
+        <td><span class="badge badge-owner-thea">Thea</span></td>
         <td>Open</td>
         <td><span class="badge badge-gray">Not Blocking</span></td>
       </tr>
@@ -799,13 +803,19 @@
       </ul>
     </div>
 
+    <div class="owner-block thea">
+      <div class="owner-title">Thea · Kenny Fuels (In-House)</div>
+      <ul>
+        <li><strong>Open since 25 June:</strong> update product images to a minimum of 500×500px. Now 654 products, up from 645. Most urgent open task.</li>
+        <li><strong>Open since 25 June:</strong> fix the remaining disapproved products in WooCommerce: missing prices, missing images, price mismatches, broken page URL, promotional title text, promotional image overlay. Specific URLs already sent - tobacco/healthcare flags no longer need action here, resolved separately by Josette.</li>
+        <li><strong>Open since 25 June:</strong> update 57 product titles in ALL CAPS. Fresh list with URLs re-sent 21 July - most are supplier SKU codes, may need a catalogue-import fix rather than manual edits.</li>
+        <li>Sync the Kerosene SKU prices in the feed with the live site - 3-4 have drifted out of sync since launch.</li>
+      </ul>
+    </div>
+
     <div class="owner-block graphedia">
       <div class="owner-title">Graphedia · Developer</div>
       <ul>
-        <li><strong>Open since 25 June:</strong> update product images to a minimum of 500×500px. Now 654 products, up from 645. Most urgent open task.</li>
-        <li><strong>Open since 25 June:</strong> fix the remaining disapproved products in WooCommerce: missing prices, missing images, price mismatches, broken page URL, promotional title text, promotional image overlay. Specific URLs already sent - tobacco/healthcare flags no longer need Graphedia action, resolved separately by Josette.</li>
-        <li><strong>Open since 25 June:</strong> update 57 product titles in ALL CAPS. Fresh list with URLs re-sent 21 July - most are supplier SKU codes, may need a catalogue-import fix rather than manual edits.</li>
-        <li>Sync the Kerosene SKU prices in the feed with the live site - 3-4 have drifted out of sync since launch (routed to Thea).</li>
         <li>Add Google Customer Reviews opt-in survey snippet to the order confirmation page: Josette will supply the code.</li>
       </ul>
     </div>
@@ -865,8 +875,8 @@
 
         <div class="timeline-item">
           <div class="tl-date">Now through mid-August</div>
-          <div class="tl-title">Finish Migration · Push Graphedia on Feed Quality</div>
-          <div class="tl-desc">Complete the Merchant API migration, bring the real shipping rate table live, and get Graphedia's image/title/disapproval fixes actually done - these have been open since 25 June.</div>
+          <div class="tl-title">Finish Migration · Push Thea on Feed Quality</div>
+          <div class="tl-desc">Complete the Merchant API migration, bring the real shipping rate table live, and get Thea's image/title/disapproval fixes actually done - these have been open since 25 June.</div>
         </div>
 
         <div class="timeline-item">
@@ -900,9 +910,9 @@
       <div class="section-label" style="margin-bottom: 12px;">Key Risks to the Timeline - Updated 21 July</div>
       <ul class="checklist">
         <li><span class="check-icon">🚨</span><div><strong>New, and now the biggest risk:</strong> the 18 August Merchant API deadline sits three weeks before launch. If migration isn't fully done by then, the account's shipping/product tooling stops working entirely.</div></li>
-        <li><span class="check-icon">⚠️</span><div><strong>Graphedia's queue, not technical readiness, is now the main risk to feed quality.</strong> A month has passed with zero movement on images, titles, or the disapproval list - and the image count went the wrong direction.</div></li>
+        <li><span class="check-icon">⚠️</span><div><strong>Getting the catalogue fixes actioned, not technical readiness, is now the main risk to feed quality.</strong> A month has passed since the original list on images, titles, and the disapproval list - the image count went the wrong direction. This work is now routed to Thea in-house (per Ciaran's 8 July decision), re-chased 21 July with a fresh, specific product list.</div></li>
         <li><span class="check-icon">⚠️</span><div>Return policy still completely empty in GMC - needs real terms, not just a settings toggle.</div></li>
-        <li><span class="check-icon">✅</span><div>Resolved since June: the healthcare/tobacco disapprovals no longer need Graphedia's time - excluded directly via API. The delivery-charge question is answered - real rate card built.</div></li>
+        <li><span class="check-icon">✅</span><div>Resolved since June: the healthcare/tobacco disapprovals no longer need catalogue-side time - excluded directly via API. The delivery-charge question is answered - real rate card built.</div></li>
       </ul>
     </div>
   </div>
@@ -984,15 +994,15 @@
       </tr>
       <tr>
         <td>2</td>
-        <td><strong>Update 654 product images to 500×500px minimum</strong>: open since 25 June, count has gone up not down. Most urgent Graphedia-owned item.</td>
-        <td><span class="badge badge-owner-graphedia">Graphedia</span></td>
+        <td><strong>Update 654 product images to 500×500px minimum</strong>: open since 25 June, count has gone up not down. Most urgent Thea-owned item.</td>
+        <td><span class="badge badge-owner-thea">Thea</span></td>
         <td>Open</td>
         <td><span class="badge badge-red">Yes</span></td>
       </tr>
       <tr>
         <td>3</td>
-        <td><strong>Fix remaining disapproved products:</strong> missing prices, missing images, price mismatches, promotional overlay, broken page, title text issue. URLs already sent 25 June. Tobacco/healthcare flags no longer need Graphedia's time (resolved separately).</td>
-        <td><span class="badge badge-owner-graphedia">Graphedia</span></td>
+        <td><strong>Fix remaining disapproved products:</strong> missing prices, missing images, price mismatches, promotional overlay, broken page, title text issue. URLs already sent 25 June. Tobacco/healthcare flags no longer need action here (resolved separately).</td>
+        <td><span class="badge badge-owner-thea">Thea</span></td>
         <td>Open</td>
         <td><span class="badge badge-red">Yes</span></td>
       </tr>
