@@ -204,7 +204,7 @@
       <div class="sub">Month-to-date period report: real revenue and profit vs. what the platform reports</div>
       <div class="meta-row">
         <span>Period: <strong style="color:var(--ink)">Sep 1&ndash;27, 2026</strong></span>
-        <span>vs. prior MTD checkpoint: <strong style="color:var(--ink)">Sep 1&ndash;21, 2026</strong> (this report's own numbers, 6 days earlier)</span>
+        <span>vs. same period last month: <strong style="color:var(--ink)">Aug 1&ndash;27, 2026</strong></span>
         <span>Prepared Sep 29, 2026</span>
       </div>
     </div>
@@ -214,22 +214,22 @@
     <div class="kpi">
       <div class="label">Spend, Sep 1&ndash;27</div>
       <div class="value">&euro;1,035.84</div>
-      <div class="sub">vs &euro;915.64 at the Sep 1&ndash;21 checkpoint. Held near-zero since Sep 4.</div>
+      <div class="sub">vs &euro;4,130.60 in Aug 1&ndash;27, before the Sep 4 cut to near-zero</div>
     </div>
     <div class="kpi">
       <div class="label">Real orders <span class="tag verified" style="margin-left:4px;">WOO</span></div>
       <div class="value">13</div>
-      <div class="sub">Meta claims 231. See signal gap below.</div>
+      <div class="sub">Meta claims 231 (196 in Aug). See signal gap below.</div>
     </div>
     <div class="kpi">
       <div class="label">Real revenue <span class="tag verified" style="margin-left:4px;">WOO</span></div>
       <div class="value">&euro;4,028 to ~&euro;5,247</div>
-      <div class="sub">verified &euro;4,027.51; Meta's &euro;99,985.89 claim is not credible (see below).</div>
+      <div class="sub">verified &euro;4,027.51 (&euro;6,973.32 in Aug). Meta's claims are not credible either month (see below).</div>
     </div>
     <div class="kpi">
       <div class="label">Real net <span class="tag verified" style="margin-left:4px;">WOO</span></div>
       <div class="value crit">&minus;&euro;423 to &minus;&euro;118</div>
-      <div class="sub">on verified orders, essentially unchanged from Sep 1&ndash;21's &minus;&euro;367 to &minus;&euro;117</div>
+      <div class="sub">on verified orders, a huge improvement from August's &minus;&euro;3,136.08, before the Sep 4 spend cut</div>
     </div>
     <div class="kpi">
       <div class="label">Status</div>
@@ -249,7 +249,7 @@
     <div class="section-head">
       <h2>A note on this report's comparison basis</h2>
     </div>
-    <div class="analysis-note"><span class="al">Read</span><span><strong>This period runs Sep 1&ndash;27, compared against the account's own Sep 1&ndash;21 checkpoint (published Sep 22), not an equivalent Aug 1&ndash;27 window.</strong> No Aug 1&ndash;27 order-level export was available at build time. The bigger news this period isn't the checkpoint comparison though, it's that the incrementality read this comparison was built to feed into has now actually happened: see below.</span></div>
+    <div class="analysis-note"><span class="al">Read</span><span><strong>This report now compares against a genuine Aug 1&ndash;27 baseline, built from a fresh WooCommerce export and a live Meta API pull for that exact window.</strong> The result makes the case for the Sep 4 spend cut plainly: real net loss on verified orders was &minus;&euro;3,136.08 in August, against &minus;&euro;423 to &minus;&euro;118 in September, on spend that fell from &euro;4,130.60 to &euro;1,035.84. The incrementality read this report series was building toward has also now landed: see below.</span></div>
   </section>
 
   <section>
@@ -263,7 +263,7 @@
     <div class="section-head">
       <h2>Ad spend, answered directly</h2>
     </div>
-    <div class="analysis-note"><span class="al">Read</span><span><strong>&euro;1,035.84 over the first 27 days of September</strong>, up from &euro;915.64 at the Sep 1&ndash;21 checkpoint. The rise is entirely Firewood B2B, the one campaign deliberately kept live through the test window; every other campaign shows identical spend to six days ago, confirming they are still genuinely paused. Combined with Google, total spend across both platforms remains well under the approved budget.</span></div>
+    <div class="analysis-note"><span class="al">Read</span><span><strong>&euro;1,035.84 in September, down 74.9% from &euro;4,130.60 in August.</strong> Six of seven August campaigns (Heating Oil, Compost, BOF Retargeting, Firewood B2C, Sand+Stones, Gas Cylinders) were paused Sep 4 and show only residual same-day spend since. Firewood B2B is the one campaign deliberately kept live through the incrementality test window, and its spend actually rose slightly (&euro;360.75 to &euro;533.88) so the test would have a clean read. Combined with Google, total spend across both platforms is now meaningfully lower than a month ago.</span></div>
   </section>
 
   <section>
@@ -285,42 +285,45 @@
           <div class="rmult">24.8&times;</div>
         </div>
         <div class="gap-row">
-          <div class="rlabel">Sep 1&ndash;21 verified</div>
-          <div class="track"><div class="fill verified" style="width:4.3%"></div></div>
-          <div class="rval num">&euro;3,772.01</div>
+          <div class="rlabel">Aug 1&ndash;27 verified</div>
+          <div class="track"><div class="fill verified" style="width:8.9%"></div></div>
+          <div class="rval num">&euro;6,973.32</div>
         </div>
         <div class="gap-row">
-          <div class="rlabel">Sep 1&ndash;21 Meta claim</div>
+          <div class="rlabel">Aug 1&ndash;27 Meta claim</div>
           <div class="track"><div class="fill platform" style="width:100%"></div></div>
-          <div class="rval num">&euro;88,776.25</div>
-          <div class="rmult">23.5&times;</div>
+          <div class="rval num">&euro;78,301.02</div>
+          <div class="rmult">11.2&times;</div>
         </div>
       </div>
       <div class="legend-mini">
         <span><span class="sw" style="background:var(--good)"></span>WooCommerce-verified (real)</span>
         <span><span class="sw" style="background:var(--warn)"></span>Meta-reported purchase value</span>
       </div>
-      <div class="analysis-note" style="background:var(--warn-soft);"><span class="al" style="color:var(--warn);">Why this gap exists</span><span><strong>Meta's claim isn't an upper bound, for some categories it's not physically possible.</strong> The table below compares what Meta says each category earned against what that category actually earned across every channel combined (Google, direct, email, referral, organic, everything), for the full Sep 1&ndash;27 window.</span></div>
+      <div class="analysis-note" style="background:var(--warn-soft);"><span class="al" style="color:var(--warn);">Why this gap exists</span><span><strong>Meta's claim isn't an upper bound, for some categories it's not physically possible, and it got materially worse over the past month.</strong> The table below compares what Meta says each category earned against what that category actually earned across every channel combined (Google, direct, email, referral, organic, everything), for both the Aug 1&ndash;27 and Sep 1&ndash;27 windows.</span></div>
       <div class="table-wrap" style="margin-top:12px;">
         <table>
-          <thead><tr><th>Category</th><th class="num">Meta claims it earned</th><th class="num">Whole category earned<br>(all channels)</th><th class="num">Meta's claim as a share</th></tr></thead>
+          <thead>
+            <tr><th>Category</th><th class="num" colspan="2">Sep 1&ndash;27</th><th class="num" colspan="2">Aug 1&ndash;27</th></tr>
+            <tr><th></th><th class="num">Meta claim / share</th><th class="num">Whole category</th><th class="num">Meta claim / share</th><th class="num">Whole category</th></tr>
+          </thead>
           <tbody>
-            <tr><td>Compost</td><td class="num mono">&euro;11,532.65</td><td class="num mono">&euro;4,316.58</td><td class="num mono" style="color:var(--crit);font-weight:700;">267%</td></tr>
-            <tr><td>Firewood (B2B + B2C)</td><td class="num mono">&euro;75,887.04</td><td class="num mono">&euro;46,324.19</td><td class="num mono" style="color:var(--crit);font-weight:700;">164%</td></tr>
-            <tr><td>Heating oil</td><td class="num mono">&euro;8,561.00</td><td class="num mono">&euro;214,408.96</td><td class="num mono">4%</td></tr>
-            <tr><td>Sand &amp; stones</td><td class="num mono">&euro;553.00</td><td class="num mono">&euro;4,764.42</td><td class="num mono">12%</td></tr>
+            <tr><td>Compost</td><td class="num mono">&euro;11,532.65 <span style="color:var(--crit);font-weight:700;">(267%)</span></td><td class="num mono">&euro;4,316.58</td><td class="num mono">&euro;3,169.22 (91%)</td><td class="num mono">&euro;3,489.33</td></tr>
+            <tr><td>Firewood (B2B + B2C)</td><td class="num mono">&euro;75,887.04 <span style="color:var(--crit);font-weight:700;">(164%)</span></td><td class="num mono">&euro;46,324.19</td><td class="num mono">&euro;19,241.51 (57%)</td><td class="num mono">&euro;33,485.65</td></tr>
+            <tr><td>Heating oil</td><td class="num mono">&euro;8,561.00 (4%)</td><td class="num mono">&euro;214,408.96</td><td class="num mono">&euro;35,658.01 (31%)</td><td class="num mono">&euro;114,865.80</td></tr>
+            <tr><td>Sand &amp; stones</td><td class="num mono">&euro;553.00 (12%)</td><td class="num mono">&euro;4,764.42</td><td class="num mono">&euro;5,183.65 <span style="color:var(--crit);font-weight:700;">(152%)</span></td><td class="num mono">&euro;3,419.24</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="section-note" style="margin-top:8px;">A figure at or above 100% is impossible by definition: Meta can't have driven more revenue than the category earned in total. Compost and Firewood both fail that test on the full 27-day window, and Firewood specifically has gone from 173% at the Sep 1&ndash;21 checkpoint to 164% now, still decisively over the line even as more real firewood revenue has come in. Heating oil (4%) and Sand+Stones (12%) sit in a range that could plausibly be real, though neither is confirmed: none of the real orders in either category this period are actually tagged to Meta.</div>
-      <div class="analysis-note"><span class="al">Where the inflation comes from</span><span><strong>Most of it is view-through: purchases Meta credits itself for because the person saw an ad without clicking it.</strong> Re-running this period's figures on a click-only basis (only counting people who actually clicked an ad, then bought within seven days) brings it from <strong>231 purchases / &euro;99,986</strong> down to <strong>56 purchases / &euro;19,549</strong>. So roughly 80% of what Meta claims this period is view-through, up slightly from 79% at the Sep 1&ndash;21 checkpoint. The remaining 56 is still about 4 to 5 times the 13 orders WooCommerce can verify.</span></div>
-      <div class="analysis-note"><span class="al">The honest range</span><span>The verified floor is <strong>&euro;4,027.51</strong> (13 orders). A generous read, allowing for a handful of genuinely Meta-driven purchases that landed as Direct in the two categories only Meta advertises (Compost, Sand+Stones), puts Meta's realistic contribution this period at roughly <strong>&euro;4,028 to &euro;5,247</strong>, not &euro;99,986. Cost per verified Meta order was &euro;79.68 (&euro;1,035.84 &divide; 13), down slightly from &euro;83.24 at the Sep 1&ndash;21 checkpoint. <strong>Permanent limitation:</strong> visitors who decline marketing cookies cannot legally be tracked for ad attribution under Irish ePrivacy/GDPR rules, and WooCommerce's own attribution is consent-gated the same way, so a small number of genuine Meta orders may sit mistagged as Direct or Organic.</span></div>
+      <div class="section-note" style="margin-top:8px;">A figure at or above 100% is impossible by definition: Meta can't have driven more revenue than the category earned in total. In August, only Sand &amp; stones had already crossed that line (152%); Compost (91%) and Firewood (57%) were inflated but not yet impossible. By September, Compost jumped to 267% and Firewood to 164%, both now decisively over the line, even as Firewood's own spend barely changed and total Meta spend fell by three-quarters. The inflation got worse as spend fell, the clearest sign yet that Meta's claimed value tracks its own attribution model, not real ad-driven behaviour. Heating oil (4%) and Sand+Stones (12%) sit in a range that could plausibly be real, though neither is confirmed: none of the real orders in either category this period are actually tagged to Meta.</div>
+      <div class="analysis-note"><span class="al">Where the inflation comes from</span><span><strong>Most of it is view-through: purchases Meta credits itself for because the person saw an ad without clicking it.</strong> Re-running September's figures on a click-only basis (only counting people who actually clicked an ad, then bought within seven days) brings it from <strong>231 purchases / &euro;99,986</strong> down to <strong>56 purchases / &euro;19,549</strong>, meaning roughly 80% of what Meta claims is view-through. August's click-only figure was <strong>90 purchases / &euro;37,722</strong> against its 196-purchase/&euro;78,301 total claim, a smaller but still substantial 54% view-through share. Even September's click-only 56 is about 4 to 5 times the 13 orders WooCommerce can verify, so click-only alone doesn't close the gap.</span></div>
+      <div class="analysis-note"><span class="al">The honest range</span><span>The verified floor is <strong>&euro;4,027.51</strong> (13 orders) for September, <strong>&euro;6,973.32</strong> (16 orders) for August. A generous read, allowing for a handful of genuinely Meta-driven purchases that landed as Direct in the two categories only Meta advertises (Compost, Sand+Stones), puts Meta's realistic contribution in September at roughly &euro;4,028 to &euro;5,247, not &euro;99,986. Cost per verified Meta order was &euro;79.68 in September (&euro;1,035.84 &divide; 13), down sharply from &euro;258.16 in August (&euro;4,130.60 &divide; 16). <strong>Permanent limitation:</strong> visitors who decline marketing cookies cannot legally be tracked for ad attribution under Irish ePrivacy/GDPR rules, and WooCommerce's own attribution is consent-gated the same way, so a small number of genuine Meta orders may sit mistagged as Direct or Organic.</span></div>
     </div>
   </section>
 
   <section>
     <div class="section-head">
-      <h2>Campaign performance: this MTD checkpoint vs. six days earlier</h2>
+      <h2>Campaign performance: this month vs. last month</h2>
       <div class="section-note">Spend is platform-reported (accurate). Purchases and value are Meta's own claim (see signal gap above).</div>
     </div>
     <div class="table-wrap">
@@ -328,8 +331,8 @@
         <thead>
           <tr>
             <th rowspan="2">Campaign</th>
-            <th colspan="3" class="chgroup2">Sep 1&ndash;27 (this checkpoint)</th>
-            <th colspan="2" class="chgroup2 prev">Sep 1&ndash;21 (prior checkpoint)</th>
+            <th colspan="3" class="chgroup2">Sep 1&ndash;27</th>
+            <th colspan="2" class="chgroup2 prev">Aug 1&ndash;27</th>
           </tr>
           <tr>
             <th class="num">Spend</th><th class="num">Purch.<span class="tag platform">META</span></th><th class="num">Value<span class="tag platform">META</span></th>
@@ -337,20 +340,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Firewood B2B <span class="chip range">kept live, recommended for retirement, see below</span></td><td class="num mono">&euro;533.88</td><td class="num mono">185</td><td class="num mono">&euro;72,798.27</td><td class="num mono prevcol">&euro;413.68</td><td class="num mono prevbg">159</td></tr>
-          <tr><td>Heating Oil <span class="chip watch">paused Sep 4, no change</span></td><td class="num mono">&euro;198.56</td><td class="num mono">18</td><td class="num mono">&euro;8,561.00</td><td class="num mono prevcol">&euro;198.56</td><td class="num mono prevbg">18</td></tr>
-          <tr><td>Compost <span class="chip watch">paused Sep 4, no change</span></td><td class="num mono">&euro;55.28</td><td class="num mono">15</td><td class="num mono">&euro;11,532.65</td><td class="num mono prevcol">&euro;55.28</td><td class="num mono prevbg">15</td></tr>
-          <tr><td>BOF Retargeting <span class="chip watch">paused Sep 4, no change</span></td><td class="num mono">&euro;83.38</td><td class="num mono">4</td><td class="num mono">&euro;2,086.20</td><td class="num mono prevcol">&euro;83.38</td><td class="num mono prevbg">4</td></tr>
-          <tr><td>Firewood B2C <span class="chip watch">paused Sep 4, no change</span></td><td class="num mono">&euro;81.09</td><td class="num mono">4</td><td class="num mono">&euro;3,088.77</td><td class="num mono prevcol">&euro;81.09</td><td class="num mono prevbg">4</td></tr>
-          <tr><td>DEWALT Boa Boots <span class="chip watch">stopped, spend unchanged</span></td><td class="num mono">&euro;31.73</td><td class="num mono">2</td><td class="num mono">&euro;1,366.00</td><td class="num mono prevcol">&euro;31.73</td><td class="num mono prevbg">0</td></tr>
-          <tr><td>Sand + Stones <span class="chip watch">paused Sep 4, no change</span></td><td class="num mono">&euro;30.50</td><td class="num mono">3</td><td class="num mono">&euro;553.00</td><td class="num mono prevcol">&euro;30.50</td><td class="num mono prevbg">3</td></tr>
-          <tr><td>Gas Cylinders <span class="chip watch">paused Sep 4, no change</span></td><td class="num mono">&euro;21.42</td><td class="num mono">0</td><td class="num mono">&euro;0.00</td><td class="num mono prevcol">&euro;21.42</td><td class="num mono prevbg">0</td></tr>
-          <tr class="total-row"><td>Total</td><td class="num mono">&euro;1,035.84</td><td class="num mono">231</td><td class="num mono">&euro;99,985.89</td><td class="num mono prevcol">&euro;915.64</td><td class="num mono prevbg">203</td></tr>
+          <tr><td>Firewood B2B <span class="chip range">kept live, recommended for retirement, see below</span></td><td class="num mono">&euro;533.88</td><td class="num mono">185</td><td class="num mono">&euro;72,798.27</td><td class="num mono prevcol">&euro;360.75</td><td class="num mono prevbg">32</td></tr>
+          <tr><td>Heating Oil <span class="chip watch">paused Sep 4 &mdash; was fully live in August</span></td><td class="num mono">&euro;198.56</td><td class="num mono">18</td><td class="num mono">&euro;8,561.00</td><td class="num mono prevcol">&euro;1,741.49</td><td class="num mono prevbg">91</td></tr>
+          <tr><td>Compost <span class="chip watch">paused Sep 4 &mdash; was fully live in August</span></td><td class="num mono">&euro;55.28</td><td class="num mono">15</td><td class="num mono">&euro;11,532.65</td><td class="num mono prevcol">&euro;404.38</td><td class="num mono prevbg">7</td></tr>
+          <tr><td>BOF Retargeting <span class="chip watch">paused Sep 4 &mdash; was fully live in August</span></td><td class="num mono">&euro;83.38</td><td class="num mono">4</td><td class="num mono">&euro;2,086.20</td><td class="num mono prevcol">&euro;679.85</td><td class="num mono prevbg">19</td></tr>
+          <tr><td>Firewood B2C <span class="chip watch">paused Sep 4 &mdash; was fully live in August</span></td><td class="num mono">&euro;81.09</td><td class="num mono">4</td><td class="num mono">&euro;3,088.77</td><td class="num mono prevcol">&euro;444.55</td><td class="num mono prevbg">24</td></tr>
+          <tr><td>DEWALT Boa Boots <span class="chip watch">stopped Sep 3 &mdash; was live in August</span></td><td class="num mono">&euro;31.73</td><td class="num mono">2</td><td class="num mono">&euro;1,366.00</td><td class="num mono prevcol">&euro;119.51</td><td class="num mono prevbg">1</td></tr>
+          <tr><td>Sand + Stones <span class="chip watch">paused Sep 4 &mdash; was fully live in August</span></td><td class="num mono">&euro;30.50</td><td class="num mono">3</td><td class="num mono">&euro;553.00</td><td class="num mono prevcol">&euro;218.23</td><td class="num mono prevbg">15</td></tr>
+          <tr><td>Gas Cylinders <span class="chip watch">paused Sep 4 &mdash; was fully live in August</span></td><td class="num mono">&euro;21.42</td><td class="num mono">0</td><td class="num mono">&euro;0.00</td><td class="num mono prevcol">&euro;161.84</td><td class="num mono prevbg">7</td></tr>
+          <tr class="total-row"><td>Total</td><td class="num mono">&euro;1,035.84</td><td class="num mono">231</td><td class="num mono">&euro;99,985.89</td><td class="num mono prevcol">&euro;4,130.60</td><td class="num mono prevbg">196</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="section-note" style="margin-top:8px;">Meta's purchase counts and values here are its own claim, not verified: real WooCommerce-attributed Meta orders this period were 13, worth &euro;4,027.51. DEWALT Boa Boots is a closed, stopped test (see the account's separate final-outcome record); the 2 purchases now showing against unchanged spend are a late Meta attribution-window update on already-closed data, not new activity.</div>
-    <div class="analysis-note" style="background:var(--warn-soft);"><span class="al" style="color:var(--warn);">Read: the decisive Firewood B2B finding, on the complete window</span><span><strong>Firewood B2B alone now claims &euro;72,798.27 (185 purchases), 157% of the entire real Firewood category's revenue across every channel combined (&euro;46,324.19) for the identical Sep 1&ndash;27 window.</strong> Adding Firewood B2C's own claim brings combined Firewood claims to 164% of the real category. This is structurally impossible, not just inflated, and it is worse on the fuller window than the 145% found in the Sep 22 preliminary read. Recommendation: retire Firewood B2B for good rather than reconsider it. It stayed live specifically to build this evidence, and the evidence is now conclusive.</span></div>
+    <div class="section-note" style="margin-top:8px;">Meta's purchase counts and values here are its own claim, not verified: real WooCommerce-attributed Meta orders were 13/&euro;4,027.51 in September, 16/&euro;6,973.32 in August. DEWALT Boa Boots is a closed, stopped test (see the account's separate final-outcome record); September's 2 purchases against unchanged spend are a late Meta attribution-window update on already-closed data, not new activity.</div>
+    <div class="analysis-note" style="background:var(--warn-soft);"><span class="al" style="color:var(--warn);">Read: the decisive Firewood B2B finding, on the complete window</span><span><strong>Firewood B2B alone now claims &euro;72,798.27 (185 purchases), 157% of the entire real Firewood category's revenue across every channel combined (&euro;46,324.19) for the identical Sep 1&ndash;27 window.</strong> Adding Firewood B2C's own claim brings combined Firewood claims to 164% of the real category, up from 57% in August, when both Firewood campaigns were fully live at similar spend. Spend on Firewood B2B barely changed (&euro;360.75 to &euro;533.88), but its claimed value grew more than 6-fold (&euro;11,783.39 to &euro;72,798.27), while real Firewood revenue across all channels grew only 38% (&euro;33,485.65 to &euro;46,324.19) on the season's own momentum. This is structurally impossible, not just inflated. Recommendation: retire Firewood B2B for good rather than reconsider it. It stayed live specifically to build this evidence, and the evidence is now conclusive.</span></div>
   </section>
 
   <section>
@@ -368,15 +371,15 @@
         <div class="divbar-val neg num">&minus;&euro;271</div>
       </div>
       <div class="divbar-row">
-        <div class="divbar-label">Sep 1&ndash;21</div>
+        <div class="divbar-label">Aug 1&ndash;27</div>
         <div>
-          <div class="divbar-track"><div class="divbar-zero"></div><div class="divbar-fill neg" style="width:5%"></div></div>
-          <div class="divbar-range">range &minus;&euro;367 to &minus;&euro;117</div>
+          <div class="divbar-track"><div class="divbar-zero"></div><div class="divbar-fill neg" style="width:76%"></div></div>
+          <div class="divbar-range">verified floor, full-scale spend before the Sep 4 cut</div>
         </div>
-        <div class="divbar-val neg num">&minus;&euro;242</div>
+        <div class="divbar-val neg num">&minus;&euro;3,136.08</div>
       </div>
     </div>
-    <div class="analysis-note" style="background:var(--warn-soft);"><span class="al" style="color:var(--warn);">Limitations to keep in mind</span><span><strong>The verified floor is a floor, not an exact count.</strong> WooCommerce's own attribution is consent-gated the same way Meta's pixel is, so some genuine Meta-driven purchases may sit mistagged as Direct or Organic. The Sep 25 incrementality read (see above) is the real answer to whether that matters here: Firewood, Gas and Sand+Stones all held or grew with the paused spend gone, meaning the mistagging risk did not translate into lost revenue for those three categories. The small residual loss above is almost entirely Firewood B2B, the one campaign still spending, and its own numbers are the least trustworthy in the account.</span></div>
+    <div class="analysis-note" style="background:var(--warn-soft);"><span class="al" style="color:var(--warn);">Limitations to keep in mind</span><span><strong>The verified floor is a floor, not an exact count, and August's &minus;&euro;3,136.08 is presented as a single verified figure rather than a floor-to-ceiling range, unlike September's.</strong> August ran seven campaigns at full scale, spanning categories (Heating Oil, BOF Retargeting, Gas Cylinders) where the same generous allowance used for September's range doesn't apply cleanly, so a single verified floor is the more honest number rather than an extrapolated ceiling. WooCommerce's own attribution is consent-gated the same way Meta's pixel is, so some genuine Meta-driven purchases may sit mistagged as Direct or Organic in both months. The Sep 25 incrementality read (see above) is the real answer to whether that matters going forward: Firewood, Gas and Sand+Stones all held or grew once August's full spend was cut, meaning the mistagging risk did not translate into lost revenue. The comparison between the two months is the clearest evidence yet that the cut was the right call: real net loss narrowed from &minus;&euro;3,136.08 to a range of &minus;&euro;423 to &minus;&euro;118 while spend fell 74.9%.</span></div>
   </section>
 
   <section>
@@ -385,13 +388,13 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Metric</th><th class="num">Sep 1&ndash;27</th><th class="num">Sep 1&ndash;21</th><th class="num">Change</th></tr></thead>
+        <thead><tr><th>Metric</th><th class="num">Sep 1&ndash;27</th><th class="num">Aug 1&ndash;27</th><th class="num">Change</th></tr></thead>
         <tbody>
-          <tr><td>Ad spend</td><td class="num mono">&euro;1,035.84<span class="tag platform">PLATFORM</span></td><td class="num mono">&euro;915.64<span class="tag platform">PLATFORM</span></td><td class="num mono">+13.1%</td></tr>
-          <tr><td>Meta-reported purchase value</td><td class="num mono">&euro;99,985.89<span class="tag platform">PLATFORM</span></td><td class="num mono">&euro;88,776.25<span class="tag platform">PLATFORM</span></td><td class="num mono">not reliable</td></tr>
-          <tr><td>Real revenue (verified, floor)</td><td class="num mono">&euro;4,027.51<span class="tag verified">VERIFIED</span></td><td class="num mono">&euro;3,772.01<span class="tag verified">VERIFIED</span></td><td class="num mono">+6.8%</td></tr>
-          <tr><td>Real orders (verified)</td><td class="num mono">13<span class="tag verified">VERIFIED</span></td><td class="num mono">11<span class="tag verified">VERIFIED</span></td><td class="num mono">+2</td></tr>
-          <tr><td>Real net (verified)</td><td class="num mono">&minus;&euro;423 to &minus;&euro;118<span class="tag verified">VERIFIED</span></td><td class="num mono">&minus;&euro;367 to &minus;&euro;117<span class="tag verified">VERIFIED</span></td><td class="num mono">essentially flat</td></tr>
+          <tr><td>Ad spend</td><td class="num mono">&euro;1,035.84<span class="tag platform">PLATFORM</span></td><td class="num mono">&euro;4,130.60<span class="tag platform">PLATFORM</span></td><td class="num mono">&minus;74.9%</td></tr>
+          <tr><td>Meta-reported purchase value</td><td class="num mono">&euro;99,985.89<span class="tag platform">PLATFORM</span></td><td class="num mono">&euro;78,301.02<span class="tag platform">PLATFORM</span></td><td class="num mono">not reliable</td></tr>
+          <tr><td>Real revenue (verified, floor)</td><td class="num mono">&euro;4,027.51<span class="tag verified">VERIFIED</span></td><td class="num mono">&euro;6,973.32<span class="tag verified">VERIFIED</span></td><td class="num mono">&minus;42.2%</td></tr>
+          <tr><td>Real orders (verified)</td><td class="num mono">13<span class="tag verified">VERIFIED</span></td><td class="num mono">16<span class="tag verified">VERIFIED</span></td><td class="num mono">&minus;3</td></tr>
+          <tr><td>Real net (verified)</td><td class="num mono">&minus;&euro;423 to &minus;&euro;118<span class="tag verified">VERIFIED</span></td><td class="num mono">&minus;&euro;3,136.08<span class="tag verified">VERIFIED</span></td><td class="num mono">loss narrowed 86-96%</td></tr>
         </tbody>
       </table>
     </div>
@@ -430,13 +433,13 @@
   <div class="footer">
     <h3>Methodology &amp; caveats</h3>
     <ul>
-      <li><strong>Real revenue basis:</strong> WooCommerce "Net Sales" (ex-VAT, ex-shipping). Meta-attributed = orders tagged "Source: [DV]...", "Source: Paid+Social", or a Facebook.com referral, in the WooCommerce Attribution field. 13 such orders Sep 1&ndash;27, 11 at the Sep 1&ndash;21 checkpoint.</li>
-      <li><strong>Comparison basis:</strong> this report compares against the account's own Sep 1&ndash;21 checkpoint (published Sep 22), not an equivalent Aug 1&ndash;27 window, since no Aug 1&ndash;27 order-level export was available at build time.</li>
+      <li><strong>Real revenue basis:</strong> WooCommerce "Net Sales" (ex-VAT, ex-shipping). Meta-attributed = orders tagged "Source: [DV]...", "Source: Paid+Social", or a Facebook.com referral, in the WooCommerce Attribution field ("Source: Ig"/"Source: Fb" generic social tags excluded as unconfirmed). 13 such orders Sep 1&ndash;27, 16 Aug 1&ndash;27.</li>
+      <li><strong>Comparison basis:</strong> Aug 1&ndash;27 vs Sep 1&ndash;27, a genuine 27-day-to-27-day month-over-month comparison, both built from fresh WooCommerce exports and live Meta API pulls for their own exact windows. August's real net is shown as a single verified floor rather than a floor/ceiling range (see the net-profit section above for why).</li>
       <li><strong>Permanent limitation:</strong> visitors who decline marketing cookies cannot legally be tracked for ad attribution under GDPR/ePrivacy rules. No fix exists for this piece, including the Conversions API, which only improves match quality for visitors who already consented.</li>
       <li><strong>The verified figure is a floor, not an exact count:</strong> WooCommerce's own attribution engine is also gated behind cookie consent, so some genuinely Meta-driven purchases land as Direct or Organic instead.</li>
       <li><strong>Meta's reported value:</strong> includes view-through conversions (ad seen, not clicked, purchase made later) and cannot be reconciled to real orders on this account. Shown as a ceiling only.</li>
       <li><strong>Category margins:</strong> supplied by you (firewood 25%, heating oil 10%, compost 25%, sand and stones 25%).</li>
-      <li><strong>Live platform data:</strong> pulled fresh via Meta's own reporting API for the exact Sep 1&ndash;27 / Sep 1&ndash;21 windows, Sep 29 2026.</li>
+      <li><strong>Live platform data:</strong> pulled fresh via Meta's own reporting API for the exact Sep 1&ndash;27 and Aug 1&ndash;27 windows, Sep 29 2026.</li>
     </ul>
     <div class="foot-meta">Kenny Fuels Meta Ads &middot; Prepared by Josette</div>
   </div>
