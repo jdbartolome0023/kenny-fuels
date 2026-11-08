@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenny Fuels Meta Ads: Nov 1 to 8, 2026</title>
+<style>
+  :root {
+    --paper: #eeeae0;
+    --surface: #fbf9f4;
+    --surface-2: #f4f0e6;
+    --ink: #26241e;
+    --ink-2: #5c574b;
+    --ink-3: #948d7c;
+    --line: #d9d2c2;
+    --line-strong: #c4bba5;
+    --accent: #0e6e63;
+    --accent-soft: #dcebe8;
+    --accent-ink: #0a4f47;
+    --good: #2f7a4f;
+    --good-soft: #dfeee2;
+    --warn: #a8791f;
+    --warn-soft: #f3e9d2;
+    --crit: #a83f3f;
+    --crit-soft: #f3dfdc;
+    --shadow: 0 1px 2px rgba(38,36,30,0.06), 0 6px 16px rgba(38,36,30,0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #17181a;
+      --surface: #1e201f;
+      --surface-2: #232522;
+      --ink: #ece8de;
+      --ink-2: #b9b2a0;
+      --ink-3: #7d7868;
+      --line: #34362f;
+      --line-strong: #454739;
+      --accent: #4fc2b0;
+      --accent-soft: #1c3733;
+      --accent-ink: #8fe0d2;
+      --good: #6bc48a;
+      --good-soft: #1f3327;
+      --warn: #e3b156;
+      --warn-soft: #3a2f1a;
+      --crit: #e2726a;
+      --crit-soft: #3a2321;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 20px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #17181a; --surface: #1e201f; --surface-2: #232522;
+    --ink: #ece8de; --ink-2: #b9b2a0; --ink-3: #7d7868;
+    --line: #34362f; --line-strong: #454739;
+    --accent: #4fc2b0; --accent-soft: #1c3733; --accent-ink: #8fe0d2;
+    --good: #6bc48a; --good-soft: #1f3327;
+    --warn: #e3b156; --warn-soft: #3a2f1a;
+    --crit: #e2726a; --crit-soft: #3a2321;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 20px rgba(0,0,0,0.35);
+  }
+  :root[data-theme="light"] {
+    --paper: #eeeae0; --surface: #fbf9f4; --surface-2: #f4f0e6;
+    --ink: #26241e; --ink-2: #5c574b; --ink-3: #948d7c;
+    --line: #d9d2c2; --line-strong: #c4bba5;
+    --accent: #0e6e63; --accent-soft: #dcebe8; --accent-ink: #0a4f47;
+    --good: #2f7a4f; --good-soft: #dfeee2;
+    --warn: #a8791f; --warn-soft: #f3e9d2;
+    --crit: #a83f3f; --crit-soft: #f3dfdc;
+    --shadow: 0 1px 2px rgba(38,36,30,0.06), 0 6px 16px rgba(38,36,30,0.05);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .mono, .num, td.num, .tag, .chip {
+    font-family: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  h1, h2, h3 {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    font-weight: 600;
+    text-wrap: balance;
+    color: var(--ink);
+    margin: 0;
+  }
+  .page { max-width: 940px; margin: 0 auto; padding: 40px 24px 80px; }
+  .masthead { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding-bottom: 22px; border-bottom: 2px solid var(--ink); margin-bottom: 28px; }
+  .masthead-title h1 { font-size: 28px; letter-spacing: -0.01em; }
+  .masthead-title .sub { color: var(--ink-2); font-size: 14.5px; margin-top: 6px; }
+  .meta-row { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 10px; font-size: 12.5px; color: var(--ink-3); }
+
+  .kpi-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 34px; }
+  .kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 16px 14px; box-shadow: var(--shadow); }
+  .kpi .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); margin-bottom: 8px; }
+  .kpi .value { font-size: 24px; font-weight: 600; letter-spacing: -0.01em; }
+  .kpi .value.good { color: var(--good); }
+  .kpi .value.crit { color: var(--crit); }
+  .kpi .sub { font-size: 12px; color: var(--ink-2); margin-top: 4px; }
+
+  section { margin-bottom: 38px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; border-bottom: 1px solid var(--line-strong); padding-bottom: 8px; }
+  .section-head h2 { font-size: 18px; }
+  .section-note { font-size: 12.5px; color: var(--ink-3); }
+
+  .gap-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px; box-shadow: var(--shadow); }
+  .gap-group { margin-bottom: 20px; }
+  .gap-group:last-child { margin-bottom: 0; }
+  .gap-row { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+  .gap-row .rlabel { flex: 0 0 132px; font-size: 12px; color: var(--ink-2); }
+  .gap-row .track { flex: 1; background: var(--surface-2); border-radius: 4px; height: 20px; position: relative; overflow: hidden; }
+  .gap-row .fill { height: 100%; border-radius: 4px; }
+  .gap-row .fill.verified { background: var(--good); }
+  .gap-row .fill.platform { background: var(--warn); }
+  .gap-row .rval { flex: 0 0 90px; text-align: right; font-size: 12.5px; }
+  .gap-row .rmult { flex: 0 0 56px; text-align: right; font-size: 12px; font-weight: 700; color: var(--crit); }
+  .legend-mini { display: flex; gap: 16px; font-size: 11.5px; color: var(--ink-2); margin-top: 4px; }
+  .legend-mini .sw { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); }
+  th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-3); font-weight: 600; padding: 10px 14px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  thead tr:first-child th { border-bottom: none; }
+  th.chgroup2 { text-align: center; font-size: 11.5px; letter-spacing: 0.06em; border-left: 1px solid var(--line-strong); }
+  th.chgroup2.prev { color: var(--ink-3); background: var(--surface-2); }
+  td.prevcol { border-left: 1px solid var(--line-strong); background: var(--surface-2); }
+  td.prevbg { background: var(--surface-2); }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; }
+  tr.total-row td { font-weight: 700; border-top: 1.5px solid var(--ink); background: var(--surface-2); }
+  .chip { font-size: 10px; padding: 2px 7px; border-radius: 20px; letter-spacing: 0.03em; font-weight: 600; }
+  .chip.watch { background: var(--warn-soft); color: var(--warn); }
+  .chip.excl { background: var(--warn-soft); color: var(--warn); }
+  .chip.good { background: var(--good-soft); color: var(--good); }
+  tr.excluded td { color: var(--ink-3); }
+  tr.excluded td.catname { text-decoration: line-through; text-decoration-color: var(--ink-3); }
+
+  .divbar-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px; box-shadow: var(--shadow); }
+  .divbar-row { display: grid; grid-template-columns: 150px 1fr 100px; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .divbar-row:last-child { margin-bottom: 0; }
+  .divbar-label { font-size: 12.5px; color: var(--ink-2); }
+  .divbar-track { position: relative; height: 26px; background: var(--surface-2); border-radius: 4px; }
+  .divbar-zero { position: absolute; top: -4px; bottom: -4px; width: 1px; background: var(--ink-3); left: 50%; }
+  .divbar-fill { position: absolute; top: 3px; bottom: 3px; border-radius: 3px; }
+  .divbar-fill.pos { background: var(--good); left: 50%; }
+  .divbar-fill.neg { background: var(--crit); right: 50%; }
+  .divbar-val { font-size: 13px; text-align: right; font-weight: 600; }
+  .divbar-val.pos { color: var(--good); }
+  .divbar-val.neg { color: var(--crit); }
+  .divbar-range { font-size: 10.5px; color: var(--ink-3); text-align: right; margin-top: 1px; }
+
+  .tag { font-size: 9.5px; padding: 1px 6px; border-radius: 3px; font-weight: 700; letter-spacing: 0.03em; margin-left: 7px; vertical-align: 1px; }
+  .tag.verified { background: var(--good-soft); color: var(--good); }
+  .tag.platform { background: var(--warn-soft); color: var(--warn); }
+  .tag.na { background: var(--surface-2); color: var(--ink-3); }
+
+  .reco-list { display: flex; flex-direction: column; gap: 10px; counter-reset: reco; margin-bottom: 20px; }
+  .reco { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px; padding: 13px 16px; box-shadow: var(--shadow); counter-increment: reco; position: relative; padding-left: 46px; }
+  .reco::before { content: counter(reco); position: absolute; left: 14px; top: 13px; font-family: Georgia, serif; font-weight: 700; color: var(--accent); font-size: 16px; }
+  .reco .rtitle { font-weight: 600; font-size: 13.5px; margin-bottom: 3px; }
+  .reco .rbody { font-size: 12.8px; color: var(--ink-2); }
+
+  .analysis-note { display: flex; gap: 12px; background: var(--accent-soft); border-radius: 8px; padding: 12px 16px; margin-top: 10px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+  .analysis-note .al { flex: 0 0 auto; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-ink); padding-top: 2px; }
+  .analysis-note strong { color: var(--ink); }
+
+  .footer { background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px; font-size: 12px; color: var(--ink-2); }
+  .footer h3 { font-size: 13px; margin-bottom: 10px; color: var(--ink); }
+  .footer ul { margin: 0; padding-left: 18px; }
+  .footer li { margin-bottom: 7px; }
+  .footer .foot-meta { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 11px; color: var(--ink-3); }
+
+  .guide-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin-bottom: 30px; box-shadow: var(--shadow); }
+  .guide-panel .guide-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-3); margin-bottom: 10px; }
+  .guide-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; font-size: 12.8px; color: var(--ink-2); }
+  .guide-row:last-child { margin-bottom: 0; }
+  .guide-row .tag { margin-left: 0; flex: 0 0 auto; margin-top: 1px; }
+  .guide-row b { color: var(--ink); }
+
+  .sub-head { font-size: 13px; font-weight: 600; margin: 18px 0 8px; color: var(--ink); }
+  .sub-head:first-child { margin-top: 0; }
+  .plain-list { list-style: none; margin: 0 0 6px; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+  .plain-list li { display: flex; gap: 10px; align-items: baseline; font-size: 13px; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 9px 12px; }
+  .plain-list .dchip { flex: 0 0 auto; font-family: ui-monospace, monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; background: var(--surface-2); color: var(--ink-3); padding: 2px 7px; border-radius: 3px; }
+  .plain-list b { color: var(--ink); }
+
+  @media (max-width: 720px) {
+    .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+    .kpi-strip .kpi:last-child { grid-column: span 2; }
+    .masthead { flex-direction: column; }
+    .divbar-row { grid-template-columns: 100px 1fr 80px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="masthead"><div class="masthead-title">
+    <h1>Kenny Fuels Meta Ads</h1>
+    <div class="sub">Period report: real orders and profit vs. what the platform reports</div>
+    <div class="meta-row"><span>Period: <strong style="color:var(--ink)">Nov 1 &ndash; 8, 2026</strong></span><span>vs. the same days last month: <strong style="color:var(--ink)">Oct 1 &ndash; 8, 2026</strong></span><span>Prepared Nov 9, 2026</span></div>
+  </div></div>
+  <div class="kpi-strip">
+    <div class="kpi"><div class="label">Spend</div><div class="value">&euro;216.50</div><div class="sub">vs &euro;52.78 in Oct 1&ndash;8</div></div>
+    <div class="kpi"><div class="label">Purchases claimed <span class="tag platform" style="margin-left:4px;">META</span></div><div class="value">67</div><div class="sub">vs 1 in Oct 1&ndash;8</div></div>
+    <div class="kpi"><div class="label">Value claimed <span class="tag platform" style="margin-left:4px;">META</span></div><div class="value">&euro;28,760.07</div><div class="sub">vs &euro;784.00 in Oct 1&ndash;8</div></div>
+    <div class="kpi"><div class="label">Verified orders <span class="tag verified" style="margin-left:4px;">VERIFIED</span></div><div class="value">0</div><div class="sub">&euro;0.00, vs 0 to 4 (&euro;0.00 to &euro;1,161.60)</div></div>
+    <div class="kpi"><div class="label">Real net <span class="tag verified" style="margin-left:4px;">VERIFIED</span></div><div class="value">-&euro;216.50</div><div class="sub">vs -&euro;52.78 to +&euro;98.99 in Oct 1&ndash;8</div></div>
+  </div>
+  <div class="guide-panel"><div class="guide-title">How to read the tags in this report</div>
+    <div class="guide-row"><span class="tag verified">VERIFIED</span><span>Comes from your actual WooCommerce orders. This is what genuinely shipped and got paid for. Where it is shown as a range, the lower figure counts only orders carrying an advertising tag and the higher figure also counts orders that arrived from a Facebook link.</span></div>
+    <div class="guide-row"><span class="tag platform">PLATFORM</span><span>Self-reported by Meta&rsquo;s own dashboard. Spend is reliable; the purchases and value Meta claims include views that did not lead to a click, which this report checks against real orders.</span></div>
+  </div>
+  <section><div class="section-head"><h2>A note on how orders are counted</h2></div>
+    <div class="analysis-note"><span class="al">Note</span><span>An order counts as Meta-driven if it carries a Meta advertising tag <strong>or</strong> arrived from a Facebook link. That gives <strong>no orders for 1&ndash;8 November</strong> and <strong>4 orders (&euro;1,161.60) for the same days of October</strong>, counted the same way in both. None of October&rsquo;s 4 carried an advertising tag: all four came from plain Facebook links, and three of them (8 October) arrived when no Meta ad was running, so they are most likely unpaid Facebook activity. I therefore show a second, stricter result that counts only tagged orders. The real result sits between the two.</span></div>
+  </section>
+  <section><div class="section-head"><h2>The period: three campaigns, one paused part-way, and no matching orders</h2></div>
+    <div class="analysis-note"><span class="al">Read</span><span><strong>Meta spent &euro;216.50 in 1&ndash;8 November and the shop shows no order that can be linked to it.</strong> Meta itself credits 67 purchases worth &euro;28,760.07, but 55 of them (&euro;21,087.05) are credited to people who saw an ad and did not click it, and the other 12 (&euro;7,673.02) are credited to a click that I cannot find in the shop as a tagged or Facebook-link order. In the same days of October the only spend was &euro;52.78 on the DEWALT FlexVolt saw test, with no saw order. Total spend is up because Firewood business-to-business ran for the firewood push and two other campaigns were also live; I paused Firewood business-to-business on 6 November.</span></div>
+  </section>
+  <section><div class="section-head"><h2>Firewood business-to-business: the two-week push, final read</h2><div class="section-note">23 October to 5 November, the window you asked me to push firewood hard in</div></div>
+    <div class="table-wrap"><table><thead><tr><th></th><th class="num">Orders</th><th class="num">Sales (net)</th><th class="num">Result after &euro;430.95 spend</th></tr></thead><tbody>
+      <tr><td>Confirmed, tagged to the campaign <span class="tag verified">VERIFIED</span></td><td class="num mono">7</td><td class="num mono">&euro;1,751.64</td><td class="num mono">-&euro;60.04</td></tr>
+      <tr><td>Highest possible, adding 4 Facebook-link orders with no campaign tag <span class="tag verified">VERIFIED</span></td><td class="num mono">11</td><td class="num mono">&euro;3,022.62</td><td class="num mono">about +&euro;123.00</td></tr>
+    </tbody></table></div>
+    <div class="analysis-note"><span class="al">Read</span><span><strong>The tagged orders returned 4.06 times the spend, and firewood needs about 4 times to break even at its 25% margin.</strong> Six of the seven were firewood and one was a heating oil order, so profit at your margins was &euro;370.91 against &euro;430.95 spent, a result of -&euro;60.04. Nothing was tagged to the campaign in the last five days of the push (1 to 5 November), and Meta&rsquo;s own claim for the same window (104 purchases, &euro;42,397.63) is far above anything the shop shows. The four untagged Facebook-link orders could belong to the campaign or to unpaid posts, and I cannot prove either, which is why the second line is a ceiling. On that basis I paused the campaign on 6 November. You can restart it at any time.</span></div>
+  </section>
+  <section><div class="section-head"><h2>Account activity this period</h2><div class="section-note">From the account&rsquo;s change history, so every number below is easy to place</div></div>
+    <ul class="plain-list" style="margin-top:12px;">
+      <li><span class="dchip">Nov 5</span><span><b>Sales_Catalogue</b> was paused. Curtis has told you the catalogue behind it still holds discontinued products with &euro;0.00 prices or missing images, and that the catalogue ads should stay paused while it is cleaned up. I agree with that and have asked to be told the restart date and the product selection beforehand.</span></li>
+      <li><span class="dchip">Nov 6</span><span>I paused <b>Firewood business-to-business</b> at the end of the push, as above. I made no other change to it.</span></li>
+      <li><span class="dchip">Now</span><span><b>SPE_</b> (&euro;10 a day) is the only Meta campaign running and is set to run until 30 November. It is a post-engagement campaign that I do not manage; I report its data here so its spend is visible.</span></li>
+    </ul>
+    <div class="analysis-note"><span class="al">Budget</span><span>Meta is now set to &euro;10 a day in total. With Google&rsquo;s enabled daily budgets of &euro;365, the combined daily budget is about &euro;375, under the &euro;425 limit.</span></div>
+    <div class="sub-head">The three campaigns that ran in this period</div>
+    <div class="table-wrap"><table><thead><tr><th>Campaign</th><th class="num">Spend</th><th class="num">Link clicks</th><th class="num">Purchases credited by Meta</th><th class="num">Value credited by Meta</th><th class="num">Credited without a click</th></tr></thead><tbody>
+      <tr><td>Firewood business-to-business</td><td class="num mono">&euro;110.04</td><td class="num mono">319</td><td class="num mono">42</td><td class="num mono">&euro;15,929.04</td><td class="num mono">38 (&euro;14,101.04)</td></tr>
+      <tr><td>Sales_Catalogue</td><td class="num mono">&euro;25.17</td><td class="num mono">119</td><td class="num mono">25</td><td class="num mono">&euro;12,831.03</td><td class="num mono">17 (&euro;6,986.01)</td></tr>
+      <tr><td>SPE_</td><td class="num mono">&euro;81.29</td><td class="num mono">72</td><td class="num mono">0</td><td class="num mono">&ndash;</td><td class="num mono">&ndash;</td></tr>
+      <tr class="total-row"><td>Total</td><td class="num mono">&euro;216.50</td><td class="num mono">510</td><td class="num mono">67</td><td class="num mono">&euro;28,760.07</td><td class="num mono">55 (&euro;21,087.05)</td></tr>
+    </tbody></table></div>
+    <div class="analysis-note"><span class="al">Reading each campaign</span><span><strong>Firewood business-to-business</strong> brought 319 clicks for &euro;110.04, about &euro;0.34 a click, but no shop order carries its tag in this period. <strong>Sales_Catalogue</strong> brought 119 clicks for &euro;25.17. Its ad links carry the campaign name, so an order from a click would arrive tagged to it, and none did. <strong>SPE_</strong> is built to get people reacting to posts and did that: 455 reactions and 4,369 video views, with 72 link clicks and 18 landing page views, about &euro;4.52 per landing page view.</span></div>
+  </section>
+  <section><div class="section-head"><h2>Ad spend, answered directly</h2></div>
+    <div class="analysis-note"><span class="al">Read</span><span><strong>&euro;216.50 of Meta spend in Nov 1&ndash;8, against &euro;52.78 in the same days of October.</strong> Combined with Google (&euro;2,386.40, about &euro;298.30 a day), total paid spend was about &euro;325.36 a day, against about &euro;330.89 a day in Oct 1&ndash;8 and the approved &euro;425 a day.</span></div>
+  </section>
+  <section><div class="section-head"><h2>Campaign performance: this period vs. the same days last month</h2><div class="section-note">Spend and claimed purchases are Meta&rsquo;s own reported figures for each window</div></div>
+    <div class="table-wrap"><table><thead><tr><th rowspan="2">Campaign</th><th colspan="3" class="chgroup2">Nov 1 &ndash; 8</th><th colspan="3" class="chgroup2 prev">Oct 1 &ndash; 8</th></tr>
+    <tr><th class="num">Spend</th><th class="num">Claimed purchases</th><th class="num">Claimed value</th><th class="num">Spend</th><th class="num">Claimed purchases</th><th class="num">Claimed value</th></tr></thead><tbody>
+<tr><td>Firewood business-to-business <span class="chip watch">paused Nov 6</span></td><td class="num mono">&euro;110.04</td><td class="num mono">42</td><td class="num mono">&euro;15,929.04</td><td class="num mono prevcol">&euro;0.00</td><td class="num mono prevbg">0</td><td class="num mono prevbg">&ndash;</td></tr>
+<tr><td>Sales_Catalogue <span class="chip watch">paused Nov 5</span></td><td class="num mono">&euro;25.17</td><td class="num mono">25</td><td class="num mono">&euro;12,831.03</td><td class="num mono prevcol">&euro;0.00</td><td class="num mono prevbg">0</td><td class="num mono prevbg">&ndash;</td></tr>
+<tr><td>SPE_ (post engagement) <span class="chip watch">running to Nov 30</span></td><td class="num mono">&euro;81.29</td><td class="num mono">0</td><td class="num mono">&ndash;</td><td class="num mono prevcol">&euro;0.00</td><td class="num mono prevbg">0</td><td class="num mono prevbg">&ndash;</td></tr>
+<tr><td>DEWALT FlexVolt Cut Off Saw test <span class="chip watch">paused Oct 6</span></td><td class="num mono">&euro;0.00</td><td class="num mono">0</td><td class="num mono">&ndash;</td><td class="num mono prevcol">&euro;52.78</td><td class="num mono prevbg">1</td><td class="num mono prevbg">&euro;784.00</td></tr>
+<tr class="total-row"><td>Total</td><td class="num mono">&euro;216.50</td><td class="num mono">67</td><td class="num mono">&euro;28,760.07</td><td class="num mono prevcol">&euro;52.78</td><td class="num mono prevbg">1</td><td class="num mono prevbg">&euro;784.00</td></tr>
+    </tbody></table></div>
+    <div class="section-note" style="margin-top:8px;">Meta was cut to the Firewood business-to-business campaign on 4 September, which was paused on 28 September, restarted on 23 October and paused again on 6 November.</div>
+  </section>
+  <section><div class="section-head"><h2>Signal gap: real orders vs. Meta-reported</h2><div class="section-note">Net Sales (excluding VAT and shipping), WooCommerce orders carrying a Meta advertising tag or arriving from a Facebook link, vs. Meta&rsquo;s own claimed purchase value</div></div>
+    <div class="gap-panel"><div class="gap-group">
+<div class="gap-row"><div class="rlabel">Nov 1&ndash;8 verified</div><div class="track"><div class="fill verified" style="width:0.0%"></div></div><div class="rval num">&euro;0.00</div></div>
+<div class="gap-row"><div class="rlabel">Nov 1&ndash;8 Meta-claimed</div><div class="track"><div class="fill platform" style="width:100%"></div></div><div class="rval num">&euro;28,760.07</div></div>
+<div class="gap-row"><div class="rlabel">Oct 1&ndash;8 verified</div><div class="track"><div class="fill verified" style="width:4.0%"></div></div><div class="rval num">&euro;1,161.60</div></div>
+<div class="gap-row"><div class="rlabel">Oct 1&ndash;8 Meta-claimed</div><div class="track"><div class="fill platform" style="width:2.7%"></div></div><div class="rval num">&euro;784.00</div></div>
+    </div><div class="legend-mini"><span><span class="sw" style="background:var(--good)"></span>WooCommerce-verified (real, higher reading)</span><span><span class="sw" style="background:var(--warn)"></span>Meta-claimed purchase value</span></div>
+    <div class="analysis-note"><span class="al">Read</span><span><strong>Meta claims &euro;28,760.07 for 1&ndash;8 November and the shop shows &euro;0.00 that can be linked to Meta.</strong> &euro;21,087.05 (73%) of the claim comes from views without a click, and the Sales_Catalogue claim rests on a product catalogue that Curtis has found to be out of date. Even the &euro;7,673.02 credited to clicks is not matched by any order carrying a campaign tag or a Facebook referral. One known reason is visitors who decline marketing cookies, who cannot be tracked by any method. For October&rsquo;s days the four orders (&euro;1,161.60) came from plain Facebook links, not ads, so Meta&rsquo;s &euro;784.00 claim and the shop figure are not measuring the same thing there either.</span></div>
+    <div class="analysis-note"><span class="al">Total site sales</span><span>Total website sales rose 5.3% (&euro;116,040.80 to &euro;122,180.31, 286 to 319 orders) while Meta spend rose from &euro;52.78 to &euro;216.50. Most of the growth is the heating season: heating oil is 76% of site sales, against 76% in the October days. Email accounted for 3 orders (&euro;484.87), against 2 (&euro;268.26) in the October days.</span></div>
+    </div>
+  </section>
+  <section><div class="section-head"><h2>Real net profit: spend against gross profit</h2><div class="section-note">Verified gross profit at your margins, minus Meta spend</div></div>
+    <div class="divbar-panel">
+<div class="divbar-row"><div class="divbar-label">Nov 1 &ndash; 8 (no Meta orders found)</div><div><div class="divbar-track"><div class="divbar-zero"></div><div class="divbar-fill neg" style="width:50%"></div></div></div><div class="divbar-val neg num">-&euro;216.50</div></div>
+<div class="divbar-row"><div class="divbar-label">Oct 1 &ndash; 8 (all 4 counted orders)</div><div><div class="divbar-track"><div class="divbar-zero"></div><div class="divbar-fill pos" style="width:23%"></div></div></div><div class="divbar-val pos num">+&euro;98.99</div></div>
+<div class="divbar-row"><div class="divbar-label">Oct 1 &ndash; 8 (advertising-tagged orders only: none)</div><div><div class="divbar-track"><div class="divbar-zero"></div><div class="divbar-fill neg" style="width:12%"></div></div></div><div class="divbar-val neg num">-&euro;52.78</div></div>
+    </div>
+    <div class="analysis-note"><span class="al">Read</span><span><strong>1&ndash;8 November: &euro;216.50 spent and no orders that can be linked to Meta, a result of -&euro;216.50.</strong> The same days of October range from -&euro;52.78 to +&euro;98.99: &euro;0.00 to &euro;151.77 of gross profit against &euro;52.78 spent, and the higher reading comes from Facebook-link orders that arrived while no ad was running, so the true October result is nearer the lower end. The change from October is more spend with no matched orders, not a change in demand.</span></div>
+  </section>
+  <section><div class="section-head"><h2>Period comparison</h2><div class="section-note">Each figure tagged by trust level individually</div></div>
+    <div class="table-wrap"><table><thead><tr><th>Metric</th><th class="num">Nov 1 &ndash; 8</th><th class="num">Oct 1 &ndash; 8</th></tr></thead><tbody>
+      <tr><td>Ad spend</td><td class="num mono">&euro;216.50<span class="tag platform">PLATFORM</span></td><td class="num mono">&euro;52.78<span class="tag platform">PLATFORM</span></td></tr>
+      <tr><td>Purchases claimed by Meta</td><td class="num mono">67<span class="tag platform">PLATFORM</span></td><td class="num mono">1<span class="tag platform">PLATFORM</span></td></tr>
+      <tr><td>Purchase value claimed by Meta</td><td class="num mono">&euro;28,760.07<span class="tag platform">PLATFORM</span></td><td class="num mono">&euro;784.00<span class="tag platform">PLATFORM</span></td></tr>
+      <tr><td>Verified Meta-tagged and Facebook-link orders</td><td class="num mono">0 (&euro;0.00)<span class="tag verified">VERIFIED</span></td><td class="num mono">4 (&euro;1,161.60)<span class="tag verified">VERIFIED</span></td></tr>
+      <tr><td>Of which carrying an advertising tag</td><td class="num mono">0 (&euro;0.00)<span class="tag verified">VERIFIED</span></td><td class="num mono">0 (&euro;0.00)<span class="tag verified">VERIFIED</span></td></tr>
+      <tr><td>Real gross profit (verified)</td><td class="num mono">&euro;0.00<span class="tag verified">VERIFIED</span></td><td class="num mono">&euro;0.00 to &euro;151.77<span class="tag verified">VERIFIED</span></td></tr>
+      <tr><td>Real net (verified)</td><td class="num mono">-&euro;216.50<span class="tag verified">VERIFIED</span></td><td class="num mono">-&euro;52.78 to +&euro;98.99<span class="tag verified">VERIFIED</span></td></tr>
+      <tr><td>Total website orders (all sources)</td><td class="num mono">319 (&euro;122,180.31)<span class="tag verified">VERIFIED</span></td><td class="num mono">286 (&euro;116,040.80)<span class="tag verified">VERIFIED</span></td></tr>
+    </tbody></table></div>
+    <div class="sub-head">New vs. returning customers</div>
+    <div class="table-wrap"><table><thead><tr><th>Orders</th><th class="num">New</th><th class="num">Returning</th><th class="num">Total</th></tr></thead><tbody>
+      <tr><td>All website orders, Nov 1 &ndash; 8</td><td class="num mono">101 (31.7%)</td><td class="num mono">218 (68.3%)</td><td class="num mono">319</td></tr>
+      <tr><td>All website orders, Oct 1 &ndash; 8</td><td class="num mono">132 (46.2%)</td><td class="num mono">154 (53.8%)</td><td class="num mono">286</td></tr></tbody></table></div>
+    <div class="section-note" style="margin-top:8px;">From WooCommerce&rsquo;s own Customer type field. With no Meta-linked orders in November, the split is shown for all website orders only.</div>
+  </section>
+  <section><div class="section-head"><h2>Going into next period</h2><div class="section-note">What to do next, what&rsquo;s being watched, and what&rsquo;s still open</div></div>
+    <div class="sub-head">Recommendations</div>
+    <div class="reco-list">
+      <div class="reco"><div class="rtitle">Keep Firewood business-to-business paused unless you want it back</div><div class="rbody">The push returned 4.06 times its spend on tagged orders against about 4 needed, with nothing tagged in its last five days. The goal is more conversions at a lower cost. If you want to test it again, I would restart it on its own at a small budget and judge it on tagged shop orders only.</div></div>
+      <div class="reco"><div class="rtitle">Keep Sales_Catalogue paused until the catalogue is cleaned and the product selection is agreed</div><div class="rbody">The catalogue it uses holds discontinued products, so the ad can show a missing picture or a wrong price, which is what you saw on 5 November. I have asked to be told the restart date and the product selection first, so I can check prices, images and links against the website before any restart.</div></div>
+      <div class="reco"><div class="rtitle">Judge any Meta campaign on shop orders only</div><div class="rbody">Meta claimed &euro;28,760.07 for these eight days against no matching orders, and total website sales still rose 5%. Any restart should be one campaign at a time, with its links tagged to the campaign name, and judged on WooCommerce orders.</div></div>
+    </div>
+    <div class="sub-head">Monitoring &amp; scheduled checks</div>
+    <ul class="plain-list">
+      <li><span class="dchip">Fri Nov 20</span><span><b>Firewood recheck with the Google side:</b> confirmed firewood orders against spend now that the Meta campaign is paused.</span></li>
+      <li><span class="dchip">Ongoing</span><span><b>SPE_</b> spend and any orders that can be tied to it, until it ends on 30 November.</span></li>
+    </ul>
+    <div class="sub-head">Open items</div>
+    <ul class="plain-list">
+      <li><span class="dchip">Open</span><span>What keeps the Meta product catalogue in sync with the website: I have asked Niall to answer Curtis, since I cannot see the website&rsquo;s plugins or code.</span></li>
+      <li><span class="dchip">Open</span><span>The restart date and product selection for the catalogue ads, from Curtis.</span></li>
+      <li><span class="dchip">Open</span><span>Please tell me before any change to the website&rsquo;s product feed or product sync, because Google Shopping reads the same site.</span></li>
+    </ul>
+  </section>
+  <div class="footer"><h3>Methodology &amp; caveats</h3><ul>
+    <li><strong>Real orders basis:</strong> WooCommerce &ldquo;Net Sales&rdquo; column (excluding VAT and shipping), completed and processing orders only, for Nov 1&ndash;8 (export downloaded November 9) and Oct 1&ndash;8 (taken from the October 1 to November 5 export downloaded November 6). November was checked against WooCommerce&rsquo;s own Products report for November 1&ndash;9: the orders file is 0.29% lower (&euro;122,180.31 against &euro;122,540.66), and the report window runs a few hours longer. Heating oil agrees closely once every order with no product listed is treated as heating oil.</li>
+    <li><strong>How the method works:</strong> see the <a href="reporting-methodology.html">reporting methodology</a> page.</li>
+    <li><strong>Meta attribution rule:</strong> an order counts as Meta-driven if its attribution carries a campaign tag, a Paid+Social, Instagram or Facebook source tag, or a Facebook referral. This matches the earlier reports. The advertising-tagged reading counts only the first group. Plain Facebook referrals may be unpaid posts, so the higher reading is a ceiling where referrals were not ads, and the lower reading is a floor in the ad-tagged sense.</li>
+    <li><strong>Firewood business-to-business final read:</strong> the two-week push figures (23 October to 5 November) come from the 6 November review of the same WooCommerce data; profit uses 25% on the six firewood orders and 10% on the one heating oil order.</li>
+    <li><strong>Gross profit:</strong> category margins supplied by you (heating oil 10%, firewood 25%).</li>
+    <li><strong>Consent and tracking limit:</strong> visitors who decline marketing cookies cannot be tracked for ad attribution by any method, so the gap between Meta&rsquo;s claim and your orders is partly that and partly Meta counting views that never led to a click. This is a permanent limit, not something still being fixed.</li>
+    <li><strong>Account activity:</strong> taken from the Meta account&rsquo;s own change history and campaign records, read on November 9, 2026.</li>
+    <li><strong>Live platform data:</strong> pulled from Meta and Google for both windows on November 9, 2026. Meta&rsquo;s purchase and value figures use each campaign&rsquo;s own attribution setting, which includes one-day view credit; the click and view split above uses Meta&rsquo;s 7-day click and 1-day view windows.</li>
+  </ul><div class="foot-meta">Kenny Fuels Meta Ads &middot; Prepared by Josette</div></div>
+</div></body></html>
